@@ -1,0 +1,30 @@
+# Copyright 2020 Adam Chalkley
+#
+# https://github.com/atc0005/go-ci
+#
+# Licensed under the MIT License. See LICENSE file in the project root for
+# full license information.
+
+# https://hub.docker.com/_/golang
+
+FROM golang:1.14.6
+
+ENV GOLANGCI_LINT_VERSION v1.29.0
+ENV STATICCHECK_VERSION 2020.1.5
+ENV APT_BSDMAINUTILS_VERSION 11.1.2+b1
+ENV APT_TREE_VERSION 1.8.0-1
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    bsdmainutils=${APT_BSDMAINUTILS_VERSION} \
+    tree=${APT_TREE_VERSION} \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN cd && \
+    GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+    && staticcheck --version \
+    && go clean -cache -modcache \
+    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+    && sh install.sh -b $(go env GOPATH)/bin ${GOLANGCI_LINT_VERSION} \
+    && golangci-lint --version
