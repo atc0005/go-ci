@@ -10,7 +10,8 @@
 
 
 # builder image
-FROM golang:1.14.6 as builder
+# use the same environment as our final image for binary compatibility
+FROM golangci/golangci-lint:v1.29.0-alpine as builder
 
 ENV GOLANGCI_LINT_VERSION v1.29.0
 ENV STATICCHECK_VERSION 2020.1.5
@@ -19,12 +20,12 @@ ENV STATICCHECK_VERSION 2020.1.5
 # and cleaning the modules cache takes extra time that won't help the final
 # linting-only image.
 RUN GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
-    && staticcheck --version \
-    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
-    && golangci-lint --version
+    && staticcheck --version
 
 # For CI "linting only" use
-FROM alpine:3.12.0
-COPY --from=builder /go/bin/staticcheck .
-COPY --from=builder /go/bin/golangci-lint .
+FROM golangci/golangci-lint:v1.29.0-alpine
+
+# Intended to help identify the versions of the included linting tools
+ENV STATICCHECK_VERSION 2020.1.5
+
+COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck

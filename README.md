@@ -68,8 +68,8 @@ listing of available container images.
 
 ### `go-ci-lint-only`
 
-- smallest image
-- based off of Alpine Linux
+- smaller image
+- uses `golangci/golangci-lint:vX.Y.Z-alpine` image as base
 - created as part of a multi-stage container build
 
 ## Examples / How to use these images
@@ -102,5 +102,7 @@ official release is also provided for further review.
   - <https://github.com/dominikh/go-tools>
   - <https://github.com/golangci/golangci-lint>
 
-- Building images
+- Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>
+  - <https://hub.docker.com/r/golangci/golangci-lint>
+  - <https://hub.docker.com/_/golang>
