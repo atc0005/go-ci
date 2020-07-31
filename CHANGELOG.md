@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.1.1] - 2020-07-31
+
+### Changed
+
+- `lint-only` image
+  - swap base image from `golang` and `alpine` to `golangci/golangci-lint`
+    - the intent is to provide a working environment for `golangci-lint`
+
+### Fixed
+
+- `lint-only` image
+  - `golangci-lint` requires working go environment
+
 ## [v0.1.0] - 2020-07-31
 
 ### Added
@@ -56,5 +69,6 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.1.1...HEAD
+[v0.1.1]: https://github.com/atc0005/go-ci/releases/tag/v0.1.1
 [v0.1.0]: https://github.com/atc0005/go-ci/releases/tag/v0.1.0
