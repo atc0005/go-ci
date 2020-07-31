@@ -5,4 +5,6 @@
 # Licensed under the MIT License. See LICENSE file in the project root for
 # full license information.
 
+# Not used now, but used in an earlier version of the `Makefile` to login
+# to GitHub Package Repo for image uploads.
 GH_TOKEN.txt
