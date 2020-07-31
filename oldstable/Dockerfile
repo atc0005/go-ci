@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.13.14
+FROM golang:1.14.6
 
 ENV GOLANGCI_LINT_VERSION v1.29.0
 ENV STATICCHECK_VERSION 2020.1.5
