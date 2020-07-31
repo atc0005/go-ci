@@ -66,6 +66,13 @@ updates:
       interval: "daily"
       time: "02:00"
       timezone: "America/Chicago"
+    ignore:
+      - dependency-name: "golang"
+        # Ignore updates from series associated with "stable" container.
+        #
+        # Note: The version specified here should always be one ahead of the
+        # version used by the "oldstable" container.
+        versions: ["1.14.x"]
     assignees:
       - "atc0005"
     labels:
