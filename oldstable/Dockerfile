@@ -27,3 +27,15 @@ RUN GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VER
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version
+
+# Copy over linting config files to root of container to serve as a default.
+# Projects bringing their own config files (e.g., via GitHub Actions) can
+# easily override these files, while projects choosing to use these config
+# files exclusively can omit their copy.
+#
+# These files are copied from the root of this repo alongside this Dockerfile
+# via Makefile `build` recipe. This allows for maintaining a single copy of
+# either file in this repo vs each Dockerfile build "context" having their own
+# separate copy.
+COPY .markdownlint.yml /
+COPY .golangci.yml /

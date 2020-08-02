@@ -29,3 +29,15 @@ FROM golangci/golangci-lint:v1.29.0-alpine
 ENV STATICCHECK_VERSION 2020.1.5
 
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
+
+# Copy over linting config files to root of container to serve as a default.
+# Projects bringing their own config files (e.g., via GitHub Actions) can
+# easily override these files, while projects choosing to use these config
+# files exclusively can omit their copy.
+#
+# These files are copied from the root of this repo alongside this Dockerfile
+# via Makefile `build` recipe. This allows for maintaining a single copy of
+# either file in this repo vs each Dockerfile build "context" having their own
+# separate copy.
+COPY .markdownlint.yml /
+COPY .golangci.yml /
