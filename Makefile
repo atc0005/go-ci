@@ -65,6 +65,10 @@ clean:
 build:
 	@echo "Building Docker containers"
 
+	@echo "Bundle linter config files to provide baseline default settings"
+	@for version in {stable,oldstable,unstable}; do cp -vf .markdownlint.yml $$version/; done
+	@for version in {stable,oldstable,unstable}; do cp -vf .golangci.yml $$version/; done
+
 	@echo "Building stable release"
 	sudo docker build \
 		--no-cache \
@@ -99,6 +103,10 @@ build:
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_LABEL)
+
+	@echo "Remove temporary copies of bundled files"
+	@rm -vf {stable,oldstable,unstable}/.markdownlint.yml
+	@rm -vf {stable,oldstable,unstable}/.golangci.yml
 
 	@echo "Finished building containers"
 
