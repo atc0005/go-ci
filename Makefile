@@ -55,7 +55,7 @@ help:
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
 .PHONE: clean
-## clean: build all Docker containers
+## clean: prune all Docker containers with our labels
 clean:
 	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_LABEL)"
 	@sudo docker image prune --all --force --filter "label=$(DOCKER_IMAGE_LABEL)"
