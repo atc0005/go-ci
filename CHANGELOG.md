@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.0] - 2020-08-02
+
+### Added
+
+- Bundle `golangci-lint` and `markdownlint` config files
+  - provide a usable default baseline for our projects, hopefully for others
+    also
+
+### Fixed
+
+- Fix Makefile recipe description
+
 ## [v0.1.1] - 2020-07-31
 
 ### Changed
@@ -69,6 +81,7 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/atc0005/go-ci/releases/tag/v0.2.0
 [v0.1.1]: https://github.com/atc0005/go-ci/releases/tag/v0.1.1
 [v0.1.0]: https://github.com/atc0005/go-ci/releases/tag/v0.1.0
