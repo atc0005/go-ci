@@ -26,6 +26,15 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.2] - 2020-08-08
+
+### Changed
+
+- Go versions
+  - Update "stable" container from 1.14.6 to 1.14.7
+  - Update "oldstable" container from 1.13.14 to 1.13.15
+  - Update "unstable" container from 1.15rc1 to 1.15rc2
+
 ## [v0.2.1] - 2020-08-03
 
 ### Changed
@@ -89,7 +98,8 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.2...HEAD
+[v0.2.2]: https://github.com/atc0005/go-ci/releases/tag/v0.2.2
 [v0.2.1]: https://github.com/atc0005/go-ci/releases/tag/v0.2.1
 [v0.2.0]: https://github.com/atc0005/go-ci/releases/tag/v0.2.0
 [v0.1.1]: https://github.com/atc0005/go-ci/releases/tag/v0.1.1
