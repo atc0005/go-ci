@@ -1,0 +1,44 @@
+# Copyright 2020 Adam Chalkley
+#
+# https://github.com/atc0005/go-ci
+#
+# Licensed under the MIT License. See LICENSE file in the project root for
+# full license information.
+
+###############################################################################
+# NOTE: This is the golangci-lint configuration file *specific* to the
+# "unstable" variant of the containers provided by this project. This
+# configuration (potentially) enables additional linters not used by the other
+# container variants.
+###############################################################################
+
+issues:
+  # equivalent CLI flag: --exclude-use-default
+  #
+  # see:
+  #   atc0005/todo#22
+  #   atc0005/todo#29
+  #   golangci-lint/golangci-lint#1249
+  #   golangci-lint/golangci-lint#413
+  exclude-use-default: false
+
+# Reminder: Sort this after every change
+linters:
+  enable:
+    - depguard
+    - dogsled
+    - dupl
+    - goconst
+    - gocritic
+    - gofmt
+    - goimports
+    - golint
+    - gosec
+    - govet
+    - maligned
+    - misspell
+    - prealloc
+    - scopelint
+    - staticcheck
+    - stylecheck
+    - unconvert
