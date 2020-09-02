@@ -63,8 +63,11 @@ listing of available container images.
 
 ### `go-ci-unstable`
 
-- built from the latest non-stable `golang:rc` image.
+- built from the latest available non-stable `golang:rc` image *or* if not
+  recently available, the latest stable `golang` image
 - used for building Go applications, both directly and via `Makefile` builds.
+- used to test new linters prior to inclusion in the `stable` and `oldstable`
+  container variants
 
 ### `go-ci-lint-only`
 
