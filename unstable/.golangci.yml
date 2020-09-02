@@ -30,6 +30,7 @@ linters:
     - dupl
     - goconst
     - gocritic
+    - goerr113
     - gofmt
     - goimports
     - golint
