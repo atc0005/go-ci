@@ -37,11 +37,11 @@ RUN GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VER
 # via Makefile `build` recipe. This allows for maintaining a single copy of
 # either file in this repo vs each Dockerfile build "context" having their own
 # separate copy.
-COPY .golangci.yml /
+COPY .markdownlint.yml /
 
 # This Dockerfile already has its own copy of the golangci-lint config file.
 # This local copy is manually synced from the main config file in order to
 # enable new checks for all containers, while enabling additional linters for
 # testing prior to enabling for all container variants. See also GH-63.
 #
-# COPY .markdownlint.yml /
+COPY .golangci.yml /
