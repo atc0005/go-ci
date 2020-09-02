@@ -67,7 +67,9 @@ build:
 
 	@echo "Bundle linter config files to provide baseline default settings"
 	@for version in {stable,oldstable,unstable}; do cp -vf .markdownlint.yml $$version/; done
-	@for version in {stable,oldstable,unstable}; do cp -vf .golangci.yml $$version/; done
+
+	# unstable container has its own copy of this file
+	@for version in {stable,oldstable}; do cp -vf .golangci.yml $$version/; done
 
 	@echo "Building stable release"
 	sudo docker build \
@@ -106,7 +108,9 @@ build:
 
 	@echo "Remove temporary copies of bundled files"
 	@rm -vf {stable,oldstable,unstable}/.markdownlint.yml
-	@rm -vf {stable,oldstable,unstable}/.golangci.yml
+
+	# unstable container has its own copy of this file
+	@rm -vf {stable,oldstable}/.golangci.yml
 
 	@echo "Finished building containers"
 
