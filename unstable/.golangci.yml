@@ -28,6 +28,7 @@ linters:
     - depguard
     - dogsled
     - dupl
+    - errcheck
     - goconst
     - gocritic
     - goerr113
