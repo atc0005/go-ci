@@ -15,22 +15,23 @@ issues:
   #   golangci-lint/golangci-lint#413
   exclude-use-default: false
 
+# Reminder: Sort this after every change
 linters:
   enable:
-    - dogsled
-    - goimports
-    - gosec
-    - stylecheck
-    - goconst
     - depguard
-    - prealloc
-    - misspell
-    - maligned
+    - dogsled
     - dupl
-    - unconvert
-    - gofmt
-    - golint
+    - goconst
     - gocritic
-    - scopelint
+    - gofmt
+    - goimports
+    - golint
+    - gosec
     - govet
+    - maligned
+    - misspell
+    - prealloc
+    - scopelint
     - staticcheck
+    - stylecheck
+    - unconvert
