@@ -26,6 +26,14 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.5] - 2020-09-08
+
+### Changed
+
+- Update golangci/golangci-lint from `v1.30.0` to `v1.31.0`
+  - binary installed within `oldstable`, `stable` and `unstable` images
+  - Docker image used as a builder/base for `lint-only` image
+
 ## [v0.2.4] - 2020-09-02
 
 ### Added
@@ -136,7 +144,8 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.5...HEAD
+[v0.2.5]: https://github.com/atc0005/go-ci/releases/tag/v0.2.5
 [v0.2.4]: https://github.com/atc0005/go-ci/releases/tag/v0.2.4
 [v0.2.3]: https://github.com/atc0005/go-ci/releases/tag/v0.2.3
 [v0.2.2]: https://github.com/atc0005/go-ci/releases/tag/v0.2.2
