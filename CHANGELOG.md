@@ -26,6 +26,33 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.7] - 2020-10-08
+
+### Added
+
+- new Alpine build images to support cgo builds
+  - based on the latest version of the current stable `i386/golang` and
+    `golang` `alpine` images.
+  - used for building Go applications, both directly and via `Makefile`
+    builds.
+  - uses [musl libc](https://musl.libc.org/) instead of
+    [glibc](https://www.gnu.org/software/libc/)
+  - supports cross-platform, static cgo-enabled builds for Windows and Linux
+  - new tags
+    - `go-ci-stable-alpine-buildx86`
+    - `go-ci-stable-alpine-buildx64`
+
+### Changed
+
+- Dependencies
+  - `actions/checkout`
+    - `v2.3.2` to `v2.3.3`
+  - `actions/setup-node`
+    - `v2.1.1` to `v2.1.2`
+
+- Light README updates to describe new image
+- Makefile changes to build/tag the new images
+
 ## [v0.2.6] - 2020-09-11
 
 ### Changed
@@ -155,7 +182,8 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.7...HEAD
+[v0.2.7]: https://github.com/atc0005/go-ci/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/go-ci/releases/tag/v0.2.6
 [v0.2.5]: https://github.com/atc0005/go-ci/releases/tag/v0.2.5
 [v0.2.4]: https://github.com/atc0005/go-ci/releases/tag/v0.2.4
