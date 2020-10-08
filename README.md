@@ -15,6 +15,8 @@ Tooling for linting, testing and building Go applications
 - [Linting tools included](#linting-tools-included)
 - [Docker images](#docker-images)
   - [`go-ci-stable`](#go-ci-stable)
+  - [`go-ci-stable-alpine-buildx86`](#go-ci-stable-alpine-buildx86)
+  - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
   - [`go-ci-oldstable`](#go-ci-oldstable)
   - [`go-ci-unstable`](#go-ci-unstable)
   - [`go-ci-lint-only`](#go-ci-lint-only)
@@ -55,6 +57,23 @@ listing of available container images.
 
 - built from the latest version of the current stable `golang` image.
 - used for building Go applications, both directly and via `Makefile` builds.
+
+### `go-ci-stable-alpine-buildx86`
+
+- based on the latest version of the current stable `i386/golang` `alpine`
+  image.
+- used for building Go applications, both directly and via `Makefile` builds.
+- uses [musl libc](https://musl.libc.org/) instead of
+  [glibc](https://www.gnu.org/software/libc/)
+  - see [Comparison of C/POSIX standard library implementations for
+    Linux](https://www.etalabs.net/compare_libcs.html)
+- supports cross-platform, static cgo-enabled builds for Windows and Linux
+  - Windows 32-bit: `i686-w64-mingw32-gcc`
+  - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+
+### `go-ci-stable-alpine-buildx64`
+
+- same as `go-ci-stable-alpine-buildx86`, but specific to x64 architecture
 
 ### `go-ci-oldstable`
 
