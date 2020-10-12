@@ -7,5 +7,5 @@ require (
 	github.com/golangci/golangci-lint v1.31.0
 
 	// staticcheck - used in our containers
-	honnef.co/go/tools v0.0.1-2020.1.5
+	honnef.co/go/tools v0.0.1-2020.1.6
 )
