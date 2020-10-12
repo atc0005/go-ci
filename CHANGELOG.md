@@ -26,6 +26,14 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.8] - 2020-10-12
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools/cmd/staticcheck`
+    - `2020.1.5` to `2020.1.6`
+
 ## [v0.2.7] - 2020-10-08
 
 ### Added
@@ -182,7 +190,8 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.8...HEAD
+[v0.2.8]: https://github.com/atc0005/go-ci/releases/tag/v0.2.8
 [v0.2.7]: https://github.com/atc0005/go-ci/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/go-ci/releases/tag/v0.2.6
 [v0.2.5]: https://github.com/atc0005/go-ci/releases/tag/v0.2.5
