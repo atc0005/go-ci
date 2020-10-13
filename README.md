@@ -17,6 +17,7 @@ Tooling for linting, testing and building Go applications
   - [`go-ci-stable`](#go-ci-stable)
   - [`go-ci-stable-alpine-buildx86`](#go-ci-stable-alpine-buildx86)
   - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
+  - [`go-ci-stable-debian-build`](#go-ci-stable-debian-build)
   - [`go-ci-oldstable`](#go-ci-oldstable)
   - [`go-ci-unstable`](#go-ci-unstable)
   - [`go-ci-lint-only`](#go-ci-lint-only)
@@ -74,6 +75,14 @@ listing of available container images.
 ### `go-ci-stable-alpine-buildx64`
 
 - same as `go-ci-stable-alpine-buildx86`, but specific to x64 architecture
+
+### `go-ci-stable-debian-build`
+
+- built from the latest version of the current stable `golang` image.
+- used for building Go applications, both directly and via `Makefile` builds.
+- supports cross-platform, static cgo-enabled builds for Windows and Linux
+  - Windows 32-bit: `i686-w64-mingw32-gcc`
+  - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 
 ### `go-ci-oldstable`
 
