@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.9] - 2020-10-14
+
+### Added
+
+- Cross-platform Debian build image
+  - used to generate cgo binaries for multiple architectures/platforms
+
+### Fixed
+
+- Dockerfiles using deprecated `ENV` syntax
+
 ## [v0.2.8] - 2020-10-12
 
 ### Changed
@@ -190,7 +201,8 @@ The following types of changes will be recorded in this file:
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.8...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.9...HEAD
+[v0.2.9]: https://github.com/atc0005/go-ci/releases/tag/v0.2.9
 [v0.2.8]: https://github.com/atc0005/go-ci/releases/tag/v0.2.8
 [v0.2.7]: https://github.com/atc0005/go-ci/releases/tag/v0.2.7
 [v0.2.6]: https://github.com/atc0005/go-ci/releases/tag/v0.2.6
