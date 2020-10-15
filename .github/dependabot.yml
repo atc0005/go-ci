@@ -72,7 +72,7 @@ updates:
         #
         # Note: The version specified here should always be one ahead of the
         # version used by the "oldstable" container.
-        versions: ["1.15.x"]
+        versions: ["1.15"]
     assignees:
       - "atc0005"
     labels:
