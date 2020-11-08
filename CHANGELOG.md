@@ -26,6 +26,25 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.13] - 2020-11-08
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.15.3` to `1.15.4`
+  - Update `go-ci-oldstable` from `1.14.10` to `1.14.11`
+  - Update `go-ci-unstable` from `1.15.3` to `1.15.4`
+    - the plan is to swap out to the next unstable Go version when it becomes
+      available
+  - Update `go-ci-stable-debian-build` from `1.15.3` to `1.15.4`
+  - Update `go-ci-stable-alpine-buildx86` from`1.15.3-alpine3.12` to
+    `1.15.4-alpine3.12`
+  - Update `go-ci-stable-alpine-buildx64` from `1.15.3-alpine3.12` to
+    `1.15.4-alpine3.12`
+
+NOTE: The `go-ci-lint-only` image is *not* updated in this release. We're
+waiting on a new upstream release.
+
 ## [v0.2.12] - 2020-11-03
 
 ### Changed
@@ -241,7 +260,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.12...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.13...HEAD
+[v0.2.13]: https://github.com/atc0005/go-ci/releases/tag/v0.2.13
 [v0.2.12]: https://github.com/atc0005/go-ci/releases/tag/v0.2.12
 [v0.2.11]: https://github.com/atc0005/go-ci/releases/tag/v0.2.11
 [v0.2.10]: https://github.com/atc0005/go-ci/releases/tag/v0.2.10
