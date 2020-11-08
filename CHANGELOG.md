@@ -42,6 +42,10 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-stable-alpine-buildx64` from `1.15.3-alpine3.12` to
     `1.15.4-alpine3.12`
 
+- Dependencies
+  - `actions/checkout`
+    - `v2.3.3` to `v2.3.4`
+
 NOTE: The `go-ci-lint-only` image is *not* updated in this release. We're
 waiting on a new upstream release.
 
