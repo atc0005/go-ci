@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.2.16] - 2020-11-23
+
+### Changed
+
+- Update musl-dev pkg from 1.1.24-r9 to 1.1.24-r10
+
+### Fixed
+
+- Alpine build containers image build failure for v0.2.15 release
+
 ## [v0.2.15] - 2020-11-23
 
 ### Changed
@@ -291,7 +301,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.15...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.16...HEAD
+[v0.2.16]: https://github.com/atc0005/go-ci/releases/tag/v0.2.16
 [v0.2.15]: https://github.com/atc0005/go-ci/releases/tag/v0.2.15
 [v0.2.14]: https://github.com/atc0005/go-ci/releases/tag/v0.2.14
 [v0.2.13]: https://github.com/atc0005/go-ci/releases/tag/v0.2.13
