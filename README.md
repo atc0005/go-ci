@@ -45,8 +45,14 @@ is useful to others.
 
 ## Linting tools included
 
+Primary:
+
 - [`staticcheck`](https://github.com/dominikh/go-tools)
 - [`golangci-lint`](https://github.com/golangci/golangci-lint)
+
+Additional:
+
+- [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
 
 ## Docker images
 
@@ -60,7 +66,7 @@ listing of available container images.
 - used for building Go applications, both directly and via `Makefile` builds.
 - intended for use in a build/test matrix of prior, current and upcoming Go
   releases
-- provides multiple linters, including `golangci-lint`
+- provides multiple linters
   - see [Linting tools included](#linting-tools-included)
 
 ### `go-ci-stable-alpine-buildx86`
@@ -89,7 +95,7 @@ listing of available container images.
 - supports cross-platform, static cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
-- provides multiple linters, including `golangci-lint`
+- provides multiple linters
   - see [Linting tools included](#linting-tools-included)
 
 ### `go-ci-oldstable`
@@ -98,7 +104,7 @@ listing of available container images.
 - used for building Go applications, both directly and via `Makefile` builds.
 - intended for use in a build/test matrix of prior, current and upcoming Go
   releases
-- provides multiple linters, including `golangci-lint`
+- provides multiple linters
   - see [Linting tools included](#linting-tools-included)
 
 ### `go-ci-unstable`
@@ -110,7 +116,7 @@ listing of available container images.
 - used for building Go applications, both directly and via `Makefile` builds
 - intended for use in a build/test matrix of prior, current and upcoming Go
   releases
-- provides multiple linters, including `golangci-lint`
+- provides multiple linters
   - see [Linting tools included](#linting-tools-included)
 - used to test new or additional `golangci-lint` linters prior to inclusion in
   the `stable` and `oldstable` container variants
@@ -127,7 +133,7 @@ listing of available container images.
   - e.g., testing or squash/rebase branch work prior to a full suite of checks
     usually associated with Pull Requests
 - limited linters
-  - `golangci-lint` is the sole linter provided
+  - [Primary linters only](#linting-tools-included)
 
 ## Examples / How to use these images
 
@@ -155,8 +161,11 @@ official release is also provided for further review.
 ## References
 
 - Linting
-  - <https://github.com/dominikh/go-tools>
-  - <https://github.com/golangci/golangci-lint>
+  - Primary
+    - [staticcheck](https://github.com/dominikh/go-tools)
+    - [golangci-lint](https://github.com/golangci/golangci-lint)
+  - Additional
+    - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
 
 - Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>

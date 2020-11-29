@@ -8,4 +8,7 @@ require (
 
 	// staticcheck - used in our containers
 	honnef.co/go/tools v0.0.1-2020.1.6
+
+	// httperroryzer - provided as an optional linter
+	github.com/orijtech/httperroryzer v0.0.0-20201128061256-9d75de8cdf66
 )

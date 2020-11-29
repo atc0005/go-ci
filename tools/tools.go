@@ -10,5 +10,6 @@ package tools
 // nolint
 import (
 	_ "github.com/golangci/golangci-lint/pkg/config"
+	_ "github.com/orijtech/httperroryzer"
 	_ "honnef.co/go/tools/config"
 )
