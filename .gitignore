@@ -11,3 +11,6 @@ GH_TOKEN.txt
 
 # Ignore Visual Studio Code workspace-level settings
 /.vscode/settings.json
+
+# Ignore local "scratch" notes, temporary files, etc.
+/scratch
