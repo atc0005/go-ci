@@ -58,6 +58,10 @@ listing of available container images.
 
 - built from the latest version of the current stable `golang` image.
 - used for building Go applications, both directly and via `Makefile` builds.
+- intended for use in a build/test matrix of prior, current and upcoming Go
+  releases
+- provides multiple linters, including `golangci-lint`
+  - see [Linting tools included](#linting-tools-included)
 
 ### `go-ci-stable-alpine-buildx86`
 
@@ -71,10 +75,12 @@ listing of available container images.
 - supports cross-platform, static cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+- does not include linters
 
 ### `go-ci-stable-alpine-buildx64`
 
 - same as `go-ci-stable-alpine-buildx86`, but specific to x64 architecture
+- does not include linters
 
 ### `go-ci-stable-debian-build`
 
@@ -83,34 +89,53 @@ listing of available container images.
 - supports cross-platform, static cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+- provides multiple linters, including `golangci-lint`
+  - see [Linting tools included](#linting-tools-included)
 
 ### `go-ci-oldstable`
 
 - built from the latest version of the current outgoing stable `golang` image.
 - used for building Go applications, both directly and via `Makefile` builds.
+- intended for use in a build/test matrix of prior, current and upcoming Go
+  releases
+- provides multiple linters, including `golangci-lint`
+  - see [Linting tools included](#linting-tools-included)
 
 ### `go-ci-unstable`
 
 - built from the latest available non-stable `golang:rc` image *or* if not
   recently available, the latest stable `golang` image
-- used for building Go applications, both directly and via `Makefile` builds.
-- used to test new linters prior to inclusion in the `stable` and `oldstable`
-  container variants
+  - intended to test whether new Go versions break existing code or surface
+    problems in existing code that current Go releases do not
+- used for building Go applications, both directly and via `Makefile` builds
+- intended for use in a build/test matrix of prior, current and upcoming Go
+  releases
+- provides multiple linters, including `golangci-lint`
+  - see [Linting tools included](#linting-tools-included)
+- used to test new or additional `golangci-lint` linters prior to inclusion in
+  the `stable` and `oldstable` container variants
+  - new linters as a whole may be added to multiple image variants, not just
+    this image unless it is suspected that the new linters are highly
+    experimental/unstable
 
 ### `go-ci-lint-only`
 
 - smaller image
 - uses `golangci/golangci-lint:vX.Y.Z-alpine` image as base
 - created as part of a multi-stage container build
+- intended for lightweight testing of iterative branch changes
+  - e.g., testing or squash/rebase branch work prior to a full suite of checks
+    usually associated with Pull Requests
+- limited linters
+  - `golangci-lint` is the sole linter provided
 
 ## Examples / How to use these images
 
-For a real-world example of how these images are used, please see the
-[`atc0005/dnsc`](https://github.com/atc0005/dnsc) project. Specifically,
-examine the files
-[here](https://github.com/atc0005/dnsc/tree/master/.github/workflows):
+For real-world examples of how these images are used, please see the workflows for these projects:
 
-<https://github.com/atc0005/dnsc/tree/master/.github/workflows>
+- <https://github.com/atc0005/check-mail/blob/master/.github/workflows>
+- <https://github.com/atc0005/dnsc/tree/master/.github/workflows>
+- <https://github.com/atc0005/mysql2sqlite/tree/master/.github/workflows>
 
 ## Changelog
 
