@@ -15,4 +15,7 @@ require (
 	// structslog - provided as an optional linter
 	github.com/orijtech/structslop v0.0.5
 
+	// tomll - provided as an optional linter
+	github.com/pelletier/go-toml v1.8.1
+
 )
