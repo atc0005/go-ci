@@ -9,6 +9,7 @@ package tools
 //
 // nolint
 import (
+	_ "github.com/fatih/errwrap"
 	_ "github.com/golangci/golangci-lint/pkg/config"
 	_ "github.com/orijtech/httperroryzer"
 	_ "github.com/orijtech/structslop"

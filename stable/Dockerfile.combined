@@ -14,6 +14,7 @@ ENV STATICCHECK_VERSION="2020.1.6"
 ENV HTTPERRORYZER_VERSION="9d75de8cdf66f34670c84aeef3c2b698b001fd44"
 ENV STRUCTSLOP_VERSION="v0.0.5"
 ENV TOMLL_VERSION="v1.8.1"
+ENV ERRWRAP_VERSION="v1.2.0"
 
 ENV APT_BSDMAINUTILS_VERSION="11.1.2+b1"
 ENV APT_TREE_VERSION="1.8.0-1"
@@ -33,6 +34,7 @@ RUN GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VER
     && GO111MODULE="on" go get github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
     && GO111MODULE="on" go get github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
     && GO111MODULE="on" go get github.com/pelletier/go-toml/cmd/tomll@${TOMLL_VERSION} \
+    && GO111MODULE="on" go get github.com/fatih/errwrap@${ERRWRAP_VERSION} \
     && go clean -cache -modcache
 
 # Copy over linting config files to root of container to serve as a default.
