@@ -18,4 +18,7 @@ require (
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml v1.8.1
 
+	// errwrap - provided as an optional linter
+	github.com/fatih/errwrap v1.2.0
+
 )

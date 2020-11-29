@@ -55,6 +55,7 @@ Additional:
 - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
 - [orijtech/structslop](https://github.com/orijtech/structslop)
 - [pelletier/go-toml/cmd/tomll](https://github.com/pelletier/go-toml)
+- [fatih/errwrap](https://github.com/fatih/errwrap)
 
 ## Docker images
 
@@ -170,6 +171,7 @@ official release is also provided for further review.
     - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
     - [orijtech/structslop](https://github.com/orijtech/structslop)
     - [pelletier/go-toml](https://github.com/pelletier/go-toml)
+    - [fatih/errwrap](https://github.com/fatih/errwrap)
 
 - Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>
