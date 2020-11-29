@@ -53,6 +53,7 @@ Primary:
 Additional:
 
 - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
+- [orijtech/structslop](https://github.com/orijtech/structslop)
 
 ## Docker images
 
@@ -166,6 +167,7 @@ official release is also provided for further review.
     - [golangci-lint](https://github.com/golangci/golangci-lint)
   - Additional
     - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
+    - [orijtech/structslop](https://github.com/orijtech/structslop)
 
 - Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>
