@@ -12,5 +12,6 @@ import (
 	_ "github.com/golangci/golangci-lint/pkg/config"
 	_ "github.com/orijtech/httperroryzer"
 	_ "github.com/orijtech/structslop"
+	_ "github.com/pelletier/go-toml"
 	_ "honnef.co/go/tools/config"
 )
