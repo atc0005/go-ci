@@ -26,6 +26,24 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.0] - 2020-11-29
+
+### Added
+
+- New linters
+  - `pelletier/go-toml/cmd/tomll` @`v1.8.1`
+  - `orijtech/structslop` @`v0.0.5`
+  - `orijtech/httperroryzer` @`9d75de8cdf66f34670c84aeef3c2b698b001fd44`
+  - `fatih/errwrap` @`v1.2.0`
+
+### Fixed
+
+- README
+  - update container image descriptions to better emphasize purpose
+- gitignore
+  - exclude Visual Studio Code workspace settings (`.vscode`)
+  - exclude `scratch` directory
+
 ## [v0.2.16] - 2020-11-23
 
 ### Changed
@@ -301,7 +319,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.2.16...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/atc0005/go-ci/releases/tag/v0.3.0
 [v0.2.16]: https://github.com/atc0005/go-ci/releases/tag/v0.2.16
 [v0.2.15]: https://github.com/atc0005/go-ci/releases/tag/v0.2.15
 [v0.2.14]: https://github.com/atc0005/go-ci/releases/tag/v0.2.14
