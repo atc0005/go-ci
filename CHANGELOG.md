@@ -26,6 +26,35 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.1] - 2020-12-04
+
+### Changed
+
+- README
+  - Replace linters list with version table to act as a quick reference
+
+- Go versions
+  - Update `go-ci-stable` from `1.15.5` to `1.15.6`
+  - Update `go-ci-oldstable` from `1.14.12` to `1.14.13`
+  - Update `go-ci-unstable` from `1.15.5` to `1.15.6`
+    - the plan is to swap out to the next unstable Go version when it becomes
+      available
+  - Update `go-ci-stable-debian-build` from `1.15.5` to `1.15.6`
+  - Update `go-ci-stable-alpine-buildx86` from`1.15.5-alpine3.12` to
+    `1.15.6-alpine3.12`
+  - Update `go-ci-stable-alpine-buildx64` from `1.15.5-alpine3.12` to
+    `1.15.6-alpine3.12`
+
+NOTE: The `go-ci-lint-only` image is *not* updated in this release. We're
+waiting on a new upstream release.
+
+### Fixed
+
+- Replace `orijtech/httperroryzer` pseudo-version with equivalent tag
+
+- Dependabot: Invalid ignore condition (version range) specified for
+  "oldstable" image
+
 ## [v0.3.0] - 2020-11-29
 
 ### Added
@@ -319,7 +348,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.1...HEAD
+[v0.3.1]: https://github.com/atc0005/go-ci/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/atc0005/go-ci/releases/tag/v0.3.0
 [v0.2.16]: https://github.com/atc0005/go-ci/releases/tag/v0.2.16
 [v0.2.15]: https://github.com/atc0005/go-ci/releases/tag/v0.2.15
