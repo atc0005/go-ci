@@ -45,17 +45,14 @@ is useful to others.
 
 ## Linting tools included
 
-Primary:
-
-- [`staticcheck`](https://github.com/dominikh/go-tools)
-- [`golangci-lint`](https://github.com/golangci/golangci-lint)
-
-Additional:
-
-- [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
-- [orijtech/structslop](https://github.com/orijtech/structslop)
-- [pelletier/go-toml/cmd/tomll](https://github.com/pelletier/go-toml)
-- [fatih/errwrap](https://github.com/fatih/errwrap)
+| Linter                                                                | Version           |
+| --------------------------------------------------------------------- | ----------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `v0.0.1-2020.1.6` |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.33.0`         |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`          |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.5`          |
+| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.8.1`          |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.2.0`          |
 
 ## Docker images
 
