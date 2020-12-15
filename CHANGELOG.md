@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.2] - 2020-12-15
+
+### Changed
+
+- README
+  - Update `staticcheck` linters table entry to reflect `2020.02` (`v0.1.0`)
+
+- Dependencies
+  - `go.mod`
+    - Update Go version from `1.13` to `1.14`
+  - `honnef.co/go/tools`
+    - `v0.0.1-2020.1.6` to `v0.1.0`
+
 ## [v0.3.1] - 2020-12-04
 
 ### Changed
@@ -348,7 +361,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.2...HEAD
+[v0.3.2]: https://github.com/atc0005/go-ci/releases/tag/v0.3.2
 [v0.3.1]: https://github.com/atc0005/go-ci/releases/tag/v0.3.1
 [v0.3.0]: https://github.com/atc0005/go-ci/releases/tag/v0.3.0
 [v0.2.16]: https://github.com/atc0005/go-ci/releases/tag/v0.2.16
