@@ -1,11 +1,11 @@
 module github.com/atc0005/go-ci/tools
 
-go 1.13
+go 1.14
 
 require (
-
 	// errwrap - provided as an optional linter
 	github.com/fatih/errwrap v1.2.0
+
 	// golangci-lint - used in our containers
 	github.com/golangci/golangci-lint v1.33.0
 
