@@ -13,7 +13,7 @@ require (
 	github.com/orijtech/httperroryzer v0.0.1
 
 	// structslog - provided as an optional linter
-	github.com/orijtech/structslop v0.0.5
+	github.com/orijtech/structslop v0.0.6
 
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml v1.8.1
