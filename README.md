@@ -50,7 +50,7 @@ is useful to others.
 | [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2020.2` (`v0.1.0`) |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.33.0`           |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`            |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.5`            |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`            |
 | [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.8.1`            |
 | [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.2.0`            |
 
