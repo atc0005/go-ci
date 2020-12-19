@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.3] - 2020-12-19
+
+### Changed
+
+- Go versions
+  - Update `go-ci-unstable` from `1.15.6` to `1.16beta1`
+
+- Dependencies
+  - `orijtech/structslop`
+    - `v0.0.5` to `v0.0.6`
+  - `actions/setup-node`
+    - `v2.1.3` to `v2.1.4`
+
 ## [v0.3.2] - 2020-12-15
 
 ### Changed
