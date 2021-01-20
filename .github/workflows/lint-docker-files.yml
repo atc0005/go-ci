@@ -28,7 +28,10 @@ jobs:
 
       - name: Run hadolint against all Dockerfile files
         run: |
-          hadolint stable/Dockerfile.combined
-          hadolint stable/Dockerfile.linting
+          hadolint stable/linting/Dockerfile
+          hadolint stable/combined/Dockerfile
+          hadolint stable/build/alpine-x64/Dockerfile
+          hadolint stable/build/alpine-x86/Dockerfile
+          hadolint stable/build/debian/Dockerfile
           hadolint oldstable/Dockerfile
           hadolint unstable/Dockerfile
