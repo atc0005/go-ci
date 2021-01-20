@@ -69,16 +69,17 @@ build:
 	@echo "Building Docker containers"
 
 	@echo "Bundle linter config files to provide baseline default settings"
-	@for version in {stable,oldstable,unstable}; do cp -vf .markdownlint.yml $$version/; done
+	@for version in {oldstable,unstable}; do cp -vf .markdownlint.yml $$version/; done
+	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
 
 	# unstable container has its own copy of this file
-	@for version in {stable,oldstable}; do cp -vf .golangci.yml $$version/; done
+	@cp -vf .golangci.yml oldstable/
+	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .golangci.yml $$version/; done
 
 	@echo "Building stable release"
 	sudo docker build \
 		--no-cache \
-		--file stable/Dockerfile.combined \
-		stable/ \
+		stable/combined/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):latest \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)-$(REPO_VERSION) \
@@ -87,8 +88,7 @@ build:
 	@echo "Building stable-alpine-build.x64 release"
 	sudo docker build \
 		--no-cache \
-		--file stable/Dockerfile.alpine-build.x64 \
-		stable/ \
+		stable/build/alpine-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_LABEL)
@@ -96,8 +96,7 @@ build:
 	@echo "Building stable-alpine-build x86 release"
 	sudo docker build \
 		--no-cache \
-		--file stable/Dockerfile.alpine-build.x86 \
-		stable/ \
+		stable/build/alpine-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_LABEL)
@@ -105,8 +104,7 @@ build:
 	@echo "Building stable-debian-build release"
 	sudo docker build \
 		--no-cache \
-		--file stable/Dockerfile.debian-build \
-		stable/ \
+		stable/build/debian/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_LABEL)
@@ -114,8 +112,7 @@ build:
 	@echo "Building stable linting-only release"
 	sudo docker build \
 		--no-cache \
-		--file stable/Dockerfile.linting \
-		stable/ \
+		stable/linting/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_LABEL)
