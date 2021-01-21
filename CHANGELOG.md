@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.8] - 2021-01-21
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools`
+    - `v0.1.0` to `v0.1.1`
+
+### Fixed
+
+- Update Docker container build process to explicitly pull latest upstream
+  when building new images
+
 ## [v0.3.7] - 2021-01-20
 
 ### Changed
@@ -436,7 +449,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.8...HEAD
+[v0.3.8]: https://github.com/atc0005/go-ci/releases/tag/v0.3.8
 [v0.3.7]: https://github.com/atc0005/go-ci/releases/tag/v0.3.7
 [v0.3.6]: https://github.com/atc0005/go-ci/releases/tag/v0.3.6
 [v0.3.5]: https://github.com/atc0005/go-ci/releases/tag/v0.3.5
