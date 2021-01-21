@@ -76,8 +76,12 @@ build:
 	@cp -vf .golangci.yml oldstable/
 	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .golangci.yml $$version/; done
 
+	@echo "List Docker version"
+	@docker version
+
 	@echo "Building stable release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		stable/combined/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):latest \
@@ -86,7 +90,8 @@ build:
 		--label=$(DOCKER_IMAGE_LABEL)
 
 	@echo "Building stable-alpine-build.x64 release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		stable/build/alpine-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64) \
@@ -94,7 +99,8 @@ build:
 		--label=$(DOCKER_IMAGE_LABEL)
 
 	@echo "Building stable-alpine-build x86 release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		stable/build/alpine-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86) \
@@ -102,7 +108,8 @@ build:
 		--label=$(DOCKER_IMAGE_LABEL)
 
 	@echo "Building stable-debian-build release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		stable/build/debian/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD) \
@@ -110,7 +117,8 @@ build:
 		--label=$(DOCKER_IMAGE_LABEL)
 
 	@echo "Building stable linting-only release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		stable/linting/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY) \
@@ -118,7 +126,8 @@ build:
 		--label=$(DOCKER_IMAGE_LABEL)
 
 	@echo "Building oldstable release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		oldstable/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE) \
@@ -126,7 +135,8 @@ build:
 		--label=$(DOCKER_IMAGE_LABEL)
 
 	@echo "Building unstable release"
-	sudo docker build \
+	sudo docker image build \
+		--pull \
 		--no-cache \
 		unstable/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE) \
