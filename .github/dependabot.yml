@@ -66,16 +66,17 @@ updates:
       interval: "daily"
       time: "02:00"
       timezone: "America/Chicago"
+
+    # Ignore updates from series associated with "stable" container and no
+    # longer supported Go versions.
     ignore:
       - dependency-name: "golang"
-        # Ignore updates from series associated with "stable" container.
-        #
-        # Note: The version specified here should always be one ahead of the
-        # version used by the "oldstable" container. (GH-100)
-        # versions: ["1.15"]
         versions:
-          - ">= 1.15"
-          - "< 1.14"
+          # Greater than or equal to stable container series
+          - ">= 1.16"
+
+          # Less than oldstable series
+          - "< 1.15"
     assignees:
       - "atc0005"
     labels:
