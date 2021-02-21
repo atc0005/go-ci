@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.13] - 2021-02-21
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools`
+    - `v0.1.1` to `v0.1.2`
+  - `golangci/golangci-lint`
+    - `v1.37.0` to `v1.37.1`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+    - Docker image used as a builder/base for `lint-only` image
+
 ## [v0.3.12] - 2021-02-17
 
 ### Changed
@@ -506,7 +518,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.12...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.13...HEAD
+[v0.3.13]: https://github.com/atc0005/go-ci/releases/tag/v0.3.13
 [v0.3.12]: https://github.com/atc0005/go-ci/releases/tag/v0.3.12
 [v0.3.11]: https://github.com/atc0005/go-ci/releases/tag/v0.3.11
 [v0.3.10]: https://github.com/atc0005/go-ci/releases/tag/v0.3.10
