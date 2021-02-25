@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.14] - 2021-02-25
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable-alpine-buildx86` from`1.15.8-alpine3.12` to
+    `1.16.0-alpine3.12` (GH-248)
+
+- Dependencies
+  - `actions/setup-node`
+    - `v2.1.4` to `v2.1.5`
+
+### Fixed
+
+- Update CHANGELOG entry for v0.3.12 to reflect that the
+  `go-ci-stable-alpine-buildx86` image was *not* updated as intended
+
 ## [v0.3.13] - 2021-02-21
 
 ### Changed
@@ -46,8 +63,6 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-stable` from `1.15.8` to `1.16.0`
   - Update `go-ci-oldstable` from `1.14.15` to `1.15.8`
   - Update `go-ci-stable-debian-build` from `1.15.8` to `1.16.0`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.8-alpine3.12` to
-    `1.16.0-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.8-alpine3.12` to
     `1.16.0-alpine3.12`
 - Dependencies
@@ -55,6 +70,8 @@ The following types of changes will be recorded in this file:
     - `v1.36.0` to `v1.37.0`
     - binary installed within `oldstable`, `stable` and `unstable` images
     - Docker image used as a builder/base for `lint-only` image
+
+**NOTE**: `go-ci-stable-alpine-buildx86` was not updated as intended.
 
 ## [v0.3.11] - 2021-02-05
 
@@ -518,7 +535,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.13...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.14...HEAD
+[v0.3.14]: https://github.com/atc0005/go-ci/releases/tag/v0.3.14
 [v0.3.13]: https://github.com/atc0005/go-ci/releases/tag/v0.3.13
 [v0.3.12]: https://github.com/atc0005/go-ci/releases/tag/v0.3.12
 [v0.3.11]: https://github.com/atc0005/go-ci/releases/tag/v0.3.11
