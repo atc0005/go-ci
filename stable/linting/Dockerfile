@@ -25,7 +25,7 @@ RUN GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VER
 FROM golangci/golangci-lint:v1.38.0-alpine
 
 # Intended to help identify the versions of the included linting tools
-ENV GOLANGCI_LINT_VERSION="v1.37.1"
+ENV GOLANGCI_LINT_VERSION="v1.38.0"
 ENV STATICCHECK_VERSION="v0.1.2"
 
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
