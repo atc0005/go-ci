@@ -1,6 +1,6 @@
 module github.com/atc0005/go-ci/tools
 
-go 1.14
+go 1.15
 
 require (
 	// errwrap - provided as an optional linter
