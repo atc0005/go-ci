@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.17] - 2021-03-12
+
+### Changed
+
+- Update `git` pkg from `2.26.2-r0` to `2.26.3-r0`
+
+### Fixed
+
+- Alpine build containers
+  - image build failure for v0.3.16 release
+
 ## [v0.3.16] - 2021-03-12
 
 ### Changed
@@ -567,7 +578,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.16...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.17...HEAD
+[v0.3.17]: https://github.com/atc0005/go-ci/releases/tag/v0.3.17
 [v0.3.16]: https://github.com/atc0005/go-ci/releases/tag/v0.3.16
 [v0.3.15]: https://github.com/atc0005/go-ci/releases/tag/v0.3.15
 [v0.3.14]: https://github.com/atc0005/go-ci/releases/tag/v0.3.14
