@@ -26,6 +26,27 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.18] - 2021-03-26
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.38.0` to `v1.39.0`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+    - Docker image used as a builder/base for `lint-only` image
+  - `fatih/errwrap`
+    - `v1.2.0` to `v1.3.1`
+      - for images other than `oldstable` (see Removed section)
+
+### Removed
+
+- Dependencies
+  - `fatih/errwrap`
+    - removed from the `oldstable` image since it now requires Go 1.16
+    - the plan is to restore this once Go 1.17 is released and Go 1.16 becomes
+      the `oldstable` version
+
 ## [v0.3.17] - 2021-03-12
 
 ### Changed
@@ -578,7 +599,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.17...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.18...HEAD
+[v0.3.18]: https://github.com/atc0005/go-ci/releases/tag/v0.3.18
 [v0.3.17]: https://github.com/atc0005/go-ci/releases/tag/v0.3.17
 [v0.3.16]: https://github.com/atc0005/go-ci/releases/tag/v0.3.16
 [v0.3.15]: https://github.com/atc0005/go-ci/releases/tag/v0.3.15
