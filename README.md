@@ -45,14 +45,14 @@ is useful to others.
 
 ## Linting tools included
 
-| Linter                                                                | Version               |
-| --------------------------------------------------------------------- | --------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2020.2.3` (`v0.1.3`) |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.39.0`             |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`              |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`              |
-| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.8.1`              |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.3.1`              |
+| Linter                                                                | Version                                                                                  |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2020.2.3` (`v0.1.3`)                                                                    |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.39.0`                                                                                |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                                                 |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`                                                                                 |
+| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.8.1`                                                                                 |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.3.1` ([omitted from `oldstable` image](https://github.com/atc0005/go-ci/issues/280)) |
 
 ## Docker images
 
