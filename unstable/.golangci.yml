@@ -28,6 +28,7 @@ linters:
     - depguard
     - dogsled
     - dupl
+    - exportloopref
     - errcheck
     - gocognit
     - goconst
@@ -42,7 +43,6 @@ linters:
     - maligned
     - misspell
     - prealloc
-    - scopelint
     - staticcheck
     - stylecheck
     - unconvert
