@@ -29,9 +29,16 @@ linters:
     - golint
     - gosec
     - govet
-    - maligned
     - misspell
     - prealloc
     - staticcheck
     - stylecheck
     - unconvert
+
+  disable:
+    - maligned
+
+linters-settings:
+  govet:
+    enable:
+      - fieldalignment
