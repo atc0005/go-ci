@@ -26,6 +26,27 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.19] - 2021-04-02
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.16.2` to `1.16.3`
+  - Update `go-ci-oldstable` from `1.15.10` to `1.15.11`
+  - Update `go-ci-stable-debian-build` from `1.16.2` to `1.16.3`
+  - Update `go-ci-stable-alpine-buildx86` from`1.16.2-alpine3.12` to
+    `1.16.3-alpine3.12`
+  - Update `go-ci-stable-alpine-buildx64` from `1.16.2-alpine3.12` to
+    `1.16.3-alpine3.12`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - replace deprecated `maligned` linter with `govet: fieldalignment`
+    - replace deprecated `scopelint` linter with `exportloopref`
+
+NOTE: The `go-ci-lint-only` image is *not* updated in this release. We're
+waiting on a new upstream release.
+
 ## [v0.3.18] - 2021-03-26
 
 ### Changed
@@ -599,7 +620,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.18...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.19...HEAD
+[v0.3.19]: https://github.com/atc0005/go-ci/releases/tag/v0.3.19
 [v0.3.18]: https://github.com/atc0005/go-ci/releases/tag/v0.3.18
 [v0.3.17]: https://github.com/atc0005/go-ci/releases/tag/v0.3.17
 [v0.3.16]: https://github.com/atc0005/go-ci/releases/tag/v0.3.16
