@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.20] - 2021-04-15
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - re-enable deprecated `maligned` linter, disable `govet: fieldalignment`
+  - `pelletier/go-toml`
+    - `v1.8.1` to `v1.9.0`
+
 ## [v0.3.19] - 2021-04-02
 
 ### Changed
@@ -620,7 +630,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.19...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.20...HEAD
+[v0.3.20]: https://github.com/atc0005/go-ci/releases/tag/v0.3.20
 [v0.3.19]: https://github.com/atc0005/go-ci/releases/tag/v0.3.19
 [v0.3.18]: https://github.com/atc0005/go-ci/releases/tag/v0.3.18
 [v0.3.17]: https://github.com/atc0005/go-ci/releases/tag/v0.3.17
