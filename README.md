@@ -33,7 +33,7 @@ content, to file an issue or submit improvements for review and potential
 inclusion into the project.
 
 See [our Docker Hub
-repo](https://hub.docker.com/repository/docker/atc0005/go-ci) for the full
+repo](https://hub.docker.com/r/atc0005/go-ci) for the full
 listing of available container images.
 
 ## Overview
@@ -57,7 +57,7 @@ is useful to others.
 ## Docker images
 
 See [our Docker Hub
-repo](https://hub.docker.com/repository/docker/atc0005/go-ci) for the full
+repo](https://hub.docker.com/r/atc0005/go-ci) for the full
 listing of available container images.
 
 ### `go-ci-stable`
