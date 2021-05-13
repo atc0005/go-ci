@@ -26,6 +26,33 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.21] - 2021-05-13
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.16.3` to `1.16.4`
+  - Update `go-ci-oldstable` from `1.15.11` to `1.15.12`
+  - Update `go-ci-stable-debian-build` from `1.16.3` to `1.16.4`
+  - Update `go-ci-stable-alpine-buildx86` from`1.16.3-alpine3.12` to
+    `1.16.4-alpine3.12`
+  - Update `go-ci-stable-alpine-buildx64` from `1.16.3-alpine3.12` to
+    `1.16.4-alpine3.12`
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.1.3` to `v0.1.4`
+  - `golangci/golangci-lint`
+    - `v1.39.0` to `v1.40.0`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+    - Docker image used as a builder/base for `lint-only` image
+  - `pelletier/go-toml`
+    - `v1.9.0` to `v1.9.1`
+
+### Fixed
+
+- Explicitly use public Docker Hub repo link
+
 ## [v0.3.20] - 2021-04-15
 
 ### Changed
@@ -630,7 +657,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.20...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.21...HEAD
+[v0.3.21]: https://github.com/atc0005/go-ci/releases/tag/v0.3.21
 [v0.3.20]: https://github.com/atc0005/go-ci/releases/tag/v0.3.20
 [v0.3.19]: https://github.com/atc0005/go-ci/releases/tag/v0.3.19
 [v0.3.18]: https://github.com/atc0005/go-ci/releases/tag/v0.3.18
