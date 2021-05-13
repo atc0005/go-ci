@@ -16,7 +16,7 @@ require (
 	github.com/orijtech/structslop v0.0.6
 
 	// tomll - provided as an optional linter
-	github.com/pelletier/go-toml v1.9.0
+	github.com/pelletier/go-toml v1.9.1
 
 	// staticcheck - used in our containers
 	honnef.co/go/tools v0.1.4
