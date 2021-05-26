@@ -19,6 +19,6 @@ require (
 	github.com/pelletier/go-toml v1.9.1
 
 	// staticcheck - used in our containers
-	honnef.co/go/tools v0.1.4
+	honnef.co/go/tools v0.2.0
 
 )
