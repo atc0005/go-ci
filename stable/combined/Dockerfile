@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.16.4
+FROM golang:1.16.5
 
 ENV GOLANGCI_LINT_VERSION="v1.40.1"
 ENV STATICCHECK_VERSION="v0.2.0"
