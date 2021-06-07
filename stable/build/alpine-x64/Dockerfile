@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.16.4-alpine3.12
+FROM golang:1.16.5-alpine3.12
 
 # NOTE: This version was different than the base `gcc` pkg when last checked
 ENV APK_GCC_MINGW64_VERSION="9.3.0-r0"
