@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.24] - 2021-06-10
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.16.4` to `1.16.5`
+  - Update `go-ci-oldstable` from `1.15.12` to `1.15.13`
+  - Update `go-ci-stable-debian-build` from `1.16.4` to `1.16.5`
+  - Update `go-ci-stable-alpine-buildx86` from`1.16.4-alpine3.12` to
+    `1.16.5-alpine3.12`
+  - Update `go-ci-stable-alpine-buildx64` from `1.16.4-alpine3.12` to
+    `1.16.5-alpine3.12`
+
+- Dependencies
+  - `pelletier/go-toml`
+    - `v1.9.1` to `v1.9.2`
+
 ## [v0.3.23] - 2021-06-02
 
 ### Changed
@@ -675,7 +692,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.23...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.24...HEAD
+[v0.3.24]: https://github.com/atc0005/go-ci/releases/tag/v0.3.24
 [v0.3.23]: https://github.com/atc0005/go-ci/releases/tag/v0.3.23
 [v0.3.22]: https://github.com/atc0005/go-ci/releases/tag/v0.3.22
 [v0.3.21]: https://github.com/atc0005/go-ci/releases/tag/v0.3.21
