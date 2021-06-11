@@ -18,7 +18,7 @@ ENV STATICCHECK_VERSION="v0.2.0"
 # Skip go clean step as the entire image will be tossed after we are finished
 # and cleaning the modules cache takes extra time that won't help the final
 # linting-only image.
-RUN GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+RUN GO111MODULE="on" go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version
 
 # For CI "linting only" use
