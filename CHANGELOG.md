@@ -26,12 +26,25 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.25] - 2021-06-11
+
+### Changed
+
+- Go versions
+  - Update `go-ci-unstable` from `1.16.5` to `1.17beta1`
+
+### Fixed
+
+- go get: installing executables with 'go get' in module mode is deprecated
+- CHANGELOG entries missing for recent `go-ci-unstable` Go version updates
+
 ## [v0.3.24] - 2021-06-10
 
 ### Changed
 
 - Go versions
   - Update `go-ci-stable` from `1.16.4` to `1.16.5`
+  - Update `go-ci-unstable` from `1.16.4` to `1.16.5`
   - Update `go-ci-oldstable` from `1.15.12` to `1.15.13`
   - Update `go-ci-stable-debian-build` from `1.16.4` to `1.16.5`
   - Update `go-ci-stable-alpine-buildx86` from`1.16.4-alpine3.12` to
@@ -67,6 +80,7 @@ The following types of changes will be recorded in this file:
 
 - Go versions
   - Update `go-ci-stable` from `1.16.3` to `1.16.4`
+  - Update `go-ci-unstable` from `1.16.3` to `1.16.4`
   - Update `go-ci-oldstable` from `1.15.11` to `1.15.12`
   - Update `go-ci-stable-debian-build` from `1.16.3` to `1.16.4`
   - Update `go-ci-stable-alpine-buildx86` from`1.16.3-alpine3.12` to
@@ -104,6 +118,7 @@ The following types of changes will be recorded in this file:
 
 - Go versions
   - Update `go-ci-stable` from `1.16.2` to `1.16.3`
+  - Update `go-ci-unstable` from `1.16.2` to `1.16.3`
   - Update `go-ci-oldstable` from `1.15.10` to `1.15.11`
   - Update `go-ci-stable-debian-build` from `1.16.2` to `1.16.3`
   - Update `go-ci-stable-alpine-buildx86` from`1.16.2-alpine3.12` to
@@ -157,6 +172,7 @@ waiting on a new upstream release.
 
 - Go versions
   - Update `go-ci-stable` from `1.16.0` to `1.16.2`
+  - Update `go-ci-unstable` from `1.16.0` to `1.16.2`
   - Update `go-ci-oldstable` from `1.15.8` to `1.15.10`
   - Update `go-ci-stable-debian-build` from `1.16.0` to `1.16.2`
   - Update `go-ci-stable-alpine-buildx86` from`1.16.0-alpine3.12` to
@@ -218,6 +234,7 @@ waiting on a new upstream release.
 
 - Go versions
   - Update `go-ci-stable` from `1.15.8` to `1.16.0`
+  - Update `go-ci-unstable` from `1.16rc1` to `1.16.0`
   - Update `go-ci-oldstable` from `1.14.15` to `1.15.8`
   - Update `go-ci-stable-debian-build` from `1.15.8` to `1.16.0`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.8-alpine3.12` to
@@ -692,7 +709,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.24...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.25...HEAD
+[v0.3.25]: https://github.com/atc0005/go-ci/releases/tag/v0.3.25
 [v0.3.24]: https://github.com/atc0005/go-ci/releases/tag/v0.3.24
 [v0.3.23]: https://github.com/atc0005/go-ci/releases/tag/v0.3.23
 [v0.3.22]: https://github.com/atc0005/go-ci/releases/tag/v0.3.22
