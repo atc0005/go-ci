@@ -70,7 +70,7 @@ help:
 	@echo "Usage:"
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
-.PHONE: clean
+.PHONY: clean
 ## clean: prune all Docker containers with our labels
 clean:
 	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_LABEL)"
@@ -87,7 +87,7 @@ linting:
 		docker run --pull never --rm -i -v "$$PWD/$$target:$$PWD/$$target" $(DOCKER_IMAGE_HADOLINT) hadolint $$PWD/$$target; \
 	done
 
-.PHONE: build
+.PHONY: build
 ## build: build all Docker containers
 build:
 	@echo "Building Docker containers"
