@@ -28,9 +28,9 @@ RUN apt-get update \
     gcc-multilib=${APT_GCC_MULTILIB_VERSION} \
     gcc-mingw-w64=${APT_GCC_MINGW_W64_VERSION} \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN GO111MODULE="on" go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+    && rm -rf /var/lib/apt/lists/* \
+    \
+    && GO111MODULE="on" go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version \
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
