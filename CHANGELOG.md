@@ -26,6 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.26] - 2021-06-17
+
+### Added
+
+- `linting` Makefile recipe
+  - uses `hadolint/hadolint` to run linting checks against project Dockerfiles
+
+### Changed
+
+- Dependencies
+  - `pelletier/go-toml`
+    - `v1.9.2` to `v1.9.3`
+  - `golangci/golangci-lint`
+    - `v1.40.1` to `v1.41.0`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+    - Docker image used as a builder/base for `lint-only` image
+
+### Fixed
+
+- Incorrect target names (typos)
+- hadolint linting errors | `DL3059 info: Multiple consecutive RUN
+  instructions. Consider consolidation`
+
 ## [v0.3.25] - 2021-06-11
 
 ### Changed
@@ -709,7 +732,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.25...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.26...HEAD
+[v0.3.26]: https://github.com/atc0005/go-ci/releases/tag/v0.3.26
 [v0.3.25]: https://github.com/atc0005/go-ci/releases/tag/v0.3.25
 [v0.3.24]: https://github.com/atc0005/go-ci/releases/tag/v0.3.24
 [v0.3.23]: https://github.com/atc0005/go-ci/releases/tag/v0.3.23
