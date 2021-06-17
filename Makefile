@@ -41,7 +41,20 @@ DOCKER_IMAGE_NAME_OLDSTABLE 		= go-ci-oldstable
 DOCKER_IMAGE_NAME_UNSTABLE 			= go-ci-unstable
 DOCKER_IMAGE_LABEL 					= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
 
+DOCKER_FILES 						= oldstable/Dockerfile \
+										stable/build/alpine-x64/Dockerfile \
+										stable/build/alpine-x86/Dockerfile \
+										stable/build/debian/Dockerfile \
+										stable/combined/Dockerfile \
+										stable/linting/Dockerfile \
+										unstable/Dockerfile \
+
+
 DOCKER_IMAGE_REGISTRY_TOKEN_FILE	= ~/GH_TOKEN.txt
+
+# https://github.com/hadolint/hadolint
+# DOCKER_IMAGE_HADOLINT				= hadolint/hadolint
+DOCKER_IMAGE_HADOLINT				= ghcr.io/hadolint/hadolint
 
 .DEFAULT_GOAL := help
 
@@ -62,6 +75,17 @@ help:
 clean:
 	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_LABEL)"
 	@sudo docker image prune --all --force --filter "label=$(DOCKER_IMAGE_LABEL)"
+
+.PHONY: linting
+## linting: lint all Dockerfiles
+linting:
+	@echo "Linting Dockerfiles ..."
+
+	@for target in $(DOCKER_FILES); do \
+		echo -e "\n* $$target" && \
+		docker image pull --quiet $(DOCKER_IMAGE_HADOLINT) && \
+		docker run --pull never --rm -i -v "$$PWD/$$target:$$PWD/$$target" $(DOCKER_IMAGE_HADOLINT) hadolint $$PWD/$$target; \
+	done
 
 .PHONE: build
 ## build: build all Docker containers
