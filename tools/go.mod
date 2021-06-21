@@ -7,7 +7,7 @@ require (
 	github.com/fatih/errwrap v1.3.1
 
 	// golangci-lint - used in our containers
-	github.com/golangci/golangci-lint v1.41.0
+	github.com/golangci/golangci-lint v1.41.1
 
 	// httperroryzer - provided as an optional linter
 	github.com/orijtech/httperroryzer v0.0.1
