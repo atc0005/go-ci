@@ -24,7 +24,11 @@ The following types of changes will be recorded in this file:
 
 ## [Unreleased]
 
-- placeholder
+### Fixed
+
+- README
+  - Update `golangci/golangci-lint` linters table entry to reflect `v1.41.1`
+    release included in `v0.3.27` images
 
 ## [v0.3.27] - 2021-06-23
 
