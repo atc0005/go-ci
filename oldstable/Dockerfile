@@ -14,9 +14,7 @@ ENV STATICCHECK_VERSION="v0.2.1"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.6"
 ENV TOMLL_VERSION="v1.9.3"
-
-# TODO: Re-enable once Go 1.17 is released and 1.16 is then the "oldstable" release
-# ENV ERRWRAP_VERSION="v1.3.1"
+ENV ERRWRAP_VERSION="v1.3.1"
 
 ENV APT_BSDMAINUTILS_VERSION="11.1.2+b1"
 ENV APT_TREE_VERSION="1.8.0-1"
@@ -36,10 +34,8 @@ RUN apt-get update \
     && GO111MODULE="on" go get github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
     && GO111MODULE="on" go get github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
     && GO111MODULE="on" go get github.com/pelletier/go-toml/cmd/tomll@${TOMLL_VERSION} \
+    && GO111MODULE="on" go get github.com/fatih/errwrap@${ERRWRAP_VERSION} \
     && go clean -cache -modcache
-
-# TODO: Re-enable once Go 1.17 is released and 1.16 is then the "oldstable" release
-#     && GO111MODULE="on" go get github.com/fatih/errwrap@${ERRWRAP_VERSION} \
 
 # Copy over linting config files to root of container to serve as a default.
 # Projects bringing their own config files (e.g., via GitHub Actions) can
