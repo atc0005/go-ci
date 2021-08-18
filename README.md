@@ -47,7 +47,7 @@ is useful to others.
 
 | Linter                                                                | Version                                                                                  |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1` (`v0.2.0`)                                                                      |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1.1` (`v0.2.1`)                                                                    |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.41.1`                                                                                |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                                                 |
 | [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`                                                                                 |
