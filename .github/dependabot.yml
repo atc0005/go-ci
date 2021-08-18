@@ -73,10 +73,10 @@ updates:
       - dependency-name: "golang"
         versions:
           # Greater than or equal to stable container series
-          - ">= 1.16"
+          - ">= 1.17"
 
           # Less than oldstable series
-          - "< 1.15"
+          - "< 1.16"
     assignees:
       - "atc0005"
     labels:
