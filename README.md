@@ -45,14 +45,14 @@ is useful to others.
 
 ## Linting tools included
 
-| Linter                                                                | Version                                                                                  |
-| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1.1` (`v0.2.1`)                                                                    |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.42.0`                                                                                |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                                                 |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`                                                                                 |
-| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.9.3`                                                                                 |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.3.1` ([omitted from `oldstable` image](https://github.com/atc0005/go-ci/issues/280)) |
+| Linter                                                                | Version               |
+| --------------------------------------------------------------------- | --------------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1.1` (`v0.2.1`) |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.42.0`             |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`              |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`              |
+| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.9.3`              |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.3.1`              |
 
 ## Docker images
 
