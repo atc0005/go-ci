@@ -26,15 +26,15 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \
-    && GO111MODULE="on" go get honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+    && GO111MODULE="on" go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version \
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version \
-    && GO111MODULE="on" go get github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
-    && GO111MODULE="on" go get github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
-    && GO111MODULE="on" go get github.com/pelletier/go-toml/cmd/tomll@${TOMLL_VERSION} \
-    && GO111MODULE="on" go get github.com/fatih/errwrap@${ERRWRAP_VERSION} \
+    && GO111MODULE="on" go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
+    && GO111MODULE="on" go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
+    && GO111MODULE="on" go install github.com/pelletier/go-toml/cmd/tomll@${TOMLL_VERSION} \
+    && GO111MODULE="on" go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
     && go clean -cache -modcache
 
 # Copy over linting config files to root of container to serve as a default.
