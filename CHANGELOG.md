@@ -26,6 +26,27 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.33] - 2021-09-10
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.17.0` to `1.17.1`
+  - Update `go-ci-unstable` from `1.17.0` to `1.17.1`
+  - Update `go-ci-oldstable` from `1.16.7` to `1.16.8`
+  - Update `go-ci-stable-debian-build` from `1.17.0` to `1.17.1`
+  - Update `go-ci-stable-alpine-buildx86` from `1.17.0-alpine3.14` to
+    `1.17.1-alpine3.14`
+  - Update `go-ci-stable-alpine-buildx64` from `1.17.0-alpine3.14` to
+    `1.17.1-alpine3.14`
+
+### Fixed
+
+- CHANGELOG
+  - Formatting
+    - Add missing space between text and formatted version string in multiple
+      prior sections
+
 ## [v0.3.32] - 2021-09-07
 
 ### Changed
@@ -47,9 +68,9 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-unstable` from `1.17.rc2` to `1.17.0`
   - Update `go-ci-oldstable` from `1.15.15` to `1.16.7`
   - Update `go-ci-stable-debian-build` from `1.16.7` to `1.17.0`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.7-alpine3.14` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.7-alpine3.14` to
     `1.17.0-alpine3.14`
-  - Update `go-ci-stable-alpine-buildx64` from`1.16.7-alpine3.14` to
+  - Update `go-ci-stable-alpine-buildx64` from `1.16.7-alpine3.14` to
     `1.17.0-alpine3.14`
 
 - Dependencies
@@ -81,9 +102,9 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-stable` from `1.16.6` to `1.16.7`
   - Update `go-ci-oldstable` from `1.15.14` to `1.15.15`
   - Update `go-ci-stable-debian-build` from `1.16.6` to `1.16.7`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.6-alpine3.14` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.6-alpine3.14` to
     `1.16.7-alpine3.14`
-  - Update `go-ci-stable-alpine-buildx64` from`1.16.6-alpine3.14` to
+  - Update `go-ci-stable-alpine-buildx64` from `1.16.6-alpine3.14` to
     `1.16.7-alpine3.14`
 
 - Dependencies
@@ -117,7 +138,7 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-unstable` from `1.17beta1` to `1.17rc1`
   - Update `go-ci-oldstable` from `1.15.13` to `1.15.14`
   - Update `go-ci-stable-debian-build` from `1.16.5` to `1.16.6`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.5-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.5-alpine3.12` to
     `1.16.6-alpine3.14`
   - Update `go-ci-stable-alpine-buildx64` from `1.16.5-alpine3.12` to
     `1.16.6-alpine3.14`
@@ -186,7 +207,7 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-unstable` from `1.16.4` to `1.16.5`
   - Update `go-ci-oldstable` from `1.15.12` to `1.15.13`
   - Update `go-ci-stable-debian-build` from `1.16.4` to `1.16.5`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.4-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.4-alpine3.12` to
     `1.16.5-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.16.4-alpine3.12` to
     `1.16.5-alpine3.12`
@@ -222,7 +243,7 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-unstable` from `1.16.3` to `1.16.4`
   - Update `go-ci-oldstable` from `1.15.11` to `1.15.12`
   - Update `go-ci-stable-debian-build` from `1.16.3` to `1.16.4`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.3-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.3-alpine3.12` to
     `1.16.4-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.16.3-alpine3.12` to
     `1.16.4-alpine3.12`
@@ -260,7 +281,7 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-unstable` from `1.16.2` to `1.16.3`
   - Update `go-ci-oldstable` from `1.15.10` to `1.15.11`
   - Update `go-ci-stable-debian-build` from `1.16.2` to `1.16.3`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.2-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.2-alpine3.12` to
     `1.16.3-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.16.2-alpine3.12` to
     `1.16.3-alpine3.12`
@@ -314,7 +335,7 @@ waiting on a new upstream release.
   - Update `go-ci-unstable` from `1.16.0` to `1.16.2`
   - Update `go-ci-oldstable` from `1.15.8` to `1.15.10`
   - Update `go-ci-stable-debian-build` from `1.16.0` to `1.16.2`
-  - Update `go-ci-stable-alpine-buildx86` from`1.16.0-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.16.0-alpine3.12` to
     `1.16.2-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.16.0-alpine3.12` to
     `1.16.2-alpine3.12`
@@ -343,7 +364,7 @@ waiting on a new upstream release.
 ### Changed
 
 - Go versions
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.8-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.8-alpine3.12` to
     `1.16.0-alpine3.12` (GH-248)
 
 - Dependencies
@@ -394,7 +415,7 @@ waiting on a new upstream release.
   - Update `go-ci-stable` from `1.15.7` to `1.15.8`
   - Update `go-ci-oldstable` from `1.14.14` to `1.14.15`
   - Update `go-ci-stable-debian-build` from `1.15.7` to `1.15.8`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.7-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.7-alpine3.12` to
     `1.15.8-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.7-alpine3.12` to
     `1.15.8-alpine3.12`
@@ -453,7 +474,7 @@ waiting on a new upstream release.
   - Update `go-ci-stable` from `1.15.6` to `1.15.7`
   - Update `go-ci-oldstable` from `1.14.13` to `1.14.14`
   - Update `go-ci-stable-debian-build` from `1.15.6` to `1.15.7`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.6-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.6-alpine3.12` to
     `1.15.7-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.6-alpine3.12` to
     `1.15.7-alpine3.12`
@@ -540,7 +561,7 @@ waiting on a new upstream release.
     - the plan is to swap out to the next unstable Go version when it becomes
       available
   - Update `go-ci-stable-debian-build` from `1.15.5` to `1.15.6`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.5-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.5-alpine3.12` to
     `1.15.6-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.5-alpine3.12` to
     `1.15.6-alpine3.12`
@@ -602,7 +623,7 @@ waiting on a new upstream release.
     - the plan is to swap out to the next unstable Go version when it becomes
       available
   - Update `go-ci-stable-debian-build` from `1.15.4` to `1.15.5`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.4-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.4-alpine3.12` to
     `1.15.5-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.4-alpine3.12` to
     `1.15.5-alpine3.12`
@@ -621,7 +642,7 @@ waiting on a new upstream release.
     - the plan is to swap out to the next unstable Go version when it becomes
       available
   - Update `go-ci-stable-debian-build` from `1.15.3` to `1.15.4`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.3-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.3-alpine3.12` to
     `1.15.4-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.3-alpine3.12` to
     `1.15.4-alpine3.12`
@@ -660,7 +681,7 @@ waiting on a new upstream release.
     - the plan is to swap out to the next unstable Go version when it becomes
       available
   - Update `go-ci-stable-debian-build` from `1.15.2` to `1.15.3`
-  - Update `go-ci-stable-alpine-buildx86` from`1.15.2-alpine3.12` to
+  - Update `go-ci-stable-alpine-buildx86` from `1.15.2-alpine3.12` to
     `1.15.3-alpine3.12`
   - Update `go-ci-stable-alpine-buildx64` from `1.15.2-alpine3.12` to
     `1.15.3-alpine3.12`
@@ -848,7 +869,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.32...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.33...HEAD
+[v0.3.33]: https://github.com/atc0005/go-ci/releases/tag/v0.3.33
 [v0.3.32]: https://github.com/atc0005/go-ci/releases/tag/v0.3.32
 [v0.3.31]: https://github.com/atc0005/go-ci/releases/tag/v0.3.31
 [v0.3.30]: https://github.com/atc0005/go-ci/releases/tag/v0.3.30
