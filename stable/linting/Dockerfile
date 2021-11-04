@@ -11,7 +11,7 @@
 
 # builder image
 # use the same environment as our final image for binary compatibility
-FROM golangci/golangci-lint:v1.42.1-alpine as builder
+FROM golangci/golangci-lint:v1.43.0-alpine as builder
 
 ENV STATICCHECK_VERSION="v0.2.1"
 
@@ -22,7 +22,7 @@ RUN go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version
 
 # For CI "linting only" use
-FROM golangci/golangci-lint:v1.42.1-alpine
+FROM golangci/golangci-lint:v1.43.0-alpine
 
 # Intended to help identify the versions of the included linting tools
 ENV GOLANGCI_LINT_VERSION="v1.42.1"
