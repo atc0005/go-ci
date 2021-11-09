@@ -26,6 +26,25 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.37] - 2021-11-09
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.17.2` to `1.17.3`
+  - Update `go-ci-unstable` from `1.17.2` to `1.17.3`
+  - Update `go-ci-oldstable` from `1.16.9` to `1.16.10`
+  - Update `go-ci-stable-debian-build` from `1.17.2` to `1.17.3`
+  - Update `go-ci-stable-alpine-buildx86` from `1.17.2-alpine3.14` to
+    `1.17.3-alpine3.14`
+  - Update `go-ci-stable-alpine-buildx64` from `1.17.2-alpine3.14` to
+    `1.17.3-alpine3.14`
+
+### Fixed
+
+- (GH-442) ERROR: unable to select packages: util-linux-2.37.2-r0: breaks:
+  world[util-linux=2.37-r0]
+
 ## [v0.3.36] - 2021-11-04
 
 - Dependencies
@@ -905,7 +924,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.36...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.37...HEAD
+[v0.3.37]: https://github.com/atc0005/go-ci/releases/tag/v0.3.37
 [v0.3.36]: https://github.com/atc0005/go-ci/releases/tag/v0.3.36
 [v0.3.35]: https://github.com/atc0005/go-ci/releases/tag/v0.3.35
 [v0.3.34]: https://github.com/atc0005/go-ci/releases/tag/v0.3.34
