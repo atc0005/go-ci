@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.38] - 2021-11-12
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.2.1` to `v0.2.2`
+  - `hadolint/hadolint`
+    - `latest-debian` to `v2.8.0-debian`
+
 ## [v0.3.37] - 2021-11-09
 
 ### Changed
@@ -924,7 +934,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.37...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.38...HEAD
+[v0.3.38]: https://github.com/atc0005/go-ci/releases/tag/v0.3.38
 [v0.3.37]: https://github.com/atc0005/go-ci/releases/tag/v0.3.37
 [v0.3.36]: https://github.com/atc0005/go-ci/releases/tag/v0.3.36
 [v0.3.35]: https://github.com/atc0005/go-ci/releases/tag/v0.3.35
