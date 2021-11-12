@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     container:
-      image: index.docker.io/hadolint/hadolint:latest-debian
+      image: index.docker.io/hadolint/hadolint:v2.8.0-debian
 
     steps:
       - name: Check out code
