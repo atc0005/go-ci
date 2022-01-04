@@ -109,8 +109,8 @@ listing of available container images.
 
 ### `go-ci-unstable`
 
-- built from the latest available non-stable `golang:rc` image *or* if not
-  recently available, the latest stable `golang` image
+- built from the latest available non-stable `golang:beta` image, `golang:rc`
+  image *or* if not recently available, the latest stable `golang` image
   - intended to test whether new Go versions break existing code or surface
     problems in existing code that current Go releases do not
 - used for building Go applications, both directly and via `Makefile` builds
