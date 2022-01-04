@@ -26,6 +26,21 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.3.41] - 2022-01-04
+
+### Changed
+
+- Go versions
+  - Update `go-ci-unstable` from `1.17.5` to `1.18beta1`
+    - NOTE: There are known issues with Go 1.18beta1 and `golangci-lint`. See
+      <https://github.com/golangci/golangci-lint/pull/2438> for additional
+      details.
+
+- README
+  - note that the `unstable` container uses the latest available `beta` or
+    `rc` base image before falling back to mirroring the same base image as
+    the `stable` release
+
 ## [v0.3.40] - 2021-12-10
 
 ### Changed
@@ -962,7 +977,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.40...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.41...HEAD
+[v0.3.41]: https://github.com/atc0005/go-ci/releases/tag/v0.3.41
 [v0.3.40]: https://github.com/atc0005/go-ci/releases/tag/v0.3.40
 [v0.3.39]: https://github.com/atc0005/go-ci/releases/tag/v0.3.39
 [v0.3.38]: https://github.com/atc0005/go-ci/releases/tag/v0.3.38
