@@ -28,6 +28,8 @@ The following types of changes will be recorded in this file:
 
 ## [v0.3.43] - 2022-01-26
 
+### Changed
+
 - Dependencies
   - `golangci/golangci-lint`
     - `v1.43.0` to `v1.44.0`
