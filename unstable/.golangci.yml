@@ -30,6 +30,7 @@ linters:
     - dupl
     - exportloopref
     - errcheck
+    - gochecknoglobals
     - gocognit
     - goconst
     - gocritic
