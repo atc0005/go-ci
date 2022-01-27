@@ -70,13 +70,16 @@ linters-settings:
   gocyclo:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 15
-#
-# Disable govet:fieldalignment, re-enable deprecated maligned linter until the
-# Go team offers more control over the types of checks provided by the
-# fieldalignment linter or golangci-lint does so.
-#
-# See https://github.com/atc0005/go-ci/issues/302 for more information.
-#
-# govet:
-#   enable:
-#     - fieldalignment
+
+  govet:
+    enable-all: true
+
+    #
+    # Disable fieldalignment settings until the Go team offers more control over
+    # the types of checks provided by the fieldalignment linter or golangci-lint
+    # does so.
+    #
+    # See https://github.com/atc0005/go-ci/issues/302 for more information.
+    #
+    disable:
+      - fieldalignment
