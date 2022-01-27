@@ -29,7 +29,6 @@ linters:
     - goerr113
     - gofmt
     - goimports
-    - golint
     - gosec
     - govet
 
@@ -39,6 +38,7 @@ linters:
 
     - misspell
     - prealloc
+    - revive
     - staticcheck
     - stylecheck
     - unconvert
