@@ -22,8 +22,11 @@ linters:
     - dogsled
     - dupl
     - exportloopref
+    - gocognit
     - goconst
     - gocritic
+    - gocyclo
+    - goerr113
     - gofmt
     - goimports
     - golint
