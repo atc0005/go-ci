@@ -26,6 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.4.0] - 2022-01-27
+
+### Added
+
+- Enable `golangci-lint` linters, analyzers
+  - stable image
+    - `gocyclo`
+    - `gocognit`
+    - `goerr113`
+    - `revive`
+  - unstable image
+    - `gochecknoglobals`
+    - `govet`
+      - explicitly disable `fieldalignment` analyzer
+      - enable all other `govet` analyzers
+    - `revive`
+- Remove `golangci-lint` linter
+  - `golint`
+
+### Fixed
+
+- Add missing section header for v0.3.43 release
+
 ## [v0.3.43] - 2022-01-26
 
 ### Changed
@@ -1001,7 +1024,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.3.43...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/atc0005/go-ci/releases/tag/v0.4.0
 [v0.3.43]: https://github.com/atc0005/go-ci/releases/tag/v0.3.43
 [v0.3.42]: https://github.com/atc0005/go-ci/releases/tag/v0.3.42
 [v0.3.41]: https://github.com/atc0005/go-ci/releases/tag/v0.3.41
