@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.18beta1 as builder
+FROM golang:1.18beta2 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
 ENV STATICCHECK_VERSION="v0.2.2"
@@ -26,7 +26,7 @@ RUN go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
 
 
-FROM golang:1.18beta1 as final
+FROM golang:1.18beta2 as final
 
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
 ENV STATICCHECK_VERSION="v0.2.2"
