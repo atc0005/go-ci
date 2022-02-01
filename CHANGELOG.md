@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.4.1] - 2022-02-01
+
+### Changed
+
+- Disable `golangci-lint` linters, analyzers
+  - (GH-494) oldstable, stable images
+    - `gocyclo`
+    - `gocognit`
+    - `goerr113`
+
+- Go versions
+  - Update `go-ci-unstable` from `1.18beta1` to `1.18beta2`
+    - NOTE: There are known issues with pre-releases of Go 1.18 and
+      `golangci-lint`. See
+      <https://github.com/golangci/golangci-lint/pull/2438> for additional
+      details.
+
 ## [v0.4.0] - 2022-01-27
 
 ### Added
@@ -1024,7 +1041,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.4.1...HEAD
+[v0.4.1]: https://github.com/atc0005/go-ci/releases/tag/v0.4.1
 [v0.4.0]: https://github.com/atc0005/go-ci/releases/tag/v0.4.0
 [v0.3.43]: https://github.com/atc0005/go-ci/releases/tag/v0.3.43
 [v0.3.42]: https://github.com/atc0005/go-ci/releases/tag/v0.3.42
