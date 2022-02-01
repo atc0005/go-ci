@@ -22,11 +22,8 @@ linters:
     - dogsled
     - dupl
     - exportloopref
-    - gocognit
     - goconst
     - gocritic
-    - gocyclo
-    - goerr113
     - gofmt
     - goimports
     - gosec
@@ -57,12 +54,3 @@ linters:
 # govet:
 #   enable:
 #     - fieldalignment
-
-linters-settings:
-  gocognit:
-    # minimal code complexity to report, 30 by default (but we recommend 10-20)
-    min-complexity: 10
-
-  gocyclo:
-    # minimal code complexity to report, 30 by default (but we recommend 10-20)
-    min-complexity: 15
