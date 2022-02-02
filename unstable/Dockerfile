@@ -57,15 +57,15 @@ COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 # easily override these files, while projects choosing to use these config
 # files exclusively can omit their copy.
 #
-# These files are copied from the root of this repo alongside this Dockerfile
-# via Makefile `build` recipe. This allows for maintaining a single copy of
-# either file in this repo vs each Dockerfile build "context" having their own
-# separate copy.
-COPY .markdownlint.yml /
-
-# This Dockerfile already has its own copy of the golangci-lint config file.
-# This local copy is manually synced from the main config file in order to
-# enable new checks for all containers, while enabling additional linters for
-# testing prior to enabling for all container variants. See also GH-63.
+# The Markdown linting config file is copied from the root of this repo
+# alongside this Dockerfile via Makefile `build` recipe. This allows for
+# maintaining a single copy of the file in this repo vs each Dockerfile build
+# "context" having their own separate copy.
 #
+# The golangci-clint config file referenced below however IS a unique copy of
+# the file specific to this image. Additional linters for testing (prior to
+# enabling for all container variants) are enabled in this config file.
+# Changes to this file are synced to the main config file periodically once a
+# linter/analyzer has proven stable enough for general use. See also GH-63.
+COPY .markdownlint.yml /
 COPY .golangci.yml /
