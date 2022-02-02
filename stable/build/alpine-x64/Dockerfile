@@ -16,9 +16,10 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-stable-alpine-buildx64"
-LABEL org.opencontainers.image.description="Based on the latest version of the \
-    current (x64) stable golang alpine image. Supports cross-platform, static \
-    cgo-enabled builds for Windows and Linux"
+LABEL org.opencontainers.image.description="Docker container used to build Go code. \
+    Based on the latest version of the current (x64) stable golang alpine \
+    image. Supports cross-platform, static cgo-enabled builds for Windows and \
+    Linux."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # NOTE: This version was different than the base `gcc` pkg when last checked

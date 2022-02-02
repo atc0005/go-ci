@@ -32,16 +32,17 @@ See [our GitHub repo](https://github.com/atc0005/go-ci) for the latest
 content, to file an issue or submit improvements for review and potential
 inclusion into the project.
 
-See [our Docker Hub
-repo](https://hub.docker.com/r/atc0005/go-ci) for the full
-listing of available container images.
+See these container registries for the full listing of available container
+images:
+
+- [GitHub repo](https://github.com/atc0005/go-ci/pkgs/container/go-ci)
+- [Docker Hub repo](https://hub.docker.com/r/atc0005/go-ci)
 
 ## Overview
 
 A mix of GitHub Actions / CI focused Docker containers primarily intended to
 simplify linting/testing/building other Go projects that I maintain. I am
-developing the content in the open in case what I learn here in this project
-is useful to others.
+developing the content in the open in case it is useful to others.
 
 ## Linting tools included
 
@@ -56,9 +57,11 @@ is useful to others.
 
 ## Docker images
 
-See [our Docker Hub
-repo](https://hub.docker.com/r/atc0005/go-ci) for the full
-listing of available container images.
+See these container registries for the full listing of available container
+images:
+
+- [GitHub repo](https://github.com/atc0005/go-ci/pkgs/container/go-ci)
+- [Docker Hub repo](https://hub.docker.com/r/atc0005/go-ci)
 
 ### `go-ci-stable`
 
