@@ -25,7 +25,15 @@ RUN go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
 FROM golangci/golangci-lint:v1.44.0-alpine
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
-LABEL org.opencontainers.image.source=https://github.com/atc0005/go-ci
+LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
+
+# https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
+LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
+LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
+LABEL org.opencontainers.image.title="go-ci-lint-only"
+LABEL org.opencontainers.image.description="Based on current golangci-lint \
+    image. Intended for lightweight testing of iterative branch changes."
+LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # Intended to help identify the versions of the included linting tools
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
