@@ -9,6 +9,9 @@
 
 FROM golang:1.17.6
 
+# https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
+LABEL org.opencontainers.image.source=https://github.com/atc0005/go-ci
+
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
 ENV STATICCHECK_VERSION="v0.2.2"
 ENV HTTPERRORYZER_VERSION="v0.0.1"

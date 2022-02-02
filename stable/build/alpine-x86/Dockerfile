@@ -9,6 +9,9 @@
 
 FROM i386/golang:1.17.6-alpine3.14
 
+# https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
+LABEL org.opencontainers.image.source=https://github.com/atc0005/go-ci
+
 # NOTE: This version was different than the base `gcc` pkg when last checked
 ENV APK_GCC_MINGW64_VERSION="10.3.0-r0"
 

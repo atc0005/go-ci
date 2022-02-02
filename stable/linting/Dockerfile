@@ -24,6 +24,9 @@ RUN go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
 # For CI "linting only" use
 FROM golangci/golangci-lint:v1.44.0-alpine
 
+# https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
+LABEL org.opencontainers.image.source=https://github.com/atc0005/go-ci
+
 # Intended to help identify the versions of the included linting tools
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
 ENV STATICCHECK_VERSION="v0.2.2"
