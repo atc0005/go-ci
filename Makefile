@@ -26,6 +26,8 @@ SHELL = /bin/bash
 
 # https://gist.github.com/TheHippo/7e4d9ec4b7ed4c0d7a39839e6800cc16
 REPO_VERSION 				= $(shell git describe --always --long --dirty)
+LAST_COMMIT					= $(shell git rev-parse HEAD)
+CREATED_TIME				= $(shell date --rfc-3339=seconds --utc)
 
 #DOCKER_IMAGE_REGISTRY 				= docker.pkg.github.com
 DOCKER_IMAGE_REGISTRY 				= registry-1.docker.io
@@ -39,7 +41,9 @@ DOCKER_IMAGE_NAME_STABLE 			= go-ci-stable
 DOCKER_IMAGE_NAME_STABLE_LINT_ONLY	= go-ci-lint-only
 DOCKER_IMAGE_NAME_OLDSTABLE 		= go-ci-oldstable
 DOCKER_IMAGE_NAME_UNSTABLE 			= go-ci-unstable
-DOCKER_IMAGE_LABEL 					= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
+DOCKER_IMAGE_OWNER_LABEL 			= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
+DOCKER_IMAGE_REVISION_LABEL			= org.opencontainers.image.revision="$(LAST_COMMIT)"
+DOCKER_IMAGE_CREATED_LABEL			= org.opencontainers.image.created="$(CREATED_TIME)"
 
 DOCKER_FILES 						= oldstable/Dockerfile \
 										stable/build/alpine-x64/Dockerfile \
@@ -73,8 +77,8 @@ help:
 .PHONY: clean
 ## clean: prune all Docker containers with our labels
 clean:
-	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_LABEL)"
-	@sudo docker image prune --all --force --filter "label=$(DOCKER_IMAGE_LABEL)"
+	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_OWNER_LABEL)"
+	@sudo docker image prune --all --force --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
 
 .PHONY: linting
 ## linting: lint all Dockerfiles
@@ -111,7 +115,9 @@ build:
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):latest \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Building stable-alpine-build.x64 release"
 	sudo docker image build \
@@ -120,7 +126,9 @@ build:
 		stable/build/alpine-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Building stable-alpine-build x86 release"
 	sudo docker image build \
@@ -129,7 +137,9 @@ build:
 		stable/build/alpine-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Building stable-debian-build release"
 	sudo docker image build \
@@ -138,7 +148,9 @@ build:
 		stable/build/debian/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Building stable linting-only release"
 	sudo docker image build \
@@ -147,7 +159,9 @@ build:
 		stable/linting/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Building oldstable release"
 	sudo docker image build \
@@ -156,7 +170,9 @@ build:
 		oldstable/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Building unstable release"
 	sudo docker image build \
@@ -165,7 +181,9 @@ build:
 		unstable/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_LABEL)
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Remove temporary copies of bundled files"
 	@rm -vf {stable,oldstable,unstable}/.markdownlint.yml
@@ -175,7 +193,7 @@ build:
 
 	@echo "Finished building containers"
 
-	@sudo docker image ls --filter "label=$(DOCKER_IMAGE_LABEL)"
+	@sudo docker image ls --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
 
 
 .PHONY: all

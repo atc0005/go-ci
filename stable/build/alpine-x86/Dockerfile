@@ -10,7 +10,16 @@
 FROM i386/golang:1.17.6-alpine3.14
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
-LABEL org.opencontainers.image.source=https://github.com/atc0005/go-ci
+LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
+
+# https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
+LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
+LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
+LABEL org.opencontainers.image.title="go-ci-stable-alpine-buildx86"
+LABEL org.opencontainers.image.description="Based on the latest version of the \
+    current stable i386/golang alpine image. Supports cross-platform, static \
+    cgo-enabled builds for Windows and Linux"
+LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # NOTE: This version was different than the base `gcc` pkg when last checked
 ENV APK_GCC_MINGW64_VERSION="10.3.0-r0"

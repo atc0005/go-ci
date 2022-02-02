@@ -10,7 +10,15 @@
 FROM golang:1.16.13
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
-LABEL org.opencontainers.image.source=https://github.com/atc0005/go-ci
+LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
+
+# https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
+LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
+LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
+LABEL org.opencontainers.image.title="go-ci-oldstable"
+LABEL org.opencontainers.image.description="Based on the latest version \
+    of the current outgoing stable golang image."
+LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
 ENV STATICCHECK_VERSION="v0.2.2"
