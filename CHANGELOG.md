@@ -26,6 +26,22 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.5.0] - 2022-02-03
+
+### Added
+
+- (GH-4) Support uploading to both Docker Hub and GitHub Container Registry
+- (GH-498) Connect GitHub repo to container images using Dockerfile `LABEL`
+- (GH-501) Add additional "Pre-Defined annotation Keys" to Dockerfiles
+
+### Changed
+
+- (GH-503) Expand `clean` Makefile recipe
+
+### Fixed
+
+- (GH-497) Tweak doc comments for linter config files for `unstable` image
+
 ## [v0.4.1] - 2022-02-01
 
 ### Changed
@@ -1041,7 +1057,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.4.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/atc0005/go-ci/releases/tag/v0.5.0
 [v0.4.1]: https://github.com/atc0005/go-ci/releases/tag/v0.4.1
 [v0.4.0]: https://github.com/atc0005/go-ci/releases/tag/v0.4.0
 [v0.3.43]: https://github.com/atc0005/go-ci/releases/tag/v0.3.43
