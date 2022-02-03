@@ -67,12 +67,12 @@ updates:
       time: "02:00"
       timezone: "America/Chicago"
 
-    # Ignore updates from series associated with "stable" container and no
-    # longer supported Go versions.
+    # Ignore updates from series associated with "stable" container image and
+    # no longer supported Go versions.
     ignore:
       - dependency-name: "golang"
         versions:
-          # Greater than or equal to stable container series
+          # Greater than or equal to stable container image series
           - ">= 1.17"
 
           # Less than oldstable series

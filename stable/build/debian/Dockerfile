@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-stable-debian-build"
-LABEL org.opencontainers.image.description="Docker container used to lint, build and test Go code. \
+LABEL org.opencontainers.image.description="Docker container image used to lint, build and test Go code. \
     Based on the latest version of the current stable golang image. Supports static, \
     cgo-enabled builds via mingw."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"

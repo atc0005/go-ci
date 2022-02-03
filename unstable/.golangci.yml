@@ -7,9 +7,9 @@
 
 ###############################################################################
 # NOTE: This is the golangci-lint configuration file *specific* to the
-# "unstable" variant of the containers provided by this project. This
+# "unstable" variant of the container images provided by this project. This
 # configuration (potentially) enables additional linters not used by the other
-# container variants.
+# container image variants.
 ###############################################################################
 
 issues:

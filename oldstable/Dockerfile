@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-oldstable"
-LABEL org.opencontainers.image.description="Docker container used to lint, build and test Go code. \
+LABEL org.opencontainers.image.description="Docker container image used to lint, build and test Go code. \
     Based on the latest version of the current outgoing stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
@@ -48,9 +48,9 @@ RUN apt-get update \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
     && go clean -cache -modcache
 
-# Copy over linting config files to root of container to serve as a default.
-# Projects bringing their own config files (e.g., via GitHub Actions) can
-# easily override these files, while projects choosing to use these config
+# Copy over linting config files to root of container image to serve as a
+# default. Projects bringing their own config files (e.g., via GitHub Actions)
+# can easily override these files, while projects choosing to use these config
 # files exclusively can omit their copy.
 #
 # These files are copied from the root of this repo alongside this Dockerfile

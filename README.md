@@ -33,17 +33,17 @@ See [our GitHub repo](https://github.com/atc0005/go-ci) for the latest
 content, to file an issue or submit improvements for review and potential
 inclusion into the project.
 
-See these container registries for the full listing of available container
-images:
+See these container image registries for the full listing of available images:
 
 - [GitHub repo](https://github.com/atc0005/go-ci/pkgs/container/go-ci)
 - [Docker Hub repo](https://hub.docker.com/r/atc0005/go-ci)
 
 ## Overview
 
-A mix of GitHub Actions / CI focused Docker containers primarily intended to
-simplify linting/testing/building other Go projects that I maintain. I am
-developing the content in the open in case it is useful to others.
+A mix of GitHub Actions / CI focused Docker container images primarily
+intended to simplify linting/testing/building other Go projects that I
+maintain. I am developing the content in the open in case it is useful to
+others.
 
 ## Linting tools included
 
@@ -58,8 +58,7 @@ developing the content in the open in case it is useful to others.
 
 ## Docker images
 
-See these container registries for the full listing of available container
-images:
+See these container image registries for the full listing of available images:
 
 - [GitHub repo](https://github.com/atc0005/go-ci/pkgs/container/go-ci)
 - [Docker Hub repo](https://hub.docker.com/r/atc0005/go-ci)
@@ -132,7 +131,7 @@ images:
 - provides multiple linters
   - see [Linting tools included](#linting-tools-included)
 - used to test new or additional `golangci-lint` linters prior to inclusion in
-  the `stable` and `oldstable` container variants
+  the `stable` and `oldstable` container image variants
   - new linters as a whole may be added to multiple image variants, not just
     this image unless it is suspected that the new linters are highly
     experimental/unstable
@@ -141,7 +140,7 @@ images:
 
 - smaller image
 - uses `golangci/golangci-lint:vX.Y.Z-alpine` image as base
-- created as part of a multi-stage container build
+- created as part of a multi-stage container image build
 - intended for lightweight testing of iterative branch changes
   - e.g., testing or squash/rebase branch work prior to a full suite of checks
     usually associated with Pull Requests

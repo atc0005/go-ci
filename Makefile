@@ -101,15 +101,15 @@ linting:
 	done
 
 .PHONY: build
-## build: build all Docker images
+## build: build all Docker container images
 build:
-	@echo "Building Docker containers"
+	@echo "Building Docker container images"
 
 	@echo "Bundle linter config files to provide baseline default settings"
 	@for version in {oldstable,unstable}; do cp -vf .markdownlint.yml $$version/; done
 	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
 
-	# unstable container has its own copy of this file
+	# unstable container image has its own copy of this file
 	@cp -vf .golangci.yml oldstable/
 	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .golangci.yml $$version/; done
 
@@ -225,10 +225,10 @@ build:
 	@echo "Remove temporary copies of bundled files"
 	@rm -vf {stable,oldstable,unstable}/.markdownlint.yml
 
-	# unstable container has its own copy of this file
+	# unstable container image has its own copy of this file
 	@rm -vf {stable,oldstable}/.golangci.yml
 
-	@echo "Finished building containers"
+	@echo "Finished building Docker container images"
 
 	@sudo docker image ls --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
 
@@ -250,7 +250,7 @@ upload:
 #     $(error GitHub token file does not exist!)
 # endif
 
-	@echo "Uploading container images to $(DOCKER_IMAGE_REGISTRY) ..."
+	@echo "Uploading Docker container images to $(DOCKER_IMAGE_REGISTRY) ..."
 	@cat $(DOCKER_IMAGE_REGISTRY_TOKEN_FILE) | sudo docker login $(DOCKER_IMAGE_REGISTRY) --username atc0005 --password-stdin
 
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86)
@@ -274,10 +274,10 @@ upload:
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)-$(REPO_VERSION)
 
-	@echo "Completed container uploads to $(DOCKER_IMAGE_REGISTRY)"
+	@echo "Completed Docker container image uploads to $(DOCKER_IMAGE_REGISTRY)"
 
 
-	@echo "Uploading container images to $(GITHUB_IMAGE_REGISTRY) ..."
+	@echo "Uploading Docker container images to $(GITHUB_IMAGE_REGISTRY) ..."
 	@cat $(GITHUB_IMAGE_REGISTRY_TOKEN_FILE) | sudo docker login $(GITHUB_IMAGE_REGISTRY) --username atc0005 --password-stdin
 
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86)
@@ -300,4 +300,4 @@ upload:
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)-$(REPO_VERSION)
 
-	@echo "Completed container uploads to $(GITHUB_IMAGE_REGISTRY)"
+	@echo "Completed Docker container image uploads to $(GITHUB_IMAGE_REGISTRY)"

@@ -31,7 +31,7 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-lint-only"
-LABEL org.opencontainers.image.description="Docker container intended for lightweight \
+LABEL org.opencontainers.image.description="Docker image intended for lightweight \
     linting and testing of Go code. Based on current golangci-lint \
     image. Intended for lightweight testing of iterative branch changes."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
@@ -42,9 +42,9 @@ ENV STATICCHECK_VERSION="v0.2.2"
 
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
 
-# Copy over linting config files to root of container to serve as a default.
-# Projects bringing their own config files (e.g., via GitHub Actions) can
-# easily override these files, while projects choosing to use these config
+# Copy over linting config files to root of container image to serve as a
+# default. Projects bringing their own config files (e.g., via GitHub Actions)
+# can easily override these files, while projects choosing to use these config
 # files exclusively can omit their copy.
 #
 # These files are copied from the root of this repo alongside this Dockerfile
