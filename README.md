@@ -18,6 +18,7 @@ Tooling for linting, testing and building Go applications
   - [`go-ci-stable-alpine-buildx86`](#go-ci-stable-alpine-buildx86)
   - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
   - [`go-ci-stable-debian-build`](#go-ci-stable-debian-build)
+  - [`go-ci-stable-mirror-build`](#go-ci-stable-mirror-build)
   - [`go-ci-oldstable`](#go-ci-oldstable)
   - [`go-ci-unstable`](#go-ci-unstable)
   - [`go-ci-lint-only`](#go-ci-lint-only)
@@ -100,6 +101,15 @@ images:
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - provides multiple linters
   - see [Linting tools included](#linting-tools-included)
+
+### `go-ci-stable-mirror-build`
+
+- built from the latest version of the current stable `golang` image.
+- intended to mirror current upstream stable `golang` image for
+  Makefile-driven testing, linting and build tasks.
+- few (if any) customizations are intended for this image, instead relying on
+  a project's Makefile or other build tool to setup the environment for tasks
+  such as testing, linting & building source code
 
 ### `go-ci-oldstable`
 
