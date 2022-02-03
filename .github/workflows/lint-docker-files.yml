@@ -33,5 +33,6 @@ jobs:
           hadolint stable/build/alpine-x64/Dockerfile
           hadolint stable/build/alpine-x86/Dockerfile
           hadolint stable/build/debian/Dockerfile
+          hadolint stable/build/mirror/Dockerfile
           hadolint oldstable/Dockerfile
           hadolint unstable/Dockerfile

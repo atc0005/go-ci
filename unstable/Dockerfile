@@ -35,7 +35,7 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-unstable"
-LABEL org.opencontainers.image.description="Docker container used to lint, build and test Go code. \
+LABEL org.opencontainers.image.description="Docker container image used to lint, build and test Go code. \
     Based on the latest available non-stable golang:beta image, \
     golang:rc image or if not recently available, the latest stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
@@ -64,7 +64,7 @@ COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 
-# Copy over linting config files to root of container to serve as a default.
+# Copy over linting config files to root of  image to serve as a default.
 # Projects bringing their own config files (e.g., via GitHub Actions) can
 # easily override these files, while projects choosing to use these config
 # files exclusively can omit their copy.
@@ -76,7 +76,7 @@ COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 #
 # The golangci-clint config file referenced below however IS a unique copy of
 # the file specific to this image. Additional linters for testing (prior to
-# enabling for all container variants) are enabled in this config file.
+# enabling for all container image variants) are enabled in this config file.
 # Changes to this file are synced to the main config file periodically once a
 # linter/analyzer has proven stable enough for general use. See also GH-63.
 COPY .markdownlint.yml /
