@@ -31,7 +31,8 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-lint-only"
-LABEL org.opencontainers.image.description="Based on current golangci-lint \
+LABEL org.opencontainers.image.description="Docker container intended for lightweight \
+    linting and testing of Go code. Based on current golangci-lint \
     image. Intended for lightweight testing of iterative branch changes."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 

@@ -35,9 +35,9 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-unstable"
-LABEL org.opencontainers.image.description="Based on the latest available \
-    non-stable golang:beta image, golang:rc image or if not recently \
-    available, the latest stable golang image."
+LABEL org.opencontainers.image.description="Docker container used to lint, build and test Go code. \
+    Based on the latest available non-stable golang:beta image, \
+    golang:rc image or if not recently available, the latest stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 ENV GOLANGCI_LINT_VERSION="v1.44.0"
