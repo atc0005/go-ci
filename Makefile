@@ -75,10 +75,13 @@ help:
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed -e 's/^/ /'
 
 .PHONY: clean
-## clean: prune all Docker containers with our labels
+## clean: prune all dangling Docker images and those with our custom "owner" label
 clean:
 	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_OWNER_LABEL)"
 	@sudo docker image prune --all --force --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
+	@echo
+	@echo "Pruning all dangling images"
+	@sudo docker image prune --force
 
 .PHONY: linting
 ## linting: lint all Dockerfiles
