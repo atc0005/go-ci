@@ -178,6 +178,24 @@ updates:
       prefix: "docker"
 
   - package-ecosystem: docker
+    directory: "/stable/build/mirror"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "docker"
+
+  - package-ecosystem: docker
     directory: "/unstable"
     open-pull-requests-limit: 10
     target-branch: "master"
