@@ -42,6 +42,12 @@ The following types of changes will be recorded in this file:
   - Update `go-ci-stable-alpine-buildx64` from `1.17.6-alpine3.14` to
     `1.17.7-alpine3.14`
 
+### Fixed
+
+- (GH-518) ERROR: unable to select packages: `util-linux-2.37.3-r0`: breaks:
+  `world[util-linux=2.37.2-r0]`
+- (GH-520) Inconsistency in image name/title for "upstream mirror" image
+
 ## [v0.6.0] - 2022-02-03
 
 ### Added
