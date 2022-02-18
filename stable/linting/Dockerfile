@@ -37,7 +37,7 @@ LABEL org.opencontainers.image.description="Docker image intended for lightweigh
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # Intended to help identify the versions of the included linting tools
-ENV GOLANGCI_LINT_VERSION="v1.44.0"
+ENV GOLANGCI_LINT_VERSION="v1.44.2"
 ENV STATICCHECK_VERSION="v0.2.2"
 
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
