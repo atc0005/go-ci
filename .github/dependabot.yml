@@ -107,8 +107,7 @@ updates:
     # Ignore all but the most recent stable update.
     ignore:
       - dependency-name: "golang"
-        versions:
-          - ">~1"
+        update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: docker
     directory: "/stable/combined"
@@ -130,8 +129,7 @@ updates:
     # Ignore all but the most recent stable update.
     ignore:
       - dependency-name: "golang"
-        versions:
-          - ">~1"
+        update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x64"
@@ -153,8 +151,7 @@ updates:
     # Ignore all but the most recent stable update.
     ignore:
       - dependency-name: "golang"
-        versions:
-          - ">~1"
+        update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x86"
@@ -176,8 +173,7 @@ updates:
     # Ignore all but the most recent stable update.
     ignore:
       - dependency-name: "golang"
-        versions:
-          - ">~1"
+        update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: docker
     directory: "/stable/build/debian"
@@ -199,8 +195,7 @@ updates:
     # Ignore all but the most recent stable update.
     ignore:
       - dependency-name: "golang"
-        versions:
-          - ">~1"
+        update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: docker
     directory: "/stable/build/mirror"
@@ -222,8 +217,7 @@ updates:
     # Ignore all but the most recent stable update.
     ignore:
       - dependency-name: "golang"
-        versions:
-          - ">~1"
+        update-types: ["version-update:semver-patch"]
 
   - package-ecosystem: docker
     directory: "/unstable"
