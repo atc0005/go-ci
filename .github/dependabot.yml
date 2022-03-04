@@ -104,10 +104,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    # Ignore all but the most recent stable update.
-    ignore:
-      - dependency-name: "golang"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: docker
     directory: "/stable/combined"
@@ -126,10 +122,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    # Ignore all but the most recent stable update.
-    ignore:
-      - dependency-name: "golang"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x64"
@@ -148,10 +140,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    # Ignore all but the most recent stable update.
-    ignore:
-      - dependency-name: "golang"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x86"
@@ -170,10 +158,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    # Ignore all but the most recent stable update.
-    ignore:
-      - dependency-name: "golang"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: docker
     directory: "/stable/build/debian"
@@ -192,10 +176,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    # Ignore all but the most recent stable update.
-    ignore:
-      - dependency-name: "golang"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: docker
     directory: "/stable/build/mirror"
@@ -214,10 +194,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    # Ignore all but the most recent stable update.
-    ignore:
-      - dependency-name: "golang"
-        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: docker
     directory: "/unstable"
