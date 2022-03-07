@@ -82,6 +82,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
@@ -98,6 +100,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
@@ -114,6 +118,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
@@ -130,6 +136,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
@@ -146,6 +154,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
@@ -162,6 +172,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
@@ -178,6 +190,8 @@ updates:
     labels:
       - "dependencies"
       - "CI"
+    allow:
+      - dependency-type: "all"
     commit-message:
       prefix: "docker"
 
