@@ -26,6 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.3] - 2022-03-07
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.17.7` to `1.17.8`
+  - Update `go-ci-oldstable` from `1.16.14` to `1.16.15`
+  - Update `go-ci-lint-only` from `1.17.7` to `1.17.8`
+  - Update `go-ci-stable-mirror-build` from `1.17.7` to `1.17.8`
+  - Update `go-ci-stable-debian-build` from `1.17.7` to `1.17.8`
+  - Update `go-ci-stable-alpine-buildx86` from `1.17.7-alpine3.14` to
+    `1.17.8-alpine3.14`
+  - Update `go-ci-stable-alpine-buildx64` from `1.17.7-alpine3.14` to
+    `1.17.8-alpine3.14`
+
+- Dependencies
+  - `actions/checkout`
+    - `v2.5.1` to `v3`
+  - `actions/setup-node`
+    - `v2.5.1` to `v3`
+  - `fatih/errwrap`
+    - `v1.3.1` to `v1.4.0`
+
 ## [v0.6.2] - 2022-02-18
 
 ### Changed
@@ -1112,7 +1135,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.3...HEAD
+[v0.6.3]: https://github.com/atc0005/go-ci/releases/tag/v0.6.3
 [v0.6.2]: https://github.com/atc0005/go-ci/releases/tag/v0.6.2
 [v0.6.1]: https://github.com/atc0005/go-ci/releases/tag/v0.6.1
 [v0.6.0]: https://github.com/atc0005/go-ci/releases/tag/v0.6.0
