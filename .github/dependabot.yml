@@ -104,6 +104,16 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Temporarily restrict Go updates to just the 1.17 series until
+          # golangci-lint fully supports Go 1.18.
+          #
+          # See https://github.com/atc0005/go-ci/issues/557 for additional
+          # details.
+          - ">= 1.18"
+          - "< 1.17"
 
   - package-ecosystem: docker
     directory: "/stable/combined"
@@ -122,6 +132,16 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Temporarily restrict Go updates to just the 1.17 series until
+          # golangci-lint fully supports Go 1.18.
+          #
+          # See https://github.com/atc0005/go-ci/issues/557 for additional
+          # details.
+          - ">= 1.18"
+          - "< 1.17"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x64"
@@ -140,6 +160,16 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Temporarily restrict Go updates to just the 1.17 series until
+          # golangci-lint fully supports Go 1.18.
+          #
+          # See https://github.com/atc0005/go-ci/issues/557 for additional
+          # details.
+          - ">= 1.18"
+          - "< 1.17"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x86"
@@ -158,6 +188,16 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Temporarily restrict Go updates to just the 1.17 series until
+          # golangci-lint fully supports Go 1.18.
+          #
+          # See https://github.com/atc0005/go-ci/issues/557 for additional
+          # details.
+          - ">= 1.18"
+          - "< 1.17"
 
   - package-ecosystem: docker
     directory: "/stable/build/debian"
@@ -176,6 +216,16 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Temporarily restrict Go updates to just the 1.17 series until
+          # golangci-lint fully supports Go 1.18.
+          #
+          # See https://github.com/atc0005/go-ci/issues/557 for additional
+          # details.
+          - ">= 1.18"
+          - "< 1.17"
 
   - package-ecosystem: docker
     directory: "/stable/build/mirror"
@@ -194,6 +244,16 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Temporarily restrict Go updates to just the 1.17 series until
+          # golangci-lint fully supports Go 1.18.
+          #
+          # See https://github.com/atc0005/go-ci/issues/557 for additional
+          # details.
+          - ">= 1.18"
+          - "< 1.17"
 
   - package-ecosystem: docker
     directory: "/unstable"
