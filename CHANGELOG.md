@@ -44,8 +44,8 @@ The following types of changes will be recorded in this file:
       - upstream `golang:1.17` series is used until golangci-lint fully
         supports Go 1.18
     - Docker image used as a builder/base for `unstable` image
-      - upstream `golang:1.17` series is used until golangci-lint fully
-        supports Go 1.18
+      - builder/base workflow currently used to work around golangci-lint
+        incompatibilities with Go 1.18
 
 ## [v0.6.3] - 2022-03-07
 
