@@ -6,7 +6,7 @@ require (
 	// errwrap - provided as an optional linter
 	github.com/fatih/errwrap v1.4.0
 	// golangci-lint - intended as a primary linter
-	github.com/golangci/golangci-lint v1.44.2
+	github.com/golangci/golangci-lint v1.45.0
 
 	// httperroryzer - provided as an optional linter
 	github.com/orijtech/httperroryzer v0.0.1
