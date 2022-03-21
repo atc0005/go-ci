@@ -22,6 +22,13 @@ issues:
   #   golangci-lint/golangci-lint#413
   exclude-use-default: false
 
+run:
+  # Define the Go version limit.
+  # Mainly related to generics support in go1.18.
+  # Default: 1.17
+  # https://github.com/ldez/golangci-lint/blob/f0554415361234d58065d99d091002d17e816564/.golangci.example.yml
+  go: 1.18
+
 # Reminder: Sort this after every change
 linters:
   enable:
@@ -52,6 +59,23 @@ linters:
     - stylecheck
     - unconvert
 
+  disable:
+    # Incompatible with Go 1.18 (GH-568)
+    - bodyclose
+    - contextcheck
+    - gosimple
+    - nilerr
+    - noctx
+    - rowserrcheck
+    - sqlclosecheck
+    - staticcheck
+    - structcheck
+    - stylecheck
+    - tparallel
+    - unparam
+    - unused
+    - wastedassign
+
 #
 # Disable govet:fieldalignment, re-enable deprecated maligned linter until the
 # Go team offers more control over the types of checks provided by the
@@ -73,13 +97,21 @@ linters-settings:
 
   govet:
     enable-all: true
-
-    #
-    # Disable fieldalignment settings until the Go team offers more control over
-    # the types of checks provided by the fieldalignment linter or golangci-lint
-    # does so.
-    #
-    # See https://github.com/atc0005/go-ci/issues/302 for more information.
-    #
     disable:
+      #
+      # Disable fieldalignment settings until the Go team offers more control over
+      # the types of checks provided by the fieldalignment linter or golangci-lint
+      # does so.
+      #
+      # See https://github.com/atc0005/go-ci/issues/302 for more information.
+      #
       - fieldalignment
+
+      # Incompatible with Go 1.18 (GH-568)
+      - nilness
+      - unusedwrite
+
+  gocritic:
+    disable:
+      # Incompatible with Go 1.18 (GH-568)
+      - hugeParam
