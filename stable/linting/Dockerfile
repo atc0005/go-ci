@@ -11,18 +11,24 @@
 
 # builder image
 # use the same environment as our final image for binary compatibility
-FROM golangci/golangci-lint:v1.45.0-alpine as builder
+# FROM golangci/golangci-lint:v1.45.0-alpine as builder
+FROM golang:1.17.8 as builder
 
+ENV GOLANGCI_LINT_VERSION="v1.45.0"
 ENV STATICCHECK_VERSION="v0.2.2"
 
 # Skip go clean step as the entire image will be tossed after we are finished
 # and cleaning the modules cache takes extra time that won't help the final
 # linting-only image.
 RUN go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
-    && staticcheck --version
+    && staticcheck --version \
+    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
+    && golangci-lint --version
 
 # For CI "linting only" use
-FROM golangci/golangci-lint:v1.45.0-alpine
+# FROM golangci/golangci-lint:v1.45.0-alpine
+FROM golang:1.17.8 as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -40,6 +46,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 ENV GOLANGCI_LINT_VERSION="v1.45.0"
 ENV STATICCHECK_VERSION="v0.2.2"
 
+COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
 
 # Copy over linting config files to root of container image to serve as a
