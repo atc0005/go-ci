@@ -26,6 +26,27 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.4] - 2022-03-21
+
+### Changed
+
+- Go versions
+  - Update `go-ci-unstable` from `1.18rc1` to `1.18.0`
+  - Update `go-ci-lint-only` from `1.17.7` to `1.17.8`
+    - temporarily switch from `golangci/golangci-lint:v1.45.0-alpine` to
+      `golang:1.17` series
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.44.2` to `v1.45.0`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+    - Docker image used as a builder/base for `lint-only` image
+      - upstream `golang:1.17` series is used until golangci-lint fully
+        supports Go 1.18
+    - Docker image used as a builder/base for `unstable` image
+      - upstream `golang:1.17` series is used until golangci-lint fully
+        supports Go 1.18
+
 ## [v0.6.3] - 2022-03-07
 
 ### Changed
@@ -1135,7 +1156,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.3...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.4...HEAD
+[v0.6.4]: https://github.com/atc0005/go-ci/releases/tag/v0.6.4
 [v0.6.3]: https://github.com/atc0005/go-ci/releases/tag/v0.6.3
 [v0.6.2]: https://github.com/atc0005/go-ci/releases/tag/v0.6.2
 [v0.6.1]: https://github.com/atc0005/go-ci/releases/tag/v0.6.1
