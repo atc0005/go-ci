@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.5] - 2022-03-25
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.45.0` to `v1.45.2`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+
+### Fixed
+
+- (GH-572) Update description of `unstable` image
+- (GH-574) Conflicting golangci-lint config file settings for `unstable` image
+- (GH-575) Disable go-critic analyzers incompatible with Go 1.18
+- (GH-581) ERROR: unable to select packages: bash-5.1.16-r0: breaks:
+  world[bash=5.1.4-r0]
+
 ## [v0.6.4] - 2022-03-21
 
 ### Changed
@@ -1156,7 +1173,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.5...HEAD
+[v0.6.5]: https://github.com/atc0005/go-ci/releases/tag/v0.6.5
 [v0.6.4]: https://github.com/atc0005/go-ci/releases/tag/v0.6.4
 [v0.6.3]: https://github.com/atc0005/go-ci/releases/tag/v0.6.3
 [v0.6.2]: https://github.com/atc0005/go-ci/releases/tag/v0.6.2
