@@ -14,7 +14,7 @@
 # FROM golangci/golangci-lint:v1.45.0-alpine as builder
 FROM golang:1.17.8 as builder
 
-ENV GOLANGCI_LINT_VERSION="v1.45.0"
+ENV GOLANGCI_LINT_VERSION="v1.45.2"
 ENV STATICCHECK_VERSION="v0.2.2"
 
 # Skip go clean step as the entire image will be tossed after we are finished
@@ -43,7 +43,7 @@ LABEL org.opencontainers.image.description="Docker image intended for lightweigh
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # Intended to help identify the versions of the included linting tools
-ENV GOLANGCI_LINT_VERSION="v1.45.0"
+ENV GOLANGCI_LINT_VERSION="v1.45.2"
 ENV STATICCHECK_VERSION="v0.2.2"
 
 COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
