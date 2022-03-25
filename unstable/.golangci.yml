@@ -55,7 +55,9 @@ linters:
     - misspell
     - prealloc
     - revive
-    - staticcheck
+
+    # Incompatible with Go 1.18 (GH-568)
+    # - staticcheck
     - stylecheck
     - unconvert
 
