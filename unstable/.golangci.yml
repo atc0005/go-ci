@@ -117,3 +117,5 @@ linters-settings:
     disable:
       # Incompatible with Go 1.18 (GH-568)
       - hugeParam
+      - rangeValCopy
+      - typeDefFirst
