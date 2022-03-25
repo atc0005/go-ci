@@ -24,7 +24,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # NOTE: This version was different than the base `gcc` pkg when last checked
 ENV APK_GCC_MINGW64_VERSION="10.3.0-r0"
 
-ENV APK_BASH_VERSION="5.1.4-r0"
+ENV APK_BASH_VERSION="5.1.16-r0"
 ENV APK_GCC_VERSION="10.3.1_git20210424-r2"
 ENV APK_GIT_VERSION="2.32.0-r0"
 ENV APK_MAKE_VERSION="4.3-r0"
