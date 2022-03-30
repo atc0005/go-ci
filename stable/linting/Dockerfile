@@ -21,7 +21,7 @@ ENV STATICCHECK_VERSION="v0.3.0"
 # and cleaning the modules cache takes extra time that won't help the final
 # linting-only image.
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
-    go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+    && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version \
     && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
