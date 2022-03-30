@@ -44,6 +44,7 @@ The following types of changes will be recorded in this file:
 - (GH-588) Makefile `build` recipe for `oldstable` image fails to build with
   `pkg/mod/honnef.co/go/tools@v0.3.0/go/ir/builder.go:36:2: //go:build comment
   without // +build comment`
+- (GH-593) Fix broken chained RUN directive
 
 ## [v0.6.5] - 2022-03-25
 
