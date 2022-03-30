@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.6] - 2022-03-30
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.2.2` to `v0.3.0`
+
+### Fixed
+
+- (GH-583) Conflicting golangci-lint config file settings for `unstable` image
+
 ## [v0.6.5] - 2022-03-25
 
 ### Changed
@@ -1173,7 +1185,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.6...HEAD
+[v0.6.6]: https://github.com/atc0005/go-ci/releases/tag/v0.6.6
 [v0.6.5]: https://github.com/atc0005/go-ci/releases/tag/v0.6.5
 [v0.6.4]: https://github.com/atc0005/go-ci/releases/tag/v0.6.4
 [v0.6.3]: https://github.com/atc0005/go-ci/releases/tag/v0.6.3
