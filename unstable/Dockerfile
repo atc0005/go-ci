@@ -16,13 +16,19 @@ ENV STRUCTSLOP_VERSION="v0.0.6"
 ENV TOMLL_VERSION="v1.9.4"
 ENV ERRWRAP_VERSION="v1.4.0"
 
-RUN go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
+    && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version \
+    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
     && go install github.com/golangci/golangci-lint/cmd/golangci-lint@${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version \
+    && echo "Installing httperroryzer@${HTTPERRORYZER_VERSION}" \
     && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
+    && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
     && go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
+    && echo "Installing tomll@${TOMLL_VERSION}" \
     && go install github.com/pelletier/go-toml/cmd/tomll@${TOMLL_VERSION} \
+    && echo "Installing errwrap@${ERRWRAP_VERSION}" \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
 
 
