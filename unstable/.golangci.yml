@@ -58,7 +58,7 @@ linters:
 
     # Incompatible with Go 1.18 (GH-568)
     # - staticcheck
-    - stylecheck
+    # - stylecheck
     - unconvert
 
   disable:
