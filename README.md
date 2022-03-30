@@ -47,14 +47,14 @@ others.
 
 ## Linting tools included
 
-| Linter                                                                | Version               |
-| --------------------------------------------------------------------- | --------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1.2` (`v0.2.2`) |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.45.2`             |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`              |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`              |
-| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.9.4`              |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`              |
+| Linter                                                                | Version             |
+| --------------------------------------------------------------------- | ------------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1` (`v0.3.0`) |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.45.2`           |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`            |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`            |
+| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.9.4`            |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`            |
 
 ## Docker images
 
