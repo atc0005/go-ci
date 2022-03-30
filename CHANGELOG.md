@@ -33,10 +33,17 @@ The following types of changes will be recorded in this file:
 - Dependencies
   - `honnef.co/go/tools` (`staticcheck`)
     - `v0.2.2` to `v0.3.0`
+      - `oldstable` image (based on Go `1.16` base image) remains at `v0.2.2`
+        due to incompatibility with `v0.3.0` and newer
+
+- (GH-590) Add debugging output for tooling installation
 
 ### Fixed
 
 - (GH-583) Conflicting golangci-lint config file settings for `unstable` image
+- (GH-588) Makefile `build` recipe for `oldstable` image fails to build with
+  `pkg/mod/honnef.co/go/tools@v0.3.0/go/ir/builder.go:36:2: //go:build comment
+  without // +build comment`
 
 ## [v0.6.5] - 2022-03-25
 
