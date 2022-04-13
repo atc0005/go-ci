@@ -26,6 +26,33 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.7] - 2022-04-13
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.17.8` to `1.17.9`
+  - Update `go-ci-unstable` from `1.18.0` to `1.18.1`
+  - NOTE: No changes to `go-ci-oldstable`
+    - still using `1.16.15` until atc0005/go-ci#557 is resolved
+  - Update `go-ci-lint-only` from `1.17.8` to `1.17.9`
+    - continue to use `golang:1.17` series in place of
+      `golangci/golangci-lint:vX.Y.Z-alpine` series until atc0005/go-ci#557
+      is resolved
+  - Update `go-ci-stable-mirror-build` from `1.17.8` to `1.17.9`
+  - Update `go-ci-stable-debian-build` from `1.17.8` to `1.17.9`
+  - Update `go-ci-stable-alpine-buildx86` from `1.17.8-alpine3.14` to
+    `1.17.9-alpine3.14`
+  - Update `go-ci-stable-alpine-buildx64` from `1.17.8-alpine3.14` to
+    `1.17.9-alpine3.14`
+
+### Fixed
+
+- (GH-603) ERROR: unable to select packages: `git-2.32.1-r0`: breaks:
+  `world[git=2.32.0-r0]`
+- (GH-605) Dependabot incorrectly updated `i386/golang` from
+  `1.17.8-alpine3.14` to `1.18.1-alpine3.14` in `/stable/build/alpine-x86`
+
 ## [v0.6.6] - 2022-03-30
 
 ### Changed
@@ -1193,7 +1220,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.6...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.7...HEAD
+[v0.6.7]: https://github.com/atc0005/go-ci/releases/tag/v0.6.7
 [v0.6.6]: https://github.com/atc0005/go-ci/releases/tag/v0.6.6
 [v0.6.5]: https://github.com/atc0005/go-ci/releases/tag/v0.6.5
 [v0.6.4]: https://github.com/atc0005/go-ci/releases/tag/v0.6.4
