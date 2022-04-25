@@ -22,7 +22,7 @@ LABEL org.opencontainers.image.description="Docker container image used to lint,
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 ENV GOLANGCI_LINT_VERSION="v1.45.2"
-ENV STATICCHECK_VERSION="v0.3.0"
+ENV STATICCHECK_VERSION="v0.3.1"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.6"
 ENV TOMLL_VERSION="v1.9.4"
