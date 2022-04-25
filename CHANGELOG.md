@@ -26,6 +26,22 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.8] - 2022-04-25
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.3.0` to `v0.3.1`
+      - `oldstable` image (based on Go `1.16` base image) remains at `v0.2.2`
+        due to incompatibility with `v0.3.0` and newer
+  - `pelletier/go-toml`
+    - `v1.9.4` to `v1.9.5`
+
+### Fixed
+
+- (GH-609) Dependabot ignores version constraint for i386 Docker image
+
 ## [v0.6.7] - 2022-04-13
 
 ### Changed
@@ -1220,7 +1236,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.8...HEAD
+[v0.6.8]: https://github.com/atc0005/go-ci/releases/tag/v0.6.8
 [v0.6.7]: https://github.com/atc0005/go-ci/releases/tag/v0.6.7
 [v0.6.6]: https://github.com/atc0005/go-ci/releases/tag/v0.6.6
 [v0.6.5]: https://github.com/atc0005/go-ci/releases/tag/v0.6.5
