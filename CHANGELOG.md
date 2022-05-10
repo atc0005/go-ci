@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.9] - 2022-05-10
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.45.2` to `v1.46.0`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+  - `pelletier/go-toml`
+    - `v1.9.5` to `v2.0.0`
+
+- (GH-622) Enable staticcheck linter in `unstable` Go 1.18 image
+
 ## [v0.6.8] - 2022-04-25
 
 ### Changed
@@ -1236,7 +1249,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.8...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.9...HEAD
+[v0.6.9]: https://github.com/atc0005/go-ci/releases/tag/v0.6.9
 [v0.6.8]: https://github.com/atc0005/go-ci/releases/tag/v0.6.8
 [v0.6.7]: https://github.com/atc0005/go-ci/releases/tag/v0.6.7
 [v0.6.6]: https://github.com/atc0005/go-ci/releases/tag/v0.6.6
