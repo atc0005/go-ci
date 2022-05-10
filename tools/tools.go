@@ -1,3 +1,4 @@
+//go:build tools
 // +build tools
 
 package tools
@@ -13,6 +14,6 @@ import (
 	_ "github.com/golangci/golangci-lint/pkg/config"
 	_ "github.com/orijtech/httperroryzer"
 	_ "github.com/orijtech/structslop"
-	_ "github.com/pelletier/go-toml"
+	_ "github.com/pelletier/go-toml/v2"
 	_ "honnef.co/go/tools/config"
 )
