@@ -54,7 +54,7 @@ others.
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.46.0`                                                |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                 |
 | [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`                                                 |
-| [`pelletier/go-toml/cmd/tomll`](https://github.com/pelletier/go-toml) | `v1.9.5`                                                 |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.0`                                                 |
 | [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`                                                 |
 
 ## Docker images

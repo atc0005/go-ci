@@ -24,7 +24,7 @@ ENV GOLANGCI_LINT_VERSION="v1.46.0"
 ENV STATICCHECK_VERSION="v0.3.1"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.6"
-ENV TOMLL_VERSION="v1.9.5"
+ENV TOMLL_VERSION="v2.0.0"
 ENV ERRWRAP_VERSION="v1.4.0"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
@@ -49,7 +49,7 @@ RUN apt-get update \
     && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
     && go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
     && echo "Installing tomll@${TOMLL_VERSION}" \
-    && go install github.com/pelletier/go-toml/cmd/tomll@${TOMLL_VERSION} \
+    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
     && echo "Installing errwrap@${ERRWRAP_VERSION}" \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
     && go clean -cache -modcache
