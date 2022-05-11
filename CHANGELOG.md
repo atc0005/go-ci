@@ -26,6 +26,30 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.10] - 2022-05-11
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.17.9` to `1.17.10`
+  - Update `go-ci-unstable` from `1.18.1` to `1.18.2`
+  - NOTE: No changes to `go-ci-oldstable`
+    - still using `1.16.15` until atc0005/go-ci#557 is resolved
+  - Update `go-ci-lint-only` from `1.17.9` to `1.17.10`
+    - continue to use `golang:1.17` series in place of
+      `golangci/golangci-lint:vX.Y.Z-alpine` series until atc0005/go-ci#557
+      is resolved
+  - Update `go-ci-stable-mirror-build` from `1.17.9` to `1.17.10`
+  - Update `go-ci-stable-debian-build` from `1.17.9` to `1.17.10`
+  - Update `go-ci-stable-alpine-buildx86` from `1.17.9-alpine3.14` to
+    `1.17.10-alpine3.14`
+  - Update `go-ci-stable-alpine-buildx64` from `1.17.9-alpine3.14` to
+    `1.17.10-alpine3.14`
+
+- Dependencies
+  - `pelletier/go-toml`
+    - `v2.0.0` to `v2.0.1`
+
 ## [v0.6.9] - 2022-05-10
 
 ### Changed
@@ -1249,7 +1273,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.9...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.10...HEAD
+[v0.6.10]: https://github.com/atc0005/go-ci/releases/tag/v0.6.10
 [v0.6.9]: https://github.com/atc0005/go-ci/releases/tag/v0.6.9
 [v0.6.8]: https://github.com/atc0005/go-ci/releases/tag/v0.6.8
 [v0.6.7]: https://github.com/atc0005/go-ci/releases/tag/v0.6.7
