@@ -51,7 +51,7 @@ others.
 | --------------------------------------------------------------------- | -------------------------------------------------------- |
 | [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.1` (`v0.3.1`) for `unstable` and `stable` images |
 | [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1.2` (`v0.2.2`) for `oldstable` image              |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.46.0`                                                |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.46.1`                                                |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                 |
 | [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`                                                 |
 | [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.1`                                                 |
