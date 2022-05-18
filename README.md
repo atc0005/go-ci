@@ -49,7 +49,7 @@ others.
 
 | Linter                                                                | Version                                                  |
 | --------------------------------------------------------------------- | -------------------------------------------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.1` (`v0.3.1`) for `unstable` and `stable` images |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.2` (`v0.3.2`) for `unstable` and `stable` images |
 | [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2021.1.2` (`v0.2.2`) for `oldstable` image              |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.46.2`                                                |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                 |
