@@ -18,6 +18,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.1
 
 	// staticcheck - intended as a primary linter
-	honnef.co/go/tools v0.3.1
+	honnef.co/go/tools v0.3.2
 
 )
