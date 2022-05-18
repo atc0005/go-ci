@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.12] - 2022-05-18
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.46.1` to `v1.46.2`
+    - binary installed within `oldstable`, `stable` and `unstable` images
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.3.1` to `v0.3.2`
+      - `oldstable` image (based on Go `1.16` base image) remains at `v0.2.2`
+        due to incompatibility with `v0.3.0` and newer
+
 ## [v0.6.11] - 2022-05-13
 
 ### Changed
@@ -1282,7 +1295,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.11...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.12...HEAD
+[v0.6.12]: https://github.com/atc0005/go-ci/releases/tag/v0.6.12
 [v0.6.11]: https://github.com/atc0005/go-ci/releases/tag/v0.6.11
 [v0.6.10]: https://github.com/atc0005/go-ci/releases/tag/v0.6.10
 [v0.6.9]: https://github.com/atc0005/go-ci/releases/tag/v0.6.9
