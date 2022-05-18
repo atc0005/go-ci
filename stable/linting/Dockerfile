@@ -15,7 +15,7 @@
 FROM golang:1.17.10 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.46.2"
-ENV STATICCHECK_VERSION="v0.3.1"
+ENV STATICCHECK_VERSION="v0.3.2"
 
 # Skip go clean step as the entire image will be tossed after we are finished
 # and cleaning the modules cache takes extra time that won't help the final
@@ -46,7 +46,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # Intended to help identify the versions of the included linting tools
 ENV GOLANGCI_LINT_VERSION="v1.46.2"
-ENV STATICCHECK_VERSION="v0.3.1"
+ENV STATICCHECK_VERSION="v0.3.2"
 
 COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
