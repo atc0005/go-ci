@@ -56,10 +56,7 @@ linters:
     - prealloc
     - revive
     - staticcheck
-
-    # Incompatible with Go 1.18 (GH-568)
-    # https://github.com/golangci/golangci-lint/issues/2649
-    # - stylecheck
+    - stylecheck
     - unconvert
 
   disable:
@@ -67,16 +64,13 @@ linters:
     # https://github.com/golangci/golangci-lint/issues/2649
     - bodyclose
     - contextcheck
-    - gosimple
     - nilerr
     - noctx
     - rowserrcheck
     - sqlclosecheck
     - structcheck
-    - stylecheck
     - tparallel
     - unparam
-    - unused
     - wastedassign
 
 #
