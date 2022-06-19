@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.18.3 as builder
+FROM golang:1.19beta1 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.46.2"
 ENV STATICCHECK_VERSION="v0.3.2"
@@ -32,7 +32,7 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
 
 
-FROM golang:1.18.3 as final
+FROM golang:1.19beta1 as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -70,9 +70,9 @@ COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 
-# Copy over linting config files to root of  image to serve as a default.
-# Projects bringing their own config files (e.g., via GitHub Actions) can
-# easily override these files, while projects choosing to use these config
+# Copy over linting config files to root of container image to serve as a
+# default. Projects bringing their own config files (e.g., via GitHub Actions)
+# can easily override these files, while projects choosing to use these config
 # files exclusively can omit their copy.
 #
 # The Markdown linting config file is copied from the root of this repo

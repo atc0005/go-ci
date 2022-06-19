@@ -27,8 +27,6 @@ run:
   # Mainly related to generics support in go1.18.
   # Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.17
   # https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
-  #
-  # TODO: Update to 1.19 as soon as the value is supported by golangci-lint
   go: "1.18"
 
 # Reminder: Sort this after every change
