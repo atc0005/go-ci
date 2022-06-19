@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.16.15
+FROM golang:1.17.11
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -58,10 +58,5 @@ RUN apt-get update \
 # default. Projects bringing their own config files (e.g., via GitHub Actions)
 # can easily override these files, while projects choosing to use these config
 # files exclusively can omit their copy.
-#
-# These files are copied from the root of this repo alongside this Dockerfile
-# via Makefile `build` recipe. This allows for maintaining a single copy of
-# either file in this repo vs each Dockerfile build "context" having their own
-# separate copy.
 COPY .markdownlint.yml /
 COPY .golangci.yml /

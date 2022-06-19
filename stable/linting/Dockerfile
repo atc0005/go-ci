@@ -12,7 +12,7 @@
 # builder image
 # use the same environment as our final image for binary compatibility
 # FROM golangci/golangci-lint:v1.45.0-alpine as builder
-FROM golang:1.17.11 as builder
+FROM golang:1.18.3 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.46.2"
 ENV STATICCHECK_VERSION="v0.3.2"
@@ -30,7 +30,7 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
 
 # For CI "linting only" use
 # FROM golangci/golangci-lint:v1.45.0-alpine
-FROM golang:1.17.11 as final
+FROM golang:1.18.3 as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -52,13 +52,17 @@ COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
 
 # Copy over linting config files to root of container image to serve as a
-# default. Projects bringing their own config files (e.g., via GitHub Actions)
-# can easily override these files, while projects choosing to use these config
-# files exclusively can omit their copy.
+# default. The Makefile copies in these files as Docker requires that the
+# source path for the files be inside the context of the build.
 #
-# These files are copied from the root of this repo alongside this Dockerfile
-# via Makefile `build` recipe. This allows for maintaining a single copy of
-# either file in this repo vs each Dockerfile build "context" having their own
-# separate copy.
+# From the official documentation:
+#
+# "you cannot COPY ../something /something, because the first step of a docker
+# build is to send the context directory (and subdirectories) to the docker
+# daemon.""
+#
+# Projects bringing their own config files (e.g., via GitHub Actions) can
+# easily override these files, while projects choosing to use these config
+# files exclusively can omit their copy.
 COPY .markdownlint.yml /
 COPY .golangci.yml /

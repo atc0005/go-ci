@@ -88,6 +88,10 @@ clean:
 	@echo
 	@echo "Pruning all dangling images"
 	@sudo docker image prune --force
+	@echo
+	@ echo "Removing temporary copies of linter config files"
+	@rm -vf {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}/.markdownlint.yml
+	@rm -vf {stable/linting,stable/combined,stable/build/debian}/.golangci.yml
 
 .PHONY: linting
 ## linting: lint all Dockerfiles
@@ -106,12 +110,12 @@ build:
 	@echo "Building Docker container images"
 
 	@echo "Bundle linter config files to provide baseline default settings"
-	@for version in {oldstable,unstable}; do cp -vf .markdownlint.yml $$version/; done
-	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
+	@for version in {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
 
-	# unstable container image has its own copy of this file
-	@cp -vf .golangci.yml oldstable/
-	@for version in {stable/linting,stable/combined,stable/build/alpine-x64,stable/build/alpine-x86,stable/build/debian}; do cp -vf .golangci.yml $$version/; done
+	# unstable container image has its own copy of the .golangci.yml file
+	# oldstable container image has its own copy of the .golangci.yml file
+	# stable container images share a copy of the .golangci.yml file
+	@for version in {stable/linting,stable/combined,stable/build/debian}; do cp -vf stable/.golangci.yml $$version/; done
 
 	@echo "List Docker version"
 	@docker version
@@ -223,10 +227,12 @@ build:
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 
 	@echo "Remove temporary copies of bundled files"
-	@rm -vf {stable,oldstable,unstable}/.markdownlint.yml
+	@rm -vf {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}/.markdownlint.yml
 
 	# unstable container image has its own copy of this file
-	@rm -vf {stable,oldstable}/.golangci.yml
+	# oldstable container image has its own copy of this file
+	# stable variants share a copy of this file
+	@rm -vf {stable/linting,stable/combined,stable/build/debian}/.golangci.yml
 
 	@echo "Finished building Docker container images"
 
