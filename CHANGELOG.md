@@ -33,7 +33,7 @@ The following types of changes will be recorded in this file:
 - Go versions
   - Update `go-ci-stable` from `1.17.11` to `1.18.3`
   - Update `go-ci-unstable` from `1.18.3` to `1.19beta1`
-  - Update `go-ci-oldstable` `1.16.15` to `1.17.11`
+  - Update `go-ci-oldstable` from `1.16.15` to `1.17.11`
   - Update `go-ci-lint-only` from `1.17.11` to `1.18.3`
   - Update `go-ci-stable-mirror-build` from `1.17.11` to `1.18.3`
   - Update `go-ci-stable-debian-build` from `1.17.11` to `1.18.3`
