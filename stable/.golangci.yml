@@ -36,13 +36,8 @@ linters:
     - dogsled
     - dupl
     - exportloopref
-    - errcheck
-    - gochecknoglobals
-    - gocognit
     - goconst
     - gocritic
-    - gocyclo
-    - goerr113
     - gofmt
     - goimports
     - gosec
@@ -84,14 +79,6 @@ linters:
 #   - maligned
 
 linters-settings:
-  gocognit:
-    # minimal code complexity to report, 30 by default (but we recommend 10-20)
-    min-complexity: 10
-
-  gocyclo:
-    # minimal code complexity to report, 30 by default (but we recommend 10-20)
-    min-complexity: 15
-
   govet:
     enable-all: true
     disable:
