@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.15] - 2022-06-20
+
+### Fixed
+
+- (GH-665) Add missing "from" to CHANGELOG entry
+- (GH-666) `stable` containers unintentionally enable *all* `govet` analyzers
+
 ## [v0.6.14] - 2022-06-20
 
 ### Changed
@@ -1339,7 +1346,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.14...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.15...HEAD
+[v0.6.15]: https://github.com/atc0005/go-ci/releases/tag/v0.6.15
 [v0.6.14]: https://github.com/atc0005/go-ci/releases/tag/v0.6.14
 [v0.6.13]: https://github.com/atc0005/go-ci/releases/tag/v0.6.13
 [v0.6.12]: https://github.com/atc0005/go-ci/releases/tag/v0.6.12
