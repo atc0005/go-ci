@@ -5,13 +5,6 @@
 # Licensed under the MIT License. See LICENSE file in the project root for
 # full license information.
 
-###############################################################################
-# NOTE: This is the golangci-lint configuration file *specific* to the
-# "unstable" variant of the container images provided by this project. This
-# configuration (potentially) enables additional linters not used by the other
-# container image variants.
-###############################################################################
-
 issues:
   # equivalent CLI flag: --exclude-use-default
   #
@@ -80,7 +73,14 @@ linters:
 
 linters-settings:
   govet:
-    enable-all: true
+    # Wait until after Go 1.19 is out and/or I have sufficient time to update
+    # projects dependent on these containers.
+    #
+    # See also:
+    #
+    # https://github.com/atc0005/go-ci/issues/666
+    #
+    # enable-all: true
     disable:
       #
       # Disable fieldalignment settings until the Go team offers more control over
