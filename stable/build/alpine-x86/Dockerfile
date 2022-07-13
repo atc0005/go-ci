@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM i386/golang:1.18.3-alpine3.16
+FROM i386/golang:1.18.4-alpine3.16
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -26,7 +26,7 @@ ENV APK_GCC_MINGW64_VERSION="11.3.0-r0"
 
 ENV APK_BASH_VERSION="5.1.16-r2"
 ENV APK_GCC_VERSION="11.2.1_git20220219-r2"
-ENV APK_GIT_VERSION="2.36.1-r0"
+ENV APK_GIT_VERSION="2.36.2-r0"
 ENV APK_MAKE_VERSION="4.3-r0"
 ENV APK_UTIL_LINUX_VERSION="2.38-r1"
 ENV APK_FILE_VERSION="5.41-r0"
