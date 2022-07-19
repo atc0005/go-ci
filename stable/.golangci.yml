@@ -47,20 +47,6 @@ linters:
     - stylecheck
     - unconvert
 
-  disable:
-    # Incompatible with Go 1.18 (GH-568)
-    # https://github.com/golangci/golangci-lint/issues/2649
-    - bodyclose
-    - contextcheck
-    - nilerr
-    - noctx
-    - rowserrcheck
-    - sqlclosecheck
-    - structcheck
-    - tparallel
-    - unparam
-    - wastedassign
-
 #
 # Disable govet:fieldalignment, re-enable deprecated maligned linter until the
 # Go team offers more control over the types of checks provided by the
