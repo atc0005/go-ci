@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.19rc2 as builder
+FROM golang:1.19.0 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.47.2"
 ENV STATICCHECK_VERSION="v0.3.2"
@@ -32,7 +32,7 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
 
 
-FROM golang:1.19rc2 as final
+FROM golang:1.19.0 as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
