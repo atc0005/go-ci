@@ -26,6 +26,14 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.22] - 2022-08-15
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.48.0` to `v1.47.3`
+
 ## [v0.6.21] - 2022-08-09
 
 ### Changed
@@ -1427,7 +1435,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.21...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.22...HEAD
+[v0.6.22]: https://github.com/atc0005/go-ci/releases/tag/v0.6.22
 [v0.6.21]: https://github.com/atc0005/go-ci/releases/tag/v0.6.21
 [v0.6.20]: https://github.com/atc0005/go-ci/releases/tag/v0.6.20
 [v0.6.19]: https://github.com/atc0005/go-ci/releases/tag/v0.6.19
