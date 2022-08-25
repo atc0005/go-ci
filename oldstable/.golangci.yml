@@ -18,9 +18,9 @@ issues:
 run:
   # Define the Go version limit.
   # Mainly related to generics support in go1.18.
-  # Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.17
+  # Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.18
   # https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
-  go: "1.17"
+  go: "1.18"
 
 # Reminder: Sort this after every change
 linters:
@@ -46,18 +46,55 @@ linters:
     - staticcheck
     - stylecheck
     - unconvert
+
+  disable:
+    # Incompatible with Go 1.18 (GH-568, GH-681)
+    # https://github.com/golangci/golangci-lint/issues/2649
+    - rowserrcheck
+    - sqlclosecheck
+    - structcheck
+    - wastedassign
+
 #
-# Disable fieldalignment settings until the Go team offers more control over
-# the types of checks provided by the fieldalignment linter or golangci-lint
-# does so.
+# Disable govet:fieldalignment, re-enable deprecated maligned linter until the
+# Go team offers more control over the types of checks provided by the
+# fieldalignment linter or golangci-lint does so.
 #
 # See https://github.com/atc0005/go-ci/issues/302 for more information.
 #
-
 # disable:
-# - maligned
+#   - maligned
 
-# linters-settings:
-# govet:
-#   enable:
-#     - fieldalignment
+linters-settings:
+  govet:
+    # Wait until after Go 1.19 is out and/or I have sufficient time to update
+    # projects dependent on these containers.
+    #
+    # See also:
+    #
+    # https://github.com/atc0005/go-ci/issues/666
+    #
+    # enable-all: true
+    disable:
+      #
+      # Disable fieldalignment settings until the Go team offers more control over
+      # the types of checks provided by the fieldalignment linter or golangci-lint
+      # does so.
+      #
+      # See https://github.com/atc0005/go-ci/issues/302 for more information.
+      #
+      - fieldalignment
+
+      # Incompatible with Go 1.18 (GH-568)
+      # https://github.com/golangci/golangci-lint/issues/2649
+      - nilness
+      - unusedwrite
+
+  gocritic:
+    disable:
+      # Incompatible with Go 1.18 (GH-568)
+      # https://github.com/golangci/golangci-lint/issues/2649
+      - hugeParam
+      - rangeValCopy
+      - typeDefFirst
+      - paramTypeCombine
