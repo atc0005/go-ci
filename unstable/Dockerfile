@@ -9,7 +9,7 @@
 
 FROM golang:1.19.0 as builder
 
-ENV GOLANGCI_LINT_VERSION="v1.47.3"
+ENV GOLANGCI_LINT_VERSION="v1.49.0"
 ENV STATICCHECK_VERSION="v0.3.3"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.6"
@@ -46,7 +46,7 @@ LABEL org.opencontainers.image.description="Docker container image used to lint,
     golang:rc image or if not recently available, the latest stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
-ENV GOLANGCI_LINT_VERSION="v1.47.3"
+ENV GOLANGCI_LINT_VERSION="v1.49.0"
 ENV STATICCHECK_VERSION="v0.3.3"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.6"
