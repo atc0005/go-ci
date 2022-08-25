@@ -1,7 +1,7 @@
 module github.com/atc0005/go-ci/tools
 
 // Use the current stable Go version
-go 1.18
+go 1.19
 
 require (
 	// errwrap - provided as an optional linter
