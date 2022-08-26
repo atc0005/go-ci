@@ -26,6 +26,22 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.24] - 2022-08-26
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.3.2` to `v0.3.3`
+      - `oldstable` image
+  - `pelletier/go-toml`
+    - `v2.0.3` to `v2.0.4`
+
+### Fixed
+
+- (GH-711) Outdated `staticcheck` version (v0.2.2) fails to run in `oldstable`
+  image
+
 ## [v0.6.23] - 2022-08-25
 
 ### Changed
@@ -1456,7 +1472,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.23...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.24...HEAD
+[v0.6.24]: https://github.com/atc0005/go-ci/releases/tag/v0.6.24
 [v0.6.23]: https://github.com/atc0005/go-ci/releases/tag/v0.6.23
 [v0.6.22]: https://github.com/atc0005/go-ci/releases/tag/v0.6.22
 [v0.6.21]: https://github.com/atc0005/go-ci/releases/tag/v0.6.21
