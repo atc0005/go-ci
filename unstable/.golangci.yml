@@ -22,12 +22,12 @@ issues:
   #   golangci-lint/golangci-lint#413
   exclude-use-default: false
 
-run:
-  # Define the Go version limit.
-  # Mainly related to generics support in go1.18.
-  # Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.18
-  # https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
-  go: "1.19"
+# run:
+# Define the Go version limit.
+# Mainly related to generics support in go1.18.
+# Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.18
+# https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
+# go: "1.19"
 
 # Reminder: Sort this after every change
 linters:
