@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.6.25] - 2022-09-04
+
+### Changed
+
+- Dependencies
+  - `pelletier/go-toml`
+    - `v2.0.4` to `v2.0.5`
+
+### Fixed
+
+- (GH-716) Explicitly setting Go version for golangci-lint causes issues with
+  projects using deprecated Go versions
+
 ## [v0.6.24] - 2022-08-26
 
 ### Changed
@@ -1472,7 +1485,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.24...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.6.25...HEAD
+[v0.6.25]: https://github.com/atc0005/go-ci/releases/tag/v0.6.25
 [v0.6.24]: https://github.com/atc0005/go-ci/releases/tag/v0.6.24
 [v0.6.23]: https://github.com/atc0005/go-ci/releases/tag/v0.6.23
 [v0.6.22]: https://github.com/atc0005/go-ci/releases/tag/v0.6.22
