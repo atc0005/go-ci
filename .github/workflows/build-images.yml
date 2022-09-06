@@ -1,0 +1,37 @@
+# Copyright 2020 Adam Chalkley
+#
+# https://github.com/atc0005/go-ci
+#
+# Licensed under the MIT License. See LICENSE file in the project root for
+# full license information.
+
+name: Build images
+
+# Run builds for Pull Requests (new, updated)
+# `synchronized` seems to equate to pushing new commits to a linked branch
+# (whether force-pushed or not)
+on:
+  #push:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build_images_using_makefile:
+    name: Build images using Makefile
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 10
+
+    steps:
+      - name: Print Docker version
+        run: docker --version
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
+      # bsdmainutils provides "column" which is used by the Makefile
+      - name: Install Ubuntu packages
+        run: apt-get update && apt-get install -y --no-install-recommends make gcc bsdmainutils
+
+      - name: Build images using project Makefile
+        run: make build
