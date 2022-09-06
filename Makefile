@@ -104,21 +104,9 @@ linting:
 		docker run --pull never --rm -i -v "$$PWD/$$target:$$PWD/$$target" $(DOCKER_IMAGE_HADOLINT) hadolint $$PWD/$$target; \
 	done
 
-.PHONY: build
-## build: build all Docker container images
-build:
-	@echo "Building Docker container images"
-
-	@echo "Bundle linter config files to provide baseline default settings"
-	@for version in {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
-
-	# unstable container image has its own copy of the .golangci.yml file
-	# oldstable container image has its own copy of the .golangci.yml file
-	# stable container images share a copy of the .golangci.yml file
-	@for version in {stable/linting,stable/combined,stable/build/debian}; do cp -vf stable/.golangci.yml $$version/; done
-
-	@echo "List Docker version"
-	@docker version
+.PHONY: build-stable
+## build-stable: Build stable image
+build-stable: pre-build
 
 	@echo "Building stable release"
 	sudo docker image build \
@@ -134,8 +122,13 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of stable release"
 
-	@echo "Building stable-alpine-build.x64 release"
+.PHONY: build-stable-alpine-buildx64
+## build-stable-alpine-buildx64: Build Alpine x64 image
+build-stable-alpine-buildx64: pre-build
+
+	@echo "Building stable-alpine-buildx64 release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -147,8 +140,13 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of stable-alpine-buildx64 release"
 
-	@echo "Building stable-alpine-build x86 release"
+.PHONY: build-stable-alpine-buildx86
+## build-stable-alpine-buildx86: Build Alpine x86 image
+build-stable-alpine-buildx86: pre-build
+
+	@echo "Building stable-alpine-buildx86 release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -160,6 +158,11 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of stable-alpine-buildx86 release"
+
+.PHONY: stable-debian-build
+## stable-debian-build: Build Debian image
+stable-debian-build: pre-build
 
 	@echo "Building stable-debian-build release"
 	sudo docker image build \
@@ -173,6 +176,11 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of stable-debian-build release"
+
+.PHONY: stable-mirror-build
+## stable-mirror-build: Build stable mirror image
+stable-mirror-build: pre-build
 
 	@echo "Building stable-mirror-build release"
 	sudo docker image build \
@@ -186,6 +194,11 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of stable-mirror-build release"
+
+.PHONY: stable-linting-only
+## stable-linting-only: Build stable linting-only image
+stable-linting-only: pre-build
 
 	@echo "Building stable linting-only release"
 	sudo docker image build \
@@ -199,6 +212,11 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of stable-linting-only release"
+
+.PHONY: build-oldstable
+## build-oldstable: Build oldstable image
+build-oldstable: pre-build
 
 	@echo "Building oldstable release"
 	sudo docker image build \
@@ -212,6 +230,11 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of oldstable release"
+
+.PHONY: build-unstable
+## build-unstable: Build unstable image
+build-unstable: pre-build
 
 	@echo "Building unstable release"
 	sudo docker image build \
@@ -225,6 +248,29 @@ build:
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of unstable release"
+
+.PHONY: pre-build
+## pre-build: pre-build tasks
+pre-build:
+
+	@echo "Building Docker container images"
+
+	@echo "Bundle linter config files to provide baseline default settings"
+	@for version in {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
+
+	# unstable container image has its own copy of the .golangci.yml file
+	# oldstable container image has its own copy of the .golangci.yml file
+	# stable container images share a copy of the .golangci.yml file
+	@for version in {stable/linting,stable/combined,stable/build/debian}; do cp -vf stable/.golangci.yml $$version/; done
+
+	@echo "List Docker version"
+	@docker version
+
+
+.PHONY: build
+## build: build all Docker container images
+build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-debian-build stable-mirror-build stable-linting-only build-oldstable build-unstable
 
 	@echo "Remove temporary copies of bundled files"
 	@rm -vf {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}/.markdownlint.yml
