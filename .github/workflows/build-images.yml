@@ -31,7 +31,7 @@ jobs:
 
       # bsdmainutils provides "column" which is used by the Makefile
       - name: Install Ubuntu packages
-        run: apt-get update && apt-get install -y --no-install-recommends make gcc bsdmainutils
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
       - name: Build images using project Makefile
         run: make build
