@@ -16,6 +16,7 @@ FROM golang:1.19.1 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.49.0"
 ENV STATICCHECK_VERSION="v0.3.3"
+ENV GOVULNCHECK_VERSION="v0.0.0-20220908210932-64dbbd7bba4f"
 
 # Skip go clean step as the entire image will be tossed after we are finished
 # and cleaning the modules cache takes extra time that won't help the final
@@ -23,6 +24,8 @@ ENV STATICCHECK_VERSION="v0.3.3"
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version \
+    && echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
+    && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
     && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
@@ -47,9 +50,11 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # Intended to help identify the versions of the included linting tools
 ENV GOLANGCI_LINT_VERSION="v1.49.0"
 ENV STATICCHECK_VERSION="v0.3.3"
+ENV GOVULNCHECK_VERSION="v0.0.0-20220908210932-64dbbd7bba4f"
 
 COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
+COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 
 # Copy over linting config files to root of container image to serve as a
 # default. The Makefile copies in these files as Docker requires that the

@@ -47,14 +47,15 @@ others.
 
 ## Linting tools included
 
-| Linter                                                                | Version               |
-| --------------------------------------------------------------------- | --------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.3` (`v0.3.3`) |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.49.0`             |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`              |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`              |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.5`              |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`              |
+| Linter                                                                | Version                              |
+| --------------------------------------------------------------------- | ------------------------------------ |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.3` (`v0.3.3`)                |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.49.0`                            |
+| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v0.0.0-20220908210932-64dbbd7bba4f` |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                             |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.6`                             |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.5`                             |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`                             |
 
 ## Docker images
 
@@ -176,6 +177,7 @@ official release is also provided for further review.
   - Primary
     - [staticcheck](https://github.com/dominikh/go-tools)
     - [golangci-lint](https://github.com/golangci/golangci-lint)
+    - [govulncheck](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck)
   - Additional
     - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
     - [orijtech/structslop](https://github.com/orijtech/structslop)
