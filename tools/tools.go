@@ -15,5 +15,6 @@ import (
 	_ "github.com/orijtech/httperroryzer"
 	_ "github.com/orijtech/structslop"
 	_ "github.com/pelletier/go-toml/v2"
+	_ "golang.org/x/vuln/vulncheck"
 	_ "honnef.co/go/tools/config"
 )
