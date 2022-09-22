@@ -13,7 +13,7 @@ require (
 	github.com/orijtech/httperroryzer v0.0.1
 
 	// structslog - provided as an optional linter
-	github.com/orijtech/structslop v0.0.6
+	github.com/orijtech/structslop v0.0.7
 
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.0.5
@@ -27,7 +27,7 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.2.0 // indirect
-	github.com/dave/dst v0.26.2 // indirect
+	github.com/dave/dst v0.27.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
