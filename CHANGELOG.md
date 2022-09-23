@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.1] - 2022-09-23
+
+### Changed
+
+- Dependencies
+  - `orijtech/structslop`
+    - `v0.0.6` to `v0.0.7`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20220908210932-64dbbd7bba4f` to
+      `v0.0.0-20220922224308-abdd677224e4`
+
 ## [v0.7.0] - 2022-09-12
 
 ### Added
@@ -1511,7 +1522,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.1...HEAD
+[v0.7.1]: https://github.com/atc0005/go-ci/releases/tag/v0.7.1
 [v0.7.0]: https://github.com/atc0005/go-ci/releases/tag/v0.7.0
 [v0.6.26]: https://github.com/atc0005/go-ci/releases/tag/v0.6.26
 [v0.6.25]: https://github.com/atc0005/go-ci/releases/tag/v0.6.25
