@@ -4,8 +4,7 @@
 Tooling for linting, testing and building Go applications
 
 [![Latest Release](https://img.shields.io/github/release/atc0005/go-ci.svg?style=flat-square)](https://github.com/atc0005/go-ci/releases/latest)
-![Linting](https://github.com/atc0005/go-ci/workflows/Linting/badge.svg)
-![Validate Docs](https://github.com/atc0005/go-ci/workflows/Validate%20Docs/badge.svg)
+[![Project Analysis](https://github.com/atc0005/check-cert/actions/workflows/project-analysis.yml/badge.svg)](https://github.com/atc0005/check-cert/actions/workflows/project-analysis.yml)
 
 <!-- omit in toc -->
 ## Table of contents
