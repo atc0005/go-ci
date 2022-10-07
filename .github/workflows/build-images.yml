@@ -20,7 +20,7 @@ jobs:
     name: Build all images using Makefile
     runs-on: ubuntu-latest
     # Default: 360 minutes
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - name: Print Docker version
