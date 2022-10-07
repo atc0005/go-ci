@@ -26,6 +26,31 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.2] - 2022-10-07
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.19.1` to `1.19.2`
+  - Update `go-ci-oldstable` from `1.18.6` to `1.18.7`
+  - Update `go-ci-lint-only` from `1.19.1` to `1.19.2`
+  - Update `go-ci-stable-mirror-build` from `1.19.1` to `1.19.2`
+  - Update `go-ci-stable-debian-build` from `1.19.1` to `1.19.2`
+  - Update `go-ci-stable-alpine-buildx86` from `1.19.1-alpine3.16` to
+    `1.19.2-alpine3.16`
+  - Update `go-ci-stable-alpine-buildx64` from `1.19.1-alpine3.16` to
+    `1.19.2-alpine3.16`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.49.0` to `v1.50.0`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20220922224308-abdd677224e4` to
+      `v0.0.0-20221006005703-27389ae96df4`
+
+- (GH-742) GitHub Actions Workflows refactor
+- (GH-752) Adjust timeout value for `Build all images using Makefile` job
+
 ## [v0.7.1] - 2022-09-23
 
 ### Changed
@@ -1522,7 +1547,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.2...HEAD
+[v0.7.2]: https://github.com/atc0005/go-ci/releases/tag/v0.7.2
 [v0.7.1]: https://github.com/atc0005/go-ci/releases/tag/v0.7.1
 [v0.7.0]: https://github.com/atc0005/go-ci/releases/tag/v0.7.0
 [v0.6.26]: https://github.com/atc0005/go-ci/releases/tag/v0.6.26
