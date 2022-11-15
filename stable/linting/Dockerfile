@@ -14,7 +14,7 @@
 # FROM golangci/golangci-lint:v1.45.0-alpine as builder
 FROM golang:1.19.3 as builder
 
-ENV GOLANGCI_LINT_VERSION="v1.50.0"
+ENV GOLANGCI_LINT_VERSION="v1.50.1"
 ENV STATICCHECK_VERSION="v0.3.3"
 ENV GOVULNCHECK_VERSION="v0.0.0-20221006005703-27389ae96df4"
 
@@ -48,7 +48,7 @@ LABEL org.opencontainers.image.description="Docker image intended for lightweigh
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # Intended to help identify the versions of the included linting tools
-ENV GOLANGCI_LINT_VERSION="v1.50.0"
+ENV GOLANGCI_LINT_VERSION="v1.50.1"
 ENV STATICCHECK_VERSION="v0.3.3"
 ENV GOVULNCHECK_VERSION="v0.0.0-20221006005703-27389ae96df4"
 
