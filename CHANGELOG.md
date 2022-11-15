@@ -26,6 +26,32 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.3] - 2022-11-15
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.19.2` to `1.19.3`
+  - Update `go-ci-oldstable` from `1.18.7` to `1.18.8`
+  - Update `go-ci-lint-only` from `1.19.2` to `1.19.3`
+  - Update `go-ci-stable-mirror-build` from `1.19.2` to `1.19.3`
+  - Update `go-ci-stable-debian-build` from `1.19.2` to `1.19.3`
+  - Update `go-ci-stable-alpine-buildx86` from `1.19.2-alpine3.16` to
+    `1.19.3-alpine3.16`
+  - Update `go-ci-stable-alpine-buildx64` from `1.19.2-alpine3.16` to
+    `1.19.3-alpine3.16`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.50.0` to `v1.50.1`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20221006005703-27389ae96df4` to
+      `v0.0.0-20221111165027-50a0e29f49cc`
+
+- (GH-758) Update README to include status badge for `Build Images` workflow
+- (GH-769) Update git version for Alpine container images
+- (GH-770) Update musl-dev package in Alpine images
+
 ## [v0.7.2] - 2022-10-07
 
 ### Changed
@@ -1547,7 +1573,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.3...HEAD
+[v0.7.3]: https://github.com/atc0005/go-ci/releases/tag/v0.7.3
 [v0.7.2]: https://github.com/atc0005/go-ci/releases/tag/v0.7.2
 [v0.7.1]: https://github.com/atc0005/go-ci/releases/tag/v0.7.1
 [v0.7.0]: https://github.com/atc0005/go-ci/releases/tag/v0.7.0
