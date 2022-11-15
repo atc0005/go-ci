@@ -21,7 +21,7 @@ LABEL org.opencontainers.image.description="Docker container image used to lint,
     cgo-enabled builds via mingw."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
-ENV GOLANGCI_LINT_VERSION="v1.50.0"
+ENV GOLANGCI_LINT_VERSION="v1.50.1"
 ENV STATICCHECK_VERSION="v0.3.3"
 ENV GOVULNCHECK_VERSION="v0.0.0-20221006005703-27389ae96df4"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
