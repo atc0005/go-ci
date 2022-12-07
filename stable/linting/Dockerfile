@@ -12,7 +12,7 @@
 # builder image
 # use the same environment as our final image for binary compatibility
 # FROM golangci/golangci-lint:v1.45.0-alpine as builder
-FROM golang:1.19.3 as builder
+FROM golang:1.19.4 as builder
 
 ENV GOLANGCI_LINT_VERSION="v1.50.1"
 ENV STATICCHECK_VERSION="v0.3.3"
@@ -33,7 +33,7 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
 
 # For CI "linting only" use
 # FROM golangci/golangci-lint:v1.45.0-alpine
-FROM golang:1.19.3 as final
+FROM golang:1.19.4 as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
