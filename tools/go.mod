@@ -19,7 +19,8 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.6
 
 	// govulncheck - provided as an optional vulnerability analyzer
-	golang.org/x/vuln v0.0.0-20221111165027-50a0e29f49cc
+	// https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck?tab=versions
+	golang.org/x/vuln v0.0.0-20221122171214-05fb7250142c
 
 	// staticcheck - intended as a primary linter
 	honnef.co/go/tools v0.3.3
