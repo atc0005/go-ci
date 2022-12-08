@@ -51,7 +51,7 @@ others.
 | --------------------------------------------------------------------- | ------------------------------------ |
 | [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.3` (`v0.3.3`)                |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.50.1`                            |
-| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v0.0.0-20221111165027-50a0e29f49cc` |
+| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v0.0.0-20221122171214-05fb7250142c` |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                             |
 | [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.7`                             |
 | [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.6`                             |
