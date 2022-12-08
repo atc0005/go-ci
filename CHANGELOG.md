@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.4] - 2022-12-08
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.19.3` to `1.19.4`
+  - Update `go-ci-oldstable` from `1.18.8` to `1.18.9`
+  - Update `go-ci-lint-only` from `1.19.3` to `1.19.4`
+  - Update `go-ci-stable-mirror-build` from `1.19.3` to `1.19.4`
+  - Update `go-ci-stable-debian-build` from `1.19.3` to `1.19.4`
+  - Update `go-ci-stable-alpine-buildx86` from `1.19.3-alpine3.16` to
+    `1.19.4-alpine3.16`
+  - Update `go-ci-stable-alpine-buildx64` from `1.19.3-alpine3.16` to
+    `1.19.4-alpine3.16`
+
+- Dependencies
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20221111165027-50a0e29f49cc` to
+    - `v0.0.0-20221122171214-05fb7250142c`
+  - `pelletier/go-toml`
+    - `v2.0.5` to `v2.0.6`
+
 ## [v0.7.3] - 2022-11-15
 
 ### Changed
@@ -1573,7 +1595,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.3...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.4...HEAD
+[v0.7.4]: https://github.com/atc0005/go-ci/releases/tag/v0.7.4
 [v0.7.3]: https://github.com/atc0005/go-ci/releases/tag/v0.7.3
 [v0.7.2]: https://github.com/atc0005/go-ci/releases/tag/v0.7.2
 [v0.7.1]: https://github.com/atc0005/go-ci/releases/tag/v0.7.1
