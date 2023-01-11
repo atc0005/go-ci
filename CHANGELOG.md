@@ -26,6 +26,31 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.6] - 2023-01-11
+
+### Changed
+
+- Go versions
+  - Update `go-ci-unstable` from `1.20rc1` to `1.20rc2`
+  - Update `go-ci-stable` from `1.19.4` to `1.19.5`
+  - Update `go-ci-oldstable` from `1.18.9` to `1.18.10`
+  - Update `go-ci-lint-only` from `1.19.4` to `1.19.5`
+  - Update `go-ci-stable-mirror-build` from `1.19.4` to `1.19.5`
+  - Update `go-ci-stable-debian-build` from `1.19.4` to `1.19.5`
+  - Update `go-ci-stable-alpine-buildx86` from `1.19.4-alpine3.16` to
+    `1.19.5-alpine3.16`
+  - Update `go-ci-stable-alpine-buildx64` from `1.19.4-alpine3.16` to
+    `1.19.5-alpine3.16`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `stable`, `oldstable` images remain at `v1.50.1`
+    - updated `unstable` image from `v1.50.1` to `feat/go1.20` dev branch
+      (github.com/atc0005/golangci-lint@v0.0.0-20230110030621-1af8a004961f)
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20221122171214-05fb7250142c` to
+    - `v0.0.0-20230109202529-975d4c73dae3`
+
 ## [v0.7.5] - 2022-12-09
 
 ### Changed
@@ -1602,7 +1627,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.6...HEAD
+[v0.7.6]: https://github.com/atc0005/go-ci/releases/tag/v0.7.6
 [v0.7.5]: https://github.com/atc0005/go-ci/releases/tag/v0.7.5
 [v0.7.4]: https://github.com/atc0005/go-ci/releases/tag/v0.7.4
 [v0.7.3]: https://github.com/atc0005/go-ci/releases/tag/v0.7.3
