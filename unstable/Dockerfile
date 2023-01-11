@@ -9,7 +9,7 @@
 
 FROM golang:1.20rc2 as builder
 
-ENV GOLANGCI_LINT_VERSION="v1.50.1"
+ENV GOLANGCI_LINT_VERSION="feat/go1.20"
 ENV STATICCHECK_VERSION="v0.3.3"
 ENV GOVULNCHECK_VERSION="v0.0.0-20221122171214-05fb7250142c"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
@@ -22,10 +22,6 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && staticcheck --version \
     && echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
-    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
-    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
-    && golangci-lint --version \
     && echo "Installing httperroryzer@${HTTPERRORYZER_VERSION}" \
     && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
     && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
@@ -34,6 +30,13 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
     && echo "Installing errwrap@${ERRWRAP_VERSION}" \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
+
+RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
+    && git clone https://github.com/atc0005/golangci-lint \
+    && cd golangci-lint \
+    && git checkout ${GOLANGCI_LINT_VERSION} \
+    && go install ./cmd/golangci-lint \
+    && golangci-lint --version
 
 
 FROM golang:1.20rc2 as final
