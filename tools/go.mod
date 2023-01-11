@@ -53,7 +53,7 @@ require (
 	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
 	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e // indirect
-	golang.org/x/mod v0.6.0 // indirect
+	golang.org/x/mod v0.7.0 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/text v0.3.8 // indirect
 	golang.org/x/tools v0.2.1-0.20221108172846-9474ca31d0df // indirect
