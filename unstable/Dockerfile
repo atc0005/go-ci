@@ -9,8 +9,19 @@
 
 FROM golang:1.20rc2 as builder
 
+# A current dev branch build (mirrored to fork) is used for pre-release Go
+# versions, otherwise the latest upstream build of the tool is installed in
+# this image.
+#
+# See https://github.com/atc0005/go-ci/issues/789 for details.
 ENV GOLANGCI_LINT_VERSION="feat/go1.20"
-ENV STATICCHECK_VERSION="v0.3.3"
+
+# A current master branch build is used for pre-release Go versions, otherwise
+# the latest upstream build of the tool is installed in this image.
+#
+# See https://github.com/atc0005/go-ci/issues/812 for details.
+ENV STATICCHECK_VERSION="58c4d7e4b720c21f21f0d68e60a31117995fcd0b"
+
 ENV GOVULNCHECK_VERSION="v0.0.0-20230109202529-975d4c73dae3"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.7"
@@ -19,8 +30,9 @@ ENV ERRWRAP_VERSION="v1.4.0"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
-    && staticcheck --version \
-    && echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
+    && staticcheck --version
+
+RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
     && echo "Installing httperroryzer@${HTTPERRORYZER_VERSION}" \
     && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
@@ -53,8 +65,19 @@ LABEL org.opencontainers.image.description="Docker container image used to lint,
     golang:rc image or if not recently available, the latest stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
-ENV GOLANGCI_LINT_VERSION="v1.50.1"
-ENV STATICCHECK_VERSION="v0.3.3"
+# A current dev branch build (mirrored to fork) is used for pre-release Go
+# versions, otherwise the latest upstream build of the tool is installed in
+# this image.
+#
+# See https://github.com/atc0005/go-ci/issues/789 for details.
+ENV GOLANGCI_LINT_VERSION="feat/go1.20"
+
+# A current master branch build is used for pre-release Go versions, otherwise
+# the latest upstream build of the tool is installed in this image.
+#
+# See https://github.com/atc0005/go-ci/issues/812 for details.
+ENV STATICCHECK_VERSION="58c4d7e4b720c21f21f0d68e60a31117995fcd0b"
+
 ENV GOVULNCHECK_VERSION="v0.0.0-20230109202529-975d4c73dae3"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.7"
