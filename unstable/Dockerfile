@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.20rc2 as builder
+FROM golang:1.20rc3 as builder
 
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
@@ -51,7 +51,7 @@ RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
     && golangci-lint --version
 
 
-FROM golang:1.20rc2 as final
+FROM golang:1.20rc3 as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
