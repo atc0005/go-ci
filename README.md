@@ -102,6 +102,14 @@ See these container image registries for the full listing of available images:
 - provides multiple linters
   - see [Linting tools included](#linting-tools-included)
 
+**NOTE**: The `go-ci-stable-debian-build` image is a candidate for removal.
+
+Do you use the `go-ci-stable-debian-build` image? If so, please [provide
+feedback](https://github.com/atc0005/go-ci/issues/657) indicating that you
+wish for it to be maintained & available for use:
+
+- <https://github.com/atc0005/go-ci/issues/657>
+
 ### `go-ci-stable-mirror-build`
 
 - built from the latest version of the current stable `golang` image.
