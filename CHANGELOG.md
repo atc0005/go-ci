@@ -26,6 +26,44 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.9] - 2023-02-03
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.19.5` to `1.20`
+  - Update `go-ci-unstable` from `1.20rc3` to `1.20`
+  - Update `go-ci-oldstable` from `1.18.10` to `1.19.5`
+  - Update `go-ci-lint-only` from `1.19.5` to `1.20`
+  - Update `go-ci-stable-mirror-build` from `1.19.5` to `1.20`
+  - Update `go-ci-stable-debian-build` from `1.19.5` to `1.20`
+  - Update `go-ci-stable-alpine-buildx86` from `1.19.5-alpine3.16` to
+    `1.20-alpine3.16`
+  - Update `go-ci-stable-alpine-buildx64` from `1.19.5-alpine3.16` to
+    `1.20-alpine3.16`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.50.1` to `v1.51.0`
+      - stable, oldstable images
+    - `dev feat/go1.20 branch` to `v1.51.0`
+      - unstable image
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.3.3` to `v0.4.0`
+      - stable, oldstable images
+    - commit `58c4d7e4b720c21f21f0d68e60a31117995fcd0b` to `v0.4.0`
+      - unstable image
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230110180137-6ad3e3d07815` to
+    - `v0.0.0-20230201222900-4c848edceff1`
+
+- (GH-825) Disable `Build all images using Makefile` CI job
+
+### Fixed
+
+- (GH-822) ERROR: unable to select packages: git-2.36.4-r0: breaks:
+  world[git=2.36.3-r0]
+
 ## [v0.7.8] - 2023-01-13
 
 ### Changed
@@ -1649,7 +1687,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.8...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.9...HEAD
+[v0.7.9]: https://github.com/atc0005/go-ci/releases/tag/v0.7.9
 [v0.7.8]: https://github.com/atc0005/go-ci/releases/tag/v0.7.8
 [v0.7.7]: https://github.com/atc0005/go-ci/releases/tag/v0.7.7
 [v0.7.6]: https://github.com/atc0005/go-ci/releases/tag/v0.7.6
