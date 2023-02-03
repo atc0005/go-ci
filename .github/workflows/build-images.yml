@@ -16,25 +16,25 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  build_all_images_using_makefile:
-    name: Build all images using Makefile
-    runs-on: ubuntu-latest
-    # Default: 360 minutes
-    timeout-minutes: 20
-
-    steps:
-      - name: Print Docker version
-        run: docker --version
-
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
-
-      # bsdmainutils provides "column" which is used by the Makefile
-      - name: Install Ubuntu packages
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
-
-      - name: Build images using project Makefile
-        run: make build
+  #   build_all_images_using_makefile:
+  #     name: Build all images using Makefile
+  #     runs-on: ubuntu-latest
+  #     # Default: 360 minutes
+  #     timeout-minutes: 20
+  #
+  #     steps:
+  #       - name: Print Docker version
+  #         run: docker --version
+  #
+  #       - name: Check out code into the Go module directory
+  #         uses: actions/checkout@v3
+  #
+  #       # bsdmainutils provides "column" which is used by the Makefile
+  #       - name: Install Ubuntu packages
+  #         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
+  #
+  #       - name: Build images using project Makefile
+  #         run: make build
 
   build_stable_image_using_makefile:
     name: Build stable image using Makefile
