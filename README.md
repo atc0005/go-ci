@@ -47,15 +47,15 @@ others.
 
 ## Linting tools included
 
-| Linter                                                                | Version                                                                                                                                                                    |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2022.1.3` (`v0.3.3`) for `stable` and `oldstable`, [`master branch`](https://github.com/dominikh/go-tools/commit/58c4d7e4b720c21f21f0d68e60a31117995fcd0b) for `unstable` |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.51.0`                                                                                                                                                                  |
-| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v0.0.0-20230110180137-6ad3e3d07815`                                                                                                                                       |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                                                                                                                                                                   |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.7`                                                                                                                                                                   |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.6`                                                                                                                                                                   |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`                                                                                                                                                                   |
+| Linter                                                                | Version                              |
+| --------------------------------------------------------------------- | ------------------------------------ |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2023.1` (`v0.4.0`)                  |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.51.0`                            |
+| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v0.0.0-20230110180137-6ad3e3d07815` |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                             |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.7`                             |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.6`                             |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`                             |
 
 ## Docker images
 
