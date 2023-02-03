@@ -12,15 +12,11 @@ FROM golang:1.20 as builder
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-#
-# See https://github.com/atc0005/go-ci/issues/789 for details.
-ENV GOLANGCI_LINT_VERSION="feat/go1.20"
+ENV GOLANGCI_LINT_VERSION="v1.51.0"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
-#
-# See https://github.com/atc0005/go-ci/issues/812 for details.
-ENV STATICCHECK_VERSION="58c4d7e4b720c21f21f0d68e60a31117995fcd0b"
+ENV STATICCHECK_VERSION="v0.4.0"
 
 ENV GOVULNCHECK_VERSION="v0.0.0-20230110180137-6ad3e3d07815"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
@@ -43,11 +39,17 @@ RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && echo "Installing errwrap@${ERRWRAP_VERSION}" \
     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
 
-RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
-    && git clone https://github.com/atc0005/golangci-lint \
-    && cd golangci-lint \
-    && git checkout ${GOLANGCI_LINT_VERSION} \
-    && go install ./cmd/golangci-lint \
+# RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
+#     && git clone https://github.com/atc0005/golangci-lint \
+#     && cd golangci-lint \
+#     && git checkout ${GOLANGCI_LINT_VERSION} \
+#     && go install ./cmd/golangci-lint \
+#     && golangci-lint --version
+
+RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
+    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
+    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version
 
 
@@ -68,15 +70,11 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-#
-# See https://github.com/atc0005/go-ci/issues/789 for details.
-ENV GOLANGCI_LINT_VERSION="feat/go1.20"
+ENV GOLANGCI_LINT_VERSION="v1.51.0"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
-#
-# See https://github.com/atc0005/go-ci/issues/812 for details.
-ENV STATICCHECK_VERSION="58c4d7e4b720c21f21f0d68e60a31117995fcd0b"
+ENV STATICCHECK_VERSION="v0.4.0"
 
 ENV GOVULNCHECK_VERSION="v0.0.0-20230110180137-6ad3e3d07815"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
