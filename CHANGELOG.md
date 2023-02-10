@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.10] - 2023-02-10
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.51.0` to `v1.51.1`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230201222900-4c848edceff1` to
+    - `v0.0.0-20230209185747-5884084d81cd`
+
+- (GH-844) Re-enable disabled linters in golangci-lint config files
+
 ## [v0.7.9] - 2023-02-03
 
 ### Changed
@@ -1687,7 +1700,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.9...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.10...HEAD
+[v0.7.10]: https://github.com/atc0005/go-ci/releases/tag/v0.7.10
 [v0.7.9]: https://github.com/atc0005/go-ci/releases/tag/v0.7.9
 [v0.7.8]: https://github.com/atc0005/go-ci/releases/tag/v0.7.8
 [v0.7.7]: https://github.com/atc0005/go-ci/releases/tag/v0.7.7
