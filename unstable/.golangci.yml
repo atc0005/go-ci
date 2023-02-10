@@ -59,14 +59,6 @@ linters:
     - stylecheck
     - unconvert
 
-  disable:
-    # Incompatible with Go 1.18 (GH-568, GH-681)
-    # https://github.com/golangci/golangci-lint/issues/2649
-    - rowserrcheck
-    - sqlclosecheck
-    - structcheck
-    - wastedassign
-
 #
 # Disable govet:fieldalignment, re-enable deprecated maligned linter until the
 # Go team offers more control over the types of checks provided by the
@@ -97,17 +89,3 @@ linters-settings:
       # See https://github.com/atc0005/go-ci/issues/302 for more information.
       #
       - fieldalignment
-
-      # Incompatible with Go 1.18 (GH-568)
-      # https://github.com/golangci/golangci-lint/issues/2649
-      - nilness
-      - unusedwrite
-
-  gocritic:
-    disable:
-      # Incompatible with Go 1.18 (GH-568)
-      # https://github.com/golangci/golangci-lint/issues/2649
-      - hugeParam
-      - rangeValCopy
-      - typeDefFirst
-      - paramTypeCombine
