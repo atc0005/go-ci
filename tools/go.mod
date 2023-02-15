@@ -20,7 +20,7 @@ require (
 
 	// govulncheck - provided as an optional vulnerability analyzer
 	// https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck?tab=versions
-	golang.org/x/vuln v0.0.0-20230209185747-5884084d81cd
+	golang.org/x/vuln v0.0.0-20230213165600-1a019b0c7f30
 
 	// staticcheck - intended as a primary linter
 	honnef.co/go/tools v0.4.0
