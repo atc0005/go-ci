@@ -26,6 +26,38 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.7.11] - 2023-02-15
+
+### Changed
+
+- Go versions
+  - Update `go-ci-stable` from `1.20.0` to `1.20.1`
+  - Update `go-ci-unstable` from `1.20.0` to `1.20.1`
+  - Update `go-ci-oldstable` from `1.19.5` to `1.19.6`
+  - Update `go-ci-lint-only` from `1.20.0` to `1.20.1`
+  - Update `go-ci-stable-mirror-build` from `1.20.0` to `1.20.1`
+  - Update `go-ci-stable-debian-build` from `1.20.0` to `1.20.1`
+  - Update `go-ci-stable-alpine-buildx86` from `1.20.0-alpine3.16` to
+    `1.20.1-alpine3.16`
+  - Update `go-ci-stable-alpine-buildx64` from `1.20.0-alpine3.16` to
+    `1.20.1-alpine3.16`
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.4.0` to `v0.4.1`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230209185747-5884084d81cd` to
+    - `v0.0.0-20230213165600-1a019b0c7f30`
+
+### Fixed
+
+- (GH-851) Update Go Dockerfile version thresholds
+- (GH-848) CI jobs failing after v0.7.10 images were published
+  - workaround applied to explicitly set CWD as trusted by Git
+- (GH-849) Fix Project Analysis README badge
+- (GH-854) ERROR: unable to select packages: git-2.36.5-r0: breaks:
+  world[git=2.36.4-r0]
+
 ## [v0.7.10] - 2023-02-10
 
 ### Changed
@@ -1700,7 +1732,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.10...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.11...HEAD
+[v0.7.11]: https://github.com/atc0005/go-ci/releases/tag/v0.7.11
 [v0.7.10]: https://github.com/atc0005/go-ci/releases/tag/v0.7.10
 [v0.7.9]: https://github.com/atc0005/go-ci/releases/tag/v0.7.9
 [v0.7.8]: https://github.com/atc0005/go-ci/releases/tag/v0.7.8
