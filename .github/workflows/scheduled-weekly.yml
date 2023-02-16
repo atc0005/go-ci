@@ -17,5 +17,5 @@ on:
 
 jobs:
   lint:
-    name: Weekly Tasks
-    uses: atc0005/shared-project-resources/.github/workflows/scheduled-weekly.yml@master
+    name: Lint
+    uses: atc0005/shared-project-resources/.github/workflows/lint-project-files.yml@master
