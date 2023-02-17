@@ -51,7 +51,6 @@ DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120		= go-ci-stable-mirror-build-go1.20
 DOCKER_IMAGE_NAME_ALPINE_BUILDX86	= go-ci-stable-alpine-buildx86
 DOCKER_IMAGE_NAME_ALPINE_BUILDX64	= go-ci-stable-alpine-buildx64
 DOCKER_IMAGE_NAME_STABLE 			= go-ci-stable
-DOCKER_IMAGE_NAME_STABLE_LINT_ONLY	= go-ci-lint-only
 DOCKER_IMAGE_NAME_OLDSTABLE 		= go-ci-oldstable
 DOCKER_IMAGE_NAME_UNSTABLE 			= go-ci-unstable
 DOCKER_IMAGE_OWNER_LABEL 			= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
@@ -63,7 +62,6 @@ DOCKER_FILES 						= oldstable/Dockerfile \
 										stable/build/alpine-x86/Dockerfile \
 										stable/build/debian/Dockerfile \
 										stable/combined/Dockerfile \
-										stable/linting/Dockerfile \
 										unstable/Dockerfile \
 
 
@@ -98,8 +96,8 @@ clean:
 	@sudo docker image prune --force
 	@echo
 	@ echo "Removing temporary copies of linter config files"
-	@rm -vf {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}/.markdownlint.yml
-	@rm -vf {stable/linting,stable/combined,stable/build/debian}/.golangci.yml
+	@rm -vf {oldstable,unstable,stable/combined,stable/build/debian}/.markdownlint.yml
+	@rm -vf {stable/combined,stable/build/debian}/.golangci.yml
 
 .PHONY: linting
 ## linting: lint all Dockerfiles
@@ -277,24 +275,6 @@ stable-mirror-build: pre-build
 
 	@echo "Completed build of stable-mirror-build images"
 
-.PHONY: stable-linting-only
-## stable-linting-only: Build stable linting-only image
-stable-linting-only: pre-build
-
-	@echo "Building stable linting-only release"
-	sudo docker image build \
-		--pull \
-		--no-cache \
-		stable/linting/ \
-		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY) \
-		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY)-$(REPO_VERSION) \
-		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY) \
-		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY)-$(REPO_VERSION) \
-		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
-		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
-		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable-linting-only release"
-
 .PHONY: build-oldstable
 ## build-oldstable: Build oldstable image
 build-oldstable: pre-build
@@ -338,12 +318,12 @@ pre-build:
 	@echo "Building Docker container images"
 
 	@echo "Bundle linter config files to provide baseline default settings"
-	@for version in {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
+	@for version in {oldstable,unstable,stable/combined,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
 
 	# unstable container image has its own copy of the .golangci.yml file
 	# oldstable container image has its own copy of the .golangci.yml file
 	# stable container images share a copy of the .golangci.yml file
-	@for version in {stable/linting,stable/combined,stable/build/debian}; do cp -vf stable/.golangci.yml $$version/; done
+	@for version in {stable/combined,stable/build/debian}; do cp -vf stable/.golangci.yml $$version/; done
 
 	@echo "List Docker version"
 	@docker version
@@ -351,15 +331,15 @@ pre-build:
 
 .PHONY: build
 ## build: build all current Docker container images (legacy not included)
-build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-debian-build stable-mirror-build stable-linting-only build-oldstable build-unstable
+build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-debian-build stable-mirror-build build-oldstable build-unstable
 
 	@echo "Remove temporary copies of bundled files"
-	@rm -vf {oldstable,unstable,stable/linting,stable/combined,stable/build/debian}/.markdownlint.yml
+	@rm -vf {oldstable,unstable,stable/combined,stable/build/debian}/.markdownlint.yml
 
 	# unstable container image has its own copy of this file
 	# oldstable container image has its own copy of this file
 	# stable variants share a copy of this file
-	@rm -vf {stable/linting,stable/combined,stable/build/debian}/.golangci.yml
+	@rm -vf {stable/combined,stable/build/debian}/.golangci.yml
 
 	@echo "Finished building Docker container images"
 

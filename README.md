@@ -21,7 +21,6 @@ Tooling for linting, testing and building Go applications
   - [`go-ci-stable-mirror-build-*`](#go-ci-stable-mirror-build-)
   - [`go-ci-oldstable`](#go-ci-oldstable)
   - [`go-ci-unstable`](#go-ci-unstable)
-  - [`go-ci-lint-only`](#go-ci-lint-only)
 - [Examples / How to use these images](#examples--how-to-use-these-images)
 - [Changelog](#changelog)
 - [Requirements](#requirements)
@@ -149,17 +148,6 @@ the latest version in a specific series.
   - new linters as a whole may be added to multiple image variants, not just
     this image unless it is suspected that the new linters are highly
     experimental/unstable
-
-### `go-ci-lint-only`
-
-- smaller image
-- uses `golangci/golangci-lint:vX.Y.Z-alpine` image as base
-- created as part of a multi-stage container image build
-- intended for lightweight testing of iterative branch changes
-  - e.g., testing or squash/rebase branch work prior to a full suite of checks
-    usually associated with Pull Requests
-- limited linters
-  - [Primary linters only](#linting-tools-included)
 
 ## Examples / How to use these images
 
