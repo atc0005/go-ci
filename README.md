@@ -17,7 +17,7 @@ Tooling for linting, testing and building Go applications
   - [`go-ci-stable`](#go-ci-stable)
   - [`go-ci-stable-alpine-buildx86`](#go-ci-stable-alpine-buildx86)
   - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
-  - [`go-ci-stable-debian-build`](#go-ci-stable-debian-build)
+  - [`go-ci-stable-cgo-mingw-w64-build`](#go-ci-stable-cgo-mingw-w64-build)
   - [`go-ci-stable-mirror-build-*`](#go-ci-stable-mirror-build-)
   - [`go-ci-oldstable`](#go-ci-oldstable)
   - [`go-ci-unstable`](#go-ci-unstable)
@@ -91,23 +91,14 @@ See these container image registries for the full listing of available images:
 - same as `go-ci-stable-alpine-buildx86`, but specific to x64 architecture
 - does not include linters
 
-### `go-ci-stable-debian-build`
+### `go-ci-stable-cgo-mingw-w64-build`
 
 - built from the latest version of the current stable `golang` image.
 - used for building Go applications, both directly and via `Makefile` builds.
 - supports cross-platform, static cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
-- provides multiple linters
-  - see [Linting tools included](#linting-tools-included)
-
-**NOTE**: The `go-ci-stable-debian-build` image is a candidate for removal.
-
-Do you use the `go-ci-stable-debian-build` image? If so, please [provide
-feedback](https://github.com/atc0005/go-ci/issues/657) indicating that you
-wish for it to be maintained & available for use:
-
-- <https://github.com/atc0005/go-ci/issues/657>
+- does not include linters
 
 ### `go-ci-stable-mirror-build-*`
 
@@ -119,6 +110,7 @@ wish for it to be maintained & available for use:
 - few (if any) customizations are intended for this image, instead relying on
   a project's Makefile or other build tool to setup the environment for tasks
   such as testing, linting & building source code
+- does not include linters
 
 These images are intended to assist with asserting that projects build with
 the latest version in a specific series.

@@ -37,7 +37,7 @@ DOCKER_IMAGE_REGISTRY_USER 			= atc0005
 GITHUB_IMAGE_REGISTRY_USER 			= atc0005
 DOCKER_IMAGE_REPO 					= go-ci
 GITHUB_PROJECT_REPO					= go-ci
-DOCKER_IMAGE_NAME_DEBIAN_BUILD		= go-ci-stable-debian-build
+DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD		= go-ci-stable-cgo-mingw-w64-build
 DOCKER_IMAGE_NAME_MIRROR_BUILD		= go-ci-stable-mirror-build
 
 DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114		= go-ci-stable-mirror-build-go1.14
@@ -60,7 +60,7 @@ DOCKER_IMAGE_CREATED_LABEL			= org.opencontainers.image.created="$(CREATED_TIME)
 DOCKER_FILES 						= oldstable/Dockerfile \
 										stable/build/alpine-x64/Dockerfile \
 										stable/build/alpine-x86/Dockerfile \
-										stable/build/debian/Dockerfile \
+										stable/build/cgo-mingw-w64/Dockerfile \
 										stable/combined/Dockerfile \
 										unstable/Dockerfile \
 
@@ -99,8 +99,7 @@ clean:
 	@sudo docker image prune --force
 	@echo
 	@ echo "Removing temporary copies of linter config files"
-	@rm -vf {oldstable,unstable,stable/combined,stable/build/debian}/.markdownlint.yml
-	@rm -vf {stable/combined,stable/build/debian}/.golangci.yml
+	@rm -vf {oldstable,unstable,stable/combined}/.markdownlint.yml
 
 .PHONY: linting
 ## linting: lint all Dockerfiles
@@ -169,23 +168,23 @@ build-stable-alpine-buildx86: pre-build
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 	@echo "Completed build of stable-alpine-buildx86 release"
 
-.PHONY: stable-debian-build
-## stable-debian-build: Build Debian image
-stable-debian-build: pre-build
+.PHONY: stable-cgo-mingw-w64-build
+## stable-cgo-mingw-w64-build: Build cgo-mingw-w64 image
+stable-cgo-mingw-w64-build: pre-build
 
-	@echo "Building stable-debian-build release"
+	@echo "Building stable-cgo-mingw-w64-build release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
-		stable/build/debian/ \
-		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD) \
-		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)-$(REPO_VERSION) \
-		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD) \
-		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)-$(REPO_VERSION) \
+		stable/build/cgo-mingw-w64/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable-debian-build release"
+	@echo "Completed build of stable-cgo-mingw-w64-build release"
 
 .PHONY: legacy-mirror-build
 ## legacy-mirror-build: Build legacy mirror images
@@ -321,12 +320,7 @@ pre-build:
 	@echo "Building Docker container images"
 
 	@echo "Bundle linter config files to provide baseline default settings"
-	@for version in {oldstable,unstable,stable/combined,stable/build/debian}; do cp -vf .markdownlint.yml $$version/; done
-
-	# unstable container image has its own copy of the .golangci.yml file
-	# oldstable container image has its own copy of the .golangci.yml file
-	# stable container images share a copy of the .golangci.yml file
-	@for version in {stable/combined,stable/build/debian}; do cp -vf stable/.golangci.yml $$version/; done
+	@for version in {oldstable,unstable,stable/combined}; do cp -vf .markdownlint.yml $$version/; done
 
 	@echo "List Docker version"
 	@docker version
@@ -334,15 +328,10 @@ pre-build:
 
 .PHONY: build
 ## build: build all current Docker container images (legacy not included)
-build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-debian-build stable-mirror-build build-oldstable build-unstable
+build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-cgo-mingw-w64-build stable-mirror-build build-oldstable build-unstable
 
 	@echo "Remove temporary copies of bundled files"
-	@rm -vf {oldstable,unstable,stable/combined,stable/build/debian}/.markdownlint.yml
-
-	# unstable container image has its own copy of this file
-	# oldstable container image has its own copy of this file
-	# stable variants share a copy of this file
-	@rm -vf {stable/combined,stable/build/debian}/.golangci.yml
+	@rm -vf {oldstable,unstable,stable/combined}/.markdownlint.yml
 
 	@echo "Finished building Docker container images"
 
@@ -373,8 +362,8 @@ upload:
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86)-$(REPO_VERSION)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64)-$(REPO_VERSION)
-	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)
-	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)-$(REPO_VERSION)
+	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD)
+	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD)-$(REPO_VERSION)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD)-$(REPO_VERSION)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY)
@@ -399,8 +388,8 @@ upload:
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX86)-$(REPO_VERSION)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_ALPINE_BUILDX64)-$(REPO_VERSION)
-	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)
-	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_DEBIAN_BUILD)-$(REPO_VERSION)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD)-$(REPO_VERSION)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD)-$(REPO_VERSION)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_LINT_ONLY)
