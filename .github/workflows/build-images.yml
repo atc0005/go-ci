@@ -140,8 +140,8 @@ jobs:
       - name: Build stable Debian image
         run: make stable-debian-build
 
-  build_stable_mirror_image_using_makefile:
-    name: Build stable mirror image using Makefile
+  build_stable_mirror_images_using_makefile:
+    name: Build stable mirror images using Makefile
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
