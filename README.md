@@ -18,7 +18,7 @@ Tooling for linting, testing and building Go applications
   - [`go-ci-stable-alpine-buildx86`](#go-ci-stable-alpine-buildx86)
   - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
   - [`go-ci-stable-debian-build`](#go-ci-stable-debian-build)
-  - [`go-ci-stable-mirror-build`](#go-ci-stable-mirror-build)
+  - [`go-ci-stable-mirror-build-*`](#go-ci-stable-mirror-build-)
   - [`go-ci-oldstable`](#go-ci-oldstable)
   - [`go-ci-unstable`](#go-ci-unstable)
   - [`go-ci-lint-only`](#go-ci-lint-only)
@@ -110,14 +110,19 @@ wish for it to be maintained & available for use:
 
 - <https://github.com/atc0005/go-ci/issues/657>
 
-### `go-ci-stable-mirror-build`
+### `go-ci-stable-mirror-build-*`
 
-- built from the latest version of the current stable `golang` image.
-- intended to mirror current upstream stable `golang` image for
-  Makefile-driven testing, linting and build tasks.
+- built from the latest version of the `golang` image for that series
+  - e.g., the `go-ci-mirror-build-go1.14` image is built from the final
+    release version in the 1.14 series (1.14.15)
+- intended to mirror current upstream `golang` image for Makefile-driven
+  testing, linting and build tasks.
 - few (if any) customizations are intended for this image, instead relying on
   a project's Makefile or other build tool to setup the environment for tasks
   such as testing, linting & building source code
+
+These images are intended to assist with asserting that projects build with
+the latest version in a specific series.
 
 ### `go-ci-oldstable`
 

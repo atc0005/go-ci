@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.20.1
+FROM golang:1.15.15
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -15,8 +15,8 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
-LABEL org.opencontainers.image.title="go-ci-stable-mirror-build"
+LABEL org.opencontainers.image.title="go-ci-mirror-build-go1.15"
 LABEL org.opencontainers.image.description="Docker image intended to mirror \
-    current upstream stable golang image for Makefile-driven test, linting \
-    and build tasks. Very few modifications are made to the original image."
+    latest upstream golang image for the Go 1.15 series. Used by \
+    Makefile-driven test, linting and build tasks."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
