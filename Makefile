@@ -92,6 +92,9 @@ clean:
 	@echo "Pruning all Docker images with label $(DOCKER_IMAGE_OWNER_LABEL)"
 	@sudo docker image prune --all --force --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
 	@echo
+	@echo "Pruning build cache content older than 24 hours"
+	@sudo docker buildx prune --all --force --filter=until=24h
+	@echo
 	@echo "Pruning all dangling images"
 	@sudo docker image prune --force
 	@echo
