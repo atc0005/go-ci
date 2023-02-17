@@ -109,8 +109,8 @@ jobs:
       - name: Build Alpine x86 image
         run: make build-stable-alpine-buildx86
 
-  build_stable_debian_image_using_makefile:
-    name: Build stable Debian image using Makefile
+  build_stable_cgo-mingw-w64_image_using_makefile:
+    name: Build stable cgo-mingw-w64 image using Makefile
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -137,8 +137,8 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Build stable Debian image
-        run: make stable-debian-build
+      - name: Build stable cgo-mingw-w64 image
+        run: make stable-cgo-mingw-w64-build
 
   build_stable_mirror_images_using_makefile:
     name: Build stable mirror images using Makefile
