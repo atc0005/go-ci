@@ -44,5 +44,8 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Build images using project Makefile
+      - name: Build non-legacy images using project Makefile
         run: make build
+
+      - name: Build legacy images using project Makefile
+        run: make legacy-mirror-build
