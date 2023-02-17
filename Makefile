@@ -39,6 +39,15 @@ DOCKER_IMAGE_REPO 					= go-ci
 GITHUB_PROJECT_REPO					= go-ci
 DOCKER_IMAGE_NAME_DEBIAN_BUILD		= go-ci-stable-debian-build
 DOCKER_IMAGE_NAME_MIRROR_BUILD		= go-ci-stable-mirror-build
+
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114		= go-ci-stable-mirror-build-go1.14
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115		= go-ci-stable-mirror-build-go1.15
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116		= go-ci-stable-mirror-build-go1.16
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117		= go-ci-stable-mirror-build-go1.17
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118		= go-ci-stable-mirror-build-go1.18
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119		= go-ci-stable-mirror-build-go1.19
+DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120		= go-ci-stable-mirror-build-go1.20
+
 DOCKER_IMAGE_NAME_ALPINE_BUILDX86	= go-ci-stable-alpine-buildx86
 DOCKER_IMAGE_NAME_ALPINE_BUILDX64	= go-ci-stable-alpine-buildx64
 DOCKER_IMAGE_NAME_STABLE 			= go-ci-stable
@@ -53,7 +62,6 @@ DOCKER_FILES 						= oldstable/Dockerfile \
 										stable/build/alpine-x64/Dockerfile \
 										stable/build/alpine-x86/Dockerfile \
 										stable/build/debian/Dockerfile \
-										stable/build/mirror/Dockerfile \
 										stable/combined/Dockerfile \
 										stable/linting/Dockerfile \
 										unstable/Dockerfile \
@@ -178,23 +186,96 @@ stable-debian-build: pre-build
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
 	@echo "Completed build of stable-debian-build release"
 
-.PHONY: stable-mirror-build
-## stable-mirror-build: Build stable mirror image
-stable-mirror-build: pre-build
+.PHONY: legacy-mirror-build
+## legacy-mirror-build: Build legacy mirror images
+legacy-mirror-build: pre-build
 
-	@echo "Building stable-mirror-build release"
+	@echo "Building legacy-mirror-build images"
+
 	sudo docker image build \
 		--pull \
 		--no-cache \
-		stable/build/mirror/ \
-		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD) \
-		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD)-$(REPO_VERSION) \
-		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD) \
-		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD)-$(REPO_VERSION) \
+		mirror/1.14/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		mirror/1.15/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		mirror/1.16/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		mirror/1.17/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		mirror/1.18/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+
+	@sudo docker image ls --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
+
+	@echo "Completed build of legacy-mirror-build images"
+
+.PHONY: stable-mirror-build
+## stable-mirror-build: Build stable mirror images
+stable-mirror-build: pre-build
+
+	@echo "Building stable-mirror-build images"
+
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		mirror/1.19/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable-mirror-build release"
+
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		mirror/1.20/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+
+	@echo "Completed build of stable-mirror-build images"
 
 .PHONY: stable-linting-only
 ## stable-linting-only: Build stable linting-only image
@@ -269,7 +350,7 @@ pre-build:
 
 
 .PHONY: build
-## build: build all Docker container images
+## build: build all current Docker container images (legacy not included)
 build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-debian-build stable-mirror-build stable-linting-only build-oldstable build-unstable
 
 	@echo "Remove temporary copies of bundled files"
