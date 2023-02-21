@@ -16,8 +16,8 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-stable-alpine-buildx64"
-LABEL org.opencontainers.image.description="Docker container image used to build Go code. \
-    Based on the latest version of the current (x64) stable golang alpine \
+LABEL org.opencontainers.image.description="Docker container image used to build dev and stable \
+    releases of Go code. Based on the latest version of the current (x64) stable golang alpine \
     image. Supports cross-platform, static cgo-enabled builds for Windows and \
     Linux."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
@@ -33,6 +33,12 @@ ENV APK_UTIL_LINUX_VERSION="2.38-r1"
 ENV APK_FILE_VERSION="5.41-r0"
 ENV APK_NANO_VERSION="6.3-r0"
 ENV APK_MUSL_DEV_VERSION="1.2.3-r2"
+
+# https://github.com/tc-hib/go-winres/releases
+ENV GO_WINRES_VERSION="v0.3.1"
+
+# https://github.com/goreleaser/nfpm/releases
+ENV NFPM_VERSION="v2.26.0"
 
 # Install specific version of packages
 # RUN apk update && \
@@ -64,4 +70,12 @@ RUN apk add --no-cache \
     nano=${APK_NANO_VERSION} \
     # intended to help quickly determine whether a binary is statically or
     # dynamically linked
-    file=${APK_FILE_VERSION}
+    file=${APK_FILE_VERSION} \
+    \
+    && echo "Installing go-winres@${GO_WINRES_VERSION}" \
+    && go install github.com/tc-hib/go-winres@${GO_WINRES_VERSION} \
+    && go version -m $(which go-winres) | awk '$1 == "mod" { print $3 }' \
+    && echo "Installing nfpm@${NFPM_VERSION}" \
+    && go install github.com/goreleaser/nfpm/v2/cmd/nfpm@${NFPM_VERSION} \
+    && nfpm --version \
+    && go clean -cache -modcache

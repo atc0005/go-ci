@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.20.1
+FROM golang:1.19.6
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -15,16 +15,13 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
-LABEL org.opencontainers.image.title="go-ci-stable-cgo-mingw-w64-build"
+LABEL org.opencontainers.image.title="go-ci-oldstable-build"
 LABEL org.opencontainers.image.description="Docker container image used to build dev and stable \
-    releases of Go code. Based on the latest version of the current stable golang image. \
-    Supports static, cgo-enabled builds via mingw."
+    releases of Go code. Based on the latest version of the upstream oldstable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
 ENV APT_TREE_VERSION="1.8.0-1+b1"
-ENV APT_GCC_MULTILIB_VERSION="4:10.2.1-1"
-ENV APT_GCC_MINGW_W64_VERSION="10.2.1-6+24.2"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.1"
@@ -36,8 +33,6 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     bsdmainutils=${APT_BSDMAINUTILS_VERSION} \
     tree=${APT_TREE_VERSION} \
-    gcc-multilib=${APT_GCC_MULTILIB_VERSION} \
-    gcc-mingw-w64=${APT_GCC_MINGW_W64_VERSION} \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \

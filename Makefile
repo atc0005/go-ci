@@ -37,10 +37,9 @@ DOCKER_IMAGE_REGISTRY_USER 			= atc0005
 GITHUB_IMAGE_REGISTRY_USER 			= atc0005
 DOCKER_IMAGE_REPO 					= go-ci
 GITHUB_PROJECT_REPO					= go-ci
-DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD		= go-ci-stable-cgo-mingw-w64-build
+
 DOCKER_IMAGE_NAME_OLDSTABLE_MIRROR_BUILD		= go-ci-oldstable-mirror-build
 DOCKER_IMAGE_NAME_STABLE_MIRROR_BUILD		= go-ci-stable-mirror-build
-
 DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114		= go-ci-mirror-build-go1.14
 DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115		= go-ci-mirror-build-go1.15
 DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116		= go-ci-mirror-build-go1.16
@@ -49,8 +48,14 @@ DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118		= go-ci-mirror-build-go1.18
 DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119		= go-ci-mirror-build-go1.19
 DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120		= go-ci-mirror-build-go1.20
 
+DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD		= go-ci-stable-cgo-mingw-w64-build
 DOCKER_IMAGE_NAME_ALPINE_BUILDX86	= go-ci-stable-alpine-buildx86
 DOCKER_IMAGE_NAME_ALPINE_BUILDX64	= go-ci-stable-alpine-buildx64
+
+DOCKER_IMAGE_NAME_UNSTABLE_BUILD		= go-ci-unstable-build
+DOCKER_IMAGE_NAME_OLDSTABLE_BUILD		= go-ci-oldstable-build
+DOCKER_IMAGE_NAME_STABLE_BUILD		= go-ci-stable-build
+
 DOCKER_IMAGE_NAME_STABLE 			= go-ci-stable
 DOCKER_IMAGE_NAME_OLDSTABLE 		= go-ci-oldstable
 DOCKER_IMAGE_NAME_UNSTABLE 			= go-ci-unstable
@@ -100,7 +105,22 @@ clean:
 	@sudo docker image prune --force
 	@echo
 	@ echo "Removing temporary copies of linter config files"
-	@rm -vf {oldstable,unstable,stable/combined}/.markdownlint.yml
+	@rm -vf {oldstable/combined,unstable/combined,stable/combined}/.markdownlint.yml
+
+.PHONY: prune
+## prune: prune all Docker images & build cache, go build & modules cache and apt cache
+prune: clean
+	@echo "Pruning all Docker images"
+	@sudo docker image prune -a -f
+
+	@echo "Pruning all build cache contents"
+	@sudo docker buildx prune --all --force
+
+	@echo "Pruning go build and modules cache"
+	@go clean -cache -modcache
+
+	@echo "Pruning apt cache"
+	@sudo apt-get clean
 
 .PHONY: linting
 ## linting: lint all Dockerfiles
@@ -114,10 +134,10 @@ linting:
 	done
 
 .PHONY: build-stable
-## build-stable: Build stable image
+## build-stable: Build stable combined and release images
 build-stable: pre-build
 
-	@echo "Building stable release"
+	@echo "Building $(DOCKER_IMAGE_NAME_STABLE) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -131,7 +151,21 @@ build-stable: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_STABLE) release"
+
+	@echo "Building $(DOCKER_IMAGE_NAME_STABLE_BUILD) release"
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		stable/build/release/ \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD) \
+		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)-$(REPO_VERSION) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD) \
+		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_STABLE_BUILD) release"
 
 .PHONY: build-stable-alpine-buildx64
 ## build-stable-alpine-buildx64: Build Alpine x64 image
@@ -287,14 +321,14 @@ stable-mirror-build: pre-build
 	@echo "Completed build of stable-mirror-build images"
 
 .PHONY: build-oldstable
-## build-oldstable: Build oldstable image
+## build-oldstable: Build oldstable combined and build images
 build-oldstable: pre-build
 
-	@echo "Building oldstable release"
+	@echo "Building $(DOCKER_IMAGE_NAME_OLDSTABLE) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
-		oldstable/ \
+		oldstable/combined/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE)-$(REPO_VERSION) \
 		-t  $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE) \
@@ -302,17 +336,32 @@ build-oldstable: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of oldstable release"
+	@echo "Completed build of$(DOCKER_IMAGE_NAME_OLDSTABLE) release"
 
-.PHONY: build-unstable
-## build-unstable: Build unstable image
-build-unstable: pre-build
-
-	@echo "Building unstable release"
+	@echo "Building $(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
-		unstable/ \
+		oldstable/build/release/ \
+		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) \
+		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD)-$(REPO_VERSION) \
+		-t  $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) \
+		-t  $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) release"
+
+
+.PHONY: build-unstable
+## build-unstable: Build unstable combined and release images
+build-unstable: pre-build
+
+	@echo "Building $(DOCKER_IMAGE_NAME_UNSTABLE) release"
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		unstable/combined/
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)-$(REPO_VERSION) \
 		-t  $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE) \
@@ -320,7 +369,21 @@ build-unstable: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of unstable release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_UNSTABLE) release"
+
+	@echo "Building $(DOCKER_IMAGE_NAME_UNSTABLE_BUILD) release"
+	sudo docker image build \
+		--pull \
+		--no-cache \
+		unstable/build/release/ \
+		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD) \
+		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD)-$(REPO_VERSION) \
+		-t  $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD) \
+		-t  $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD)-$(REPO_VERSION) \
+		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
+		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
+		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_UNSTABLE_BUILD) release"
 
 .PHONY: pre-build
 ## pre-build: pre-build tasks
@@ -329,7 +392,7 @@ pre-build:
 	@echo "Building Docker container images"
 
 	@echo "Bundle linter config files to provide baseline default settings"
-	@for version in {oldstable,unstable,stable/combined}; do cp -vf .markdownlint.yml $$version/; done
+	@for version in {oldstable/combined,unstable/combined,stable/combined}; do cp -vf .markdownlint.yml $$version/; done
 
 	@echo "List Docker version"
 	@docker version
@@ -340,7 +403,7 @@ pre-build:
 build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-cgo-mingw-w64-build legacy-mirror-build stable-mirror-build build-oldstable build-unstable
 
 	@echo "Remove temporary copies of bundled files"
-	@rm -vf {oldstable,unstable,stable/combined}/.markdownlint.yml
+	@rm -vf {oldstable/combined,unstable/combined,stable/combined}/.markdownlint.yml
 
 	@echo "Finished building Docker container images"
 
@@ -399,6 +462,9 @@ upload:
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)-$(REPO_VERSION)
 
+	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)
+	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)-$(REPO_VERSION)
+
 # Upload this image last so that GitHub displays it (and uses its metadata) as the suggested image.
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):latest
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE)
@@ -439,8 +505,16 @@ upload:
 
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE)-$(REPO_VERSION)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD)-$(REPO_VERSION)
+
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)-$(REPO_VERSION)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD)-$(REPO_VERSION)
+
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)
+	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)-$(REPO_VERSION)
 
 # Upload this image last. GitHub displays the last image uploaded as the suggested one, so adopting that practice for these uploads
 # also on the offchance that it has a useful effect (now or in the future).
