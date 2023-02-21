@@ -69,7 +69,7 @@ The following linting tools are included in the `go-ci-stable`,
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                             |
 | [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.7`                             |
 | [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.6`                             |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.4.0`                             |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.5.0`                             |
 
 ## Build tools included
 
