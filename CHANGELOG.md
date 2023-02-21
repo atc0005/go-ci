@@ -26,6 +26,91 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.8.0] - 2023-02-21
+
+### Added
+
+- Tools
+  - (GH-818) Add `goreleaser/nfpm` tool to build images
+  - (GH-873) Add `tc-hib/go-winres` tool to build images
+- Images
+  - (GH-865) Rework mirror images
+    - add Go 1.14 "legacy" mirror image
+    - add Go 1.15 "legacy" mirror image
+    - add Go 1.16 "legacy" mirror image
+    - add Go 1.17 "legacy" mirror image
+    - add Go 1.18 "legacy" mirror image
+    - add Go 1.19 mirror image
+    - add Go 1.20 mirror image
+  - (GH-874) Rework images
+    - add `go-ci-stable-build` image
+    - add `go-ci-oldstable-build` image
+    - add `go-ci-unstable-build` image
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.51.1` to `v1.51.2`
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.4.1` to `v0.4.2`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230213165600-1a019b0c7f30` to
+    - `v0.0.0-20230217204342-b91abcc5ae3c`
+  - `fatih/errwrap`
+    - `v1.4.0` to `v1.5.0`
+
+- Images
+  - (GH-869) Rebrand, update `go-ci-stable-debian-build` image
+    - rename `go-ci-stable-debian-build` image to
+      `go-ci-stable-cgo-mingw-w64-build`
+  - (GH-874) Rework images
+    - update `go-ci-stable-alpine-buildx64` image
+      - provide build tools
+    - update `go-ci-stable-alpine-buildx86` image
+      - provide build tools
+    - update `go-ci-stable-cgo-mingw-w64-build` image
+      - provide build tools
+
+- Build
+  - (GH-868) Update Makefile `clean` recipe to prune BuildKit cache of
+    content older than 24 hours
+  - (GH-874) Rework images
+    - add `prune` recipe to aggressively reclaim disk space on image build
+      host
+
+- Workflows
+  - (GH-860) Rework workflow scheduling
+    - Add `scheduled-weekly.yml` workflow
+    - Add `scheduled-monthly.yml` workflow
+    - update project-analysis.yml
+      - remove schedule
+      - remove "on push"
+      - apply jobs for PRs against ANY branch
+  - (GH-861) Use local job defs for scheduled jobs
+    - re-enable make build as a monthly task to build all images
+    - remove imports for shared `scheduled-*.yml` workflow files and define
+      local jobs to this repo
+      - the jobs for this repo are different enough that pulling in a blanket
+        "org-wide" set of tasks is unlikely to end well
+  - (GH-866) Update CI jobs to build legacy images
+  - (GH-870) Process all images when building
+    - build legacy mirror images alongside other mirror images (and other
+      images in general)
+
+### Removed
+
+- (GH-867) Remove `go-ci-lint-only` image
+  - remove `go-ci-lint-only` Dockerfile
+  - remove mention of `go-ci-lint-only` from the README
+  - remove related Makefile recipe and settings for the `go-ci-lint-only`
+    image
+  - remove related GitHub Actions Workflow entry
+
+### Fixed
+
+- (GH-864) Remove stray space in image title LABEL
+
 ## [v0.7.11] - 2023-02-15
 
 ### Changed
@@ -1732,7 +1817,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.7.11...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/atc0005/go-ci/releases/tag/v0.8.0
 [v0.7.11]: https://github.com/atc0005/go-ci/releases/tag/v0.7.11
 [v0.7.10]: https://github.com/atc0005/go-ci/releases/tag/v0.7.10
 [v0.7.9]: https://github.com/atc0005/go-ci/releases/tag/v0.7.9
