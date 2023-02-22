@@ -22,6 +22,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
 ENV APT_TREE_VERSION="1.8.0-1+b1"
+ENV XZ_UTILS_VERSION="5.2.5-2.1~deb11u1"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.1"
@@ -33,6 +34,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     bsdmainutils=${APT_BSDMAINUTILS_VERSION} \
     tree=${APT_TREE_VERSION} \
+    xz-utils="${XZ_UTILS_VERSION}" \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \

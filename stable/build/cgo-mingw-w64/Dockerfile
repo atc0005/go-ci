@@ -25,6 +25,7 @@ ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
 ENV APT_TREE_VERSION="1.8.0-1+b1"
 ENV APT_GCC_MULTILIB_VERSION="4:10.2.1-1"
 ENV APT_GCC_MINGW_W64_VERSION="10.2.1-6+24.2"
+ENV XZ_UTILS_VERSION="5.2.5-2.1~deb11u1"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.1"
@@ -38,6 +39,7 @@ RUN apt-get update \
     tree=${APT_TREE_VERSION} \
     gcc-multilib=${APT_GCC_MULTILIB_VERSION} \
     gcc-mingw-w64=${APT_GCC_MINGW_W64_VERSION} \
+    xz-utils="${XZ_UTILS_VERSION}" \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \
