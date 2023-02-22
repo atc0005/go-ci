@@ -63,12 +63,22 @@ DOCKER_IMAGE_OWNER_LABEL 			= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
 DOCKER_IMAGE_REVISION_LABEL			= org.opencontainers.image.revision="$(LAST_COMMIT)"
 DOCKER_IMAGE_CREATED_LABEL			= org.opencontainers.image.created="$(CREATED_TIME)"
 
-DOCKER_FILES 						= oldstable/Dockerfile \
+DOCKER_FILES 						= oldstable/build/release/Dockerfile \
+ 										oldstable/combined/Dockerfile \
 										stable/build/alpine-x64/Dockerfile \
 										stable/build/alpine-x86/Dockerfile \
 										stable/build/cgo-mingw-w64/Dockerfile \
+										stable/build/release/Dockerfile \
 										stable/combined/Dockerfile \
-										unstable/Dockerfile \
+										unstable/build/release/Dockerfile \
+										unstable/combined/Dockerfile \
+										mirror/1.14/Dockerfile \
+										mirror/1.15/Dockerfile \
+										mirror/1.16/Dockerfile \
+										mirror/1.17/Dockerfile \
+										mirror/1.18/Dockerfile \
+										mirror/1.19/Dockerfile \
+										mirror/1.20/Dockerfile
 
 
 DOCKER_IMAGE_REGISTRY_TOKEN_FILE	= ~/DH_TOKEN.txt
