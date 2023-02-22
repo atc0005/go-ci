@@ -33,8 +33,8 @@ ENV NFPM_VERSION="v2.26.0"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    bsdmainutils=${APT_BSDMAINUTILS_VERSION} \
-    tree=${APT_TREE_VERSION} \
+    bsdmainutils="${APT_BSDMAINUTILS_VERSION}" \
+    tree="${APT_TREE_VERSION}" \
     xz-utils="${XZ_UTILS_VERSION}" \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \

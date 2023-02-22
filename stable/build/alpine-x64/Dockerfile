@@ -47,31 +47,31 @@ ENV NFPM_VERSION="v2.26.0"
 RUN apk add --no-cache \
     #
     # used for builds
-    make=${APK_MAKE_VERSION} \
+    make="${APK_MAKE_VERSION}" \
     #
     # used by some Makefiles
-    bash=${APK_BASH_VERSION} \
+    bash="${APK_BASH_VERSION}" \
     #
     # provides `column` binary, which is used by some Makefiles
-    util-linux=${APK_UTIL_LINUX_VERSION} \
+    util-linux="${APK_UTIL_LINUX_VERSION}" \
     #
     # used by go get, other tooling
-    git=${APK_GIT_VERSION} \
+    git="${APK_GIT_VERSION}" \
     #
     # used for static compilation
-    gcc=${APK_GCC_VERSION} \
+    gcc="${APK_GCC_VERSION}" \
     #
     # used for static compilation
-    musl-dev=${APK_MUSL_DEV_VERSION} \
+    musl-dev="${APK_MUSL_DEV_VERSION}" \
     #
     # used for cross-platform compiling (e.g., Windows and Linux)
-    mingw-w64-gcc=${APK_GCC_MINGW64_VERSION} \
+    mingw-w64-gcc="${APK_GCC_MINGW64_VERSION}" \
     #
     # not strictly required, useful if we need to directly examine files
-    nano=${APK_NANO_VERSION} \
+    nano="${APK_NANO_VERSION}" \
     # intended to help quickly determine whether a binary is statically or
     # dynamically linked
-    file=${APK_FILE_VERSION} \
+    file="${APK_FILE_VERSION}" \
     xz="${APK_XZ_VERSION}" \
     \
     && echo "Installing go-winres@${GO_WINRES_VERSION}" \
