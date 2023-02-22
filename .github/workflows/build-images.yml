@@ -26,8 +26,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -44,8 +47,32 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
+      # - name: Install git-describe-semver
+      #   id: install-git-describe-semver
+      #   run: go install github.com/choffmeister/git-describe-semver@latest
+
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-setting-an-output-parameter
+      # - name: Record semantic version using git-describe-semver
+      #   id: use-git-describe-semver
+      #   run: echo "version=$($HOME/go/bin/git-describe-semver)" >> "$GITHUB_OUTPUT"
+
       - name: Build stable image
-        run: make build-stable
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make build-stable
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
   build_alpine_x64_image_using_makefile:
     name: Build Alpine x64 image using Makefile
@@ -57,8 +84,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -75,8 +105,23 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build Alpine x64 image
-        run: make build-stable-alpine-buildx64
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make build-stable-alpine-buildx64
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
   build_alpine_x86_image_using_makefile:
     name: Build Alpine x86 image using Makefile
@@ -88,8 +133,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -106,8 +154,23 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build Alpine x86 image
-        run: make build-stable-alpine-buildx86
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make build-stable-alpine-buildx86
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
   build_stable_cgo-mingw-w64_image_using_makefile:
     name: Build stable cgo-mingw-w64 image using Makefile
@@ -119,8 +182,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -137,8 +203,23 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build stable cgo-mingw-w64 image
-        run: make stable-cgo-mingw-w64-build
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make stable-cgo-mingw-w64-build
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
   build_stable_mirror_images_using_makefile:
     name: Build stable mirror images using Makefile
@@ -150,8 +231,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -168,8 +252,23 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build stable mirror image
-        run: make stable-mirror-build
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make stable-mirror-build
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
   build_oldstable_image_using_makefile:
     name: Build oldstable image using Makefile
@@ -181,8 +280,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -199,8 +301,23 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build oldstable image
-        run: make build-oldstable
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make build-oldstable
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
   build_unstable_image_using_makefile:
     name: Build unstable image using Makefile
@@ -212,8 +329,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -230,5 +350,20 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build unstable image
-        run: make build-unstable
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make build-unstable
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"

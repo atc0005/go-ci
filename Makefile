@@ -21,11 +21,20 @@
 # https://stackoverflow.com/questions/38801796/makefile-set-if-variable-is-empty
 # https://stackoverflow.com/questions/14348741/testing-if-a-file-exists-in-makefile-target-and-quitting-if-not-present
 # https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
+# https://stackoverflow.com/questions/38801796/how-to-conditionally-set-makefile-variable-to-something-if-it-is-empty
 
 SHELL = /bin/bash
 
 # https://gist.github.com/TheHippo/7e4d9ec4b7ed4c0d7a39839e6800cc16
-REPO_VERSION 				= $(shell git describe --always --long --dirty)
+# REPO_VERSION 				= $(shell git describe --always --long --dirty)
+
+# Use https://github.com/choffmeister/git-describe-semver to generate
+# semantic version compatible tag values for use as image suffix.
+#
+# Attempt to use environment variable. This is set within GitHub Actions
+# Workflows, but not via local Makefile use. If environment variable is not
+# set, use local installation of choffmeister/git-describe-semver tool.
+REPO_VERSION 				?= $(shell git-describe-semver)
 LAST_COMMIT					= $(shell git rev-parse HEAD)
 CREATED_TIME				= $(shell date --rfc-3339=seconds --utc)
 
