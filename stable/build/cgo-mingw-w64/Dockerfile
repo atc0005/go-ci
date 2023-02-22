@@ -35,10 +35,10 @@ ENV NFPM_VERSION="v2.26.0"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    bsdmainutils=${APT_BSDMAINUTILS_VERSION} \
-    tree=${APT_TREE_VERSION} \
-    gcc-multilib=${APT_GCC_MULTILIB_VERSION} \
-    gcc-mingw-w64=${APT_GCC_MINGW_W64_VERSION} \
+    bsdmainutils="${APT_BSDMAINUTILS_VERSION}" \
+    tree="${APT_TREE_VERSION}" \
+    gcc-multilib="${APT_GCC_MULTILIB_VERSION}" \
+    gcc-mingw-w64="${APT_GCC_MINGW_W64_VERSION}" \
     xz-utils="${XZ_UTILS_VERSION}" \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
