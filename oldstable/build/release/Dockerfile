@@ -30,6 +30,9 @@ ENV GO_WINRES_VERSION="v0.3.1"
 # https://github.com/goreleaser/nfpm/releases
 ENV NFPM_VERSION="v2.26.0"
 
+# https://github.com/choffmeister/git-describe-semver/releases
+ENV GIT_DESCRIBE_SEMVER_VERSION="v0.3.9"
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     bsdmainutils="${APT_BSDMAINUTILS_VERSION}" \
@@ -44,4 +47,6 @@ RUN apt-get update \
     && echo "Installing nfpm@${NFPM_VERSION}" \
     && go install github.com/goreleaser/nfpm/v2/cmd/nfpm@${NFPM_VERSION} \
     && nfpm --version \
+    && go install github.com/choffmeister/git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION} \
+    && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }' \
     && go clean -cache -modcache

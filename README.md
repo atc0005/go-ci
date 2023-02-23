@@ -76,10 +76,11 @@ The following linting tools are included in the `go-ci-stable`,
 The following build tools are included in all `*-build*` images *except* for
 the `*-mirror-*` images:
 
-| Build tool                                                | Version   |
-| --------------------------------------------------------- | --------- |
-| [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres) | `v0.3.1`  |
-| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)   | `v2.26.0` |
+| Build tool                                                                                | Version   |
+| ----------------------------------------------------------------------------------------- | --------- |
+| [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres)                                 | `v0.3.1`  |
+| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.26.0` |
+| [`choffmeister/git-describe-semver`](https://github.com/choffmeister/git-describe-semver) | `v0.3.9`  |
 
 ### Matrix images
 
@@ -291,8 +292,9 @@ official release is also provided for further review.
     - [fatih/errwrap](https://github.com/fatih/errwrap)
 
 - Build Tools
-  - [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres)
-  - [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)
+  - [tc-hib/go-winres](https://github.com/tc-hib/go-winres)
+  - [goreleaser/nfpm](https://github.com/goreleaser/nfpm)
+  - [choffmeister/git-describe-semver](https://github.com/choffmeister/git-describe-semver)
 
 - Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>
