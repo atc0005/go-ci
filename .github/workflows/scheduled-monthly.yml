@@ -26,8 +26,11 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Check out code into the Go module directory
+      - name: Clone full repo history
         uses: actions/checkout@v3
+        with:
+          # Needed in order to retrieve tags for use with semver calculations
+          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -44,5 +47,20 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.9
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
       - name: Build images using project Makefile
-        run: make build
+        run: |
+          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          make build
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
