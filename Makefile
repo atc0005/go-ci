@@ -190,7 +190,7 @@ build-stable: pre-build
 ## build-stable-alpine-buildx64: Build Alpine x64 image
 build-stable-alpine-buildx64: pre-build
 
-	@echo "Building stable-alpine-buildx64 release"
+	@echo "Building $(DOCKER_IMAGE_NAME_ALPINE_BUILDX64) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -202,13 +202,13 @@ build-stable-alpine-buildx64: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable-alpine-buildx64 release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_ALPINE_BUILDX64) release"
 
 .PHONY: build-stable-alpine-buildx86
 ## build-stable-alpine-buildx86: Build Alpine x86 image
 build-stable-alpine-buildx86: pre-build
 
-	@echo "Building stable-alpine-buildx86 release"
+	@echo "Building $(DOCKER_IMAGE_NAME_ALPINE_BUILDX86) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -220,13 +220,13 @@ build-stable-alpine-buildx86: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable-alpine-buildx86 release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_ALPINE_BUILDX86) release"
 
 .PHONY: stable-cgo-mingw-w64-build
 ## stable-cgo-mingw-w64-build: Build cgo-mingw-w64 image
 stable-cgo-mingw-w64-build: pre-build
 
-	@echo "Building stable-cgo-mingw-w64-build release"
+	@echo "Building $(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -238,7 +238,7 @@ stable-cgo-mingw-w64-build: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of stable-cgo-mingw-w64-build release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_CGO-MINGW-W64_BUILD) release"
 
 .PHONY: legacy-mirror-build
 ## legacy-mirror-build: Build legacy mirror images
@@ -246,6 +246,7 @@ legacy-mirror-build: pre-build
 
 	@echo "Building legacy-mirror-build images"
 
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -255,7 +256,9 @@ legacy-mirror-build: pre-build
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114) \
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114) release"
 
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -265,7 +268,9 @@ legacy-mirror-build: pre-build
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115) \
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115) release"
 
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -275,6 +280,9 @@ legacy-mirror-build: pre-build
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116) \
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116) release"
+
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -284,7 +292,9 @@ legacy-mirror-build: pre-build
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117) \
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117) release"
 
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -294,6 +304,7 @@ legacy-mirror-build: pre-build
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118) \
 		-t $(GITHUB_IMAGE_REGISTRY)/$(GITHUB_IMAGE_REGISTRY_USER)/$(GITHUB_PROJECT_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118)-$(REPO_VERSION) \
 		--label=$(DOCKER_IMAGE_OWNER_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118) release"
 
 	@sudo docker image ls --filter "label=$(DOCKER_IMAGE_OWNER_LABEL)"
 
@@ -305,6 +316,7 @@ stable-mirror-build: pre-build
 
 	@echo "Building stable-mirror-build images"
 
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -320,7 +332,9 @@ stable-mirror-build: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119) release"
 
+	@echo "Building $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120) release"
 	sudo docker image build \
 		--pull \
 		--no-cache \
@@ -336,6 +350,7 @@ stable-mirror-build: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120) release"
 
 	@echo "Completed build of stable-mirror-build images"
 
@@ -355,7 +370,7 @@ build-oldstable: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of$(DOCKER_IMAGE_NAME_OLDSTABLE) release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_OLDSTABLE) release"
 
 	@echo "Building $(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) release"
 	sudo docker image build \
@@ -369,7 +384,7 @@ build-oldstable: pre-build
 		--label=$(DOCKER_IMAGE_OWNER_LABEL) \
 		--label=$(DOCKER_IMAGE_REVISION_LABEL) \
 		--label=$(DOCKER_IMAGE_CREATED_LABEL)
-	@echo "Completed build of$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) release"
+	@echo "Completed build of $(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) release"
 
 
 .PHONY: build-unstable
