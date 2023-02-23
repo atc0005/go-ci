@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.9.0] - 2023-02-23
+
+### Added
+
+- (GH-891) Add `choffmeister/git-describe-semver` to build images
+
+### Changed
+
+- (GH-889) Change versioned tags to support Dependabot updates
+
 ## [v0.8.1] - 2023-02-22
 
 ### Changed
@@ -1830,7 +1840,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.9.0...HEAD
+[v0.9.0]: https://github.com/atc0005/go-ci/releases/tag/v0.9.0
 [v0.8.1]: https://github.com/atc0005/go-ci/releases/tag/v0.8.1
 [v0.8.0]: https://github.com/atc0005/go-ci/releases/tag/v0.8.0
 [v0.7.11]: https://github.com/atc0005/go-ci/releases/tag/v0.7.11
