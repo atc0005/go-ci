@@ -72,24 +72,6 @@ DOCKER_IMAGE_OWNER_LABEL 			= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
 DOCKER_IMAGE_REVISION_LABEL			= org.opencontainers.image.revision="$(LAST_COMMIT)"
 DOCKER_IMAGE_CREATED_LABEL			= org.opencontainers.image.created="$(CREATED_TIME)"
 
-DOCKER_FILES 						= oldstable/build/release/Dockerfile \
- 										oldstable/combined/Dockerfile \
-										stable/build/alpine-x64/Dockerfile \
-										stable/build/alpine-x86/Dockerfile \
-										stable/build/cgo-mingw-w64/Dockerfile \
-										stable/build/release/Dockerfile \
-										stable/combined/Dockerfile \
-										unstable/build/release/Dockerfile \
-										unstable/combined/Dockerfile \
-										mirror/1.14/Dockerfile \
-										mirror/1.15/Dockerfile \
-										mirror/1.16/Dockerfile \
-										mirror/1.17/Dockerfile \
-										mirror/1.18/Dockerfile \
-										mirror/1.19/Dockerfile \
-										mirror/1.20/Dockerfile
-
-
 DOCKER_IMAGE_REGISTRY_TOKEN_FILE	= ~/DH_TOKEN.txt
 GITHUB_IMAGE_REGISTRY_TOKEN_FILE	= ~/GH_TOKEN.txt
 
@@ -146,11 +128,12 @@ prune: clean
 linting:
 	@echo "Linting Dockerfiles ..."
 
-	@for target in $(DOCKER_FILES); do \
-		echo -e "\n* $$target" && \
-		docker image pull --quiet $(DOCKER_IMAGE_HADOLINT) && \
-		docker run --pull never --rm -i -v "$$PWD/$$target:$$PWD/$$target" $(DOCKER_IMAGE_HADOLINT) hadolint $$PWD/$$target; \
-	done
+	@docker image pull --quiet $(DOCKER_IMAGE_HADOLINT)
+	@find $$PWD \
+		-name "Dockerfile" \
+		-type f \
+		-print \
+		-exec docker run --pull never --rm -i -v "{}:{}" $(DOCKER_IMAGE_HADOLINT) hadolint {} \;
 
 .PHONY: build-stable
 ## build-stable: Build stable combined and release images
