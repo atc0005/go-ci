@@ -41,7 +41,7 @@ require (
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
 	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
-	github.com/Microsoft/go-winio v0.5.1 // indirect
+	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20211112122917-428f8eabeeb3 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
@@ -88,7 +88,7 @@ require (
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/tc-hib/winres v0.1.6 // indirect
 	github.com/urfave/cli/v2 v2.3.0 // indirect
-	github.com/xanzy/ssh-agent v0.3.1 // indirect
+	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	gitlab.com/digitalxero/go-conventional-commit v1.0.7 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/exp v0.0.0-20220722155223-a9213eeb770e // indirect
