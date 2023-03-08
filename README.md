@@ -68,7 +68,7 @@ The following linting tools are included in the `go-ci-stable`,
 | [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v0.0.0-20230217204342-b91abcc5ae3c` |
 | [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1`                             |
 | [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.7`                             |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.6`                             |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.0.7`                             |
 | [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.5.0`                             |
 
 ## Build tools included
