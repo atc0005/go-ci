@@ -26,6 +26,46 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.9.1] - 2023-03-08
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.19` from `1.19.6` to `1.19.7`
+    - Update `go-ci-mirror-build-go1.20` from `1.20.1` to `1.20.2`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.19.6` to `1.19.7`
+    - Update `go-ci-oldstable-build` from `1.19.6` to `1.19.7`
+  - stable images
+    - Update `go-ci-stable` from `1.20.1` to `1.20.2`
+    - Update `go-ci-stable-build` from `1.20.1` to `1.20.2`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.1` to `1.20.2`
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.1-alpine3.16` to
+      `1.20.2-alpine3.16`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.1-alpine3.16` to
+      `1.20.2-alpine3.16`
+  - unstable images
+    - Update `go-ci-unstable` from `1.20.1` to `1.20.2`
+    - Update `go-ci-unstable-build` from `1.20.1` to `1.20.2`
+
+- Dependencies
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230217204342-b91abcc5ae3c` to
+    - `v0.0.0-20230308034057-d4ed0a4fab9e`
+  - `pelletier/go-toml`
+    - `v2.0.6` to `v2.0.7`
+
+- Misc
+  - (GH-895) Update tracked tools for Dependabot PRs
+  - (GH-897) Minor tweaks to Makefile build tasks status output
+  - (GH-898) Simplify Dockerfile linting
+  - (GH-924) Update tools/go.mod monitoring config
+
+### Fixed
+
+- (GH-932) Dependabot monitoring of multiple build images not working
+
 ## [v0.9.0] - 2023-02-23
 
 ### Added
@@ -1840,7 +1880,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.9.1...HEAD
+[v0.9.1]: https://github.com/atc0005/go-ci/releases/tag/v0.9.1
 [v0.9.0]: https://github.com/atc0005/go-ci/releases/tag/v0.9.0
 [v0.8.1]: https://github.com/atc0005/go-ci/releases/tag/v0.8.1
 [v0.8.0]: https://github.com/atc0005/go-ci/releases/tag/v0.8.0
