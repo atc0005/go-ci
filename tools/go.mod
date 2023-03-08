@@ -17,7 +17,7 @@ require (
 	github.com/orijtech/structslop v0.0.7
 
 	// tomll - provided as an optional linter
-	github.com/pelletier/go-toml/v2 v2.0.6
+	github.com/pelletier/go-toml/v2 v2.0.7
 
 	// govulncheck - provided as an optional vulnerability analyzer
 	// https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck?tab=versions
