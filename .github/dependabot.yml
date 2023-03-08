@@ -59,7 +59,7 @@ updates:
       prefix: "ghaw"
 
   - package-ecosystem: docker
-    directory: "/oldstable"
+    directory: "/oldstable/build/release"
     open-pull-requests-limit: 10
     target-branch: "master"
     schedule:
@@ -88,13 +88,24 @@ updates:
       prefix: "docker"
 
   - package-ecosystem: docker
-    directory: "/stable/linting"
+    directory: "/oldstable/combined"
     open-pull-requests-limit: 10
     target-branch: "master"
     schedule:
       interval: "daily"
       time: "02:00"
       timezone: "America/Chicago"
+
+    # Ignore updates from series associated with "stable" container image and
+    # no longer supported Go versions.
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          # Greater than or equal to stable container image series
+          - ">= 1.20"
+
+          # Less than oldstable series
+          - "< 1.19"
     assignees:
       - "atc0005"
     labels:
@@ -104,11 +115,6 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "docker"
-    ignore:
-      - dependency-name: "golang"
-        versions:
-          - ">= 1.21"
-          - "< 1.20"
 
   - package-ecosystem: docker
     directory: "/stable/combined"
@@ -180,7 +186,30 @@ updates:
           - "< 1.20"
 
   - package-ecosystem: docker
-    directory: "/stable/build/debian"
+    directory: "/stable/build/cgo-mingw-w64"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "docker"
+    ignore:
+      - dependency-name: "golang"
+        versions:
+          - ">= 1.21"
+          - "< 1.20"
+
+  - package-ecosystem: docker
+    directory: "/stable/build/release"
     open-pull-requests-limit: 10
     target-branch: "master"
     schedule:
@@ -249,7 +278,25 @@ updates:
           - "< 1.20"
 
   - package-ecosystem: docker
-    directory: "/unstable"
+    directory: "/unstable/build/release"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "docker"
+
+  - package-ecosystem: docker
+    directory: "/unstable/combined"
     open-pull-requests-limit: 10
     target-branch: "master"
     schedule:
