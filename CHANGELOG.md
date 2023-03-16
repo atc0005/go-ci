@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.9.2] - 2023-03-16
+
+### Changed
+
+- Dependencies
+  - `honnef.co/go/tools` (`staticcheck`)
+    - `v0.4.2` to `v0.4.3`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230308034057-d4ed0a4fab9e` to
+    - `v0.0.0-20230313161840-8a73a7e4f203`
+
 ## [v0.9.1] - 2023-03-08
 
 ### Changed
@@ -1880,7 +1891,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.9.2...HEAD
+[v0.9.2]: https://github.com/atc0005/go-ci/releases/tag/v0.9.2
 [v0.9.1]: https://github.com/atc0005/go-ci/releases/tag/v0.9.1
 [v0.9.0]: https://github.com/atc0005/go-ci/releases/tag/v0.9.0
 [v0.8.1]: https://github.com/atc0005/go-ci/releases/tag/v0.8.1
