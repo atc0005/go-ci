@@ -16,6 +16,9 @@ require (
 	// structslog - provided as an optional linter
 	github.com/orijtech/structslop v0.0.7
 
+	// tickeryzer - provided as an optional linter
+	github.com/orijtech/tickeryzer v0.0.3
+
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.0.7
 

@@ -21,6 +21,7 @@ ENV STATICCHECK_VERSION="v0.4.3"
 ENV GOVULNCHECK_VERSION="v0.0.0-20230313161840-8a73a7e4f203"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.7"
+ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.0.7"
 ENV ERRWRAP_VERSION="v1.5.0"
 
@@ -34,6 +35,8 @@ RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
     && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
     && go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
+    && echo "Installing tickeryzer@${TICKERYZER_VERSION}" \
+    && go install github.com/orijtech/tickeryzer/cmd/tickeryzer@${TICKERYZER_VERSION} \
     && echo "Installing tomll@${TOMLL_VERSION}" \
     && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
     && echo "Installing errwrap@${ERRWRAP_VERSION}" \
