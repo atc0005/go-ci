@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.10.0] - 2023-03-18
+
+### Added
+
+- Enable `golangci-lint` linters
+  - `unstable` "combined" image
+    - `nilnil`
+    - `predeclared`
+
+- New linters
+  - `orijtech/tickeryzer` @`v0.0.3`
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.51.2` to `v1.52.0`
+
+### Fixed
+
+- (GH-949) go mod tidy flags `golang.org/x/vuln/vulncheck` as problematic
+
 ## [v0.9.2] - 2023-03-16
 
 ### Changed
@@ -1891,7 +1913,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.9.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.0...HEAD
+[v0.10.0]: https://github.com/atc0005/go-ci/releases/tag/v0.10.0
 [v0.9.2]: https://github.com/atc0005/go-ci/releases/tag/v0.9.2
 [v0.9.1]: https://github.com/atc0005/go-ci/releases/tag/v0.9.1
 [v0.9.0]: https://github.com/atc0005/go-ci/releases/tag/v0.9.0
