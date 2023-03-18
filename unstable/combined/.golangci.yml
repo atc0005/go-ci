@@ -55,6 +55,7 @@ linters:
     - misspell
     - nilnil
     - prealloc
+    - predeclared
     - revive
     - staticcheck
     - stylecheck
