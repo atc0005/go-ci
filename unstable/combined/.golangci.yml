@@ -53,6 +53,7 @@ linters:
     - maligned
 
     - misspell
+    - nilnil
     - prealloc
     - revive
     - staticcheck
