@@ -100,6 +100,7 @@ COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
 COPY --from=builder /go/bin/structslop /usr/bin/structslop
+COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 
