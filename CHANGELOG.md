@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.10.2] - 2023-03-23
+
+### Fixed
+
+- (GH-965) `orijtech/tickeryzer` missing from `unstable` image
+
 ## [v0.10.1] - 2023-03-22
 
 ### Changed
@@ -1923,7 +1929,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.2...HEAD
+[v0.10.2]: https://github.com/atc0005/go-ci/releases/tag/v0.10.2
 [v0.10.1]: https://github.com/atc0005/go-ci/releases/tag/v0.10.1
 [v0.10.0]: https://github.com/atc0005/go-ci/releases/tag/v0.10.0
 [v0.9.2]: https://github.com/atc0005/go-ci/releases/tag/v0.9.2
