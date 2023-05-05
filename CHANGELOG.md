@@ -26,6 +26,44 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.10.5] - 2023-05-05
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.19` from `1.19.8` to `1.19.9`
+    - Update `go-ci-mirror-build-go1.20` from `1.20.3` to `1.20.4`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.19.8` to `1.19.9`
+    - Update `go-ci-oldstable-build` from `1.19.8` to `1.19.9`
+  - stable images
+    - Update `go-ci-stable` from `1.20.3` to `1.20.4`
+    - Update `go-ci-stable-build` from `1.20.3` to `1.20.4`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.3` to `1.20.4`
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.3-alpine3.16` to
+      `1.20.4-alpine3.16`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.3-alpine3.16` to
+      `1.20.4-alpine3.16`
+  - unstable images
+    - Update `go-ci-unstable` from `1.20.3` to `1.20.4`
+    - Update `go-ci-unstable-build` from `1.20.3` to `1.20.4`
+
+- Dependencies
+  - `goreleaser/nfpm`
+    - `v2.27.1` to `v2.28.0`
+  - `golang.org/x/vuln/cmd/govulncheck`
+    - `v0.0.0-20230404205743-41aec7335792` to `v0.1.0`
+  - `orijtech/structslop`
+    - `v0.0.7` to `v0.0.8`
+
+### Fixed
+
+- (GH-962) structslop linter failing on Go 1.20 with `internal error: package
+  "errors" without types was imported from ...`
+- (GH-1007) ERROR: unable to select packages: git-2.36.6-r0: breaks:
+  world[git=2.36.5-r0]
+
 ## [v0.10.4] - 2023-04-05
 
 ### Changed
@@ -1965,7 +2003,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.5...HEAD
+[v0.10.5]: https://github.com/atc0005/go-ci/releases/tag/v0.10.5
 [v0.10.4]: https://github.com/atc0005/go-ci/releases/tag/v0.10.4
 [v0.10.3]: https://github.com/atc0005/go-ci/releases/tag/v0.10.3
 [v0.10.2]: https://github.com/atc0005/go-ci/releases/tag/v0.10.2
