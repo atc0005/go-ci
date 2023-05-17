@@ -42,7 +42,7 @@ ENV GO_WINRES_VERSION="v0.3.1"
 ENV NFPM_VERSION="v2.28.0"
 
 # https://github.com/choffmeister/git-describe-semver/releases
-ENV GIT_DESCRIBE_SEMVER_VERSION="v0.3.9"
+ENV GIT_DESCRIBE_SEMVER_VERSION="v0.3.11"
 
 # Install specific version of packages
 # RUN apk update && \
