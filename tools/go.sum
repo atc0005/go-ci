@@ -68,8 +68,8 @@ github.com/caarlos0/testfs v0.4.4 h1:3PHvzHi5Lt+g332CiShwS8ogTgS3HjrmzZxCm6JCDr8
 github.com/caarlos0/testfs v0.4.4/go.mod h1:bRN55zgG4XCUVVHZCeU+/Tz1Q6AxEJOEJTliBy+1DMk=
 github.com/cavaliergopher/cpio v1.0.1 h1:KQFSeKmZhv0cr+kawA3a0xTQCU4QxXF1vhU7P7av2KM=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
-github.com/choffmeister/git-describe-semver v0.3.9 h1:RibjfHngvO4leBjfIKOpRUyc9f5A+Va+Vc/xC6Kmg4g=
-github.com/choffmeister/git-describe-semver v0.3.9/go.mod h1:TLd1DWawMC+fs4rFiXl++R1Gaqn5l3vhQqZG5btLJJw=
+github.com/choffmeister/git-describe-semver v0.3.11 h1:fzRgIwf9MOnhJ76Fx4o90ocGTM6z9WSGwXSu3XOnVBU=
+github.com/choffmeister/git-describe-semver v0.3.11/go.mod h1:37p6hBvmqhFJS96DGphR9daXgr1VD6jcRjbTBj9V25Q=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
 github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMnBNeIyt5eFwwo7qiLfzFZmjNmxjkiQlU=
