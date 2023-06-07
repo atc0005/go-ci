@@ -29,7 +29,7 @@ ENV XZ_UTILS_VERSION="5.2.5-2.1~deb11u1"
 ENV GO_WINRES_VERSION="v0.3.1"
 
 # https://github.com/goreleaser/nfpm/releases
-ENV NFPM_VERSION="v2.30.0"
+ENV NFPM_VERSION="v2.30.1"
 
 # https://github.com/choffmeister/git-describe-semver/releases
 ENV GIT_DESCRIBE_SEMVER_VERSION="v0.3.11"
