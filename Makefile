@@ -416,7 +416,7 @@ pre-build:
 
 
 .PHONY: build
-## build: build all current Docker container images (legacy not included)
+## build: build all current Docker container images (legacy included)
 build: pre-build build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-cgo-mingw-w64-build legacy-mirror-build stable-mirror-build build-oldstable build-unstable
 
 	@echo "Remove temporary copies of bundled files"
