@@ -26,6 +26,46 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.10.6] - 2023-06-07
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.19` from `1.19.9` to `1.19.10`
+    - Update `go-ci-mirror-build-go1.20` from `1.20.4` to `1.20.5`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.19.9` to `1.19.10`
+    - Update `go-ci-oldstable-build` from `1.19.9` to `1.19.10`
+  - stable images
+    - Update `go-ci-stable` from `1.20.4` to `1.20.5`
+    - Update `go-ci-stable-build` from `1.20.4` to `1.20.5`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.4` to `1.20.5`
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.4-alpine3.16` to
+      `1.20.5-alpine3.16`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.4-alpine3.16` to
+      `1.20.5-alpine3.16`
+  - unstable images
+    - Update `go-ci-unstable` from `1.20.4` to `1.20.5`
+    - Update `go-ci-unstable-build` from `1.20.4` to `1.20.5`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.52.2` to `v1.53.2`
+  - `goreleaser/nfpm`
+    - `v2.28.0` to `v2.30.1`
+  - `choffmeister/git-describe-semver`
+    - `v0.3.9` to `v0.3.11`
+  - `pelletier/go-toml`
+    - `v2.0.7` to `v2.0.8`
+
+### Fixed
+
+- (GH-1018) ERROR: unable to select packages: `musl-dev-1.2.3-r3`: breaks:
+  `world[musl-dev=1.2.3-r2]`
+- (GH-1024) New version of depguard linter included in golangci-lint v1.53.0
+  and newer fails when run without explicit configuration
+
 ## [v0.10.5] - 2023-05-05
 
 ### Changed
@@ -2003,7 +2043,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.6...HEAD
+[v0.10.6]: https://github.com/atc0005/go-ci/releases/tag/v0.10.6
 [v0.10.5]: https://github.com/atc0005/go-ci/releases/tag/v0.10.5
 [v0.10.4]: https://github.com/atc0005/go-ci/releases/tag/v0.10.4
 [v0.10.3]: https://github.com/atc0005/go-ci/releases/tag/v0.10.3
