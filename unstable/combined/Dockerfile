@@ -12,7 +12,7 @@ FROM golang:1.20.5 as builder
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-ENV GOLANGCI_LINT_VERSION="v1.53.2"
+ENV GOLANGCI_LINT_VERSION="v1.53.3"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
@@ -73,7 +73,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-ENV GOLANGCI_LINT_VERSION="v1.53.2"
+ENV GOLANGCI_LINT_VERSION="v1.53.3"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
