@@ -26,6 +26,27 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.11.0] - 2023-06-15
+
+### Added
+
+  (GH-1044) Add `oldstable` Alpine build image variants
+
+### Changed
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.53.2` to `v1.53.3`
+- (GH-1045) Update GitHub Actions workflows to allow image build CI jobs to be
+  executed on-demand
+
+### Fixed
+
+- (GH-1041) Fix `build` recipe help text
+- (GH-1043) Stable build images for Alpine x64 and x86 have outdated Go version
+- (GH-1047) Debian-based images fail to build using current pinned dependency
+  versions
+
 ## [v0.10.6] - 2023-06-07
 
 ### Changed
@@ -2043,7 +2064,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.10.6...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.0...HEAD
+[v0.11.0]: https://github.com/atc0005/go-ci/releases/tag/v0.11.0
 [v0.10.6]: https://github.com/atc0005/go-ci/releases/tag/v0.10.6
 [v0.10.5]: https://github.com/atc0005/go-ci/releases/tag/v0.10.5
 [v0.10.4]: https://github.com/atc0005/go-ci/releases/tag/v0.10.4
