@@ -15,6 +15,10 @@ on:
     # * * * * *
     - cron: "30 4 * * 0"
 
+  # Allow workflow to be triggered manually.
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+  workflow_dispatch:
+
 jobs:
   lint:
     name: Lint
