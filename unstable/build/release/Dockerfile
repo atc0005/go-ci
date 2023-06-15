@@ -21,9 +21,9 @@ LABEL org.opencontainers.image.description="Docker container image used to build
     golang:rc image or if not recently available, the latest stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
-ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
-ENV APT_TREE_VERSION="1.8.0-1+b1"
-ENV XZ_UTILS_VERSION="5.2.5-2.1~deb11u1"
+ENV APT_BSDMAINUTILS_VERSION="12.1.8"
+ENV APT_TREE_VERSION="2.1.0-1"
+ENV XZ_UTILS_VERSION="5.4.1-0.2"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.1"

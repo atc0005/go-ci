@@ -21,11 +21,11 @@ LABEL org.opencontainers.image.description="Docker container image used to build
     Supports static, cgo-enabled builds via mingw."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
-ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
-ENV APT_TREE_VERSION="1.8.0-1+b1"
-ENV APT_GCC_MULTILIB_VERSION="4:10.2.1-1"
-ENV APT_GCC_MINGW_W64_VERSION="10.2.1-6+24.2"
-ENV XZ_UTILS_VERSION="5.2.5-2.1~deb11u1"
+ENV APT_BSDMAINUTILS_VERSION="12.1.8"
+ENV APT_TREE_VERSION="2.1.0-1"
+ENV APT_GCC_MULTILIB_VERSION="4:12.2.0-3"
+ENV APT_GCC_MINGW_W64_VERSION="12.2.0-14+25.2"
+ENV XZ_UTILS_VERSION="5.4.1-0.2"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.1"
