@@ -26,6 +26,21 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.11.1] - 2023-06-26
+
+### Changed
+
+- Go versions
+  - unstable images
+    - Update `go-ci-unstable` from `1.20.5` to `1.21rc2`
+    - Update `go-ci-unstable-build` from `1.20.5` to `1.21rc2`
+- (GH-1057) Update Dockerfiles to reflect a chosen base image OS
+
+### Fixed
+
+- (GH-1060) ERROR: unable to select packages: `file-5.44-r4`: breaks:
+  `world[file=5.44-r3]`
+
 ## [v0.11.0] - 2023-06-15
 
 ### Added
@@ -2064,7 +2079,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.1...HEAD
+[v0.11.1]: https://github.com/atc0005/go-ci/releases/tag/v0.11.1
 [v0.11.0]: https://github.com/atc0005/go-ci/releases/tag/v0.11.0
 [v0.10.6]: https://github.com/atc0005/go-ci/releases/tag/v0.10.6
 [v0.10.5]: https://github.com/atc0005/go-ci/releases/tag/v0.10.5
