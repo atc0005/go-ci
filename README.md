@@ -82,7 +82,7 @@ the `*-mirror-*` images:
 | Build tool                                                                                | Version   |
 | ----------------------------------------------------------------------------------------- | --------- |
 | [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres)                                 | `v0.3.1`  |
-| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.30.1` |
+| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.31.0` |
 | [`choffmeister/git-describe-semver`](https://github.com/choffmeister/git-describe-semver) | `v0.3.11` |
 
 ### Matrix images
