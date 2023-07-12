@@ -26,6 +26,22 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.11.3] - 2023-07-12
+
+### Changed
+
+- Go versions
+  - oldstable images
+    - Update `go-ci-oldstable-alpine-buildx86` from `1.19.10-alpine3.18` to
+      `1.19.11-alpine3.18`
+    - Update `go-ci-oldstable-alpine-buildx64` from `1.19.10-alpine3.18` to
+      `1.19.11-alpine3.18`
+
+### Fixed
+
+- (GH-1081) Fix Go series used for Alpine oldstable images
+- (GH-1084) Fix CHANGELOG entry for v0.11.2 release
+
 ## [v0.11.2] - 2023-07-12
 
 ### Changed
@@ -2117,7 +2133,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.3...HEAD
+[v0.11.3]: https://github.com/atc0005/go-ci/releases/tag/v0.11.3
 [v0.11.2]: https://github.com/atc0005/go-ci/releases/tag/v0.11.2
 [v0.11.1]: https://github.com/atc0005/go-ci/releases/tag/v0.11.1
 [v0.11.0]: https://github.com/atc0005/go-ci/releases/tag/v0.11.0
