@@ -26,6 +26,42 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.11.2] - 2023-07-12
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.19` from `1.19.10` to `1.19.11`
+    - Update `go-ci-mirror-build-go1.20` from `1.20.5` to `1.20.6`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.19.10` to `1.19.11`
+    - Update `go-ci-oldstable-build` from `1.19.10` to `1.19.11`
+    - Update `go-ci-oldstable-alpine-buildx86` from `1.20.5-alpine3.18` to
+      `1.20.6-alpine3.18`
+    - Update `go-ci-oldstable-alpine-buildx64` from `1.20.5-alpine3.18` to
+      `1.20.6-alpine3.18`
+  - stable images
+    - Update `go-ci-stable` from `1.20.5` to `1.20.6`
+    - Update `go-ci-stable-build` from `1.20.5` to `1.20.6`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.5` to `1.20.6`
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.5-alpine3.18` to
+      `1.20.6-alpine3.18`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.5-alpine3.18` to
+      `1.20.6-alpine3.18`
+  - unstable images
+    - no change since the v0.11.1 release (`1.21rc2`)
+
+- Dependencies
+  - `goreleaser/nfpm`
+    - `v2.28.0` to `v2.30.1`
+  - `golang.org/x/vuln` (`govulncheck`)
+    - `v0.1.0` to `v0.2.0`
+
+### Fixed
+
+- (GH-1078) Fix CHANGELOG entries for v0.10.6 and v0.11.0
+
 ## [v0.11.1] - 2023-06-26
 
 ### Changed
@@ -2085,7 +2121,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.2...HEAD
+[v0.11.2]: https://github.com/atc0005/go-ci/releases/tag/v0.11.2
 [v0.11.1]: https://github.com/atc0005/go-ci/releases/tag/v0.11.1
 [v0.11.0]: https://github.com/atc0005/go-ci/releases/tag/v0.11.0
 [v0.10.6]: https://github.com/atc0005/go-ci/releases/tag/v0.10.6
