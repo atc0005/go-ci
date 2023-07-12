@@ -49,6 +49,16 @@ The following types of changes will be recorded in this file:
 
 ### Changed
 
+- Go versions
+  - stable images
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.4-alpine3.16` to
+      `1.20.5-alpine3.18`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.4-alpine3.16` to
+      `1.20.5-alpine3.18`
+  - oldstable images
+    - Add `go-ci-oldstable-alpine-buildx86` at `1.20.5-alpine3.18`
+    - Add `go-ci-oldstable-alpine-buildx64` at `1.20.5-alpine3.18`
+
 - Dependencies
   - `golangci/golangci-lint`
     - `v1.53.2` to `v1.53.3`
@@ -77,10 +87,6 @@ The following types of changes will be recorded in this file:
     - Update `go-ci-stable` from `1.20.4` to `1.20.5`
     - Update `go-ci-stable-build` from `1.20.4` to `1.20.5`
     - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.4` to `1.20.5`
-    - Update `go-ci-stable-alpine-buildx86` from `1.20.4-alpine3.16` to
-      `1.20.5-alpine3.16`
-    - Update `go-ci-stable-alpine-buildx64` from `1.20.4-alpine3.16` to
-      `1.20.5-alpine3.16`
   - unstable images
     - Update `go-ci-unstable` from `1.20.4` to `1.20.5`
     - Update `go-ci-unstable-build` from `1.20.4` to `1.20.5`
