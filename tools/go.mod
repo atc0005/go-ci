@@ -33,7 +33,7 @@ require (
 
 require (
 	github.com/choffmeister/git-describe-semver v0.3.11
-	github.com/goreleaser/nfpm/v2 v2.31.0
+	github.com/goreleaser/nfpm/v2 v2.32.0
 	github.com/tc-hib/go-winres v0.3.1
 )
 
