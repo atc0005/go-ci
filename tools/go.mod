@@ -20,7 +20,7 @@ require (
 	github.com/orijtech/tickeryzer v0.0.3
 
 	// tomll - provided as an optional linter
-	github.com/pelletier/go-toml/v2 v2.0.8
+	github.com/pelletier/go-toml/v2 v2.0.9
 
 	// govulncheck - provided as an optional vulnerability analyzer
 	// https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck?tab=versions
