@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.11.4] - 2023-07-14
+
+### Changed
+
+- Dependencies
+  - `goreleaser/nfpm`
+    - `v2.31.0` to `v2.32.0`
+  - `golang.org/x/vuln` (`govulncheck`)
+    - `v0.2.0` to `v1.0.0`
+  - `pelletier/go-toml`
+    - `v2.0.8` to `v2.0.9`
+
 ## [v0.11.3] - 2023-07-12
 
 ### Changed
@@ -2133,7 +2145,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.3...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.4...HEAD
+[v0.11.4]: https://github.com/atc0005/go-ci/releases/tag/v0.11.4
 [v0.11.3]: https://github.com/atc0005/go-ci/releases/tag/v0.11.3
 [v0.11.2]: https://github.com/atc0005/go-ci/releases/tag/v0.11.2
 [v0.11.1]: https://github.com/atc0005/go-ci/releases/tag/v0.11.1
