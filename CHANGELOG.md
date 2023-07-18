@@ -26,6 +26,15 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.11.5] - 2023-07-18
+
+### Changed
+
+- Go versions
+  - unstable images
+    - Update `go-ci-unstable` from `1.21rc2` to `1.21rc3`
+    - Update `go-ci-unstable-build` from `1.21rc2` to `1.21rc3`
+
 ## [v0.11.4] - 2023-07-14
 
 ### Changed
@@ -2145,7 +2154,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.5...HEAD
+[v0.11.5]: https://github.com/atc0005/go-ci/releases/tag/v0.11.5
 [v0.11.4]: https://github.com/atc0005/go-ci/releases/tag/v0.11.4
 [v0.11.3]: https://github.com/atc0005/go-ci/releases/tag/v0.11.3
 [v0.11.2]: https://github.com/atc0005/go-ci/releases/tag/v0.11.2
