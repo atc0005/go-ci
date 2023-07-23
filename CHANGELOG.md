@@ -30,8 +30,8 @@ The following types of changes will be recorded in this file:
 
 ### Added
 
-  (GH-1097) Add initial automated release notes config
-  (GH-1098) Add `unstable` Alpine build image variants
+- (GH-1097) Add initial automated release notes config
+- (GH-1098) Add `unstable` Alpine build image variants
 
 ## [v0.11.5] - 2023-07-18
 
