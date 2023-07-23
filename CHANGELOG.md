@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.12.0] - 2023-07-23
+
+### Added
+
+  (GH-1097) Add initial automated release notes config
+  (GH-1098) Add `unstable` Alpine build image variants
+
 ## [v0.11.5] - 2023-07-18
 
 ### Changed
@@ -2154,7 +2161,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.11.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.12.0...HEAD
+[v0.12.0]: https://github.com/atc0005/go-ci/releases/tag/v0.12.0
 [v0.11.5]: https://github.com/atc0005/go-ci/releases/tag/v0.11.5
 [v0.11.4]: https://github.com/atc0005/go-ci/releases/tag/v0.11.4
 [v0.11.3]: https://github.com/atc0005/go-ci/releases/tag/v0.11.3
