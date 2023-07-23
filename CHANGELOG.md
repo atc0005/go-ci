@@ -26,6 +26,21 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.13.0] - 2023-07-23
+
+### Added
+
+- (GH-756) CI: Setup automatic build & publish workflow for tagged releases
+
+### Changed
+
+- (GH-1103) Switch registry token access from file to env var
+
+### Fixed
+
+- (GH-1102) Fix syntax for v0.12.0 changes
+- (GH-1104) Fix GHCR username variable reference
+
 ## [v0.12.0] - 2023-07-23
 
 ### Added
@@ -2161,7 +2176,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.0...HEAD
+[v0.13.0]: https://github.com/atc0005/go-ci/releases/tag/v0.13.0
 [v0.12.0]: https://github.com/atc0005/go-ci/releases/tag/v0.12.0
 [v0.11.5]: https://github.com/atc0005/go-ci/releases/tag/v0.11.5
 [v0.11.4]: https://github.com/atc0005/go-ci/releases/tag/v0.11.4
