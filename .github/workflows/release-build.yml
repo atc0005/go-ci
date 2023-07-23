@@ -1,0 +1,114 @@
+# See LICENSE file in this repo for license details.
+
+name: Release Build
+
+on:
+  push:
+    tags:
+      # Match any semver tag, rely on the workflow steps to apply necessary
+      # logic to separate "stable" release builds from "prerelease" builds.
+      - "v[0-9]+.[0-9]+.*"
+
+jobs:
+  release_build:
+    name: Build and upload container images
+
+    # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    permissions:
+      contents: write
+      discussions: write
+      packages: write
+
+    if: startsWith(github.ref, 'refs/tags')
+
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 10
+
+    steps:
+      - name: Log tag info
+        run: |
+          echo "Ref type: ${{ github.ref_type }}"
+          echo "Ref name: ${{ github.ref_name }}"
+          echo "Ref full: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Check out code (full history)
+        uses: actions/checkout@v3.5.3
+        with:
+          # Full history is needed to allow listing tags via build tooling
+          # (e.g., go-winres, git-describe-semver)
+          fetch-depth: 0
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
+
+      # bsdmainutils provides "column" which is used by the Makefile
+      - name: Install Ubuntu packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
+
+      - name: Generate semantic version for project
+        id: use-git-describe-semver
+        uses: choffmeister/git-describe-semver@v0.3.11
+        with:
+          fallback: v0.0.0
+          drop-prefix: false
+          prerelease-prefix: dev
+          prerelease-suffix: ""
+          prerelease-timestamped: false
+
+      - name: Build all images
+        env:
+            REPO_VERSION: ${{ steps.use-git-describe-semver.outputs.version }}
+        run: |
+          make build
+
+      - name: Upload all images
+        env:
+            REPO_VERSION: ${{ steps.use-git-describe-semver.outputs.version }}
+
+            # https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow
+            DH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GHRC_TOKEN: ${{ secrets.GHCR }}
+        run: |
+          make push
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+
+      - name: Generate pre-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        if: contains(github.ref_name, 'alpha') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc')
+        run: |
+          echo Generating pre-release
+
+          gh release create ${{ github.ref_name }} \
+            --verify-tag \
+            --prerelease \
+            --discussion-category 'Dev/Release Candidate' \
+            --generate-notes
+
+      - name: Generate stable release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        # https://github.com/orgs/community/discussions/26712
+        if: ${{ !(contains(github.ref_name, 'alpha') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc')) }}
+        run: |
+          echo Generating stable release
+
+          gh release create ${{ github.ref_name }} \
+            --verify-tag \
+            --latest \
+            --discussion-category 'Stable Release' \
+            --generate-notes
