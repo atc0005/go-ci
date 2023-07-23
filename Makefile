@@ -22,6 +22,10 @@
 # https://stackoverflow.com/questions/14348741/testing-if-a-file-exists-in-makefile-target-and-quitting-if-not-present
 # https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
 # https://stackoverflow.com/questions/38801796/how-to-conditionally-set-makefile-variable-to-something-if-it-is-empty
+# https://stackoverflow.com/questions/10292132/get-exit-code-1-on-makefile-if-statement
+# https://www.gnu.org/software/make/manual/html_node/Origin-Function.html
+# https://www.gnu.org/software/gnu/make/manual/html_node/Flavor-Function.html
+# https://stackoverflow.com/questions/4728810/how-to-ensure-makefile-variable-is-set-as-a-prerequisite
 
 SHELL = /bin/bash
 
@@ -75,9 +79,6 @@ DOCKER_IMAGE_NAME_UNSTABLE 			= go-ci-unstable
 DOCKER_IMAGE_OWNER_LABEL 			= $(DOCKER_IMAGE_REGISTRY_USER).$(DOCKER_IMAGE_REPO)
 DOCKER_IMAGE_REVISION_LABEL			= org.opencontainers.image.revision="$(LAST_COMMIT)"
 DOCKER_IMAGE_CREATED_LABEL			= org.opencontainers.image.created="$(CREATED_TIME)"
-
-DOCKER_IMAGE_REGISTRY_TOKEN_FILE	= ~/DH_TOKEN.txt
-GITHUB_IMAGE_REGISTRY_TOKEN_FILE	= ~/GH_TOKEN.txt
 
 # https://github.com/hadolint/hadolint
 # DOCKER_IMAGE_HADOLINT				= hadolint/hadolint
@@ -516,12 +517,21 @@ push: upload
 .PHONY: upload
 ## upload: uploads Docker images to one or more repos
 upload:
-# ifeq (,$(wildcard $(DOCKER_IMAGE_REGISTRY_TOKEN_FILE)))
-#     $(error GitHub token file does not exist!)
-# endif
+
+	@set -e; \
+		if [[ "$(DH_TOKEN)" == "" ]]; \
+		then echo "ERROR: DH_TOKEN is not set!"; \
+		false; \
+		else echo "OK: DH_TOKEN is set"; \
+		fi; \
+		if [[ "$(GHCR_TOKEN)" == "" ]] ; \
+		then echo "ERROR: GHCR_TOKEN is not set!"; \
+		false; \
+		else echo "OK: GHCR_TOKEN is set"; \
+		fi
 
 	@echo "Uploading Docker container images to $(GITHUB_IMAGE_REGISTRY) ..."
-	@cat $(GITHUB_IMAGE_REGISTRY_TOKEN_FILE) | sudo docker login $(GITHUB_IMAGE_REGISTRY) --username atc0005 --password-stdin
+	@echo $(GHCR_TOKEN) | sudo docker login $(GITHUB_IMAGE_REGISTRY) --username atc0005 --password-stdin
 
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX86)
 	@sudo docker push $(GITHUB_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX86)-$(REPO_VERSION)
@@ -580,7 +590,7 @@ upload:
 
 
 	@echo "Uploading Docker container images to $(DOCKER_IMAGE_REGISTRY) ..."
-	@cat $(DOCKER_IMAGE_REGISTRY_TOKEN_FILE) | sudo docker login $(DOCKER_IMAGE_REGISTRY) --username atc0005 --password-stdin
+	@echo $(DH_TOKEN) | sudo docker login $(DOCKER_IMAGE_REGISTRY) --username atc0005 --password-stdin
 
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX86)
 	@sudo docker push $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX86)-$(REPO_VERSION)
