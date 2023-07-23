@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.13.1] - 2023-07-23
+
+### Changed
+
+- (GH-1109) Update timeout for release build workflow
+
+### Fixed
+
+- (GH-1108) Fix token environment variables
+
 ## [v0.13.0] - 2023-07-23
 
 ### Added
@@ -2176,7 +2186,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.1...HEAD
+[v0.13.1]: https://github.com/atc0005/go-ci/releases/tag/v0.13.1
 [v0.13.0]: https://github.com/atc0005/go-ci/releases/tag/v0.13.0
 [v0.12.0]: https://github.com/atc0005/go-ci/releases/tag/v0.12.0
 [v0.11.5]: https://github.com/atc0005/go-ci/releases/tag/v0.11.5
