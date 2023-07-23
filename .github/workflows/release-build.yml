@@ -76,8 +76,8 @@ jobs:
             REPO_VERSION: ${{ steps.use-git-describe-semver.outputs.version }}
 
             # https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow
-            DH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            GHRC_TOKEN: ${{ secrets.GHCR }}
+            DH_TOKEN: ${{ secrets.DOCKERHUB }}
+            GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           make push
 
