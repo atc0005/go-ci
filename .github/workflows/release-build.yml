@@ -23,7 +23,7 @@ jobs:
 
     runs-on: ubuntu-latest
     # Default: 360 minutes
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Log tag info
