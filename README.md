@@ -24,6 +24,8 @@ Tooling for linting, testing and building Go applications
     - [`go-ci-oldstable-alpine-buildx64`](#go-ci-oldstable-alpine-buildx64)
     - [`go-ci-stable-alpine-buildx86`](#go-ci-stable-alpine-buildx86)
     - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
+    - [`go-ci-unstable-alpine-buildx86`](#go-ci-unstable-alpine-buildx86)
+    - [`go-ci-unstable-alpine-buildx64`](#go-ci-unstable-alpine-buildx64)
     - [`go-ci-stable-cgo-mingw-w64-build`](#go-ci-stable-cgo-mingw-w64-build)
   - [Mirror build images](#mirror-build-images)
     - [`go-ci-mirror-build-*`](#go-ci-mirror-build-)
@@ -168,6 +170,28 @@ the `*-mirror-*` images:
 #### `go-ci-stable-alpine-buildx64`
 
 - same as `go-ci-stable-alpine-buildx86`, but specific to x64 architecture
+- ✔️ provides multiple [custom build tools](#build-tools-included)
+- ❌ does not include [linters](#linting-tools-included)
+
+#### `go-ci-unstable-alpine-buildx86`
+
+- built from the latest available non-stable (beta, rc or if not available the
+  latest stable) version of the `i386/golang` `alpine` image.
+- used for building and testing Go applications, both directly and via
+  `Makefile` builds.
+- uses [musl libc](https://musl.libc.org/) instead of
+  [glibc](https://www.gnu.org/software/libc/)
+  - see [Comparison of C/POSIX standard library implementations for
+    Linux](https://www.etalabs.net/compare_libcs.html)
+- supports cross-platform, static cgo-enabled builds for Windows and Linux
+  - Windows 32-bit: `i686-w64-mingw32-gcc`
+  - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+- ✔️ provides multiple [custom build tools](#build-tools-included)
+- ❌ does not include [linters](#linting-tools-included)
+
+#### `go-ci-unstable-alpine-buildx64`
+
+- same as `go-ci-unstable-alpine-buildx86`, but specific to x64 architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
 
