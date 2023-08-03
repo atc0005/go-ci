@@ -26,6 +26,43 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.13.2] - 2023-08-03
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.19` from `1.19.11` to `1.19.12`
+    - Update `go-ci-mirror-build-go1.20` from `1.20.6` to `1.20.7`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.19.11` to `1.19.12`
+    - Update `go-ci-oldstable-build` from `1.19.11` to `1.19.12`
+    - Update `go-ci-oldstable-alpine-buildx86` from `1.19.11-alpine3.18` to
+      `1.19.12-alpine3.18`
+    - Update `go-ci-oldstable-alpine-buildx64` from `1.19.11-alpine3.18` to
+      `1.19.12-alpine3.18`
+  - stable images
+    - Update `go-ci-stable` from `1.20.6` to `1.20.7`
+    - Update `go-ci-stable-build` from `1.20.6` to `1.20.7`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.6` to `1.20.7`
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.6-alpine3.18` to
+      `1.20.7-alpine3.18`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.6-alpine3.18` to
+      `1.20.7-alpine3.18`
+  - unstable images
+    - Update `go-ci-unstable` from `1.21rc3` to `1.21rc4`
+    - Update `go-ci-unstable-build` from `1.21rc3` to `1.21rc4`
+    - Update `go-ci-unstable-alpine-buildx86` from `1.21rc3-alpine3.18` to
+      `1.21rc4-alpine3.18`
+    - Update `go-ci-unstable-alpine-buildx64` from `1.21rc3-alpine3.18` to
+      `1.21rc4-alpine3.18`
+- (GH-1114) Increase timeout for monthly workflow
+
+### Fixed
+
+- (GH-1112) `ERROR: unable to select packages` error for `file=5.44-r4` and
+  `musl-dev=1.2.4-r0`
+
 ## [v0.13.1] - 2023-07-23
 
 ### Changed
@@ -2186,7 +2223,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.2...HEAD
+[v0.13.2]: https://github.com/atc0005/go-ci/releases/tag/v0.13.2
 [v0.13.1]: https://github.com/atc0005/go-ci/releases/tag/v0.13.1
 [v0.13.0]: https://github.com/atc0005/go-ci/releases/tag/v0.13.0
 [v0.12.0]: https://github.com/atc0005/go-ci/releases/tag/v0.12.0
