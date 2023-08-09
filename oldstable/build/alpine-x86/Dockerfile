@@ -15,9 +15,9 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
-LABEL org.opencontainers.image.title="go-ci-stable-alpine-buildx86"
+LABEL org.opencontainers.image.title="go-ci-oldstable-alpine-buildx86"
 LABEL org.opencontainers.image.description="Docker container image used to build dev and stable \
-    releases of Go code. Based on the latest version of the current stable i386/golang alpine \
+    releases of Go code. Based on the latest version of the current oldstable i386/golang alpine \
     image. Supports cross-platform, static cgo-enabled builds for Windows and Linux."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
