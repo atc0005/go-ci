@@ -26,6 +26,44 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.13.3] - 2023-08-09
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Add `go-ci-mirror-build-go1.21` at `1.21.0`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.19.12` to `1.20.7`
+    - Update `go-ci-oldstable-build` from `1.19.12` to `1.20.7`
+    - Update `go-ci-oldstable-alpine-buildx86` from `1.19.12-alpine3.18` to
+      `1.20.7-alpine3.18`
+    - Update `go-ci-oldstable-alpine-buildx64` from `1.19.12-alpine3.18` to
+      `1.20.7-alpine3.18`
+  - stable images
+    - Update `go-ci-stable` from `1.20.7` to `1.21.0`
+    - Update `go-ci-stable-build` from `1.20.7` to `1.21.0`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.20.7` to `1.21.0`
+    - Update `go-ci-stable-alpine-buildx86` from `1.20.7-alpine3.18` to
+      `1.21.0-alpine3.18`
+    - Update `go-ci-stable-alpine-buildx64` from `1.20.7-alpine3.18` to
+      `1.21.0-alpine3.18`
+  - unstable images
+    - Update `go-ci-unstable` from `1.21rc4` to `1.21.0`
+    - Update `go-ci-unstable-build` from `1.21rc4` to `1.21.0`
+    - Update `go-ci-unstable-alpine-buildx86` from `1.21rc4-alpine3.18` to
+      `1.21.0-alpine3.18`
+    - Update `go-ci-unstable-alpine-buildx64` from `1.21rc4-alpine3.18` to
+      `1.21.0-alpine3.18`
+
+- Dependencies
+  - `golangci/golangci-lint`
+    - `v1.53.3` to `v1.54.0`
+
+### Fixed
+
+- (GH-1140) Fix Alpine oldstable and stable img descs, tags
+
 ## [v0.13.2] - 2023-08-03
 
 ### Changed
@@ -2223,7 +2261,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.3...HEAD
+[v0.13.3]: https://github.com/atc0005/go-ci/releases/tag/v0.13.3
 [v0.13.2]: https://github.com/atc0005/go-ci/releases/tag/v0.13.2
 [v0.13.1]: https://github.com/atc0005/go-ci/releases/tag/v0.13.1
 [v0.13.0]: https://github.com/atc0005/go-ci/releases/tag/v0.13.0
