@@ -20,7 +20,7 @@ LABEL org.opencontainers.image.description="Docker container image used to lint,
     Based on the latest version of the current outgoing stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
-ENV GOLANGCI_LINT_VERSION="v1.54.0"
+ENV GOLANGCI_LINT_VERSION="v1.54.1"
 ENV STATICCHECK_VERSION="v0.4.3"
 ENV GOVULNCHECK_VERSION="v1.0.0"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
