@@ -250,8 +250,8 @@ github.com/orijtech/structslop v0.0.8 h1:xkiOOdE3Obe82vdQvrb4bsjCGAUqQEo6Ln3r4yF
 github.com/orijtech/structslop v0.0.8/go.mod h1:DTgCV3OwtVdbJZt4uHpVM6Fck2CbGhsZM2nAv4BmWk0=
 github.com/orijtech/tickeryzer v0.0.3 h1:voYEdZlzcvMTT3E2LoWIy4s0O74n4Z5L5C22cXJsANo=
 github.com/orijtech/tickeryzer v0.0.3/go.mod h1:PS87zBzREYa3A0JGhIIQXvPiNeH44TjLRi4O+x4fOxc=
-github.com/pelletier/go-toml/v2 v2.0.9 h1:uH2qQXheeefCCkuBBSLi7jCiSmj3VRh2+Goq2N7Xxu0=
-github.com/pelletier/go-toml/v2 v2.0.9/go.mod h1:tJU2Z3ZkXwnxa4DPO899bsyIoywizdUvyaeZurnPPDc=
+github.com/pelletier/go-toml/v2 v2.1.0 h1:FnwAJ4oYMvbT/34k9zzHuZNrhlz48GB3/s6at6/MHO4=
+github.com/pelletier/go-toml/v2 v2.1.0/go.mod h1:tJU2Z3ZkXwnxa4DPO899bsyIoywizdUvyaeZurnPPDc=
 github.com/pjbgf/sha1cd v0.3.0 h1:4D5XXmUUBUl/xQ6IjCkEAbqXskkq/4O7LmGn0AqMDs4=
 github.com/pjbgf/sha1cd v0.3.0/go.mod h1:nZ1rrWOcGJ5uZgEEVL1VUM9iRQiZvWdbZjkKyFzPPsI=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
