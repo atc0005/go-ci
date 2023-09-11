@@ -73,10 +73,10 @@ updates:
       - dependency-name: "golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.20"
+          - ">= 1.21"
 
           # Less than oldstable series
-          - "< 1.19"
+          - "< 1.20"
     assignees:
       - "atc0005"
     labels:
@@ -102,10 +102,10 @@ updates:
       - dependency-name: "golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.20"
+          - ">= 1.21"
 
           # Less than oldstable series
-          - "< 1.19"
+          - "< 1.20"
     assignees:
       - "atc0005"
     labels:
@@ -137,10 +137,10 @@ updates:
       - dependency-name: "golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.20"
+          - ">= 1.21"
 
           # Less than oldstable series
-          - "< 1.19"
+          - "< 1.20"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/alpine-x86"
@@ -163,10 +163,10 @@ updates:
       - dependency-name: "i386/golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.20"
+          - ">= 1.21"
 
           # Less than oldstable series
-          - "< 1.19"
+          - "< 1.20"
 
   - package-ecosystem: docker
     directory: "/stable/combined"
@@ -188,8 +188,8 @@ updates:
     ignore:
       - dependency-name: "golang"
         versions:
-          - ">= 1.21"
-          - "< 1.20"
+          - ">= 1.22"
+          - "< 1.21"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x64"
@@ -211,8 +211,8 @@ updates:
     ignore:
       - dependency-name: "golang"
         versions:
-          - ">= 1.21"
-          - "< 1.20"
+          - ">= 1.22"
+          - "< 1.21"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x86"
@@ -234,8 +234,8 @@ updates:
     ignore:
       - dependency-name: "i386/golang"
         versions:
-          - ">= 1.21"
-          - "< 1.20"
+          - ">= 1.22"
+          - "< 1.21"
 
   - package-ecosystem: docker
     directory: "/unstable/build/alpine-x64"
@@ -293,8 +293,8 @@ updates:
     ignore:
       - dependency-name: "golang"
         versions:
-          - ">= 1.21"
-          - "< 1.20"
+          - ">= 1.22"
+          - "< 1.21"
 
   - package-ecosystem: docker
     directory: "/stable/build/release"
@@ -316,8 +316,8 @@ updates:
     ignore:
       - dependency-name: "golang"
         versions:
-          - ">= 1.21"
-          - "< 1.20"
+          - ">= 1.22"
+          - "< 1.21"
 
   - package-ecosystem: docker
     directory: "/mirror/1.19"
@@ -362,8 +362,8 @@ updates:
     ignore:
       - dependency-name: "golang"
         versions:
-          - ">= 1.21"
-          - "< 1.20"
+          - ">= 1.22"
+          - "< 1.21"
 
   - package-ecosystem: docker
     directory: "/unstable/build/release"
