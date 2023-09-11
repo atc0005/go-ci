@@ -31,7 +31,7 @@ jobs:
         run: docker --version
 
       - name: Clone full repo history
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Needed in order to retrieve tags for use with semver calculations
           fetch-depth: 0

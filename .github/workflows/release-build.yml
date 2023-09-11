@@ -34,7 +34,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: Check out code (full history)
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4
         with:
           # Full history is needed to allow listing tags via build tooling
           # (e.g., go-winres, git-describe-semver)
