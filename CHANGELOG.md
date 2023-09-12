@@ -26,6 +26,54 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.13.8] - 2023-09-12
+
+### Added
+
+- (GH-1182) Add Dependabot monitoring for Go 1.21 mirror image
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.19` from `1.19.12` to `1.19.13`
+    - Update `go-ci-mirror-build-go1.20` from `1.20.7` to `1.20.8`
+    - Update `go-ci-mirror-build-go1.21` from `1.21.0` to `1.21.1`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.20.7` to `1.20.8`
+    - Update `go-ci-oldstable-build` from `1.20.7` to `1.20.8`
+    - Update `go-ci-oldstable-alpine-buildx86` from `1.20.7-alpine3.18` to
+      `1.20.8-alpine3.18`
+    - Update `go-ci-oldstable-alpine-buildx64` from `1.20.7-alpine3.18` to
+      `1.20.8-alpine3.18`
+  - stable images
+    - Update `go-ci-stable` from `1.21.0` to `1.21.1`
+    - Update `go-ci-stable-build` from `1.21.0` to `1.21.1`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.21.0` to `1.21.1`
+    - Update `go-ci-stable-alpine-buildx86` from `1.21.0-alpine3.18` to
+      `1.21.1-alpine3.18`
+    - Update `go-ci-stable-alpine-buildx64` from `1.21.0-alpine3.18` to
+      `1.21.1-alpine3.18`
+  - unstable images
+    - Update `go-ci-unstable` from `1.21.0` to `1.21.1`
+    - Update `go-ci-unstable-build` from `1.21.0` to `1.21.1`
+    - Update `go-ci-unstable-alpine-buildx86` from `1.21.0-alpine3.18` to
+      `1.21.1-alpine3.18`
+    - Update `go-ci-unstable-alpine-buildx64` from `1.21.0-alpine3.18` to
+      `1.21.1-alpine3.18`
+
+- Dependencies
+  - `actions/checkout`
+    - `v3` to `v4`
+  - `pelletier/go-toml`
+    - `v2.0.9` to `v2.1.0`
+
+### Fixed
+
+- (GH-1166) Update unstable images version
+- (GH-1170) Update Dependabot Docker img version constraints
+- (GH-1181) Fix Go 1.20 mirror image version constraint
+
 ## [v0.13.7] - 2023-08-22
 
 ### Changed
@@ -2295,7 +2343,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.8...HEAD
+[v0.13.8]: https://github.com/atc0005/go-ci/releases/tag/v0.13.8
 [v0.13.7]: https://github.com/atc0005/go-ci/releases/tag/v0.13.7
 [v0.13.6]: https://github.com/atc0005/go-ci/releases/tag/v0.13.6
 [v0.13.5]: https://github.com/atc0005/go-ci/releases/tag/v0.13.5
