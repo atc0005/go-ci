@@ -16,7 +16,7 @@ ENV GOLANGCI_LINT_VERSION="v1.54.1"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
-ENV STATICCHECK_VERSION="v0.4.5"
+ENV STATICCHECK_VERSION="v0.4.6"
 
 ENV GOVULNCHECK_VERSION="v1.0.1"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
@@ -77,7 +77,7 @@ ENV GOLANGCI_LINT_VERSION="v1.54.1"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
-ENV STATICCHECK_VERSION="v0.4.5"
+ENV STATICCHECK_VERSION="v0.4.6"
 
 ENV GOVULNCHECK_VERSION="v1.0.1"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
