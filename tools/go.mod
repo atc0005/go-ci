@@ -33,11 +33,12 @@ require (
 
 require (
 	github.com/choffmeister/git-describe-semver v0.3.11
-	github.com/goreleaser/nfpm/v2 v2.32.0
+	github.com/goreleaser/nfpm/v2 v2.33.0
 	github.com/tc-hib/go-winres v0.3.1
 )
 
 require (
+	dario.cat/mergo v1.0.0 // indirect
 	github.com/AlekSi/pointer v1.2.0 // indirect
 	github.com/BurntSushi/toml v1.3.2 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
