@@ -26,6 +26,37 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.13.12] - 2023-10-11
+
+### Changed
+
+- Go versions
+  - mirror build images
+    - Update `go-ci-mirror-build-go1.20` from `1.20.9` to `1.20.10`
+    - Update `go-ci-mirror-build-go1.21` from `1.21.2` to `1.21.3`
+  - oldstable images
+    - Update `go-ci-oldstable` from `1.20.9` to `1.20.10`
+    - Update `go-ci-oldstable-build` from `1.20.9` to `1.20.10`
+    - Update `go-ci-oldstable-alpine-buildx86` from `1.20.9-alpine3.18` to
+      `1.20.10-alpine3.18`
+    - Update `go-ci-oldstable-alpine-buildx64` from `1.20.9-alpine3.18` to
+      `1.20.10-alpine3.18`
+  - stable images
+    - Update `go-ci-stable` from `1.21.2` to `1.21.3`
+    - Update `go-ci-stable-build` from `1.21.2` to `1.21.3`
+    - Update `go-ci-stable-cgo-mingw-w64-build` from `1.21.2` to `1.21.3`
+    - Update `go-ci-stable-alpine-buildx86` from `1.21.2-alpine3.18` to
+      `1.21.3-alpine3.18`
+    - Update `go-ci-stable-alpine-buildx64` from `1.21.2-alpine3.18` to
+      `1.21.3-alpine3.18`
+  - unstable images
+    - Update `go-ci-unstable` from `1.21.2` to `1.21.3`
+    - Update `go-ci-unstable-build` from `1.21.2` to `1.21.3`
+    - Update `go-ci-unstable-alpine-buildx86` from `1.21.2-alpine3.18` to
+      `1.21.3-alpine3.18`
+    - Update `go-ci-unstable-alpine-buildx64` from `1.21.2-alpine3.18` to
+      `1.21.3-alpine3.18`
+
 ## [v0.13.11] - 2023-10-10
 
 ### Changed
@@ -2392,7 +2423,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.11...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.12...HEAD
+[v0.13.12]: https://github.com/atc0005/go-ci/releases/tag/v0.13.12
 [v0.13.11]: https://github.com/atc0005/go-ci/releases/tag/v0.13.11
 [v0.13.10]: https://github.com/atc0005/go-ci/releases/tag/v0.13.10
 [v0.13.9]: https://github.com/atc0005/go-ci/releases/tag/v0.13.9
