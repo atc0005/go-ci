@@ -9,6 +9,12 @@
 
 FROM golang:1.21.0-bookworm as builder
 
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"
+
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
@@ -69,6 +75,12 @@ LABEL org.opencontainers.image.description="Docker container image used to lint,
     Based on the latest available non-stable golang:beta image, \
     golang:rc image or if not recently available, the latest stable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
+
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"
 
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in

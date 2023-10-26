@@ -20,6 +20,12 @@ LABEL org.opencontainers.image.description="Docker container image used to build
     releases of Go code. Based on the latest version of the upstream oldstable golang image."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"
+
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
 ENV XZ_UTILS_VERSION="5.4.1-0.2"
