@@ -20,3 +20,9 @@ LABEL org.opencontainers.image.description="Docker image intended to mirror \
     latest upstream golang image for the Go 1.19 series. Used by \
     Makefile-driven test, linting and build tasks."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
+
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"

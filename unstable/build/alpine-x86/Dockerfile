@@ -22,6 +22,12 @@ LABEL org.opencontainers.image.description="Docker container image used to build
     Windows and Linux."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"
+
 # NOTE: This version was different than the base `gcc` pkg when last checked
 ENV APK_GCC_MINGW64_VERSION="12.2.0-r3"
 
