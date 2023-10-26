@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.0] - 2023-10-26
+
+### Added
+
+- (GH-1235) Explicitly set `GOTOOLCHAIN` environment variable
+
+### Changed
+
+- (GH-1234) Update golangci-lint from v1.54.1 to v1.55.1
+
 ## [v0.13.12] - 2023-10-11
 
 ### Changed
@@ -2423,7 +2433,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.13.12...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.0...HEAD
+[v0.14.0]: https://github.com/atc0005/go-ci/releases/tag/v0.14.0
 [v0.13.12]: https://github.com/atc0005/go-ci/releases/tag/v0.13.12
 [v0.13.11]: https://github.com/atc0005/go-ci/releases/tag/v0.13.11
 [v0.13.10]: https://github.com/atc0005/go-ci/releases/tag/v0.13.10
