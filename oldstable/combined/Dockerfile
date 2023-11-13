@@ -26,7 +26,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-ENV GOLANGCI_LINT_VERSION="v1.55.1"
+ENV GOLANGCI_LINT_VERSION="v1.55.2"
 ENV STATICCHECK_VERSION="v0.4.6"
 ENV GOVULNCHECK_VERSION="v1.0.1"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
