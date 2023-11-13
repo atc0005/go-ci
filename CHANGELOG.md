@@ -26,6 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.1] - 2023-11-13
+
+### Changed
+
+- (GH-1246) docker: bump golang from 1.20.10-alpine3.18 to 1.20.11-alpine3.18 in /oldstable/build/alpine-x64
+- (GH-1244) docker: bump golang from 1.20.10-bookworm to 1.20.11-bookworm in /mirror/1.20
+- (GH-1242) docker: bump golang from 1.20.10-bookworm to 1.20.11-bookworm in /oldstable/build/release
+- (GH-1254) docker: bump golang from 1.20.10-bookworm to 1.20.11-bookworm in /oldstable/combined
+- (GH-1245) docker: bump golang from 1.21.3-alpine3.18 to 1.21.4-alpine3.18 in /stable/build/alpine-x64
+- (GH-1251) docker: bump golang from 1.21.3-alpine3.18 to 1.21.4-alpine3.18 in /unstable/build/alpine-x64
+- (GH-1252) docker: bump golang from 1.21.3-bookworm to 1.21.4-bookworm in /mirror/1.21
+- (GH-1250) docker: bump golang from 1.21.3-bookworm to 1.21.4-bookworm in /stable/build/cgo-mingw-w64
+- (GH-1249) docker: bump golang from 1.21.3-bookworm to 1.21.4-bookworm in /stable/build/release
+- (GH-1243) docker: bump golang from 1.21.3-bookworm to 1.21.4-bookworm in /stable/combined
+- (GH-1253) docker: bump golang from 1.21.3-bookworm to 1.21.4-bookworm in /unstable/build/release
+- (GH-1248) docker: bump i386/golang from 1.20.10-alpine3.18 to 1.20.11-alpine3.18 in /oldstable/build/alpine-x86
+- (GH-1241) docker: bump i386/golang from 1.21.3-alpine3.18 to 1.21.4-alpine3.18 in /stable/build/alpine-x86
+- (GH-1247) docker: bump i386/golang from 1.21.3-alpine3.18 to 1.21.4-alpine3.18 in /unstable/build/alpine-x86
+- (GH-1240) go.mod: bump github.com/golangci/golangci-lint from 1.55.1 to 1.55.2 in /tools
+- (GH-1238) go.mod: bump github.com/goreleaser/nfpm/v2 from 2.33.1 to 2.34.0 in /tools
+- (GH-1255) Update golangci-lint from v1.55.1 to v1.55.2
+- (GH-1256) Update goreleaser/nfpm from v2.33.1 to v2.34.0
+
 ## [v0.14.0] - 2023-10-26
 
 ### Added
@@ -2433,7 +2456,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.1...HEAD
+[v0.14.1]: https://github.com/atc0005/go-ci/releases/tag/v0.14.1
 [v0.14.0]: https://github.com/atc0005/go-ci/releases/tag/v0.14.0
 [v0.13.12]: https://github.com/atc0005/go-ci/releases/tag/v0.13.12
 [v0.13.11]: https://github.com/atc0005/go-ci/releases/tag/v0.13.11
