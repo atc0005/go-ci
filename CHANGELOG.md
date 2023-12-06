@@ -26,6 +26,25 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.2] - 2023-12-06
+
+### Changed
+
+- (GH-1270) docker: bump golang from 1.20.11-alpine3.18 to 1.20.12-alpine3.18 in /oldstable/build/alpine-x64
+- (GH-1272) docker: bump golang from 1.20.11-bookworm to 1.20.12-bookworm in /mirror/1.20
+- (GH-1260) docker: bump golang from 1.20.11-bookworm to 1.20.12-bookworm in /oldstable/build/release
+- (GH-1263) docker: bump golang from 1.20.11-bookworm to 1.20.12-bookworm in /oldstable/combined
+- (GH-1261) docker: bump golang from 1.21.4-alpine3.18 to 1.21.5-alpine3.18 in /stable/build/alpine-x64
+- (GH-1266) docker: bump golang from 1.21.4-alpine3.18 to 1.21.5-alpine3.18 in /unstable/build/alpine-x64
+- (GH-1259) docker: bump golang from 1.21.4-bookworm to 1.21.5-bookworm in /mirror/1.21
+- (GH-1265) docker: bump golang from 1.21.4-bookworm to 1.21.5-bookworm in /stable/build/cgo-mingw-w64
+- (GH-1268) docker: bump golang from 1.21.4-bookworm to 1.21.5-bookworm in /stable/build/release
+- (GH-1269) docker: bump golang from 1.21.4-bookworm to 1.21.5-bookworm in /stable/combined
+- (GH-1267) docker: bump golang from 1.21.4-bookworm to 1.21.5-bookworm in /unstable/build/release
+- (GH-1262) docker: bump i386/golang from 1.20.11-alpine3.18 to 1.20.12-alpine3.18 in /oldstable/build/alpine-x86
+- (GH-1271) docker: bump i386/golang from 1.21.4-alpine3.18 to 1.21.5-alpine3.18 in /stable/build/alpine-x86
+- (GH-1264) docker: bump i386/golang from 1.21.4-alpine3.18 to 1.21.5-alpine3.18 in /unstable/build/alpine-x86
+
 ## [v0.14.1] - 2023-11-13
 
 ### Changed
@@ -2456,7 +2475,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.2...HEAD
+[v0.14.2]: https://github.com/atc0005/go-ci/releases/tag/v0.14.2
 [v0.14.1]: https://github.com/atc0005/go-ci/releases/tag/v0.14.1
 [v0.14.0]: https://github.com/atc0005/go-ci/releases/tag/v0.14.0
 [v0.13.12]: https://github.com/atc0005/go-ci/releases/tag/v0.13.12
