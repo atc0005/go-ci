@@ -20,17 +20,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_stable_image_using_makefile:
-    name: Build stable image using Makefile
+  git_describe_semver:
+    name: Generate semantic release version using git-describe-semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
-    timeout-minutes: 10
+    timeout-minutes: 5
+    # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
+    outputs:
+      # version: ${{ steps.git-describe-semver-approach5.outputs.version }}
+      version: ${{ steps.git-describe-semver.outputs.version }}
 
     steps:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with full history
         uses: actions/checkout@v4
         with:
           # Needed in order to retrieve tags for use with semver calculations
@@ -47,32 +51,168 @@ jobs:
         # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
         run: git config --global --add safe.directory "${PWD}"
 
+      # https://github.com/choffmeister/git-describe-semver/issues/8
+      # https://github.com/choffmeister/git-describe-semver/blob/v0.3.11/action.yaml
+      # https://github.com/choffmeister/git-describe-semver/blob/v0.4.0/action.yaml
+      # - name: Record semantic version using git-describe-semver (approach 1)
+      #   id: git-describe-semver-approach1
+      #   uses: choffmeister/git-describe-semver@v0.4.0 # version of action
+      #   with:
+      #     fallback: v0.0.0
+      #     drop-prefix: false
+      #     prerelease-prefix: dev
+      #     prerelease-suffix: ""
+      #     prerelease-timestamped: false
+      #     version: v0.3.11 # version of tool
+
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-setting-an-output-parameter
+      # https://stackoverflow.com/questions/59954185/github-action-split-long-command-into-multiple-lines
+      # https://github.com/actions/runner/issues/808
+      # https://github.com/moby/moby/issues/37366
+      # - name: Record semantic version using git-describe-semver (approach 2)
+      #   id: git-describe-semver-approach2
+      #   run: |
+      #     echo -n "version=" >> "$GITHUB_OUTPUT"
+      #     docker container run \
+      #       --platform linux/amd64 \
+      #       --rm \
+      #       -t \
+      #       -v $PWD:/code \
+      #       -w /code \
+      #       ghcr.io/choffmeister/git-describe-semver:0.3.11 \
+      #       --fallback 'v0.0.0' \
+      #       --drop-prefix=false \
+      #       --prerelease-prefix 'dev' \
+      #       --prerelease-suffix "" \
+      #       --prerelease-timestamped=false \
+      #       | tr -d '\r' >> "$GITHUB_OUTPUT"
+
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-setting-an-output-parameter
+      # https://stackoverflow.com/questions/59954185/github-action-split-long-command-into-multiple-lines
+      # https://github.com/actions/runner/issues/808
+      # https://github.com/moby/moby/issues/37366
+      # - name: Record semantic version using git-describe-semver (approach 3)
+      #   id: git-describe-semver-approach3
+      #   run: >-
+      #     echo "version=$(
+      #     docker container run
+      #     --platform linux/amd64
+      #     --rm
+      #     -t
+      #     -v $PWD:/code
+      #     -w /code
+      #     ghcr.io/choffmeister/git-describe-semver:0.3.11
+      #     --fallback 'v0.0.0'
+      #     --drop-prefix=false
+      #     --prerelease-prefix 'dev'
+      #     --prerelease-suffix ""
+      #     --prerelease-timestamped=false
+      #     | tr -d '\r'
+      #     )" >> "$GITHUB_OUTPUT"
+
+      # - name: Record semantic version using git-describe-semver (approach 4)
+      #   id: git-describe-semver-approach4
+      #   run: |
+      #     go install github.com/choffmeister/git-describe-semver@v0.3.11
+      #     echo -n "version=" >> "$GITHUB_OUTPUT"
+      #     $HOME/go/bin/git-describe-semver \
+      #       --fallback 'v0.0.0' \
+      #       --drop-prefix=false \
+      #       --prerelease-prefix 'dev' \
+      #       --prerelease-suffix "" \
+      #       --prerelease-timestamped=false \
+      #       | tr -d '\r' >> "$GITHUB_OUTPUT"
+
+      # https://github.com/choffmeister/git-describe-semver/pkgs/container/git-describe-semver
+      # https://github.com/choffmeister/git-describe-semver/blob/v0.3.11/action.yaml
+      # https://github.com/choffmeister/git-describe-semver/blob/v0.4.0/action.yaml
+      # https://github.com/choffmeister/git-describe-semver/issues/8
+      # - name: Record semantic version using git-describe-semver (approach 5)
+      #   uses: docker://ghcr.io/choffmeister/git-describe-semver:0.3.11
+      #   id: git-describe-semver-approach5
+      #   with:
+      #     args: >-
+      #       --fallback="v0.0.0"
+      #       --drop-prefix=false
+      #       --prerelease-prefix="dev"
+      #       --prerelease-suffix=""
+      #       --prerelease-timestamped="false"
+      #       --format="version=<version>"
+      #       $GITHUB_OUTPUT
+
+      # https://github.com/choffmeister/git-describe-semver/pkgs/container/git-describe-semver
+      # https://github.com/choffmeister/git-describe-semver/blob/v0.3.11/action.yaml
+      # https://github.com/choffmeister/git-describe-semver/blob/v0.4.0/action.yaml
+      # https://github.com/choffmeister/git-describe-semver/issues/8
+      - name: Record semantic version using git-describe-semver
+        uses: docker://ghcr.io/choffmeister/git-describe-semver:0.3.11
+        id: git-describe-semver
+        with:
+          args: >-
+            --fallback="v0.0.0"
+            --drop-prefix=false
+            --prerelease-prefix="dev"
+            --prerelease-suffix=""
+            --prerelease-timestamped="false"
+            --format="version=<version>"
+            $GITHUB_OUTPUT
+
+#       - name: Print semantic version generated by git-describe-semver-approach1
+#         run: |
+#           echo "${{ steps.git-describe-semver-approach1.outputs.version }}"
+#
+#       - name: Print semantic version generated by git-describe-semver-approach2
+#         run: |
+#           echo "${{ steps.git-describe-semver-approach2.outputs.version }}"
+#
+#       - name: Print semantic version generated by git-describe-semver-approach3
+#         run: |
+#           echo "${{ steps.git-describe-semver-approach3.outputs.version }}"
+#
+#       - name: Print semantic version generated by git-describe-semver-approach4
+#         run: |
+#           echo "${{ steps.git-describe-semver-approach4.outputs.version }}"
+
+      # - name: Print semantic version generated by git-describe-semver-approach5
+      #   run: |
+      #     echo "${{ steps.git-describe-semver-approach5.outputs.version }}"
+
+      - name: Print semantic version generated by git-describe-semver
+        run: |
+          echo "${{ steps.git-describe-semver.outputs.version }}"
+
+  build_stable_image_using_makefile:
+    name: Build stable image using Makefile
+    needs: git_describe_semver
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 10
+
+    steps:
+      - name: Print Docker version
+        run: docker --version
+
+      - name: Clone repo with default settings
+        uses: actions/checkout@v4
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
+
       # bsdmainutils provides "column" which is used by the Makefile
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
-      # - name: Install git-describe-semver
-      #   id: install-git-describe-semver
-      #   run: go install github.com/choffmeister/git-describe-semver@latest
-
-      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#example-of-setting-an-output-parameter
-      # - name: Record semantic version using git-describe-semver
-      #   id: use-git-describe-semver
-      #   run: echo "version=$($HOME/go/bin/git-describe-semver)" >> "$GITHUB_OUTPUT"
-
       - name: Build stable image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-stable
 
       - name: List generated Docker images
@@ -80,6 +220,7 @@ jobs:
 
   build_oldstable_alpine_x64_image_using_makefile:
     name: Build oldstable Alpine x64 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -88,11 +229,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -109,19 +247,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build oldstable Alpine x64 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-oldstable-alpine-buildx64
 
       - name: List generated Docker images
@@ -129,6 +257,7 @@ jobs:
 
   build_oldstable_alpine_x86_image_using_makefile:
     name: Build oldstable Alpine x86 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -137,7 +266,7 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
         with:
           # Needed in order to retrieve tags for use with semver calculations
@@ -158,19 +287,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build oldstable Alpine x86 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-oldstable-alpine-buildx86
 
       - name: List generated Docker images
@@ -178,6 +297,7 @@ jobs:
 
   build_stable_alpine_x64_image_using_makefile:
     name: Build stable Alpine x64 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -186,11 +306,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -207,19 +324,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build stable Alpine x64 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-stable-alpine-buildx64
 
       - name: List generated Docker images
@@ -227,6 +334,7 @@ jobs:
 
   build_stable_alpine_x86_image_using_makefile:
     name: Build stable Alpine x86 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -235,11 +343,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags for use with semver calculations
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -256,19 +361,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build stable Alpine x86 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-stable-alpine-buildx86
 
       - name: List generated Docker images
@@ -276,6 +371,7 @@ jobs:
 
   build_unstable_alpine_x64_image_using_makefile:
     name: Build unstable Alpine x64 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -284,11 +380,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -305,19 +398,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build unstable Alpine x64 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-unstable-alpine-buildx64
 
       - name: List generated Docker images
@@ -325,6 +408,7 @@ jobs:
 
   build_unstable_alpine_x86_image_using_makefile:
     name: Build unstable Alpine x86 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -333,11 +417,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags for use with semver calculations
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -354,27 +435,17 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build unstable Alpine x86 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-unstable-alpine-buildx86
 
       - name: List generated Docker images
         run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
-
   build_stable_cgo-mingw-w64_image_using_makefile:
     name: Build stable cgo-mingw-w64 image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -383,11 +454,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags for use with semver calculations
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -404,19 +472,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build stable cgo-mingw-w64 image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make stable-cgo-mingw-w64-build
 
       - name: List generated Docker images
@@ -424,6 +482,7 @@ jobs:
 
   build_stable_mirror_images_using_makefile:
     name: Build stable mirror images using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -432,11 +491,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags for use with semver calculations
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -453,19 +509,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build stable mirror image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make stable-mirror-build
 
       - name: List generated Docker images
@@ -473,6 +519,7 @@ jobs:
 
   build_oldstable_image_using_makefile:
     name: Build oldstable image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -481,11 +528,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags for use with semver calculations
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -502,19 +546,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build oldstable image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-oldstable
 
       - name: List generated Docker images
@@ -522,6 +556,7 @@ jobs:
 
   build_unstable_image_using_makefile:
     name: Build unstable image using Makefile
+    needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
     timeout-minutes: 10
@@ -530,11 +565,8 @@ jobs:
       - name: Print Docker version
         run: docker --version
 
-      - name: Clone full repo history
+      - name: Clone repo with default settings
         uses: actions/checkout@v4
-        with:
-          # Needed in order to retrieve tags for use with semver calculations
-          fetch-depth: 0
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -551,19 +583,9 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Generate semantic version for project
-        id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
-        with:
-          fallback: v0.0.0
-          drop-prefix: false
-          prerelease-prefix: dev
-          prerelease-suffix: ""
-          prerelease-timestamped: false
-
       - name: Build unstable image
         run: |
-          export REPO_VERSION=${{ steps.use-git-describe-semver.outputs.version }}
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
           make build-unstable
 
       - name: List generated Docker images
