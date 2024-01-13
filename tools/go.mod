@@ -32,7 +32,7 @@ require (
 )
 
 require (
-	github.com/choffmeister/git-describe-semver v0.3.11
+	github.com/choffmeister/git-describe-semver v0.4.0
 	github.com/goreleaser/nfpm/v2 v2.34.0
 	github.com/tc-hib/go-winres v0.3.1
 )
@@ -67,6 +67,7 @@ require (
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
+	github.com/jessevdk/go-flags v1.5.0 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/ldez/gomoddirectives v0.2.3 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
