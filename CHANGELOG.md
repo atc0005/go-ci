@@ -26,6 +26,35 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.3] - 2024-01-13
+
+### Changed
+
+- (GH-1285) docker: bump golang from 1.20.12-alpine3.18 to 1.20.13-alpine3.18 in /oldstable/build/alpine-x64
+- (GH-1288) docker: bump golang from 1.20.12-bookworm to 1.20.13-bookworm in /mirror/1.20
+- (GH-1286) docker: bump golang from 1.20.12-bookworm to 1.20.13-bookworm in /oldstable/build/release
+- (GH-1296) docker: bump golang from 1.20.12-bookworm to 1.20.13-bookworm in /oldstable/combined
+- (GH-1295) docker: bump golang from 1.21.5-alpine3.18 to 1.21.6-alpine3.18 in /stable/build/alpine-x64
+- (GH-1289) docker: bump golang from 1.21.5-alpine3.18 to 1.21.6-alpine3.18 in /unstable/build/alpine-x64
+- (GH-1290) docker: bump golang from 1.21.5-bookworm to 1.21.6-bookworm in /mirror/1.21
+- (GH-1291) docker: bump golang from 1.21.5-bookworm to 1.21.6-bookworm in /stable/build/cgo-mingw-w64
+- (GH-1287) docker: bump golang from 1.21.5-bookworm to 1.21.6-bookworm in /stable/build/release
+- (GH-1298) docker: bump golang from 1.21.5-bookworm to 1.21.6-bookworm in /stable/combined
+- (GH-1293) docker: bump golang from 1.21.5-bookworm to 1.21.6-bookworm in /unstable/build/release
+- (GH-1297) docker: bump i386/golang from 1.20.12-alpine3.18 to 1.20.13-alpine3.18 in /oldstable/build/alpine-x86
+- (GH-1294) docker: bump i386/golang from 1.21.5-alpine3.18 to 1.21.6-alpine3.18 in /stable/build/alpine-x86
+- (GH-1292) docker: bump i386/golang from 1.21.5-alpine3.18 to 1.21.6-alpine3.18 in /unstable/build/alpine-x86
+- (GH-1275) go.mod: bump github.com/choffmeister/git-describe-semver from 0.3.11 to 0.4.0 in /tools
+- (GH-1283) go.mod: bump github.com/goreleaser/nfpm/v2 from 2.34.0 to 2.35.2 in /tools
+- (GH-1277) go.mod: bump github.com/pelletier/go-toml/v2 from 2.1.0 to 2.1.1 in /tools
+- (GH-1301) Update choffmeister/git-describe-semver to v0.4.0
+- (GH-1302) Update goreleaser/nfpm to v2.35.2
+- (GH-1303) Update pelletier/go-toml to v2.1.1
+
+### Fixed
+
+- (GH-1299) Replace choffmeister/git-describe-semver GH action
+
 ## [v0.14.2] - 2023-12-06
 
 ### Changed
@@ -2475,7 +2504,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.3...HEAD
+[v0.14.3]: https://github.com/atc0005/go-ci/releases/tag/v0.14.3
 [v0.14.2]: https://github.com/atc0005/go-ci/releases/tag/v0.14.2
 [v0.14.1]: https://github.com/atc0005/go-ci/releases/tag/v0.14.1
 [v0.14.0]: https://github.com/atc0005/go-ci/releases/tag/v0.14.0
