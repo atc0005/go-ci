@@ -53,13 +53,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0 # version of the action
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11 # version of the tool
 
       # - name: Install git-describe-semver
       #   id: install-git-describe-semver
@@ -111,13 +112,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build oldstable Alpine x64 image
         run: |
@@ -160,13 +162,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build oldstable Alpine x86 image
         run: |
@@ -209,13 +212,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build stable Alpine x64 image
         run: |
@@ -258,13 +262,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build stable Alpine x86 image
         run: |
@@ -307,13 +312,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build unstable Alpine x64 image
         run: |
@@ -356,13 +362,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build unstable Alpine x86 image
         run: |
@@ -406,13 +413,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build stable cgo-mingw-w64 image
         run: |
@@ -455,13 +463,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build stable mirror image
         run: |
@@ -504,13 +513,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build oldstable image
         run: |
@@ -553,13 +563,14 @@ jobs:
 
       - name: Generate semantic version for project
         id: use-git-describe-semver
-        uses: choffmeister/git-describe-semver@v0.3.11
+        uses: choffmeister/git-describe-semver@v0.4.0
         with:
           fallback: v0.0.0
           drop-prefix: false
           prerelease-prefix: dev
           prerelease-suffix: ""
           prerelease-timestamped: false
+          version: v0.3.11
 
       - name: Build unstable image
         run: |
