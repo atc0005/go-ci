@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.5] - 2024-01-25
+
+### Changed
+
+- (GH-1314) docker: bump golang from 1.22rc1-alpine3.18 to 1.22rc2-alpine3.18 in /unstable/build/alpine-x64
+- (GH-1313) docker: bump golang from 1.22rc1-bookworm to 1.22rc2-bookworm in /unstable/build/release
+- (GH-1315) docker: bump golang from 1.22rc1-bookworm to 1.22rc2-bookworm in /unstable/combined
+- (GH-1316) docker: bump i386/golang from 1.22rc1-alpine3.18 to 1.22rc2-alpine3.18 in /unstable/build/alpine-x86
+- (GH-1312) go.mod: bump golang.org/x/vuln from 1.0.2 to 1.0.3 in /tools
+- (GH-1317) Update golang.org/x/vuln to v1.0.3
+
 ## [v0.14.4] - 2024-01-17
 
 ### Changed
@@ -2512,7 +2523,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.5...HEAD
+[v0.14.5]: https://github.com/atc0005/go-ci/releases/tag/v0.14.5
 [v0.14.4]: https://github.com/atc0005/go-ci/releases/tag/v0.14.4
 [v0.14.3]: https://github.com/atc0005/go-ci/releases/tag/v0.14.3
 [v0.14.2]: https://github.com/atc0005/go-ci/releases/tag/v0.14.2
