@@ -33,7 +33,7 @@ require (
 
 require (
 	github.com/choffmeister/git-describe-semver v0.4.0
-	github.com/goreleaser/nfpm/v2 v2.35.2
+	github.com/goreleaser/nfpm/v2 v2.35.3
 	github.com/tc-hib/go-winres v0.3.1
 )
 
@@ -45,8 +45,8 @@ require (
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
-	github.com/ProtonMail/go-crypto v0.0.0-20230828082145-3c4c8a2d2371 // indirect
-	github.com/cloudflare/circl v1.3.3 // indirect
+	github.com/ProtonMail/go-crypto v1.0.0 // indirect
+	github.com/cloudflare/circl v1.3.7 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.3 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
 	github.com/dave/dst v0.27.2 // indirect
