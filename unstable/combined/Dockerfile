@@ -29,7 +29,7 @@ ENV GOVULNCHECK_VERSION="v1.0.3"
 # ENV STRUCTSLOP_VERSION="v0.0.8"
 # ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.1.1"
-ENV ERRWRAP_VERSION="v1.5.0"
+# ENV ERRWRAP_VERSION="v1.5.0"
 
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
@@ -37,6 +37,7 @@ ENV ERRWRAP_VERSION="v1.5.0"
 ENV HTTPERRORYZER_VERSION="daff15ed7aa6321f4c278dedfa087c23aef2399b"
 ENV STRUCTSLOP_VERSION="a152317819bb2aac2f36fbc46e92f34d4abcafc6"
 ENV TICKERYZER_VERSION="ea43e9b9956c5a0bea094b694b248de37810634a"
+ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
@@ -58,9 +59,7 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
 RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
     && echo "Installing tomll@${TOMLL_VERSION}" \
-    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
-    && echo "Installing errwrap@${ERRWRAP_VERSION}" \
-    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
+    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION}
 
 RUN echo "Installing httperroryzer from temporary fork" \
     && git clone https://github.com/atc0005/httperroryzer \
@@ -81,6 +80,13 @@ RUN echo "Installing tickeryzer from temporary fork" \
     && cd tickeryzer \
     && git checkout ${TICKERYZER_VERSION} \
     && go install ./cmd/tickeryzer \
+    && cd ..
+
+RUN echo "Installing errwrap from temporary fork" \
+    && git clone https://github.com/atc0005/errwrap \
+    && cd errwrap \
+    && git checkout ${ERRWRAP_VERSION} \
+    && go install . \
     && cd ..
 
 # RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
