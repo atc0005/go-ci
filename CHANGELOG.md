@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.8] - 2024-02-06
+
+### Fixed
+
+- (GH-1332) Switch fatih/errwrap linter install source
+
 ## [v0.14.7] - 2024-02-05
 
 ### Fixed
@@ -2540,7 +2546,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.8...HEAD
+[v0.14.8]: https://github.com/atc0005/go-ci/releases/tag/v0.14.8
 [v0.14.7]: https://github.com/atc0005/go-ci/releases/tag/v0.14.7
 [v0.14.6]: https://github.com/atc0005/go-ci/releases/tag/v0.14.6
 [v0.14.5]: https://github.com/atc0005/go-ci/releases/tag/v0.14.5
