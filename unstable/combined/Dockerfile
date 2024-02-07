@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM golang:1.22-bookworm as builder
+FROM golang:1.22.0-bookworm as builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -103,7 +103,7 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
     && golangci-lint --version
 
 
-FROM golang:1.22-bookworm as final
+FROM golang:1.22.0-bookworm as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
