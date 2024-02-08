@@ -29,7 +29,7 @@ ENV GOVULNCHECK_VERSION="v1.0.3"
 # ENV STRUCTSLOP_VERSION="v0.0.8"
 # ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.1.1"
-# ENV ERRWRAP_VERSION="v1.5.0"
+ENV ERRWRAP_VERSION="v1.6.0"
 
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
@@ -37,7 +37,7 @@ ENV TOMLL_VERSION="v2.1.1"
 ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
 ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
 ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
-ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
+# ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
@@ -82,12 +82,15 @@ RUN echo "Installing tickeryzer from temporary fork" \
     && go install ./cmd/tickeryzer \
     && cd ..
 
-RUN echo "Installing errwrap from temporary fork" \
-    && git clone https://github.com/atc0005/errwrap \
-    && cd errwrap \
-    && git checkout ${ERRWRAP_VERSION} \
-    && go install . \
-    && cd ..
+RUN echo "Installing errwrap@${ERRWRAP_VERSION}" \
+    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
+
+# RUN echo "Installing errwrap from temporary fork" \
+#     && git clone https://github.com/atc0005/errwrap \
+#     && cd errwrap \
+#     && git checkout ${ERRWRAP_VERSION} \
+#     && go install . \
+#     && cd ..
 
 # RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
 #     && git clone https://github.com/atc0005/golangci-lint \
@@ -136,7 +139,7 @@ ENV GOVULNCHECK_VERSION="v1.0.3"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.8"
 ENV TOMLL_VERSION="v2.1.1"
-ENV ERRWRAP_VERSION="v1.5.0"
+ENV ERRWRAP_VERSION="v1.6.0"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
