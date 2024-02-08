@@ -5,7 +5,7 @@ go 1.19
 
 require (
 	// errwrap - provided as an optional linter
-	github.com/fatih/errwrap v1.5.0
+	github.com/fatih/errwrap v1.6.0
 
 	// golangci-lint - intended as a primary linter
 	github.com/golangci/golangci-lint v1.55.2

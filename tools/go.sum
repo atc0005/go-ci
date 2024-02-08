@@ -99,8 +99,8 @@ github.com/envoyproxy/go-control-plane v0.9.9-0.20201210154907-fd9021fe5dad/go.m
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
 github.com/fatih/color v1.15.0 h1:kOqh6YHBtK8aywxGerMG2Eq3H6Qgoqeo13Bk2Mv/nBs=
 github.com/fatih/color v1.15.0/go.mod h1:0h5ZqXfHYED7Bhv2ZJamyIOUej9KtShiJESRwBDUSsw=
-github.com/fatih/errwrap v1.5.0 h1:/z6jzrekbYYeJukzq9h3nY+SHREDevEB0vJYC4kE9D0=
-github.com/fatih/errwrap v1.5.0/go.mod h1:FXpv2oYhwDEQuC7zFNWUVbF79oUViMgJFvrzdR3IhiE=
+github.com/fatih/errwrap v1.6.0 h1:OvAnxNd0jmV7YYSCHBU8zCdepQG8X019hOanCDw+gZQ=
+github.com/fatih/errwrap v1.6.0/go.mod h1:gK9SnQPI2m9oGzMrOYa6tZFbdnltBdaSRzUth1SzSe4=
 github.com/frankban/quicktest v1.14.4 h1:g2rn0vABPOOXmZUj+vbmUp0lPoXEMuhTpIluN0XL9UY=
 github.com/fsnotify/fsnotify v1.6.0 h1:n+5WquG0fcWoWp6xPWfHdbskMCQaFnG6PfBrh1Ky4HY=
 github.com/fsnotify/fsnotify v1.6.0/go.mod h1:sl3t1tCWJFWoRz9R8WJCbQihKKwmorjAbSClcnxKAGw=
