@@ -26,6 +26,37 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.14.9] - 2024-02-08
+
+### Changed
+
+- (GH-1362) docker: bump golang from 1.20.13-alpine3.18 to 1.20.14-alpine3.18 in /oldstable/build/alpine-x64
+- (GH-1352) docker: bump golang from 1.20.13-bookworm to 1.20.14-bookworm in /mirror/1.20
+- (GH-1361) docker: bump golang from 1.20.13-bookworm to 1.20.14-bookworm in /oldstable/build/release
+- (GH-1351) docker: bump golang from 1.20.13-bookworm to 1.20.14-bookworm in /oldstable/combined
+- (GH-1360) docker: bump golang from 1.21.6-alpine3.18 to 1.21.7-alpine3.18 in /stable/build/alpine-x64
+- (GH-1354) docker: bump golang from 1.21.6-bookworm to 1.21.7-bookworm in /mirror/1.21
+- (GH-1355) docker: bump golang from 1.21.6-bookworm to 1.21.7-bookworm in /stable/build/cgo-mingw-w64
+- (GH-1359) docker: bump golang from 1.21.6-bookworm to 1.21.7-bookworm in /stable/build/release
+- (GH-1353) docker: bump golang from 1.21.6-bookworm to 1.21.7-bookworm in /stable/combined
+- (GH-1337) docker: bump golang from 1.22rc2-alpine3.18 to 1.22-alpine3.18 in /unstable/build/alpine-x64
+- (GH-1335) docker: bump golang from 1.22rc2-bookworm to 1.22-bookworm in /unstable/build/release
+- (GH-1340) docker: bump golang from 1.22rc2-bookworm to 1.22-bookworm in /unstable/combined
+- (GH-1339) docker: bump i386/golang from 1.20.13-alpine3.18 to 1.20.14-alpine3.18 in /oldstable/build/alpine-x86
+- (GH-1336) docker: bump i386/golang from 1.21.6-alpine3.18 to 1.21.7-alpine3.18 in /stable/build/alpine-x86
+- (GH-1338) docker: bump i386/golang from 1.22rc2-alpine3.18 to 1.22-alpine3.18 in /unstable/build/alpine-x86
+- (GH-1357) go.mod: bump github.com/fatih/errwrap from 1.5.0 to 1.6.0 in /tools
+- (GH-1356) go.mod: bump github.com/golangci/golangci-lint from 1.55.2 to 1.56.0 in /tools
+- (GH-1358) go.mod: bump golang.org/x/vuln from 1.0.3 to 1.0.4 in /tools
+- (GH-1364) Update fatih/errwrap to v1.6.0
+- (GH-1365) Update golang.org/x/vuln to v1.0.4
+- (GH-1366) Update golangci-lint from v1.55.2 to v1.56.0
+
+### Fixed
+
+- (GH-1346) Fix unstable images Go release version
+- (GH-1363) Update commit hashes for orijtech linter forks
+
 ## [v0.14.8] - 2024-02-06
 
 ### Fixed
@@ -2546,7 +2577,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.8...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.9...HEAD
+[v0.14.9]: https://github.com/atc0005/go-ci/releases/tag/v0.14.9
 [v0.14.8]: https://github.com/atc0005/go-ci/releases/tag/v0.14.8
 [v0.14.7]: https://github.com/atc0005/go-ci/releases/tag/v0.14.7
 [v0.14.6]: https://github.com/atc0005/go-ci/releases/tag/v0.14.6
