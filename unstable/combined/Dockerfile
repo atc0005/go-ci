@@ -34,9 +34,9 @@ ENV TOMLL_VERSION="v2.1.1"
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
-ENV HTTPERRORYZER_VERSION="daff15ed7aa6321f4c278dedfa087c23aef2399b"
-ENV STRUCTSLOP_VERSION="a152317819bb2aac2f36fbc46e92f34d4abcafc6"
-ENV TICKERYZER_VERSION="ea43e9b9956c5a0bea094b694b248de37810634a"
+ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
+ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
+ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
 ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
