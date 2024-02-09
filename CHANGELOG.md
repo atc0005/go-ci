@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.15.0] - 2024-02-09
+
+### Added
+
+- (GH-1371) Add architecture specification to all Dockerfiles
+
+### Changed
+
+- (GH-1373) Add Go 1.22 mirror img, fix STABLE/OLDSTABLE tags
+- (GH-1369) go.mod: bump github.com/golangci/golangci-lint from 1.56.0 to 1.56.1 in /tools
+- (GH-1370) Update golangci-lint from v1.56.0 to v1.56.1
+
 ## [v0.14.9] - 2024-02-08
 
 ### Changed
@@ -2577,7 +2589,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.14.9...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.0...HEAD
+[v0.15.0]: https://github.com/atc0005/go-ci/releases/tag/v0.15.0
 [v0.14.9]: https://github.com/atc0005/go-ci/releases/tag/v0.14.9
 [v0.14.8]: https://github.com/atc0005/go-ci/releases/tag/v0.14.8
 [v0.14.7]: https://github.com/atc0005/go-ci/releases/tag/v0.14.7
