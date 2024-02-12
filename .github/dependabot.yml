@@ -389,6 +389,29 @@ updates:
           - "< 1.21"
 
   - package-ecosystem: docker
+    directory: "/mirror/1.22"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "docker"
+    ignore:
+      - dependency-name: "amd64/golang"
+        versions:
+          - ">= 1.23"
+          - "< 1.22"
+
+  - package-ecosystem: docker
     directory: "/unstable/build/release"
     open-pull-requests-limit: 10
     target-branch: "master"
