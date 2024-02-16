@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.15.2] - 2024-02-16
+
+### Fixed
+
+- (GH-1401) Use builder/final pattern for stable Dockerfile
+
 ## [v0.15.1] - 2024-02-16
 
 ### Changed
@@ -2611,7 +2617,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.2...HEAD
+[v0.15.2]: https://github.com/atc0005/go-ci/releases/tag/v0.15.2
 [v0.15.1]: https://github.com/atc0005/go-ci/releases/tag/v0.15.1
 [v0.15.0]: https://github.com/atc0005/go-ci/releases/tag/v0.15.0
 [v0.14.9]: https://github.com/atc0005/go-ci/releases/tag/v0.14.9
