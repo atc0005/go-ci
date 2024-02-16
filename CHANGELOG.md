@@ -26,6 +26,28 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.15.1] - 2024-02-16
+
+### Changed
+
+- (GH-1389) Add Dependabot monitoring for Go 1.22 mirror image
+- (GH-1397) docker: bump amd64/golang from 1.20.14-alpine3.18 to 1.21.7-alpine3.18 in /oldstable/build/alpine-x64
+- (GH-1394) docker: bump amd64/golang from 1.20.14-bookworm to 1.21.7-bookworm in /oldstable/build/release
+- (GH-1395) docker: bump amd64/golang from 1.20.14-bookworm to 1.21.7-bookworm in /oldstable/combined
+- (GH-1380) docker: bump amd64/golang from 1.21.7-alpine3.18 to 1.22.0-alpine3.18 in /stable/build/alpine-x64
+- (GH-1377) docker: bump amd64/golang from 1.21.7-bookworm to 1.22.0-bookworm in /stable/build/cgo-mingw-w64
+- (GH-1385) docker: bump amd64/golang from 1.21.7-bookworm to 1.22.0-bookworm in /stable/build/release
+- (GH-1376) docker: bump amd64/golang from 1.21.7-bookworm to 1.22.0-bookworm in /stable/combined
+- (GH-1393) docker: bump i386/golang from 1.20.14-alpine3.18 to 1.21.7-alpine3.18 in /oldstable/build/alpine-x86
+- (GH-1396) docker: bump i386/golang from 1.21.7-alpine3.18 to 1.22.0-alpine3.18 in /stable/build/alpine-x86
+- (GH-1390) go.mod: bump github.com/golangci/golangci-lint from 1.56.1 to 1.56.2 in /tools
+- (GH-1391) Update golangci-lint from v1.56.1 to v1.56.2
+
+### Fixed
+
+- (GH-1388) Fix Dependabot Docker image constraints
+- (GH-1392) Update Dependabot Docker img version constraints
+
 ## [v0.15.0] - 2024-02-09
 
 ### Added
@@ -2589,7 +2611,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.1...HEAD
+[v0.15.1]: https://github.com/atc0005/go-ci/releases/tag/v0.15.1
 [v0.15.0]: https://github.com/atc0005/go-ci/releases/tag/v0.15.0
 [v0.14.9]: https://github.com/atc0005/go-ci/releases/tag/v0.14.9
 [v0.14.8]: https://github.com/atc0005/go-ci/releases/tag/v0.14.8
