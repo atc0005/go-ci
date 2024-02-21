@@ -5,7 +5,21 @@
 # Licensed under the MIT License. See LICENSE file in the project root for
 # full license information.
 
-# https://help.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+###############################################################################
+#
+# NOTE: Dependabot PR prefixes are based on the current image descriptions as
+# provided by the project README:
+#
+# https://github.com/atc0005/go-ci/blob/master/README.md
+#
+# - Matrix images
+# - General build images
+# - Mirror build images
+# - Release build images
+#
+###############################################################################
 
 version: 2
 updates:
@@ -37,8 +51,8 @@ updates:
       - dependency-type: "direct"
 
     commit-message:
-      # Prefix all commit messages with "go.mod"
-      prefix: "go.mod"
+      # Prefix all commit messages
+      prefix: "Go Dependency"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -56,7 +70,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "ghaw"
+      prefix: "CI Dependency"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/release"
@@ -85,7 +99,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Release Build Image"
 
   - package-ecosystem: docker
     directory: "/oldstable/combined"
@@ -114,7 +128,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Matrix Image"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/alpine-x64"
@@ -132,7 +146,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -158,7 +172,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
     ignore:
       - dependency-name: "i386/golang"
         versions:
@@ -184,7 +198,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Matrix Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -207,7 +221,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -230,7 +244,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
     ignore:
       - dependency-name: "i386/golang"
         versions:
@@ -253,7 +267,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
 
   - package-ecosystem: docker
     directory: "/unstable/build/alpine-x86"
@@ -271,7 +285,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
 
   - package-ecosystem: docker
     directory: "/stable/build/cgo-mingw-w64"
@@ -289,7 +303,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "General Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -312,7 +326,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Release Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -335,7 +349,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Mirror Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -358,7 +372,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Mirror Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -381,7 +395,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Mirror Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -404,7 +418,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Mirror Build Image"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -427,7 +441,7 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Release Build Image"
 
   - package-ecosystem: docker
     directory: "/unstable/combined"
@@ -445,4 +459,4 @@ updates:
     allow:
       - dependency-type: "all"
     commit-message:
-      prefix: "docker"
+      prefix: "Matrix Image"
