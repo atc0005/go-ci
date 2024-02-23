@@ -26,6 +26,15 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.15.3] - 2024-02-23
+
+### Changed
+
+- (GH-1407) Go Dependency: Bump honnef.co/go/tools from 0.4.6 to 0.4.7 in /tools
+- (GH-1406) Remove Dependabot monitoring for retired Go imgs
+- (GH-1405) Update Dependabot PR prefixes
+- (GH-1408) Update staticcheck from v0.4.6 to v0.4.7
+
 ## [v0.15.2] - 2024-02-16
 
 ### Fixed
@@ -2617,7 +2626,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.3...HEAD
+[v0.15.3]: https://github.com/atc0005/go-ci/releases/tag/v0.15.3
 [v0.15.2]: https://github.com/atc0005/go-ci/releases/tag/v0.15.2
 [v0.15.1]: https://github.com/atc0005/go-ci/releases/tag/v0.15.1
 [v0.15.0]: https://github.com/atc0005/go-ci/releases/tag/v0.15.0
