@@ -26,6 +26,26 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.15.4] - 2024-03-06
+
+### Changed
+
+- (GH-1417) General Build Image: Bump amd64/golang from 1.21.7-alpine3.18 to 1.21.8-alpine3.18 in /oldstable/build/alpine-x64
+- (GH-1413) General Build Image: Bump amd64/golang from 1.22.0-alpine3.18 to 1.22.1-alpine3.18 in /stable/build/alpine-x64
+- (GH-1421) General Build Image: Bump amd64/golang from 1.22.0-alpine3.18 to 1.22.1-alpine3.18 in /unstable/build/alpine-x64
+- (GH-1412) General Build Image: Bump amd64/golang from 1.22.0-bookworm to 1.22.1-bookworm in /stable/build/cgo-mingw-w64
+- (GH-1425) General Build Image: Bump i386/golang from 1.21.7-alpine3.18 to 1.21.8-alpine3.18 in /oldstable/build/alpine-x86
+- (GH-1424) General Build Image: Bump i386/golang from 1.22.0-alpine3.18 to 1.22.1-alpine3.18 in /stable/build/alpine-x86
+- (GH-1423) General Build Image: Bump i386/golang from 1.22.0-alpine3.18 to 1.22.1-alpine3.18 in /unstable/build/alpine-x86
+- (GH-1416) Matrix Image: Bump amd64/golang from 1.21.7-bookworm to 1.21.8-bookworm in /oldstable/combined
+- (GH-1411) Matrix Image: Bump amd64/golang from 1.22.0-bookworm to 1.22.1-bookworm in /stable/combined
+- (GH-1420) Matrix Image: Bump amd64/golang from 1.22.0-bookworm to 1.22.1-bookworm in /unstable/combined
+- (GH-1422) Mirror Build Image: Bump amd64/golang from 1.21.7-bookworm to 1.21.8-bookworm in /mirror/1.21
+- (GH-1418) Mirror Build Image: Bump amd64/golang from 1.22.0-bookworm to 1.22.1-bookworm in /mirror/1.22
+- (GH-1415) Release Build Image: Bump amd64/golang from 1.21.7-bookworm to 1.21.8-bookworm in /oldstable/build/release
+- (GH-1419) Release Build Image: Bump amd64/golang from 1.22.0-bookworm to 1.22.1-bookworm in /stable/build/release
+- (GH-1414) Release Build Image: Bump amd64/golang from 1.22.0-bookworm to 1.22.1-bookworm in /unstable/build/release
+
 ## [v0.15.3] - 2024-02-23
 
 ### Changed
@@ -2626,7 +2646,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.3...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.4...HEAD
+[v0.15.4]: https://github.com/atc0005/go-ci/releases/tag/v0.15.4
 [v0.15.3]: https://github.com/atc0005/go-ci/releases/tag/v0.15.3
 [v0.15.2]: https://github.com/atc0005/go-ci/releases/tag/v0.15.2
 [v0.15.1]: https://github.com/atc0005/go-ci/releases/tag/v0.15.1
