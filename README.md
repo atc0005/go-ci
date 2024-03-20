@@ -335,6 +335,7 @@ official release is also provided for further review.
     - [staticcheck](https://github.com/dominikh/go-tools)
     - [golangci-lint](https://github.com/golangci/golangci-lint)
     - [govulncheck](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck)
+    - [deadcode](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)
   - Additional
     - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
     - [orijtech/structslop](https://github.com/orijtech/structslop)
