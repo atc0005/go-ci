@@ -26,6 +26,19 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.16.0] - 2024-03-20
+
+### Added
+
+- (GH-1432) Add deadcode command
+
+### Changed
+
+- (GH-1429) Go Dependency: Bump github.com/golangci/golangci-lint from 1.56.2 to 1.57.0 in /tools
+- (GH-1428) Go Dependency: Bump github.com/pelletier/go-toml/v2 from 2.1.1 to 2.2.0 in /tools
+- (GH-1431) Update golangci-lint from v1.56.2 to v1.57.0
+- (GH-1430) Update pelletier/go-toml to v2.2.0
+
 ## [v0.15.4] - 2024-03-06
 
 ### Changed
@@ -2646,7 +2659,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.15.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.16.0...HEAD
+[v0.16.0]: https://github.com/atc0005/go-ci/releases/tag/v0.16.0
 [v0.15.4]: https://github.com/atc0005/go-ci/releases/tag/v0.15.4
 [v0.15.3]: https://github.com/atc0005/go-ci/releases/tag/v0.15.3
 [v0.15.2]: https://github.com/atc0005/go-ci/releases/tag/v0.15.2
