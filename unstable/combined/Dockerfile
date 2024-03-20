@@ -24,6 +24,7 @@ ENV GOLANGCI_LINT_VERSION="v1.57.0"
 # the latest upstream build of the tool is installed in this image.
 ENV STATICCHECK_VERSION="v0.4.7"
 
+ENV DEADCODE_VERSION="v0.19.0"
 ENV GOVULNCHECK_VERSION="v1.0.4"
 # ENV HTTPERRORYZER_VERSION="v0.0.1"
 # ENV STRUCTSLOP_VERSION="v0.0.8"
@@ -59,7 +60,9 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
 RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
     && echo "Installing tomll@${TOMLL_VERSION}" \
-    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION}
+    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
+    && echo "Installing deadcode@${DEADCODE_VERSION}" \
+    && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION}
 
 RUN echo "Installing httperroryzer from temporary fork" \
     && git clone https://github.com/atc0005/httperroryzer \
@@ -135,6 +138,7 @@ ENV GOLANGCI_LINT_VERSION="v1.57.0"
 # the latest upstream build of the tool is installed in this image.
 ENV STATICCHECK_VERSION="v0.4.7"
 
+ENV DEADCODE_VERSION="v0.19.0"
 ENV GOVULNCHECK_VERSION="v1.0.4"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.8"
@@ -154,6 +158,7 @@ RUN apt-get update \
 COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
 COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
+COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
 COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
 COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
