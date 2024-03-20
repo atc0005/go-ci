@@ -28,6 +28,7 @@ ENV GOTOOLCHAIN="local"
 
 ENV GOLANGCI_LINT_VERSION="v1.57.0"
 ENV STATICCHECK_VERSION="v0.4.7"
+ENV DEADCODE_VERSION="v0.19.0"
 ENV GOVULNCHECK_VERSION="v1.0.4"
 ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV STRUCTSLOP_VERSION="v0.0.8"
@@ -50,6 +51,8 @@ RUN apt-get update \
     && staticcheck --version \
     && echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
+    && echo "Installing deadcode@${DEADCODE_VERSION}" \
+    && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION} \
     && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \

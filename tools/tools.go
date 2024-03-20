@@ -19,6 +19,7 @@ import (
 	_ "github.com/orijtech/tickeryzer"
 	_ "github.com/pelletier/go-toml/v2"
 	_ "github.com/tc-hib/go-winres"
+	_ "golang.org/x/tools/cmd/deadcode"
 	_ "golang.org/x/vuln/cmd/govulncheck"
 	_ "honnef.co/go/tools/config"
 )
