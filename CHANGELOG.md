@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.16.1] - 2024-03-21
+
+### Changed
+
+- (GH-1436) Go Dependency: Bump github.com/golangci/golangci-lint from 1.57.0 to 1.57.1 in /tools
+- (GH-1437) Update golangci-lint from v1.57.0 to v1.57.1
+- (GH-1433) Add deadcode reflink to README
+
+### Fixed
+
+- (GH-1434) Update CHANGELOG for v0.16.0 release
+
 ## [v0.16.0] - 2024-03-20
 
 ### Added
@@ -2659,7 +2671,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.16.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.16.1...HEAD
+[v0.16.1]: https://github.com/atc0005/go-ci/releases/tag/v0.16.1
 [v0.16.0]: https://github.com/atc0005/go-ci/releases/tag/v0.16.0
 [v0.15.4]: https://github.com/atc0005/go-ci/releases/tag/v0.15.4
 [v0.15.3]: https://github.com/atc0005/go-ci/releases/tag/v0.15.3
