@@ -328,7 +328,7 @@ updates:
     commit-message:
       prefix: "General Build Image"
     ignore:
-      - dependency-name: "amd64/golang"
+      - dependency-name: "i386/golang"
         versions:
           - ">= 1.22"
           - "< 1.21"
@@ -374,7 +374,7 @@ updates:
     commit-message:
       prefix: "General Build Image"
     ignore:
-      - dependency-name: "amd64/golang"
+      - dependency-name: "i386/golang"
         versions:
           - ">= 1.23"
           - "< 1.22"
