@@ -63,8 +63,8 @@ jobs:
         run: |
           echo "${{ steps.git-describe-semver.outputs.version }}"
 
-  release_build:
-    name: Build and upload container images
+  build_and_upload_mirror_images:
+    name: Build and upload mirror container images
     needs: git_describe_semver
 
     # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
@@ -105,13 +105,16 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Build all images
+      - name: Build mirror images
         env:
             REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
         run: |
-          make build
+          make build-mirror-images
 
-      - name: Upload all images
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+
+      - name: Upload mirror images
         env:
             REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
 
@@ -119,10 +122,233 @@ jobs:
             DH_TOKEN: ${{ secrets.DOCKERHUB }}
             GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          make push
+          make upload-mirror-images
+
+  build_and_upload_alpine_images:
+    name: Build and upload Alpine container images
+    needs: git_describe_semver
+
+    # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    permissions:
+      contents: write
+      discussions: write
+      packages: write
+
+    if: startsWith(github.ref, 'refs/tags')
+
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 45
+
+    steps:
+      - name: Log tag info
+        run: |
+          echo "Ref type: ${{ github.ref_type }}"
+          echo "Ref name: ${{ github.ref_name }}"
+          echo "Ref full: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Check out code with default settings
+        uses: actions/checkout@v4
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
+
+      # bsdmainutils provides "column" which is used by the Makefile
+      - name: Install Ubuntu packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
+
+      - name: Build Alpine images
+        env:
+            REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
+        run: |
+          make build-alpine-images
 
       - name: List generated Docker images
         run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+
+      - name: Upload alpine images
+        env:
+            REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
+
+            # https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow
+            DH_TOKEN: ${{ secrets.DOCKERHUB }}
+            GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          make upload-alpine-images
+
+  build_and_upload_mingw_images:
+    name: Build and upload mingw-w64 container images
+    needs: git_describe_semver
+
+    # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    permissions:
+      contents: write
+      discussions: write
+      packages: write
+
+    if: startsWith(github.ref, 'refs/tags')
+
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 45
+
+    steps:
+      - name: Log tag info
+        run: |
+          echo "Ref type: ${{ github.ref_type }}"
+          echo "Ref name: ${{ github.ref_name }}"
+          echo "Ref full: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Check out code with default settings
+        uses: actions/checkout@v4
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
+
+      # bsdmainutils provides "column" which is used by the Makefile
+      - name: Install Ubuntu packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
+
+      - name: Build mingw-w64 images
+        env:
+            REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
+        run: |
+          make build-mingw-images
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+
+      - name: Upload mingw images
+        env:
+            REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
+
+            # https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow
+            DH_TOKEN: ${{ secrets.DOCKERHUB }}
+            GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          make upload-mingw-images
+
+  build_and_upload_standard_images:
+    name: Build and upload standard container images
+    needs: git_describe_semver
+
+    # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    permissions:
+      contents: write
+      discussions: write
+      packages: write
+
+    if: startsWith(github.ref, 'refs/tags')
+
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 45
+
+    steps:
+      - name: Log tag info
+        run: |
+          echo "Ref type: ${{ github.ref_type }}"
+          echo "Ref name: ${{ github.ref_name }}"
+          echo "Ref full: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Check out code with default settings
+        uses: actions/checkout@v4
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
+
+      # bsdmainutils provides "column" which is used by the Makefile
+      - name: Install Ubuntu packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
+
+      - name: Build standard images
+        env:
+            REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
+        run: |
+          make build-standard-images
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+
+      - name: Upload standard images
+        env:
+            REPO_VERSION: ${{ needs.git_describe_semver.outputs.version }}
+
+            # https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow
+            DH_TOKEN: ${{ secrets.DOCKERHUB }}
+            GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          make upload-standard-images
+
+  create_release:
+    name: Create GitHub Release
+    needs:
+      - git_describe_semver
+      - build_and_upload_mirror_images
+      - build_and_upload_alpine_images
+      - build_and_upload_mingw_images
+      - build_and_upload_standard_images
+
+    # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    permissions:
+      contents: write
+      discussions: write
+      packages: write
+
+    if: startsWith(github.ref, 'refs/tags')
+
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 45
+
+    steps:
+      - name: Log tag info
+        run: |
+          echo "Ref type: ${{ github.ref_type }}"
+          echo "Ref name: ${{ github.ref_name }}"
+          echo "Ref full: ${{ github.ref }}"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Check out code with default settings
+        uses: actions/checkout@v4
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
 
       - name: Generate pre-release
         env:
