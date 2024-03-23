@@ -443,8 +443,8 @@ jobs:
       - name: List generated Docker images
         run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
 
-  build_stable_cgo-mingw-w64_image_using_makefile:
-    name: Build stable cgo-mingw-w64 image using Makefile
+  build_stable_cgo-mingw-w64_x64_image_using_makefile:
+    name: Build stable cgo-mingw-w64 x64 image using Makefile
     needs: git_describe_semver
     runs-on: ubuntu-latest
     # Default: 360 minutes
@@ -472,10 +472,47 @@ jobs:
       - name: Install Ubuntu packages
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
 
-      - name: Build stable cgo-mingw-w64 image
+      - name: Build stable cgo-mingw-w64 x64 image
         run: |
           export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
-          make stable-cgo-mingw-w64-build
+          make stable-cgo-mingw-w64-buildx64
+
+      - name: List generated Docker images
+        run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
+
+  build_stable_cgo-mingw-w64_x86_image_using_makefile:
+    name: Build stable cgo-mingw-w64 x86 image using Makefile
+    needs: git_describe_semver
+    runs-on: ubuntu-latest
+    # Default: 360 minutes
+    timeout-minutes: 10
+
+    steps:
+      - name: Print Docker version
+        run: docker --version
+
+      - name: Clone repo with default settings
+        uses: actions/checkout@v4
+
+      # Mark the current working directory as a safe directory in git to
+      # resolve "dubious ownership" complaints.
+      #
+      # https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
+      # https://confluence.atlassian.com/bbkb/git-command-returns-fatal-error-about-the-repository-being-owned-by-someone-else-1167744132.html
+      # https://github.com/actions/runner-images/issues/6775
+      # https://github.com/actions/checkout/issues/766
+      - name: Mark the current working directory as a safe directory in git
+        # run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        run: git config --global --add safe.directory "${PWD}"
+
+      # bsdmainutils provides "column" which is used by the Makefile
+      - name: Install Ubuntu packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends make gcc bsdmainutils
+
+      - name: Build stable cgo-mingw-w64 x86 image
+        run: |
+          export REPO_VERSION=${{ needs.git_describe_semver.outputs.version }}
+          make stable-cgo-mingw-w64-buildx86
 
       - name: List generated Docker images
         run: docker image ls --filter "label=atc0005.go-ci" --format "table {{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.Size}}"
