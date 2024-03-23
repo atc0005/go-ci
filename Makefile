@@ -618,7 +618,7 @@ pre-build:
 
 .PHONY: build
 ## build: build all current Docker container images (legacy included)
-build: pre-build build-oldstable-alpine-buildx64 build-oldstable-alpine-buildx86 build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 stable-cgo-mingw-w64-build legacy-mirror-build stable-mirror-build build-oldstable build-unstable build-unstable-alpine-buildx64 build-unstable-alpine-buildx86
+build: pre-build build-oldstable-alpine-buildx64 build-oldstable-alpine-buildx86 build-stable build-stable-alpine-buildx64 build-stable-alpine-buildx86 oldstable-cgo-mingw-w64-buildx64 oldstable-cgo-mingw-w64-buildx86 stable-cgo-mingw-w64-buildx64 stable-cgo-mingw-w64-buildx86 unstable-cgo-mingw-w64-buildx64 unstable-cgo-mingw-w64-buildx86 legacy-mirror-build stable-mirror-build build-oldstable build-unstable build-unstable-alpine-buildx64 build-unstable-alpine-buildx86
 
 	@echo "Remove temporary copies of bundled files"
 	@rm -vf {oldstable/combined,unstable/combined,stable/combined}/.markdownlint.yml
