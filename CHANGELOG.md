@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.17.0] - 2024-03-23
+
+### Added
+
+- (GH-1441) Add 32-bit variant of the mingw-w64 image
+- (GH-1443) Add oldstable and unstable mingw-w64 img variants
+- (GH-1447) Add Fyle toolkit dependencies to mingw-w64 images
+
+### Fixed
+
+- (GH-1445) Fix mingw-w64 Dependabot ignore dep name
+
 ## [v0.16.1] - 2024-03-21
 
 ### Changed
@@ -2671,7 +2683,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.16.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.17.0...HEAD
+[v0.17.0]: https://github.com/atc0005/go-ci/releases/tag/v0.17.0
 [v0.16.1]: https://github.com/atc0005/go-ci/releases/tag/v0.16.1
 [v0.16.0]: https://github.com/atc0005/go-ci/releases/tag/v0.16.0
 [v0.15.4]: https://github.com/atc0005/go-ci/releases/tag/v0.15.4
