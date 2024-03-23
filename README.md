@@ -210,6 +210,7 @@ the `*-mirror-*` images:
 - supports cross-platform, cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+- ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
 
@@ -218,6 +219,7 @@ the `*-mirror-*` images:
 - same as `go-ci-oldstable-cgo-mingw-w64-buildx86`, but specific to x64
   architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
+- ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
 
 #### `go-ci-stable-cgo-mingw-w64-buildx86`
@@ -229,6 +231,7 @@ the `*-mirror-*` images:
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
+- ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
 
 #### `go-ci-stable-cgo-mingw-w64-buildx64`
@@ -236,6 +239,7 @@ the `*-mirror-*` images:
 - same as `go-ci-stable-cgo-mingw-w64-buildx86`, but specific to x64
   architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
+- ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
 
 #### `go-ci-unstable-cgo-mingw-w64-buildx86`
@@ -248,6 +252,7 @@ the `*-mirror-*` images:
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
+- ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
 
 #### `go-ci-unstable-cgo-mingw-w64-buildx64`
@@ -255,6 +260,7 @@ the `*-mirror-*` images:
 - same as `go-ci-unstable-cgo-mingw-w64-buildx86`, but specific to x64
   architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
+- ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
 
 ### Mirror build images

@@ -33,6 +33,11 @@ ENV APT_GCC_MULTILIB_VERSION="4:12.2.0-3"
 ENV APT_GCC_MINGW_W64_VERSION="12.2.0-14+25.2"
 ENV XZ_UTILS_VERSION="5.4.1-0.2"
 
+# https://docs.fyne.io/started/
+ENV APT_GCC_VERSION="4:12.2.0-3"
+ENV APT_LIBGL1_MESA_DEV_VERSION="22.3.6-1+deb12u1"
+ENV APT_XORG_DEV_VERSION="1:7.7+23"
+
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.1"
 
@@ -49,6 +54,9 @@ RUN apt-get update \
     gcc-multilib="${APT_GCC_MULTILIB_VERSION}" \
     gcc-mingw-w64="${APT_GCC_MINGW_W64_VERSION}" \
     xz-utils="${XZ_UTILS_VERSION}" \
+    gcc="${APT_GCC_VERSION}" \
+    libgl1-mesa-dev="${APT_LIBGL1_MESA_DEV_VERSION}" \
+    xorg-dev="${APT_XORG_DEV_VERSION}" \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     \
