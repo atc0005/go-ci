@@ -18,7 +18,7 @@ LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.title="go-ci-stable-cgo-mingw-w64-buildx86"
 LABEL org.opencontainers.image.description="Docker container image used to build dev and stable \
     releases of Go code. Based on the latest version of the current stable x86 golang image. \
-    Supports static, cgo-enabled builds via mingw."
+    Supports cgo-enabled builds via mingw."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
 # Explicitly disable automatic fetching of Go toolchains newer than the

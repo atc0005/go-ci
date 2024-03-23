@@ -288,7 +288,53 @@ updates:
       prefix: "General Build Image"
 
   - package-ecosystem: docker
-    directory: "/stable/build/cgo-mingw-w64"
+    directory: "/oldstable/build/cgo-mingw-w64-x64"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "General Build Image"
+    ignore:
+      - dependency-name: "amd64/golang"
+        versions:
+          - ">= 1.22"
+          - "< 1.21"
+
+  - package-ecosystem: docker
+    directory: "/oldstable/build/cgo-mingw-w64-x86"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "General Build Image"
+    ignore:
+      - dependency-name: "amd64/golang"
+        versions:
+          - ">= 1.22"
+          - "< 1.21"
+
+  - package-ecosystem: docker
+    directory: "/stable/build/cgo-mingw-w64-x64"
     open-pull-requests-limit: 10
     target-branch: "master"
     schedule:
@@ -309,6 +355,65 @@ updates:
         versions:
           - ">= 1.23"
           - "< 1.22"
+
+  - package-ecosystem: docker
+    directory: "/stable/build/cgo-mingw-w64-x86"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "General Build Image"
+    ignore:
+      - dependency-name: "amd64/golang"
+        versions:
+          - ">= 1.23"
+          - "< 1.22"
+
+  - package-ecosystem: docker
+    directory: "/unstable/build/cgo-mingw-w64-x64"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "General Build Image"
+
+  - package-ecosystem: docker
+    directory: "/unstable/build/cgo-mingw-w64-x86"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "General Build Image"
 
   - package-ecosystem: docker
     directory: "/stable/build/release"

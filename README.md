@@ -26,8 +26,12 @@ Tooling for linting, testing and building Go applications
     - [`go-ci-stable-alpine-buildx64`](#go-ci-stable-alpine-buildx64)
     - [`go-ci-unstable-alpine-buildx86`](#go-ci-unstable-alpine-buildx86)
     - [`go-ci-unstable-alpine-buildx64`](#go-ci-unstable-alpine-buildx64)
+    - [`go-ci-oldstable-cgo-mingw-w64-buildx86`](#go-ci-oldstable-cgo-mingw-w64-buildx86)
+    - [`go-ci-oldstable-cgo-mingw-w64-buildx64`](#go-ci-oldstable-cgo-mingw-w64-buildx64)
     - [`go-ci-stable-cgo-mingw-w64-buildx86`](#go-ci-stable-cgo-mingw-w64-buildx86)
     - [`go-ci-stable-cgo-mingw-w64-buildx64`](#go-ci-stable-cgo-mingw-w64-buildx64)
+    - [`go-ci-unstable-cgo-mingw-w64-buildx86`](#go-ci-unstable-cgo-mingw-w64-buildx86)
+    - [`go-ci-unstable-cgo-mingw-w64-buildx64`](#go-ci-unstable-cgo-mingw-w64-buildx64)
   - [Mirror build images](#mirror-build-images)
     - [`go-ci-mirror-build-*`](#go-ci-mirror-build-)
     - [`go-ci-oldstable-mirror-build`](#go-ci-oldstable-mirror-build)
@@ -141,7 +145,7 @@ the `*-mirror-*` images:
   [glibc](https://www.gnu.org/software/libc/)
   - see [Comparison of C/POSIX standard library implementations for
     Linux](https://www.etalabs.net/compare_libcs.html)
-- supports cross-platform, static cgo-enabled builds for Windows and Linux
+- supports cross-platform, cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
@@ -163,7 +167,7 @@ the `*-mirror-*` images:
   [glibc](https://www.gnu.org/software/libc/)
   - see [Comparison of C/POSIX standard library implementations for
     Linux](https://www.etalabs.net/compare_libcs.html)
-- supports cross-platform, static cgo-enabled builds for Windows and Linux
+- supports cross-platform, cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
@@ -185,7 +189,7 @@ the `*-mirror-*` images:
   [glibc](https://www.gnu.org/software/libc/)
   - see [Comparison of C/POSIX standard library implementations for
     Linux](https://www.etalabs.net/compare_libcs.html)
-- supports cross-platform, static cgo-enabled builds for Windows and Linux
+- supports cross-platform, cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
@@ -197,12 +201,31 @@ the `*-mirror-*` images:
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
 
-#### `go-ci-stable-cgo-mingw-w64-buildx86`
+#### `go-ci-oldstable-cgo-mingw-w64-buildx86`
 
-- built from the latest version of the current stable `golang` image.
+- built from the latest version of the current outgoing stable `i386/golang`
+  image
 - used for building and testing Go applications, both directly and via
   `Makefile` builds.
-- supports cross-platform, static cgo-enabled builds for Windows and Linux
+- supports cross-platform, cgo-enabled builds for Windows and Linux
+  - Windows 32-bit: `i686-w64-mingw32-gcc`
+  - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+- ✔️ provides multiple [custom build tools](#build-tools-included)
+- ❌ does not include [linters](#linting-tools-included)
+
+#### `go-ci-oldstable-cgo-mingw-w64-buildx64`
+
+- same as `go-ci-oldstable-cgo-mingw-w64-buildx86`, but specific to x64
+  architecture
+- ✔️ provides multiple [custom build tools](#build-tools-included)
+- ❌ does not include [linters](#linting-tools-included)
+
+#### `go-ci-stable-cgo-mingw-w64-buildx86`
+
+- built from the latest version of the current stable `i386/golang` image
+- used for building and testing Go applications, both directly and via
+  `Makefile` builds.
+- supports cross-platform, cgo-enabled builds for Windows and Linux
   - Windows 32-bit: `i686-w64-mingw32-gcc`
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
@@ -211,6 +234,25 @@ the `*-mirror-*` images:
 #### `go-ci-stable-cgo-mingw-w64-buildx64`
 
 - same as `go-ci-stable-cgo-mingw-w64-buildx86`, but specific to x64
+  architecture
+- ✔️ provides multiple [custom build tools](#build-tools-included)
+- ❌ does not include [linters](#linting-tools-included)
+
+#### `go-ci-unstable-cgo-mingw-w64-buildx86`
+
+- built from the latest available non-stable (beta, rc or if not available the
+  latest stable) `golang` image.
+- used for building and testing Go applications, both directly and via
+  `Makefile` builds.
+- supports cross-platform, cgo-enabled builds for Windows and Linux
+  - Windows 32-bit: `i686-w64-mingw32-gcc`
+  - Windows 64-bit: `x86_64-w64-mingw32-gcc`
+- ✔️ provides multiple [custom build tools](#build-tools-included)
+- ❌ does not include [linters](#linting-tools-included)
+
+#### `go-ci-unstable-cgo-mingw-w64-buildx64`
+
+- same as `go-ci-unstable-cgo-mingw-w64-buildx86`, but specific to x64
   architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
