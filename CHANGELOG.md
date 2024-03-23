@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.18.0] - 2024-03-23
+
+### Added
+
+- (GH-1452) Split image build and upload tasks
+- (GH-1453) Update release build workflow to use batches
+
+### Fixed
+
+- (GH-1451) Building all images exceeds "Standard" GitHub-hosted runners disk
+  space
+
 ## [v0.17.1] - 2024-03-23
 
 ### Fixed
@@ -2689,7 +2701,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.17.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.18.0...HEAD
+[v0.18.0]: https://github.com/atc0005/go-ci/releases/tag/v0.18.0
 [v0.17.1]: https://github.com/atc0005/go-ci/releases/tag/v0.17.1
 [v0.17.0]: https://github.com/atc0005/go-ci/releases/tag/v0.17.0
 [v0.16.1]: https://github.com/atc0005/go-ci/releases/tag/v0.16.1
