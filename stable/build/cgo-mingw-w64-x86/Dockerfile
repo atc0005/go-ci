@@ -5,9 +5,9 @@
 # Licensed under the MIT License. See LICENSE file in the project root for
 # full license information.
 
-# https://hub.docker.com/_/golang
+# https://hub.docker.com/r/i386/golang
 
-FROM amd64/golang:1.22.1-bookworm
+FROM i386/golang:1.22.1-bookworm
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -15,9 +15,9 @@ LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
 # https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys
 LABEL org.opencontainers.image.documentation="https://github.com/atc0005/go-ci"
 LABEL org.opencontainers.image.url="https://github.com/atc0005/go-ci"
-LABEL org.opencontainers.image.title="go-ci-stable-cgo-mingw-w64-build"
+LABEL org.opencontainers.image.title="go-ci-stable-cgo-mingw-w64-buildx86"
 LABEL org.opencontainers.image.description="Docker container image used to build dev and stable \
-    releases of Go code. Based on the latest version of the current stable golang image. \
+    releases of Go code. Based on the latest version of the current stable x86 golang image. \
     Supports static, cgo-enabled builds via mingw."
 LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 
