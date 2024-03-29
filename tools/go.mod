@@ -4,6 +4,11 @@ module github.com/atc0005/go-ci/tools
 go 1.19
 
 require (
+	// govulncheck - provided as an optional testing utility
+	// https://pkg.go.dev/github.com/bitfield/gotestdox?tab=versions
+	// https://github.com/bitfield/gotestdox
+	github.com/bitfield/gotestdox v0.2.2
+
 	// errwrap - provided as an optional linter
 	github.com/fatih/errwrap v1.6.0
 

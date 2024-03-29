@@ -10,6 +10,7 @@ package tools
 //
 // nolint
 import (
+	_ "github.com/bitfield/gotestdox/cmd/gotestdox"
 	_ "github.com/choffmeister/git-describe-semver"
 	_ "github.com/fatih/errwrap"
 	_ "github.com/golangci/golangci-lint/pkg/config"
