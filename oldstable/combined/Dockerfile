@@ -35,6 +35,7 @@ ENV STRUCTSLOP_VERSION="v0.0.8"
 ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.0"
 ENV ERRWRAP_VERSION="v1.6.0"
+ENV GOTESTDOX_VERSION="v0.2.2"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
@@ -53,6 +54,8 @@ RUN apt-get update \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
     && echo "Installing deadcode@${DEADCODE_VERSION}" \
     && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION} \
+    && echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
+    && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION} \
     && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \

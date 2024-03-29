@@ -24,6 +24,7 @@ ENV STRUCTSLOP_VERSION="v0.0.8"
 ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.0"
 ENV ERRWRAP_VERSION="v1.6.0"
+ENV GOTESTDOX_VERSION="v0.2.2"
 
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
@@ -58,7 +59,9 @@ RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && echo "Installing deadcode@${DEADCODE_VERSION}" \
     && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION} \
     && echo "Installing tomll@${TOMLL_VERSION}" \
-    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION}
+    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
+    && echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
+    && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION}
 
 RUN echo "Installing httperroryzer from temporary fork" \
     && git clone https://github.com/atc0005/httperroryzer \
@@ -132,6 +135,7 @@ ENV STRUCTSLOP_VERSION="v0.0.8"
 ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.0"
 ENV ERRWRAP_VERSION="v1.6.0"
+ENV GOTESTDOX_VERSION="v0.2.2"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
@@ -147,6 +151,7 @@ COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
 COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
+COPY --from=builder /go/bin/gotestdox /usr/bin/gotestdox
 COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
 COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer

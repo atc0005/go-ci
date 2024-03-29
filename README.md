@@ -15,6 +15,8 @@ Tooling for linting, testing and building Go applications
 - [Overview](#overview)
 - [Linting tools included](#linting-tools-included)
 - [Build tools included](#build-tools-included)
+- [Testing tools included](#testing-tools-included)
+- [Images](#images)
   - [Matrix images](#matrix-images)
     - [`go-ci-stable`](#go-ci-stable)
     - [`go-ci-oldstable`](#go-ci-oldstable)
@@ -93,6 +95,17 @@ the `*-mirror-*` images:
 | [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.35.3` |
 | [`choffmeister/git-describe-semver`](https://github.com/choffmeister/git-describe-semver) | `v0.4.0`  |
 
+## Testing tools included
+
+The following testing tools are included in the `go-ci-stable`,
+`go-ci-oldstable` and `go-ci-unstable` images:
+
+| Testing tool                                                  | Version  |
+| ------------------------------------------------------------- | -------- |
+| [`bitfield/gotestdox`](https://github.com/bitfield/gotestdox) | `v0.2.2` |
+
+## Images
+
 ### Matrix images
 
 #### `go-ci-stable`
@@ -103,6 +116,7 @@ the `*-mirror-*` images:
 - intended for use in a build/test matrix of prior, current and upcoming Go
   releases
 - ✔️ provides [multiple linters](#linting-tools-included)
+- ✔️ provides [testing tools](#testing-tools-included)
 - ❌ does not include [custom build tools](#build-tools-included)
 
 #### `go-ci-oldstable`
@@ -113,6 +127,7 @@ the `*-mirror-*` images:
 - intended for use in a build/test matrix of prior, current and upcoming Go
   releases
 - ✔️ provides [multiple linters](#linting-tools-included)
+- ✔️ provides [testing tools](#testing-tools-included)
 - ❌ does not include [custom build tools](#build-tools-included)
 
 #### `go-ci-unstable`
@@ -126,6 +141,7 @@ the `*-mirror-*` images:
 - intended for use in a build/test matrix of prior, current and upcoming Go
   releases
 - ✔️ provides [multiple linters](#linting-tools-included)
+- ✔️ provides [testing tools](#testing-tools-included)
 - ❌ does not include [custom build tools](#build-tools-included)
 - used to test new or additional `golangci-lint` linters prior to inclusion in
   the `stable` and `oldstable` container image variants
@@ -150,12 +166,14 @@ the `*-mirror-*` images:
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-oldstable-alpine-buildx64`
 
 - same as `go-ci-oldstable-alpine-buildx86`, but specific to x64 architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-stable-alpine-buildx86`
 
@@ -172,12 +190,14 @@ the `*-mirror-*` images:
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-stable-alpine-buildx64`
 
 - same as `go-ci-stable-alpine-buildx86`, but specific to x64 architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-unstable-alpine-buildx86`
 
@@ -194,12 +214,14 @@ the `*-mirror-*` images:
   - Windows 64-bit: `x86_64-w64-mingw32-gcc`
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-unstable-alpine-buildx64`
 
 - same as `go-ci-unstable-alpine-buildx86`, but specific to x64 architecture
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-oldstable-cgo-mingw-w64-buildx86`
 
@@ -213,6 +235,7 @@ the `*-mirror-*` images:
 - ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-oldstable-cgo-mingw-w64-buildx64`
 
@@ -221,6 +244,7 @@ the `*-mirror-*` images:
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-stable-cgo-mingw-w64-buildx86`
 
@@ -233,6 +257,7 @@ the `*-mirror-*` images:
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-stable-cgo-mingw-w64-buildx64`
 
@@ -241,6 +266,7 @@ the `*-mirror-*` images:
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-unstable-cgo-mingw-w64-buildx86`
 
@@ -254,6 +280,7 @@ the `*-mirror-*` images:
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-unstable-cgo-mingw-w64-buildx64`
 
@@ -262,6 +289,7 @@ the `*-mirror-*` images:
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ✔️ provides [Fyne toolkit build dependencies](https://docs.fyne.io/started/)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 ### Mirror build images
 
@@ -276,6 +304,7 @@ the `*-mirror-*` images:
   a project's Makefile or other build tool to setup the environment for tasks
   such as testing, linting & building source code
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 - ❌ does not include [custom build tools](#build-tools-included)
 
 These images are intended to assist with asserting that projects build with
@@ -300,6 +329,7 @@ the latest version of the `golang` image for the `oldstable` series.
   a project's Makefile or other build tool to setup the environment for tasks
   such as testing, linting & building source code
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 - ❌ does not include [custom build tools](#build-tools-included)
 
 These images are intended to assist with asserting that projects build with
@@ -324,6 +354,7 @@ the latest version of the `golang` image for the `stable` series.
   a project's Makefile or other build tool to setup the environment for tasks
   such as testing, linting & building source code
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 - ❌ does not include [custom build tools](#build-tools-included)
 
 These images are intended to assist with asserting that projects build with
@@ -337,6 +368,7 @@ the latest version in the current stable series.
 - used for building dev and stable releases of Go code
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-oldstable-build`
 
@@ -344,6 +376,7 @@ the latest version in the current stable series.
 - used for building dev and stable releases of Go code
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 #### `go-ci-unstable-build`
 
@@ -354,6 +387,7 @@ the latest version in the current stable series.
 - used for building dev and stable releases of Go code
 - ✔️ provides multiple [custom build tools](#build-tools-included)
 - ❌ does not include [linters](#linting-tools-included)
+- ❌ does not include [testing tools](#testing-tools-included)
 
 ## Examples / How to use these images
 
@@ -380,9 +414,9 @@ official release is also provided for further review.
   - for building images
 - `make`
   - if using the provided `Makefile`
-- At *least* 10 GB free disk space
-  - if building all images
-  - 15+ GB free disk space recommended
+- Sufficient disk space to hold build images
+  - 20+ GB free disk space recommended if building all images
+  - 10+ GB free disk space recommended if building one set of images
 
 ## References
 
@@ -398,12 +432,12 @@ official release is also provided for further review.
     - [`orijtech/tickeryzer`](https://github.com/orijtech/tickeryzer)
     - [pelletier/go-toml](https://github.com/pelletier/go-toml)
     - [fatih/errwrap](https://github.com/fatih/errwrap)
-
 - Build Tools
   - [tc-hib/go-winres](https://github.com/tc-hib/go-winres)
   - [goreleaser/nfpm](https://github.com/goreleaser/nfpm)
   - [choffmeister/git-describe-semver](https://github.com/choffmeister/git-describe-semver)
-
+- Testing Tools
+  - [`bitfield/gotestdox`](https://github.com/bitfield/gotestdox)
 - Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>
   - <https://hub.docker.com/r/golangci/golangci-lint>
