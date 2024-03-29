@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.20.0] - 2024-03-29
+
+### Added
+
+- - (GH-1462) Add github.com/bitfield/gotestdox
+
+### Changed
+
+- (GH-1460) Go Dependency: Bump github.com/golangci/golangci-lint from 1.57.1 to 1.57.2 in /tools
+- (GH-1461) Update golangci-lint from v1.57.1 to v1.57.2
+
 ## [v0.19.0] - 2024-03-23
 
 ### Changed
@@ -2707,7 +2718,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.19.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.0...HEAD
+[v0.20.0]: https://github.com/atc0005/go-ci/releases/tag/v0.20.0
 [v0.19.0]: https://github.com/atc0005/go-ci/releases/tag/v0.19.0
 [v0.18.0]: https://github.com/atc0005/go-ci/releases/tag/v0.18.0
 [v0.17.1]: https://github.com/atc0005/go-ci/releases/tag/v0.17.1
