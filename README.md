@@ -92,7 +92,7 @@ the `*-mirror-*` images:
 | Build tool                                                                                | Version   |
 | ----------------------------------------------------------------------------------------- | --------- |
 | [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres)                                 | `v0.3.1`  |
-| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.35.3` |
+| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.36.1` |
 | [`choffmeister/git-describe-semver`](https://github.com/choffmeister/git-describe-semver) | `v0.4.0`  |
 
 ## Testing tools included
