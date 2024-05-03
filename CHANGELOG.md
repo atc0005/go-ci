@@ -26,6 +26,23 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.20.2] - 2024-05-03
+
+### Changed
+
+- (GH-1500) Go Dependency: Bump github.com/golangci/golangci-lint from 1.57.2 to 1.58.0 in /tools
+- (GH-1496) Go Dependency: Bump github.com/pelletier/go-toml/v2 from 2.2.0 to 2.2.2 in /tools
+- (GH-1493) Go Dependency: Bump github.com/tc-hib/go-winres from 0.3.1 to 0.3.3 in /tools
+- (GH-1495) Go Dependency: Bump golang.org/x/vuln from 1.0.4 to 1.1.0 in /tools
+- (GH-1497) Update golang.org/x/vuln to v1.1.0
+- (GH-1501) Update golangci-lint to v1.58.0
+- (GH-1498) Update pelletier/go-toml to v2.2.2
+- (GH-1499) Update tc-hib/go-winres to v0.3.3
+
+### Fixed
+
+- (GH-1502) Remove inactive `maligned` linter
+
 ## [v0.20.1] - 2024-04-04
 
 ### Changed
@@ -2750,7 +2767,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.2...HEAD
+[v0.20.2]: https://github.com/atc0005/go-ci/releases/tag/v0.20.2
 [v0.20.1]: https://github.com/atc0005/go-ci/releases/tag/v0.20.1
 [v0.20.0]: https://github.com/atc0005/go-ci/releases/tag/v0.20.0
 [v0.19.0]: https://github.com/atc0005/go-ci/releases/tag/v0.19.0
