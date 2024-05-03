@@ -18,7 +18,7 @@ ENV GOTOOLCHAIN="local"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-ENV GOLANGCI_LINT_VERSION="v1.57.2"
+ENV GOLANGCI_LINT_VERSION="v1.58.0"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
@@ -135,7 +135,7 @@ ENV GOTOOLCHAIN="local"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-ENV GOLANGCI_LINT_VERSION="v1.57.2"
+ENV GOLANGCI_LINT_VERSION="v1.58.0"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
