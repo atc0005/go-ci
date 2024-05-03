@@ -39,7 +39,7 @@ ENV APT_LIBGL1_MESA_DEV_VERSION="20.3.5-1"
 ENV APT_XORG_DEV_VERSION="1:7.7+22"
 
 # https://github.com/tc-hib/go-winres/releases
-ENV GO_WINRES_VERSION="v0.3.1"
+ENV GO_WINRES_VERSION="v0.3.3"
 
 # https://github.com/goreleaser/nfpm/releases
 ENV NFPM_VERSION="v2.36.1"

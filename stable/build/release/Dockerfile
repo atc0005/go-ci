@@ -31,7 +31,7 @@ ENV APT_TREE_VERSION="2.1.0-1"
 ENV XZ_UTILS_VERSION="5.4.1-0.2"
 
 # https://github.com/tc-hib/go-winres/releases
-ENV GO_WINRES_VERSION="v0.3.1"
+ENV GO_WINRES_VERSION="v0.3.3"
 
 # https://github.com/goreleaser/nfpm/releases
 ENV NFPM_VERSION="v2.36.1"
