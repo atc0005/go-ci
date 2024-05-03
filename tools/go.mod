@@ -25,7 +25,7 @@ require (
 	github.com/orijtech/tickeryzer v0.0.3
 
 	// tomll - provided as an optional linter
-	github.com/pelletier/go-toml/v2 v2.2.0
+	github.com/pelletier/go-toml/v2 v2.2.2
 
 	// deadcode - provided as an optional linter
 	// https://pkg.go.dev/golang.org/x/tools/cmd/deadcode?tab=versions
