@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.20.4] - 2024-05-09
+
+### Changed
+
+- (GH-1528) Go Dependency: Bump github.com/golangci/golangci-lint from 1.58.0 to 1.58.1 in /tools
+- (GH-1529) Go Dependency: Bump github.com/goreleaser/nfpm/v2 from 2.36.1 to 2.37.0 in /tools
+- (GH-1532) Go Dependency: Bump github.com/goreleaser/nfpm/v2 from 2.37.0 to 2.37.1 in /tools
+- (GH-1534) Update golangci-lint to v1.58.1
+- (GH-1533) Update goreleaser/nfpm to v2.37.1
+
 ## [v0.20.3] - 2024-05-08
 
 ### Changed
@@ -2792,7 +2802,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.3...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.4...HEAD
+[v0.20.4]: https://github.com/atc0005/go-ci/releases/tag/v0.20.4
 [v0.20.3]: https://github.com/atc0005/go-ci/releases/tag/v0.20.3
 [v0.20.2]: https://github.com/atc0005/go-ci/releases/tag/v0.20.2
 [v0.20.1]: https://github.com/atc0005/go-ci/releases/tag/v0.20.1
