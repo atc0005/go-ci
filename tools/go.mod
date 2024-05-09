@@ -42,7 +42,7 @@ require (
 
 require (
 	github.com/choffmeister/git-describe-semver v0.4.0
-	github.com/goreleaser/nfpm/v2 v2.37.0
+	github.com/goreleaser/nfpm/v2 v2.37.1
 	github.com/tc-hib/go-winres v0.3.3
 )
 
@@ -70,7 +70,7 @@ require (
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/uuid v1.4.0 // indirect
-	github.com/goreleaser/chglog v0.6.0 // indirect
+	github.com/goreleaser/chglog v0.6.1 // indirect
 	github.com/goreleaser/fileglob v1.3.0 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
