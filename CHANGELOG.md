@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.20.5] - 2024-05-20
+
+### Changed
+
+- (GH-1537) Go Dependency: Bump github.com/golangci/golangci-lint from 1.58.1 to 1.58.2 in /tools
+- (GH-1538) Update golangci-lint to v1.58.2
+
 ## [v0.20.4] - 2024-05-09
 
 ### Changed
@@ -2802,7 +2809,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.5...HEAD
+[v0.20.5]: https://github.com/atc0005/go-ci/releases/tag/v0.20.5
 [v0.20.4]: https://github.com/atc0005/go-ci/releases/tag/v0.20.4
 [v0.20.3]: https://github.com/atc0005/go-ci/releases/tag/v0.20.3
 [v0.20.2]: https://github.com/atc0005/go-ci/releases/tag/v0.20.2
