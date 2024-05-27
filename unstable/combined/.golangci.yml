@@ -36,14 +36,14 @@ linters:
     # - depguard
     - dogsled
     - dupl
-    - exportloopref
+    - err113
     - errcheck
+    - exportloopref
     - gochecknoglobals
     - gocognit
     - goconst
     - gocritic
     - gocyclo
-    - goerr113
     - gofmt
     - goimports
     - gosec
