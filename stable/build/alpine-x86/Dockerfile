@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM i386/golang:1.22.3-alpine3.18
+FROM i386/golang:1.22.3-alpine3.20
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -27,18 +27,18 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-# NOTE: This version was different than the base `gcc` pkg when last checked
-ENV APK_GCC_MINGW64_VERSION="12.2.0-r3"
+# NOTE: This version is often different than the base `gcc` package.
+ENV APK_GCC_MINGW64_VERSION="13.2.0-r2"
 
-ENV APK_BASH_VERSION="5.2.15-r5"
-ENV APK_GCC_VERSION="12.2.1_git20220924-r10"
-ENV APK_GIT_VERSION="2.40.1-r0"
-ENV APK_MAKE_VERSION="4.4.1-r1"
-ENV APK_UTIL_LINUX_VERSION="2.38.1-r8"
-ENV APK_FILE_VERSION="5.45-r0"
-ENV APK_NANO_VERSION="7.2-r1"
-ENV APK_MUSL_DEV_VERSION="1.2.4-r2"
-ENV APK_XZ_VERSION="5.4.3-r0"
+ENV APK_BASH_VERSION="5.2.26-r0"
+ENV APK_GCC_VERSION="13.2.1_git20240309-r0"
+ENV APK_GIT_VERSION="2.45.1-r0"
+ENV APK_MAKE_VERSION="4.4.1-r2"
+ENV APK_UTIL_LINUX_VERSION="2.40.1-r1"
+ENV APK_FILE_VERSION="5.45-r1"
+ENV APK_NANO_VERSION="8.0-r0"
+ENV APK_MUSL_DEV_VERSION="1.2.5-r0"
+ENV APK_XZ_VERSION="5.6.1-r3"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.3"
