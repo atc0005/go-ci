@@ -26,6 +26,20 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.20.6] - 2024-05-27
+
+### Changed
+
+- (GH-1544) Go Dependency: Bump github.com/golangci/golangci-lint from 1.58.2 to 1.59.0 in /tools
+- (GH-1542) Go Dependency: Bump golang.org/x/vuln from 1.1.0 to 1.1.1 in /tools
+- (GH-1546) Update golang.org/x/vuln to v1.1.1
+- (GH-1545) Update golangci-lint to v1.59.0
+
+### Fixed
+
+- (GH-1547) Rename `goerr113` linter to `err113`
+- (GH-1548) Swap Alpine base image version from 3.18 to 3.20
+
 ## [v0.20.5] - 2024-05-20
 
 ### Changed
@@ -2809,7 +2823,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.6...HEAD
+[v0.20.6]: https://github.com/atc0005/go-ci/releases/tag/v0.20.6
 [v0.20.5]: https://github.com/atc0005/go-ci/releases/tag/v0.20.5
 [v0.20.4]: https://github.com/atc0005/go-ci/releases/tag/v0.20.4
 [v0.20.3]: https://github.com/atc0005/go-ci/releases/tag/v0.20.3
