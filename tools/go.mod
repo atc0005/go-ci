@@ -29,11 +29,11 @@ require (
 
 	// deadcode - provided as an optional linter
 	// https://pkg.go.dev/golang.org/x/tools/cmd/deadcode?tab=versions
-	golang.org/x/tools v0.21.0
+	golang.org/x/tools v0.21.1-0.20240514024235-59d9797072e7
 
 	// govulncheck - provided as an optional vulnerability analyzer
 	// https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck?tab=versions
-	golang.org/x/vuln v1.1.0
+	golang.org/x/vuln v1.1.1
 
 	// staticcheck - intended as a primary linter
 	honnef.co/go/tools v0.4.7
