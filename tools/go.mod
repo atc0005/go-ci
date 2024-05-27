@@ -13,7 +13,7 @@ require (
 	github.com/fatih/errwrap v1.6.0
 
 	// golangci-lint - intended as a primary linter
-	github.com/golangci/golangci-lint v1.58.2
+	github.com/golangci/golangci-lint v1.59.0
 
 	// httperroryzer - provided as an optional linter
 	github.com/orijtech/httperroryzer v0.0.1
@@ -49,7 +49,7 @@ require (
 require (
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/AlekSi/pointer v1.2.0 // indirect
-	github.com/BurntSushi/toml v1.3.2 // indirect
+	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
 	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
@@ -72,7 +72,7 @@ require (
 	github.com/google/uuid v1.4.0 // indirect
 	github.com/goreleaser/chglog v0.6.1 // indirect
 	github.com/goreleaser/fileglob v1.3.0 // indirect
-	github.com/hashicorp/go-version v1.6.0 // indirect
+	github.com/hashicorp/go-version v1.7.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/imdario/mergo v0.3.16 // indirect
