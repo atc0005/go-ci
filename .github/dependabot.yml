@@ -45,6 +45,7 @@ updates:
       - "atc0005"
     labels:
       - "dependencies"
+      - "ignore-for-release"
 
     allow:
       # Allow both direct and indirect updates for all packages
