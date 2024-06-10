@@ -13,7 +13,7 @@ require (
 	github.com/fatih/errwrap v1.6.0
 
 	// golangci-lint - intended as a primary linter
-	github.com/golangci/golangci-lint v1.59.0
+	github.com/golangci/golangci-lint v1.59.1
 
 	// httperroryzer - provided as an optional linter
 	github.com/orijtech/httperroryzer v0.0.1
@@ -66,7 +66,7 @@ require (
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.5.0 // indirect
 	github.com/go-git/go-git/v5 v5.12.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.0.0-alpha.1 // indirect
+	github.com/go-viper/mapstructure/v2 v2.0.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/uuid v1.4.0 // indirect
