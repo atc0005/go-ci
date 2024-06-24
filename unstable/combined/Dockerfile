@@ -130,9 +130,15 @@ ENV GOLANGCI_LINT_VERSION="v1.59.1"
 # the latest upstream build of the tool is installed in this image.
 ENV STATICCHECK_VERSION="v0.4.7"
 
+# These commits/versions are provided by temporary forks of the upstream
+# projects. The plan is to switch back to current upstream vesions once
+# the required dependencies are updated for those upstream projects.
+ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
+ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
+
 ENV DEADCODE_VERSION="v0.22.0"
 ENV GOVULNCHECK_VERSION="v1.1.2"
-ENV HTTPERRORYZER_VERSION="v0.0.1"
+# ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV TOMLL_VERSION="v2.2.2"
 ENV ERRWRAP_VERSION="v1.6.0"
 ENV GOTESTDOX_VERSION="v0.2.2"
