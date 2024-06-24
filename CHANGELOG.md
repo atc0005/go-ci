@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.0] - 2024-06-24
+
+### Changed
+
+- (GH-1584) Update unstable images to Go 1.23rc1
+- (GH-1586) Remove `orijtech/structslop` from unstable image
+
+### Fixed
+
+- (GH-1587) Cleanup forked linter version details
+
 ## [v0.20.8] - 2024-06-10
 
 ### Changed
@@ -2858,7 +2869,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.20.8...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.0...HEAD
+[v0.21.0]: https://github.com/atc0005/go-ci/releases/tag/v0.21.0
 [v0.20.8]: https://github.com/atc0005/go-ci/releases/tag/v0.20.8
 [v0.20.7]: https://github.com/atc0005/go-ci/releases/tag/v0.20.7
 [v0.20.6]: https://github.com/atc0005/go-ci/releases/tag/v0.20.6
