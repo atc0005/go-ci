@@ -23,7 +23,8 @@ ENV GOLANGCI_LINT_VERSION="feat/go1.23"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
-ENV STATICCHECK_VERSION="v0.4.7"
+# ENV STATICCHECK_VERSION="v0.4.7"
+ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
 
 ENV DEADCODE_VERSION="v0.22.0"
 ENV GOVULNCHECK_VERSION="v1.1.2"
@@ -129,7 +130,8 @@ ENV GOLANGCI_LINT_VERSION="feat/go1.23"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
-ENV STATICCHECK_VERSION="v0.4.7"
+# ENV STATICCHECK_VERSION="v0.4.7"
+ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
 
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
