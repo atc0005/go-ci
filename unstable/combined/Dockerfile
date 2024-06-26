@@ -18,7 +18,8 @@ ENV GOTOOLCHAIN="local"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-ENV GOLANGCI_LINT_VERSION="v1.59.1"
+# ENV GOLANGCI_LINT_VERSION="v1.59.1"
+ENV GOLANGCI_LINT_VERSION="feat/go1.23"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
@@ -87,19 +88,18 @@ RUN echo "Installing errwrap@${ERRWRAP_VERSION}" \
 #     && go install . \
 #     && cd ..
 
-# RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
-#     && git clone https://github.com/atc0005/golangci-lint \
-#     && cd golangci-lint \
-#     && git checkout ${GOLANGCI_LINT_VERSION} \
-#     && go install ./cmd/golangci-lint \
-#     && golangci-lint --version
-
-RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
-    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
-    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
+RUN echo "Installing golangci-lint from dev feat/go1.23 branch" \
+    && git clone https://github.com/atc0005/golangci-lint \
+    && cd golangci-lint \
+    && git checkout ${GOLANGCI_LINT_VERSION} \
+    && go install ./cmd/golangci-lint \
     && golangci-lint --version
 
+# RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
+#     && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
+#     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+#     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
+#     && golangci-lint --version
 
 FROM amd64/golang:1.23rc1-bookworm as final
 
