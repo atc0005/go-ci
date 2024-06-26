@@ -26,6 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.1] - 2024-06-26
+
+### Changed
+
+- (GH-1592) Drop `sudo` from image related commands
+
+### Fixed
+
+- (GH-1591) Install golangci-lint from fork using dev branch
+
 ## [v0.21.0] - 2024-06-24
 
 ### Changed
@@ -2869,7 +2879,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.1...HEAD
+[v0.21.1]: https://github.com/atc0005/go-ci/releases/tag/v0.21.1
 [v0.21.0]: https://github.com/atc0005/go-ci/releases/tag/v0.21.0
 [v0.20.8]: https://github.com/atc0005/go-ci/releases/tag/v0.20.8
 [v0.20.7]: https://github.com/atc0005/go-ci/releases/tag/v0.20.7
