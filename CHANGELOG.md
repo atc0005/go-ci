@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.2] - 2024-06-26
+
+### Fixed
+
+- (GH-1595) Fix GOLANGCI_LINT_VERSION tag in final stage
+- (GH-1597) Install staticcheck from master for unstable image
+
 ## [v0.21.1] - 2024-06-26
 
 ### Changed
@@ -2879,7 +2886,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.2...HEAD
+[v0.21.2]: https://github.com/atc0005/go-ci/releases/tag/v0.21.2
 [v0.21.1]: https://github.com/atc0005/go-ci/releases/tag/v0.21.1
 [v0.21.0]: https://github.com/atc0005/go-ci/releases/tag/v0.21.0
 [v0.20.8]: https://github.com/atc0005/go-ci/releases/tag/v0.20.8
