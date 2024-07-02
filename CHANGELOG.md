@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.3] - 2024-07-02
+
+### Changed
+
+- (GH-1601) Update staticcheck in unstable img to v0.5.0-rc.1
+
 ## [v0.21.2] - 2024-06-26
 
 ### Fixed
@@ -2886,7 +2892,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.3...HEAD
+[v0.21.3]: https://github.com/atc0005/go-ci/releases/tag/v0.21.3
 [v0.21.2]: https://github.com/atc0005/go-ci/releases/tag/v0.21.2
 [v0.21.1]: https://github.com/atc0005/go-ci/releases/tag/v0.21.1
 [v0.21.0]: https://github.com/atc0005/go-ci/releases/tag/v0.21.0
