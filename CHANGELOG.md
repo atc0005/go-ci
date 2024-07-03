@@ -26,6 +26,25 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.4] - 2024-07-03
+
+### Changed
+
+- (GH-1609) General Build Image: Bump amd64/golang from 1.21.11-alpine3.20 to 1.21.12-alpine3.20 in /oldstable/build/alpine-x64
+- (GH-1608) General Build Image: Bump amd64/golang from 1.21.11-bullseye to 1.21.12-bullseye in /oldstable/build/cgo-mingw-w64-x64
+- (GH-1613) General Build Image: Bump amd64/golang from 1.22.4-alpine3.20 to 1.22.5-alpine3.20 in /stable/build/alpine-x64
+- (GH-1607) General Build Image: Bump amd64/golang from 1.22.4-bullseye to 1.22.5-bullseye in /stable/build/cgo-mingw-w64-x64
+- (GH-1611) General Build Image: Bump i386/golang from 1.21.11-alpine3.20 to 1.21.12-alpine3.20 in /oldstable/build/alpine-x86
+- (GH-1615) General Build Image: Bump i386/golang from 1.21.11-bullseye to 1.21.12-bullseye in /oldstable/build/cgo-mingw-w64-x86
+- (GH-1616) General Build Image: Bump i386/golang from 1.22.4-alpine3.20 to 1.22.5-alpine3.20 in /stable/build/alpine-x86
+- (GH-1614) General Build Image: Bump i386/golang from 1.22.4-bullseye to 1.22.5-bullseye in /stable/build/cgo-mingw-w64-x86
+- (GH-1610) Matrix Image: Bump amd64/golang from 1.21.11-bookworm to 1.21.12-bookworm in /oldstable/combined
+- (GH-1604) Matrix Image: Bump amd64/golang from 1.22.4-bookworm to 1.22.5-bookworm in /stable/combined
+- (GH-1612) Mirror Build Image: Bump amd64/golang from 1.21.11-bookworm to 1.21.12-bookworm in /mirror/1.21
+- (GH-1617) Mirror Build Image: Bump amd64/golang from 1.22.4-bookworm to 1.22.5-bookworm in /mirror/1.22
+- (GH-1606) Release Build Image: Bump amd64/golang from 1.21.11-bookworm to 1.21.12-bookworm in /oldstable/build/release
+- (GH-1605) Release Build Image: Bump amd64/golang from 1.22.4-bookworm to 1.22.5-bookworm in /stable/build/release
+
 ## [v0.21.3] - 2024-07-02
 
 ### Changed
@@ -2892,7 +2911,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.3...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.4...HEAD
+[v0.21.4]: https://github.com/atc0005/go-ci/releases/tag/v0.21.4
 [v0.21.3]: https://github.com/atc0005/go-ci/releases/tag/v0.21.3
 [v0.21.2]: https://github.com/atc0005/go-ci/releases/tag/v0.21.2
 [v0.21.1]: https://github.com/atc0005/go-ci/releases/tag/v0.21.1
