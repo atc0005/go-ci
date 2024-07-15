@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.5] - 2024-07-15
+
+### Changed
+
+- (GH-1622) Update golang.org/x/tools/cmd/deadcode to v0.23.0
+- (GH-1623) Update goreleaser/nfpm to v2.38.0
+
 ## [v0.21.4] - 2024-07-03
 
 ### Changed
@@ -2911,7 +2918,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.5...HEAD
+[v0.21.5]: https://github.com/atc0005/go-ci/releases/tag/v0.21.5
 [v0.21.4]: https://github.com/atc0005/go-ci/releases/tag/v0.21.4
 [v0.21.3]: https://github.com/atc0005/go-ci/releases/tag/v0.21.3
 [v0.21.2]: https://github.com/atc0005/go-ci/releases/tag/v0.21.2
