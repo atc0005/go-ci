@@ -26,6 +26,18 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.6] - 2024-07-17
+
+### Changed
+
+- (GH-1627) General Build Image: Bump amd64/golang from 1.23rc1-alpine3.20 to 1.23rc2-alpine3.20 in /unstable/build/alpine-x64
+- (GH-1629) General Build Image: Bump amd64/golang from 1.23rc1-bullseye to 1.23rc2-bullseye in /unstable/build/cgo-mingw-w64-x64
+- (GH-1626) General Build Image: Bump i386/golang from 1.23rc1-alpine3.20 to 1.23rc2-alpine3.20 in /unstable/build/alpine-x86
+- (GH-1632) General Build Image: Bump i386/golang from 1.23rc1-bullseye to 1.23rc2-bullseye in /unstable/build/cgo-mingw-w64-x86
+- (GH-1631) Matrix Image: Bump amd64/golang from 1.23rc1-bookworm to 1.23rc2-bookworm in /unstable/combined
+- (GH-1630) Release Build Image: Bump amd64/golang from 1.23rc1-bookworm to 1.23rc2-bookworm in /unstable/build/release
+- (GH-1633) Update golang.org/x/vuln to v1.1.3
+
 ## [v0.21.5] - 2024-07-15
 
 ### Changed
@@ -2918,7 +2930,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.6...HEAD
+[v0.21.6]: https://github.com/atc0005/go-ci/releases/tag/v0.21.6
 [v0.21.5]: https://github.com/atc0005/go-ci/releases/tag/v0.21.5
 [v0.21.4]: https://github.com/atc0005/go-ci/releases/tag/v0.21.4
 [v0.21.3]: https://github.com/atc0005/go-ci/releases/tag/v0.21.3
