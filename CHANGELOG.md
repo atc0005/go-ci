@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.7] - 2024-07-29
+
+### Fixed
+
+- (GH-1637) Add `file` for stable, oldstable and unstable imgs
+
 ## [v0.21.6] - 2024-07-17
 
 ### Changed
@@ -2930,7 +2936,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.6...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.7...HEAD
+[v0.21.7]: https://github.com/atc0005/go-ci/releases/tag/v0.21.7
 [v0.21.6]: https://github.com/atc0005/go-ci/releases/tag/v0.21.6
 [v0.21.5]: https://github.com/atc0005/go-ci/releases/tag/v0.21.5
 [v0.21.4]: https://github.com/atc0005/go-ci/releases/tag/v0.21.4
