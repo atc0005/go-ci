@@ -146,11 +146,13 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
+ENV APT_FILE_VERSION="1:5.44-3"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     bsdmainutils=${APT_BSDMAINUTILS_VERSION} \
     tree=${APT_TREE_VERSION} \
+    file=${APT_FILE_VERSION} \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
