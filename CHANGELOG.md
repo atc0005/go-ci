@@ -26,6 +26,32 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.8] - 2024-08-07
+
+### Changed
+
+- (GH-1658) Bump golangci-lint Go 1.23 support to 2024-07-31
+- (GH-1643) General Build Image: Bump amd64/golang from 1.21.12-alpine3.20 to 1.21.13-alpine3.20 in /oldstable/build/alpine-x64
+- (GH-1654) General Build Image: Bump amd64/golang from 1.21.12-bullseye to 1.21.13-bullseye in /oldstable/build/cgo-mingw-w64-x64
+- (GH-1650) General Build Image: Bump amd64/golang from 1.22.5-alpine3.20 to 1.22.6-alpine3.20 in /stable/build/alpine-x64
+- (GH-1640) General Build Image: Bump amd64/golang from 1.22.5-bullseye to 1.22.6-bullseye in /stable/build/cgo-mingw-w64-x64
+- (GH-1651) General Build Image: Bump i386/golang from 1.21.12-alpine3.20 to 1.21.13-alpine3.20 in /oldstable/build/alpine-x86
+- (GH-1645) General Build Image: Bump i386/golang from 1.21.12-bullseye to 1.21.13-bullseye in /oldstable/build/cgo-mingw-w64-x86
+- (GH-1646) General Build Image: Bump i386/golang from 1.22.5-alpine3.20 to 1.22.6-alpine3.20 in /stable/build/alpine-x86
+- (GH-1642) General Build Image: Bump i386/golang from 1.22.5-bullseye to 1.22.6-bullseye in /stable/build/cgo-mingw-w64-x86
+- (GH-1648) Matrix Image: Bump amd64/golang from 1.21.12-bookworm to 1.21.13-bookworm in /oldstable/combined
+- (GH-1652) Matrix Image: Bump amd64/golang from 1.22.5-bookworm to 1.22.6-bookworm in /stable/combined
+- (GH-1641) Mirror Build Image: Bump amd64/golang from 1.21.12-bookworm to 1.21.13-bookworm in /mirror/1.21
+- (GH-1649) Mirror Build Image: Bump amd64/golang from 1.22.5-bookworm to 1.22.6-bookworm in /mirror/1.22
+- (GH-1644) Release Build Image: Bump amd64/golang from 1.21.12-bookworm to 1.21.13-bookworm in /oldstable/build/release
+- (GH-1653) Release Build Image: Bump amd64/golang from 1.22.5-bookworm to 1.22.6-bookworm in /stable/build/release
+- (GH-1656) Update golang.org/x/tools/cmd/deadcode to v0.24.0
+- (GH-1657) Use fixed tag for forked golangci-lint in unstable
+
+### Fixed
+
+- (GH-1655) Alpine images: bump `xz` from 5.6.1-r3 to 5.6.2-r0
+
 ## [v0.21.7] - 2024-07-29
 
 ### Fixed
@@ -2936,7 +2962,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.8...HEAD
+[v0.21.8]: https://github.com/atc0005/go-ci/releases/tag/v0.21.8
 [v0.21.7]: https://github.com/atc0005/go-ci/releases/tag/v0.21.7
 [v0.21.6]: https://github.com/atc0005/go-ci/releases/tag/v0.21.6
 [v0.21.5]: https://github.com/atc0005/go-ci/releases/tag/v0.21.5
