@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM i386/golang:1.21.13-alpine3.20
+FROM i386/golang:1.22.6-alpine3.20
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
