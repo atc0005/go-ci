@@ -413,10 +413,7 @@ For real-world examples of how these images are used, please see the workflows f
 ## Changelog
 
 See the [`CHANGELOG.md`](CHANGELOG.md) file for the changes associated with
-each release of this application. Changes that have been merged to `master`,
-but not yet an official release may also be noted in the file under the
-`Unreleased` section. A helpful link to the Git commit history since the last
-official release is also provided for further review.
+each release of this project.
 
 ## Requirements
 
@@ -439,7 +436,7 @@ official release is also provided for further review.
   - Additional
     - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
     - [orijtech/structslop](https://github.com/orijtech/structslop)
-    - [`orijtech/tickeryzer`](https://github.com/orijtech/tickeryzer)
+    - [orijtech/tickeryzer](https://github.com/orijtech/tickeryzer)
     - [pelletier/go-toml](https://github.com/pelletier/go-toml)
     - [fatih/errwrap](https://github.com/fatih/errwrap)
 - Build Tools
@@ -447,7 +444,7 @@ official release is also provided for further review.
   - [goreleaser/nfpm](https://github.com/goreleaser/nfpm)
   - [choffmeister/git-describe-semver](https://github.com/choffmeister/git-describe-semver)
 - Testing Tools
-  - [`bitfield/gotestdox`](https://github.com/bitfield/gotestdox)
+  - [bitfield/gotestdox](https://github.com/bitfield/gotestdox)
 - Images
   - <https://fabianlee.org/2020/01/26/golang-using-multi-stage-builds-to-create-clean-docker-images/>
   - <https://hub.docker.com/r/golangci/golangci-lint>
