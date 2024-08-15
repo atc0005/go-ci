@@ -72,18 +72,17 @@ others.
 Unless indicated otherwise, the following linting tools are included in the
 `go-ci-stable`, `go-ci-oldstable` and `go-ci-unstable` images:
 
-| Linter                                                                | Version                                                 |
-| --------------------------------------------------------------------- | ------------------------------------------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2023.1.7` (`v0.4.7`) (`stable` and `oldstable` images) |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2024.1rc1` (`v0.5.0-rc.1`) (`unstable` image)          |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.60.1`                                               |
-| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.3`                                                |
-| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.24.0`                                               |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1` (`oldstable` image)                            |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.8` (`oldstable` image)                            |
-| [`orijtech/tickeryzer`](https://github.com/orijtech/tickeryzer)       | `v0.0.3` (`oldstable` image)                            |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.2`                                                |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.6.0`                                                |
+| Linter                                                                | Version                      |
+| --------------------------------------------------------------------- | ---------------------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2024.1.1` (`v0.5.1`)        |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.60.1`                    |
+| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.3`                     |
+| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.24.0`                    |
+| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1` (`oldstable` image) |
+| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.8` (`oldstable` image) |
+| [`orijtech/tickeryzer`](https://github.com/orijtech/tickeryzer)       | `v0.0.3` (`oldstable` image) |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.2`                     |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.6.0`                     |
 
 Forks:
 
