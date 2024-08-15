@@ -26,6 +26,43 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.9] - 2024-08-15
+
+### Changed
+
+- (GH-1662) Add Go 1.23 mirror img, fix STABLE/OLDSTABLE tags
+- (GH-1667) General Build Image: Bump amd64/golang from 1.21.13-alpine3.20 to 1.22.6-alpine3.20 in /oldstable/build/alpine-x64
+- (GH-1679) General Build Image: Bump amd64/golang from 1.21.13-bullseye to 1.22.6-bullseye in /oldstable/build/cgo-mingw-w64-x64
+- (GH-1677) General Build Image: Bump amd64/golang from 1.22.6-alpine3.20 to 1.23.0-alpine3.20 in /stable/build/alpine-x64
+- (GH-1668) General Build Image: Bump amd64/golang from 1.23rc2-alpine3.20 to 1.23-alpine3.20 in /unstable/build/alpine-x64
+- (GH-1669) General Build Image: Bump amd64/golang from 1.23rc2-bullseye to 1.23-bullseye in /unstable/build/cgo-mingw-w64-x64
+- (GH-1674) General Build Image: Bump i386/golang from 1.21.13-alpine3.20 to 1.22.6-alpine3.20 in /oldstable/build/alpine-x86
+- (GH-1680) General Build Image: Bump i386/golang from 1.21.13-bullseye to 1.22.6-bullseye in /oldstable/build/cgo-mingw-w64-x86
+- (GH-1665) General Build Image: Bump i386/golang from 1.22.6-alpine3.20 to 1.23.0-alpine3.20 in /stable/build/alpine-x86
+- (GH-1672) General Build Image: Bump i386/golang from 1.22.6-bullseye to 1.23.0-bullseye in /stable/build/cgo-mingw-w64-x86
+- (GH-1675) General Build Image: Bump i386/golang from 1.23rc2-alpine3.20 to 1.23-alpine3.20 in /unstable/build/alpine-x86
+- (GH-1664) General Build Image: Bump i386/golang from 1.23rc2-bullseye to 1.23-bullseye in /unstable/build/cgo-mingw-w64-x86
+- (GH-1670) Matrix Image: Bump amd64/golang from 1.21.13-bookworm to 1.22.6-bookworm in /oldstable/combined
+- (GH-1666) Matrix Image: Bump amd64/golang from 1.22.6-bookworm to 1.23.0-bookworm in /stable/combined
+- (GH-1678) Matrix Image: Bump amd64/golang from 1.23rc2-bookworm to 1.23-bookworm in /unstable/combined
+- (GH-1673) Release Build Image: Bump amd64/golang from 1.21.13-bookworm to 1.22.6-bookworm in /oldstable/build/release
+- (GH-1676) Release Build Image: Bump amd64/golang from 1.22.6-bookworm to 1.23.0-bookworm in /stable/build/release
+- (GH-1671) Release Build Image: Bump amd64/golang from 1.23rc2-bookworm to 1.23-bookworm in /unstable/build/release
+- (GH-1688) Restore `orijtech/structslop` linter
+- (GH-1692) Update `orijtech` linters for Go 1.23 release
+- (GH-1663) Update Dependabot monitoring for Go 1.23 release
+- (GH-1693) Update golangci-lint to v1.60.1
+- (GH-1695) Update goreleaser/nfpm to v2.39.0
+- (GH-1689) Update stable img structslop install options
+- (GH-1694) Update staticcheck to v0.5.1
+- (GH-1697) Minor cleanup/consistency changes for linter imgs
+- (GH-1691) Minor README cleanup
+- (GH-1690) Split oldstable image into builder/final stages
+
+### Fixed
+
+- (GH-1696) README fixes for linters tables
+
 ## [v0.21.8] - 2024-08-07
 
 ### Changed
@@ -2962,7 +2999,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.8...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.9...HEAD
+[v0.21.9]: https://github.com/atc0005/go-ci/releases/tag/v0.21.9
 [v0.21.8]: https://github.com/atc0005/go-ci/releases/tag/v0.21.8
 [v0.21.7]: https://github.com/atc0005/go-ci/releases/tag/v0.21.7
 [v0.21.6]: https://github.com/atc0005/go-ci/releases/tag/v0.21.6
