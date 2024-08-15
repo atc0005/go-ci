@@ -90,9 +90,9 @@ Forks:
 | Linter                                                               | Version                                                                                                    |
 | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)         | [`feat/go1.23` dev branch](https://github.com/atc0005/golangci-lint/tree/feat/go1.23) for `unstable` image |
-| [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `54c26d99b9758117957285a790c2d88b51a552dd` (`stable`, `unstable` images)                                   |
-| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `55db8be618045ec870098a4579bae376bbb7df33` (`stable`, `unstable` images)                                   |
-| [`orijtech/tickeryzer`](https://github.com/atc0005/tickeryzer)       | `66a42ca5c152aced76c5186e92a4ae653440f02d` (`stable`, `unstable` images)                                   |
+| [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `9f94717820d4a5075117680de2ca07875d32c9f1` (`stable`, `unstable` images)                                   |
+| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `33c868804e9e6070fdaee64b729d3129bbe85a53` (`stable`, `unstable` images)                                   |
+| [`orijtech/tickeryzer`](https://github.com/atc0005/tickeryzer)       | `b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f` (`stable`, `unstable` images)                                   |
 
 ## Build tools included
 

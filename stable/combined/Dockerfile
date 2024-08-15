@@ -29,9 +29,9 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
-ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
-ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
-ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
+ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
+ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
+ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 # ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
@@ -130,9 +130,9 @@ ENV GOTOOLCHAIN="local"
 # These commits/versions are provided by temporary forks of the upstream
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
-ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
-ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
-ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
+ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
+ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
+ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 
 ENV GOLANGCI_LINT_VERSION="v1.59.1"
 ENV STATICCHECK_VERSION="v0.4.7"
