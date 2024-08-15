@@ -15,7 +15,14 @@ FROM amd64/golang:1.23.0-bookworm as builder
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
+# A current dev branch build (mirrored to fork) is used for pre-release Go
+# versions, otherwise the latest upstream build of the tool is installed in
+# this image.
+# ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+
+# Latest upstream
 ENV GOLANGCI_LINT_VERSION="v1.60.1"
+
 ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
@@ -34,40 +41,36 @@ ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
 ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 # ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
-ENV APT_BSDMAINUTILS_VERSION="12.1.8"
-ENV APT_TREE_VERSION="2.1.0-1"
+RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
+    && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+    && staticcheck --version
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
     && staticcheck --version
 
-# RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
-#     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
-#     && echo "Installing httperroryzer@${HTTPERRORYZER_VERSION}" \
-#     && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
-#     && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
-#     && go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
-#     && echo "Installing tickeryzer@${TICKERYZER_VERSION}" \
-#     && go install github.com/orijtech/tickeryzer/cmd/tickeryzer@${TICKERYZER_VERSION} \
-#     && echo "Installing tomll@${TOMLL_VERSION}" \
-#     && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
-#     && echo "Installing errwrap@${ERRWRAP_VERSION}" \
-#     && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
-
 RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
-    && echo "Installing deadcode@${DEADCODE_VERSION}" \
+    && govulncheck --version
+
+RUN echo "Installing deadcode@${DEADCODE_VERSION}" \
     && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION} \
-    && echo "Installing tomll@${TOMLL_VERSION}" \
+    && go version -m $(which deadcode)
+
+RUN echo "Installing tomll@${TOMLL_VERSION}" \
     && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
-    && echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
-    && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION}
+    && go version -m $(which tomll)
+
+RUN echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
+    && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION} \
+    && go version -m $(which gotestdox)
 
 RUN echo "Installing httperroryzer from temporary fork" \
     && git clone https://github.com/atc0005/httperroryzer \
     && cd httperroryzer \
     && git checkout ${HTTPERRORYZER_VERSION} \
     && go install ./cmd/httperroryzer \
+    && go version -m $(which httperroryzer) \
     && cd ..
 
 # https://github.com/orijtech/structslop/issues/64
@@ -76,6 +79,7 @@ RUN echo "Installing structslop from temporary fork" \
     && cd structslop \
     && git checkout ${STRUCTSLOP_VERSION} \
     && go install -ldflags=-checklinkname=0 ./cmd/structslop \
+    && go version -m $(which structslop) \
     && cd ..
 
 RUN echo "Installing tickeryzer from temporary fork" \
@@ -83,10 +87,12 @@ RUN echo "Installing tickeryzer from temporary fork" \
     && cd tickeryzer \
     && git checkout ${TICKERYZER_VERSION} \
     && go install ./cmd/tickeryzer \
+    && go version -m $(which tickeryzer) \
     && cd ..
 
 RUN echo "Installing errwrap@${ERRWRAP_VERSION}" \
-    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION}
+    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
+    && go version -m $(which errwrap)
 
 # RUN echo "Installing errwrap from temporary fork" \
 #     && git clone https://github.com/atc0005/errwrap \
@@ -127,15 +133,17 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-# These commits/versions are provided by temporary forks of the upstream
-# projects. The plan is to switch back to current upstream vesions once
-# the required dependencies are updated for those upstream projects.
-ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
-ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
-ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
+# A current dev branch build (mirrored to fork) is used for pre-release Go
+# versions, otherwise the latest upstream build of the tool is installed in
+# this image.
+# ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
 
+# Latest upstream
 ENV GOLANGCI_LINT_VERSION="v1.60.1"
+
+# ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
 ENV STATICCHECK_VERSION="v0.5.1"
+
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
 # ENV HTTPERRORYZER_VERSION="v0.0.1"
@@ -144,6 +152,14 @@ ENV GOVULNCHECK_VERSION="v1.1.3"
 ENV TOMLL_VERSION="v2.2.2"
 ENV ERRWRAP_VERSION="v1.6.0"
 ENV GOTESTDOX_VERSION="v0.2.2"
+
+# These commits/versions are provided by temporary forks of the upstream
+# projects. The plan is to switch back to current upstream vesions once
+# the required dependencies are updated for those upstream projects.
+ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
+ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
+ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
+# ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
