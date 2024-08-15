@@ -7,7 +7,109 @@
 
 # https://hub.docker.com/_/golang
 
-FROM amd64/golang:1.22.6-bookworm
+FROM amd64/golang:1.22.6-bookworm as builder
+
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"
+
+ENV GOLANGCI_LINT_VERSION="v1.59.1"
+ENV STATICCHECK_VERSION="v0.4.7"
+ENV DEADCODE_VERSION="v0.24.0"
+ENV GOVULNCHECK_VERSION="v1.1.3"
+# ENV HTTPERRORYZER_VERSION="v0.0.1"
+# ENV STRUCTSLOP_VERSION="v0.0.8"
+# ENV TICKERYZER_VERSION="v0.0.3"
+ENV TOMLL_VERSION="v2.2.2"
+ENV ERRWRAP_VERSION="v1.6.0"
+ENV GOTESTDOX_VERSION="v0.2.2"
+
+# These commits/versions are provided by temporary forks of the upstream
+# projects. The plan is to switch back to current upstream vesions once
+# the required dependencies are updated for those upstream projects.
+ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
+ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
+ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
+# ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
+
+RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
+    && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
+    && staticcheck --version
+
+RUN echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
+    && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
+    && govulncheck --version
+
+RUN echo "Installing deadcode@${DEADCODE_VERSION}" \
+    && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION} \
+    && go version -m $(which deadcode)
+
+RUN echo "Installing tomll@${TOMLL_VERSION}" \
+    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
+    && go version -m $(which tomll)
+
+RUN echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
+    && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION} \
+    && go version -m $(which gotestdox)
+
+RUN echo "Installing httperroryzer from temporary fork" \
+    && git clone https://github.com/atc0005/httperroryzer \
+    && cd httperroryzer \
+    && git checkout ${HTTPERRORYZER_VERSION} \
+    && go install ./cmd/httperroryzer \
+    && go version -m $(which httperroryzer) \
+    && cd ..
+
+# NOTE: When Go 1.24 is released and Go 1.23 becomes the next "oldstable"
+# series we'll need to modify the `go install` line to permit building this
+# linter with Go 1.23:
+#
+# `go install -ldflags=-checklinkname=0 ./cmd/structslop`
+#
+# https://github.com/orijtech/structslop/issues/64
+RUN echo "Installing structslop from temporary fork" \
+    && git clone https://github.com/atc0005/structslop \
+    && cd structslop \
+    && git checkout ${STRUCTSLOP_VERSION} \
+    && go install ./cmd/structslop \
+    && go version -m $(which structslop) \
+    && cd ..
+
+RUN echo "Installing tickeryzer from temporary fork" \
+    && git clone https://github.com/atc0005/tickeryzer \
+    && cd tickeryzer \
+    && git checkout ${TICKERYZER_VERSION} \
+    && go install ./cmd/tickeryzer \
+    && go version -m $(which tickeryzer) \
+    && cd ..
+
+RUN echo "Installing errwrap@${ERRWRAP_VERSION}" \
+    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
+    && go version -m $(which errwrap)
+
+# RUN echo "Installing errwrap from temporary fork" \
+#     && git clone https://github.com/atc0005/errwrap \
+#     && cd errwrap \
+#     && git checkout ${ERRWRAP_VERSION} \
+#     && go install . \
+#     && cd ..
+
+# RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
+#     && git clone https://github.com/atc0005/golangci-lint \
+#     && cd golangci-lint \
+#     && git checkout ${GOLANGCI_LINT_VERSION} \
+#     && go install ./cmd/golangci-lint \
+#     && golangci-lint --version
+
+RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
+    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
+    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
+    && golangci-lint --version
+
+FROM amd64/golang:1.22.6-bookworm as final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -30,9 +132,6 @@ ENV GOLANGCI_LINT_VERSION="v1.59.1"
 ENV STATICCHECK_VERSION="v0.4.7"
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
-ENV HTTPERRORYZER_VERSION="v0.0.1"
-ENV STRUCTSLOP_VERSION="v0.0.8"
-ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.2"
 ENV ERRWRAP_VERSION="v1.6.0"
 ENV GOTESTDOX_VERSION="v0.2.2"
@@ -47,32 +146,18 @@ RUN apt-get update \
     tree=${APT_TREE_VERSION} \
     file=${APT_FILE_VERSION} \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    \
-    && echo "Installing staticcheck@${STATICCHECK_VERSION}" \
-    && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
-    && staticcheck --version \
-    && echo "Installing govulncheck@${GOVULNCHECK_VERSION}" \
-    && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
-    && echo "Installing deadcode@${DEADCODE_VERSION}" \
-    && go install golang.org/x/tools/cmd/deadcode@${DEADCODE_VERSION} \
-    && echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
-    && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION} \
-    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
-    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
-    && golangci-lint --version \
-    && echo "Installing httperroryzer@${HTTPERRORYZER_VERSION}" \
-    && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
-    && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
-    && go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
-    && echo "Installing tickeryzer@${TICKERYZER_VERSION}" \
-    && go install github.com/orijtech/tickeryzer/cmd/tickeryzer@${TICKERYZER_VERSION} \
-    && echo "Installing tomll@${TOMLL_VERSION}" \
-    && go install github.com/pelletier/go-toml/v2/cmd/tomll@${TOMLL_VERSION} \
-    && echo "Installing errwrap@${ERRWRAP_VERSION}" \
-    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
-    && go clean -cache -modcache
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /go/bin/staticcheck /usr/bin/staticcheck
+COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
+COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
+COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
+COPY --from=builder /go/bin/gotestdox /usr/bin/gotestdox
+COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
+COPY --from=builder /go/bin/structslop /usr/bin/structslop
+COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
+COPY --from=builder /go/bin/tomll /usr/bin/tomll
+COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 
 # Copy over linting config files to root of container image to serve as a
 # default. Projects bringing their own config files (e.g., via GitHub Actions)
