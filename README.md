@@ -72,26 +72,22 @@ others.
 Unless indicated otherwise, the following linting tools are included in the
 `go-ci-stable`, `go-ci-oldstable` and `go-ci-unstable` images:
 
-| Linter                                                                | Version                      |
-| --------------------------------------------------------------------- | ---------------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2024.1.1` (`v0.5.1`)        |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.60.1`                    |
-| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.3`                     |
-| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.24.0`                    |
-| [`orijtech/httperroryzer`](https://github.com/orijtech/httperroryzer) | `v0.0.1` (`oldstable` image) |
-| [`orijtech/structslop`](https://github.com/orijtech/structslop)       | `v0.0.8` (`oldstable` image) |
-| [`orijtech/tickeryzer`](https://github.com/orijtech/tickeryzer)       | `v0.0.3` (`oldstable` image) |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.2`                     |
-| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.6.0`                     |
+| Linter                                                                | Version               |
+| --------------------------------------------------------------------- | --------------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2024.1.1` (`v0.5.1`) |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.60.1`             |
+| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.3`              |
+| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.24.0`             |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.2`              |
+| [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.6.0`              |
 
 Forks:
 
-| Linter                                                               | Version                                                                                                    |
-| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)         | [`feat/go1.23` dev branch](https://github.com/atc0005/golangci-lint/tree/feat/go1.23) for `unstable` image |
-| [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `9f94717820d4a5075117680de2ca07875d32c9f1` (`stable`, `unstable` images)                                   |
-| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `33c868804e9e6070fdaee64b729d3129bbe85a53` (`stable`, `unstable` images)                                   |
-| [`orijtech/tickeryzer`](https://github.com/atc0005/tickeryzer)       | `b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f` (`stable`, `unstable` images)                                   |
+| Linter                                                               | Version                                    |
+| -------------------------------------------------------------------- | ------------------------------------------ |
+| [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `9f94717820d4a5075117680de2ca07875d32c9f1` |
+| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `33c868804e9e6070fdaee64b729d3129bbe85a53` |
+| [`orijtech/tickeryzer`](https://github.com/atc0005/tickeryzer)       | `b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f` |
 
 ## Build tools included
 
