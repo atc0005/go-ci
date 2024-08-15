@@ -18,8 +18,10 @@ ENV GOTOOLCHAIN="local"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-# ENV GOLANGCI_LINT_VERSION="v1.59.1"
-ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+# ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+
+# Latest upstream
+ENV GOLANGCI_LINT_VERSION="v1.60.1"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
@@ -102,18 +104,18 @@ RUN echo "Installing errwrap@${ERRWRAP_VERSION}" \
 #     && go install . \
 #     && cd ..
 
-RUN echo "Installing golangci-lint from dev feat/go1.23 branch" \
-    && git clone https://github.com/atc0005/golangci-lint \
-    && cd golangci-lint \
-    && git checkout ${GOLANGCI_LINT_VERSION} \
-    && go install ./cmd/golangci-lint \
-    && golangci-lint --version
-
-# RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
-#     && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
-#     && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
-#     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
+# RUN echo "Installing golangci-lint from dev feat/go1.23 branch" \
+#     && git clone https://github.com/atc0005/golangci-lint \
+#     && cd golangci-lint \
+#     && git checkout ${GOLANGCI_LINT_VERSION} \
+#     && go install ./cmd/golangci-lint \
 #     && golangci-lint --version
+
+RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
+    && echo "Installing golangci-lint ${GOLANGCI_LINT_VERSION}" \
+    && curl -sSfLO https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh \
+    && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
+    && golangci-lint --version
 
 FROM amd64/golang:1.23-bookworm as final
 
@@ -138,8 +140,10 @@ ENV GOTOOLCHAIN="local"
 # A current dev branch build (mirrored to fork) is used for pre-release Go
 # versions, otherwise the latest upstream build of the tool is installed in
 # this image.
-# ENV GOLANGCI_LINT_VERSION="v1.59.1"
-ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+# ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+
+# Latest upstream
+ENV GOLANGCI_LINT_VERSION="v1.60.1"
 
 # ENV STATICCHECK_VERSION="v0.4.7"
 # ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
