@@ -91,7 +91,7 @@ Forks:
 | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)         | [`feat/go1.23` dev branch](https://github.com/atc0005/golangci-lint/tree/feat/go1.23) for `unstable` image |
 | [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `54c26d99b9758117957285a790c2d88b51a552dd` (`stable`, `unstable` images)                                   |
-| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `55db8be618045ec870098a4579bae376bbb7df33` (`stable` image)                                                |
+| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `55db8be618045ec870098a4579bae376bbb7df33` (`stable`, `unstable` images)                                   |
 | [`orijtech/tickeryzer`](https://github.com/atc0005/tickeryzer)       | `66a42ca5c152aced76c5186e92a4ae653440f02d` (`stable`, `unstable` images)                                   |
 
 ## Build tools included

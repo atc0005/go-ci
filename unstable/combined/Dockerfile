@@ -30,6 +30,7 @@ ENV STATICCHECK_VERSION="v0.5.0-rc.1"
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
 # ENV HTTPERRORYZER_VERSION="v0.0.1"
+# ENV STRUCTSLOP_VERSION="v0.0.8"
 # ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.2"
 ENV ERRWRAP_VERSION="v1.6.0"
@@ -39,6 +40,7 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
 ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
+ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
 ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
 # ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
@@ -50,6 +52,8 @@ RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
 #     && go install golang.org/x/vuln/cmd/govulncheck@${GOVULNCHECK_VERSION} \
 #     && echo "Installing httperroryzer@${HTTPERRORYZER_VERSION}" \
 #     && go install github.com/orijtech/httperroryzer/cmd/httperroryzer@${HTTPERRORYZER_VERSION} \
+#     && echo "Installing structslop@${STRUCTSLOP_VERSION}" \
+#     && go install github.com/orijtech/structslop/cmd/structslop@${STRUCTSLOP_VERSION} \
 #     && echo "Installing tickeryzer@${TICKERYZER_VERSION}" \
 #     && go install github.com/orijtech/tickeryzer/cmd/tickeryzer@${TICKERYZER_VERSION} \
 #     && echo "Installing tomll@${TOMLL_VERSION}" \
@@ -71,6 +75,14 @@ RUN echo "Installing httperroryzer from temporary fork" \
     && cd httperroryzer \
     && git checkout ${HTTPERRORYZER_VERSION} \
     && go install ./cmd/httperroryzer \
+    && cd ..
+
+# https://github.com/orijtech/structslop/issues/64
+RUN echo "Installing structslop from temporary fork" \
+    && git clone https://github.com/atc0005/structslop \
+    && cd structslop \
+    && git checkout ${STRUCTSLOP_VERSION} \
+    && go install -ldflags=-checklinkname=0 ./cmd/structslop \
     && cd ..
 
 RUN echo "Installing tickeryzer from temporary fork" \
@@ -137,11 +149,11 @@ ENV STATICCHECK_VERSION="v0.5.0-rc.1"
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
 ENV HTTPERRORYZER_VERSION="54c26d99b9758117957285a790c2d88b51a552dd"
+ENV STRUCTSLOP_VERSION="55db8be618045ec870098a4579bae376bbb7df33"
 ENV TICKERYZER_VERSION="66a42ca5c152aced76c5186e92a4ae653440f02d"
 
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
-# ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV TOMLL_VERSION="v2.2.2"
 ENV ERRWRAP_VERSION="v1.6.0"
 ENV GOTESTDOX_VERSION="v0.2.2"
@@ -164,6 +176,7 @@ COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
 COPY --from=builder /go/bin/gotestdox /usr/bin/gotestdox
 COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
+COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
