@@ -70,11 +70,12 @@ RUN echo "Installing httperroryzer from temporary fork" \
     && go install ./cmd/httperroryzer \
     && cd ..
 
+# https://github.com/orijtech/structslop/issues/64
 RUN echo "Installing structslop from temporary fork" \
     && git clone https://github.com/atc0005/structslop \
     && cd structslop \
     && git checkout ${STRUCTSLOP_VERSION} \
-    && go install ./cmd/structslop \
+    && go install -ldflags=-checklinkname=0 ./cmd/structslop \
     && cd ..
 
 RUN echo "Installing tickeryzer from temporary fork" \
