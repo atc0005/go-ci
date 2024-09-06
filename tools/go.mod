@@ -1,7 +1,7 @@
 module github.com/atc0005/go-ci/tools
 
-// Use the current stable Go version
-go 1.19
+// Use the current oldstable Go version
+go 1.22.1
 
 require (
 	// govulncheck - provided as an optional testing utility
