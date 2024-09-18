@@ -15,7 +15,7 @@ FROM amd64/golang:1.22.7-bookworm as builder
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-ENV GOLANGCI_LINT_VERSION="v1.60.3"
+ENV GOLANGCI_LINT_VERSION="v1.61.0"
 ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
@@ -128,7 +128,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-ENV GOLANGCI_LINT_VERSION="v1.60.3"
+ENV GOLANGCI_LINT_VERSION="v1.61.0"
 ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.24.0"
 ENV GOVULNCHECK_VERSION="v1.1.3"
