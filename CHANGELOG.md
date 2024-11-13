@@ -26,7 +26,16 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.16] - 2024-11-13
+
+### Changed
+
+- (GH-1790) Update golang.org/x/tools/cmd/deadcode to v0.27.0
+- (GH-1791) Update golangci-lint to v1.62.0
+
 ## [v0.21.15] - 2024-11-08
+
+### Changed
 
 - (GH-1778) General Build Image: Bump amd64/golang from 1.22.8-alpine3.20 to 1.22.9-alpine3.20 in /oldstable/build/alpine-x64
 - (GH-1775) General Build Image: Bump amd64/golang from 1.22.8-bullseye to 1.22.9-bullseye in /oldstable/build/cgo-mingw-w64-x64
@@ -50,8 +59,6 @@ The following types of changes will be recorded in this file:
 - (GH-1783) Update golang.org/x/tools/cmd/deadcode to v0.26.0
 - (GH-1786) Update goreleaser/nfpm to v2.41.0 (redux)
 - (GH-1784) Update goreleaser/nfpm to v2.41.0
-
-### Changed
 
 ## [v0.21.14] - 2024-10-04
 
@@ -3099,7 +3106,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.15...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.16...HEAD
+[v0.21.16]: https://github.com/atc0005/go-ci/releases/tag/v0.21.16
 [v0.21.15]: https://github.com/atc0005/go-ci/releases/tag/v0.21.15
 [v0.21.14]: https://github.com/atc0005/go-ci/releases/tag/v0.21.14
 [v0.21.13]: https://github.com/atc0005/go-ci/releases/tag/v0.21.13
