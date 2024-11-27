@@ -21,7 +21,7 @@ ENV GOTOOLCHAIN="local"
 # ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
 
 # Latest upstream
-ENV GOLANGCI_LINT_VERSION="v1.62.0"
+ENV GOLANGCI_LINT_VERSION="v1.62.2"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
@@ -139,7 +139,7 @@ ENV GOTOOLCHAIN="local"
 # ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
 
 # Latest upstream
-ENV GOLANGCI_LINT_VERSION="v1.62.0"
+ENV GOLANGCI_LINT_VERSION="v1.62.2"
 
 # ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
 ENV STATICCHECK_VERSION="v0.5.1"
