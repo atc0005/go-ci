@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.21.19] - 2025-01-02
+
+### Changed
+
+- (GH-1824) Update golang.org/x/tools/cmd/deadcode to v0.28.0
+- (GH-1826) Update golangci-lint to v1.63.2
+
 ## [v0.21.18] - 2024-12-04
 
 ### Changed
@@ -3137,7 +3144,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.18...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.21.19...HEAD
+[v0.21.19]: https://github.com/atc0005/go-ci/releases/tag/v0.21.19
 [v0.21.18]: https://github.com/atc0005/go-ci/releases/tag/v0.21.18
 [v0.21.17]: https://github.com/atc0005/go-ci/releases/tag/v0.21.17
 [v0.21.16]: https://github.com/atc0005/go-ci/releases/tag/v0.21.16
