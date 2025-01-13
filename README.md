@@ -77,7 +77,7 @@ Unless indicated otherwise, the following linting tools are included in the
 | [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2024.1.1` (`v0.5.1`) |
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v1.63.4`             |
 | [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.3`              |
-| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.28.0`             |
+| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.29.0`             |
 | [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.3`              |
 | [`fatih/errwrap`](https://github.com/fatih/errwrap)                   | `v1.6.0`              |
 
