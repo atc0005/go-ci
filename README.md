@@ -85,7 +85,6 @@ Forks:
 | Linter                                                               | Version                                    |
 | -------------------------------------------------------------------- | ------------------------------------------ |
 | [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `9f94717820d4a5075117680de2ca07875d32c9f1` |
-| [`orijtech/structslop`](https://github.com/atc0005/structslop)       | `33c868804e9e6070fdaee64b729d3129bbe85a53` |
 | [`orijtech/tickeryzer`](https://github.com/atc0005/tickeryzer)       | `b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f` |
 
 ## Build tools included
@@ -429,7 +428,6 @@ each release of this project.
     - [deadcode](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)
   - Additional
     - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
-    - [orijtech/structslop](https://github.com/orijtech/structslop)
     - [orijtech/tickeryzer](https://github.com/orijtech/tickeryzer)
     - [pelletier/go-toml](https://github.com/pelletier/go-toml)
 - Build Tools

@@ -20,7 +20,6 @@ ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.29.0"
 ENV GOVULNCHECK_VERSION="v1.1.4"
 # ENV HTTPERRORYZER_VERSION="v0.0.1"
-# ENV STRUCTSLOP_VERSION="v0.0.8"
 # ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.3"
 ENV GOTESTDOX_VERSION="v0.2.2"
@@ -29,7 +28,6 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
 ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
-ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
 ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
@@ -58,21 +56,6 @@ RUN echo "Installing httperroryzer from temporary fork" \
     && git checkout ${HTTPERRORYZER_VERSION} \
     && go install ./cmd/httperroryzer \
     && go version -m $(which httperroryzer) \
-    && cd ..
-
-# NOTE: When Go 1.24 is released and Go 1.23 becomes the next "oldstable"
-# series we'll need to modify the `go install` line to permit building this
-# linter with Go 1.23:
-#
-# `go install -ldflags=-checklinkname=0 ./cmd/structslop`
-#
-# https://github.com/orijtech/structslop/issues/64
-RUN echo "Installing structslop from temporary fork" \
-    && git clone https://github.com/atc0005/structslop \
-    && cd structslop \
-    && git checkout ${STRUCTSLOP_VERSION} \
-    && go install ./cmd/structslop \
-    && go version -m $(which structslop) \
     && cd ..
 
 RUN echo "Installing tickeryzer from temporary fork" \
@@ -126,7 +109,6 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
 ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
-ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
 ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
@@ -147,7 +129,6 @@ COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
 COPY --from=builder /go/bin/gotestdox /usr/bin/gotestdox
 COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
-COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 
