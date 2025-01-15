@@ -9,9 +9,6 @@ require (
 	// https://github.com/bitfield/gotestdox
 	github.com/bitfield/gotestdox v0.2.2
 
-	// errwrap - provided as an optional linter
-	github.com/fatih/errwrap v1.6.0
-
 	// golangci-lint - intended as a primary linter
 	github.com/golangci/golangci-lint v1.63.4
 
