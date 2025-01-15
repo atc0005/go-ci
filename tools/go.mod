@@ -15,9 +15,6 @@ require (
 	// httperroryzer - provided as an optional linter
 	github.com/orijtech/httperroryzer v0.0.1
 
-	// structslog - provided as an optional linter
-	github.com/orijtech/structslop v0.0.8
-
 	// tickeryzer - provided as an optional linter
 	github.com/orijtech/tickeryzer v0.0.3
 
