@@ -12,9 +12,6 @@ require (
 	// golangci-lint - intended as a primary linter
 	github.com/golangci/golangci-lint v1.63.4
 
-	// httperroryzer - provided as an optional linter
-	github.com/orijtech/httperroryzer v0.0.1
-
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.2.3
 

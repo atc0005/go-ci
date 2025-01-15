@@ -26,14 +26,8 @@ ENV GOLANGCI_LINT_VERSION="v1.63.4"
 ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.29.0"
 ENV GOVULNCHECK_VERSION="v1.1.4"
-# ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV TOMLL_VERSION="v2.2.3"
 ENV GOTESTDOX_VERSION="v0.2.2"
-
-# These commits/versions are provided by temporary forks of the upstream
-# projects. The plan is to switch back to current upstream vesions once
-# the required dependencies are updated for those upstream projects.
-ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
@@ -58,14 +52,6 @@ RUN echo "Installing tomll@${TOMLL_VERSION}" \
 RUN echo "Installing gotestdox@${GOTESTDOX_VERSION}" \
     && go install github.com/bitfield/gotestdox/cmd/gotestdox@${GOTESTDOX_VERSION} \
     && go version -m $(which gotestdox)
-
-RUN echo "Installing httperroryzer from temporary fork" \
-    && git clone https://github.com/atc0005/httperroryzer \
-    && cd httperroryzer \
-    && git checkout ${HTTPERRORYZER_VERSION} \
-    && go install ./cmd/httperroryzer \
-    && go version -m $(which httperroryzer) \
-    && cd ..
 
 # RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
 #     && git clone https://github.com/atc0005/golangci-lint \
@@ -112,15 +98,8 @@ ENV STATICCHECK_VERSION="v0.5.1"
 
 ENV DEADCODE_VERSION="v0.29.0"
 ENV GOVULNCHECK_VERSION="v1.1.4"
-# ENV HTTPERRORYZER_VERSION="v0.0.1"
 ENV TOMLL_VERSION="v2.2.3"
 ENV GOTESTDOX_VERSION="v0.2.2"
-
-# These commits/versions are provided by temporary forks of the upstream
-# projects. The plan is to switch back to current upstream vesions once
-# the required dependencies are updated for those upstream projects.
-ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
-
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
 ENV APT_FILE_VERSION="1:5.44-3"
@@ -138,7 +117,6 @@ COPY --from=builder /go/bin/golangci-lint /usr/bin/golangci-lint
 COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
 COPY --from=builder /go/bin/gotestdox /usr/bin/gotestdox
-COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 
 # Copy over linting config files to root of container image to serve as a

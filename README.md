@@ -80,12 +80,6 @@ Unless indicated otherwise, the following linting tools are included in the
 | [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.29.0`             |
 | [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.3`              |
 
-Forks:
-
-| Linter                                                               | Version                                    |
-| -------------------------------------------------------------------- | ------------------------------------------ |
-| [`orijtech/httperroryzer`](https://github.com/atc0005/httperroryzer) | `9f94717820d4a5075117680de2ca07875d32c9f1` |
-
 ## Build tools included
 
 The following build tools are included in all `*-build*` images *except* for
@@ -426,7 +420,6 @@ each release of this project.
     - [govulncheck](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck)
     - [deadcode](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)
   - Additional
-    - [orijtech/httperroryzer](https://github.com/orijtech/httperroryzer)
     - [pelletier/go-toml](https://github.com/pelletier/go-toml)
 - Build Tools
   - [tc-hib/go-winres](https://github.com/tc-hib/go-winres)
