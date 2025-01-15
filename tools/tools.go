@@ -15,7 +15,6 @@ import (
 	_ "github.com/golangci/golangci-lint/pkg/config"
 	_ "github.com/goreleaser/nfpm/v2"
 	_ "github.com/orijtech/httperroryzer"
-	_ "github.com/orijtech/tickeryzer"
 	_ "github.com/pelletier/go-toml/v2"
 	_ "github.com/tc-hib/go-winres"
 	_ "golang.org/x/tools/cmd/deadcode"

@@ -20,7 +20,6 @@ ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.29.0"
 ENV GOVULNCHECK_VERSION="v1.1.4"
 # ENV HTTPERRORYZER_VERSION="v0.0.1"
-# ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.3"
 ENV GOTESTDOX_VERSION="v0.2.2"
 
@@ -28,7 +27,6 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
 ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
-ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
@@ -56,14 +54,6 @@ RUN echo "Installing httperroryzer from temporary fork" \
     && git checkout ${HTTPERRORYZER_VERSION} \
     && go install ./cmd/httperroryzer \
     && go version -m $(which httperroryzer) \
-    && cd ..
-
-RUN echo "Installing tickeryzer from temporary fork" \
-    && git clone https://github.com/atc0005/tickeryzer \
-    && cd tickeryzer \
-    && git checkout ${TICKERYZER_VERSION} \
-    && go install ./cmd/tickeryzer \
-    && go version -m $(which tickeryzer) \
     && cd ..
 
 # RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
@@ -109,7 +99,6 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 # projects. The plan is to switch back to current upstream vesions once
 # the required dependencies are updated for those upstream projects.
 ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
-ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
@@ -129,7 +118,6 @@ COPY --from=builder /go/bin/govulncheck /usr/bin/govulncheck
 COPY --from=builder /go/bin/deadcode /usr/bin/deadcode
 COPY --from=builder /go/bin/gotestdox /usr/bin/gotestdox
 COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
-COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
 
 # Copy over linting config files to root of container image to serve as a

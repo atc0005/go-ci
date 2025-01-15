@@ -15,9 +15,6 @@ require (
 	// httperroryzer - provided as an optional linter
 	github.com/orijtech/httperroryzer v0.0.1
 
-	// tickeryzer - provided as an optional linter
-	github.com/orijtech/tickeryzer v0.0.3
-
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.2.3
 
