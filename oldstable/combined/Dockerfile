@@ -23,7 +23,6 @@ ENV GOVULNCHECK_VERSION="v1.1.4"
 # ENV STRUCTSLOP_VERSION="v0.0.8"
 # ENV TICKERYZER_VERSION="v0.0.3"
 ENV TOMLL_VERSION="v2.2.3"
-ENV ERRWRAP_VERSION="v1.6.0"
 ENV GOTESTDOX_VERSION="v0.2.2"
 
 # These commits/versions are provided by temporary forks of the upstream
@@ -32,7 +31,6 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
 ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
 ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
-# ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 RUN echo "Installing staticcheck@${STATICCHECK_VERSION}" \
     && go install honnef.co/go/tools/cmd/staticcheck@${STATICCHECK_VERSION} \
@@ -85,17 +83,6 @@ RUN echo "Installing tickeryzer from temporary fork" \
     && go version -m $(which tickeryzer) \
     && cd ..
 
-RUN echo "Installing errwrap@${ERRWRAP_VERSION}" \
-    && go install github.com/fatih/errwrap@${ERRWRAP_VERSION} \
-    && go version -m $(which errwrap)
-
-# RUN echo "Installing errwrap from temporary fork" \
-#     && git clone https://github.com/atc0005/errwrap \
-#     && cd errwrap \
-#     && git checkout ${ERRWRAP_VERSION} \
-#     && go install . \
-#     && cd ..
-
 # RUN echo "Installing golangci-lint from dev feat/go1.20 branch" \
 #     && git clone https://github.com/atc0005/golangci-lint \
 #     && cd golangci-lint \
@@ -133,7 +120,6 @@ ENV STATICCHECK_VERSION="v0.5.1"
 ENV DEADCODE_VERSION="v0.29.0"
 ENV GOVULNCHECK_VERSION="v1.1.4"
 ENV TOMLL_VERSION="v2.2.3"
-ENV ERRWRAP_VERSION="v1.6.0"
 ENV GOTESTDOX_VERSION="v0.2.2"
 
 # These commits/versions are provided by temporary forks of the upstream
@@ -142,7 +128,6 @@ ENV GOTESTDOX_VERSION="v0.2.2"
 ENV HTTPERRORYZER_VERSION="9f94717820d4a5075117680de2ca07875d32c9f1"
 ENV STRUCTSLOP_VERSION="33c868804e9e6070fdaee64b729d3129bbe85a53"
 ENV TICKERYZER_VERSION="b38acaa6d76d30629a49ad9eddd1aa5ddd0afa8f"
-# ENV ERRWRAP_VERSION="c75521dd38c3bf43d1acaf3f628d87252fa69270"
 
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
@@ -165,7 +150,6 @@ COPY --from=builder /go/bin/httperroryzer /usr/bin/httperroryzer
 COPY --from=builder /go/bin/structslop /usr/bin/structslop
 COPY --from=builder /go/bin/tickeryzer /usr/bin/tickeryzer
 COPY --from=builder /go/bin/tomll /usr/bin/tomll
-COPY --from=builder /go/bin/errwrap /usr/bin/errwrap
 
 # Copy over linting config files to root of container image to serve as a
 # default. Projects bringing their own config files (e.g., via GitHub Actions)
