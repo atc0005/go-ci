@@ -157,6 +157,7 @@ build-stable: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		stable/combined/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):latest \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE) \
@@ -173,6 +174,7 @@ build-stable: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		stable/build/release/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_BUILD)-$(REPO_VERSION) \
@@ -191,6 +193,7 @@ build-oldstable-alpine-buildx64: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		oldstable/build/alpine-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX64)-$(REPO_VERSION) \
@@ -209,6 +212,7 @@ build-oldstable-alpine-buildx86: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/386" \
 		oldstable/build/alpine-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_ALPINE_BUILDX86)-$(REPO_VERSION) \
@@ -227,6 +231,7 @@ build-stable-alpine-buildx64: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		stable/build/alpine-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_ALPINE_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_ALPINE_BUILDX64)-$(REPO_VERSION) \
@@ -245,6 +250,7 @@ build-stable-alpine-buildx86: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/386" \
 		stable/build/alpine-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_ALPINE_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_ALPINE_BUILDX86)-$(REPO_VERSION) \
@@ -263,6 +269,7 @@ build-unstable-alpine-buildx64: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		unstable/build/alpine-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_ALPINE_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_ALPINE_BUILDX64)-$(REPO_VERSION) \
@@ -281,6 +288,7 @@ build-unstable-alpine-buildx86: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/386" \
 		unstable/build/alpine-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_ALPINE_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_ALPINE_BUILDX86)-$(REPO_VERSION) \
@@ -299,6 +307,7 @@ oldstable-cgo-mingw-w64-buildx64: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		oldstable/build/cgo-mingw-w64-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_CGO-MINGW-W64_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_CGO-MINGW-W64_BUILDX64)-$(REPO_VERSION) \
@@ -317,6 +326,7 @@ oldstable-cgo-mingw-w64-buildx86: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/386" \
 		oldstable/build/cgo-mingw-w64-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_CGO-MINGW-W64_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_CGO-MINGW-W64_BUILDX86)-$(REPO_VERSION) \
@@ -335,6 +345,7 @@ stable-cgo-mingw-w64-buildx64: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		stable/build/cgo-mingw-w64-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_CGO-MINGW-W64_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_CGO-MINGW-W64_BUILDX64)-$(REPO_VERSION) \
@@ -353,6 +364,7 @@ stable-cgo-mingw-w64-buildx86: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/386" \
 		stable/build/cgo-mingw-w64-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_CGO-MINGW-W64_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_CGO-MINGW-W64_BUILDX86)-$(REPO_VERSION) \
@@ -371,6 +383,7 @@ unstable-cgo-mingw-w64-buildx64: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		unstable/build/cgo-mingw-w64-x64/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_CGO-MINGW-W64_BUILDX64) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_CGO-MINGW-W64_BUILDX64)-$(REPO_VERSION) \
@@ -389,6 +402,7 @@ unstable-cgo-mingw-w64-buildx86: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/386" \
 		unstable/build/cgo-mingw-w64-x86/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_CGO-MINGW-W64_BUILDX86) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_CGO-MINGW-W64_BUILDX86)-$(REPO_VERSION) \
@@ -409,6 +423,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.14/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO114)-$(REPO_VERSION) \
@@ -421,6 +436,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.15/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO115)-$(REPO_VERSION) \
@@ -433,6 +449,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.16/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO116)-$(REPO_VERSION) \
@@ -445,6 +462,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.17/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO117)-$(REPO_VERSION) \
@@ -457,6 +475,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.18/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO118)-$(REPO_VERSION) \
@@ -469,6 +488,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.19/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO119)-$(REPO_VERSION) \
@@ -481,6 +501,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.20/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO120)-$(REPO_VERSION) \
@@ -495,6 +516,7 @@ legacy-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.21/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO121) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_MIRROR_BUILD_GO121)-$(REPO_VERSION) \
@@ -519,6 +541,7 @@ stable-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.22/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_MIRROR_BUILD) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_MIRROR_BUILD)-$(REPO_VERSION) \
@@ -537,6 +560,7 @@ stable-mirror-build: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		mirror/1.23/ \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_MIRROR_BUILD) \
 		-t $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_STABLE_MIRROR_BUILD)-$(REPO_VERSION) \
@@ -561,6 +585,7 @@ build-oldstable: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		oldstable/combined/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE)-$(REPO_VERSION) \
@@ -575,6 +600,7 @@ build-oldstable: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		oldstable/build/release/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_OLDSTABLE_BUILD)-$(REPO_VERSION) \
@@ -594,6 +620,7 @@ build-unstable: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		unstable/combined/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE)-$(REPO_VERSION) \
@@ -608,6 +635,7 @@ build-unstable: pre-build
 	docker image build \
 		--pull \
 		--no-cache \
+		--platform "linux/amd64" \
 		unstable/build/release/ \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD) \
 		-t  $(DOCKER_IMAGE_REGISTRY)/$(DOCKER_IMAGE_REGISTRY_USER)/$(DOCKER_IMAGE_REPO):$(DOCKER_IMAGE_NAME_UNSTABLE_BUILD)-$(REPO_VERSION) \
