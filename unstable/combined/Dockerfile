@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM amd64/golang:1.23.4-bookworm as builder
+FROM amd64/golang:1.23.4-bookworm AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -15,16 +15,25 @@ FROM amd64/golang:1.23.4-bookworm as builder
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-# A current dev branch build (mirrored to fork) is used for pre-release Go
-# versions, otherwise the latest upstream build of the tool is installed in
-# this image.
-# ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+# A current dev branch build (tagged & mirrored to fork) is used for
+# pre-release Go versions.
+#
+# For example, a tag named `FORK-go1.24-support-2025-01-08` is used to track
+# changes in the upstream `feat/go1.24` branch (latest commit on 2025-01-08)
+# ahead of Go 1.24 being officially released (and a stable version of
+# golangci-lint released soon after).
+#
+# ENV GOLANGCI_LINT_VERSION="FORK-go1.24-support-2025-01-08"
 
-# Latest upstream
+# The latest upstream stable build of the tool is installed in this image when
+# all available Go versions are stable versions (e.g., no alpha, beta or rc
+# versions).
+#
 ENV GOLANGCI_LINT_VERSION="v1.63.4"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
+#
 # ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
 ENV STATICCHECK_VERSION="v0.5.1"
 
@@ -66,7 +75,7 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version
 
-FROM amd64/golang:1.23.4-bookworm as final
+FROM amd64/golang:1.23.4-bookworm AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -86,14 +95,25 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-# A current dev branch build (mirrored to fork) is used for pre-release Go
-# versions, otherwise the latest upstream build of the tool is installed in
-# this image.
-# ENV GOLANGCI_LINT_VERSION="FORK-go1.23-support-2024-07-31"
+# A current dev branch build (tagged & mirrored to fork) is used for
+# pre-release Go versions.
+#
+# For example, a tag named `FORK-go1.24-support-2025-01-08` is used to track
+# changes in the upstream `feat/go1.24` branch (latest commit on 2025-01-08)
+# ahead of Go 1.24 being officially released (and a stable version of
+# golangci-lint released soon after).
+#
+# ENV GOLANGCI_LINT_VERSION="FORK-go1.24-support-2025-01-08"
 
-# Latest upstream
+# The latest upstream stable build of the tool is installed in this image when
+# all available Go versions are stable versions (e.g., no alpha, beta or rc
+# versions).
+#
 ENV GOLANGCI_LINT_VERSION="v1.63.4"
 
+# A current master branch build is used for pre-release Go versions, otherwise
+# the latest upstream build of the tool is installed in this image.
+#
 # ENV STATICCHECK_VERSION="dec278f2f0d94b07c04db075d807e9f499f5d7b5"
 ENV STATICCHECK_VERSION="v0.5.1"
 
