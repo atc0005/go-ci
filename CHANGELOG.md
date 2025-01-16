@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.22.1] - 2025-01-16
+
+### Changed
+
+- (GH-1856) Update unstable build images to Go 1.24rc1
+
+### Fixed
+
+- (GH-1853) Explicitly specify platform when building images
+- (GH-1855) Updated pinned Git dep version for Alpine images
+
 ## [v0.22.0] - 2025-01-15
 
 ### Removed
@@ -3162,7 +3173,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.0...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.1...HEAD
+[v0.22.1]: https://github.com/atc0005/go-ci/releases/tag/v0.22.1
 [v0.22.0]: https://github.com/atc0005/go-ci/releases/tag/v0.22.0
 [v0.21.20]: https://github.com/atc0005/go-ci/releases/tag/v0.21.20
 [v0.21.19]: https://github.com/atc0005/go-ci/releases/tag/v0.21.19
