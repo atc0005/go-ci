@@ -354,7 +354,7 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.22"
+          - ">= 1.24"
           - "< 1.23"
 
   - package-ecosystem: docker
