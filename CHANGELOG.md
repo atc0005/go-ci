@@ -26,6 +26,36 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.22.3] - 2025-02-07
+
+### Changed
+
+- (GH-1881) General Build Image: Bump amd64/golang from 1.22.11-alpine3.20 to 1.22.12-alpine3.20 in /oldstable/build/alpine-x64
+- (GH-1886) General Build Image: Bump amd64/golang from 1.22.11-bullseye to 1.22.12-bullseye in /oldstable/build/cgo-mingw-w64-x64
+- (GH-1892) General Build Image: Bump amd64/golang from 1.23.5-alpine3.20 to 1.23.6-alpine3.20 in /stable/build/alpine-x64
+- (GH-1896) General Build Image: Bump amd64/golang from 1.23.5-bullseye to 1.23.6-bullseye in /stable/build/cgo-mingw-w64-x64
+- (GH-1901) General Build Image: Bump amd64/golang from 1.24rc2-alpine3.20 to 1.24rc3-alpine3.20 in /unstable/build/alpine-x64
+- (GH-1900) General Build Image: Bump amd64/golang from 1.24rc2-bullseye to 1.24rc3-bullseye in /unstable/build/cgo-mingw-w64-x64
+- (GH-1891) General Build Image: Bump i386/golang from 1.22.11-alpine3.20 to 1.22.12-alpine3.20 in /oldstable/build/alpine-x86
+- (GH-1889) General Build Image: Bump i386/golang from 1.22.11-bullseye to 1.22.12-bullseye in /oldstable/build/cgo-mingw-w64-x86
+- (GH-1884) General Build Image: Bump i386/golang from 1.23.5-alpine3.20 to 1.23.6-alpine3.20 in /stable/build/alpine-x86
+- (GH-1882) General Build Image: Bump i386/golang from 1.23.5-bullseye to 1.23.6-bullseye in /stable/build/cgo-mingw-w64-x86
+- (GH-1897) General Build Image: Bump i386/golang from 1.24rc2-alpine3.20 to 1.24rc3-alpine3.20 in /unstable/build/alpine-x86
+- (GH-1898) General Build Image: Bump i386/golang from 1.24rc2-bullseye to 1.24rc3-bullseye in /unstable/build/cgo-mingw-w64-x86
+- (GH-1887) Matrix Image: Bump amd64/golang from 1.22.11-bookworm to 1.22.12-bookworm in /oldstable/combined
+- (GH-1883) Matrix Image: Bump amd64/golang from 1.23.5-bookworm to 1.23.6-bookworm in /stable/combined
+- (GH-1893) Matrix Image: Bump amd64/golang from 1.23.5-bookworm to 1.23.6-bookworm in /unstable/combined
+- (GH-1890) Mirror Build Image: Bump amd64/golang from 1.22.11-bookworm to 1.22.12-bookworm in /mirror/1.22
+- (GH-1885) Mirror Build Image: Bump amd64/golang from 1.23.5-bookworm to 1.23.6-bookworm in /mirror/1.23
+- (GH-1880) Release Build Image: Bump amd64/golang from 1.22.11-bookworm to 1.22.12-bookworm in /oldstable/build/release
+- (GH-1888) Release Build Image: Bump amd64/golang from 1.23.5-bookworm to 1.23.6-bookworm in /stable/build/release
+- (GH-1899) Release Build Image: Bump amd64/golang from 1.24rc2-bookworm to 1.24rc3-bookworm in /unstable/build/release
+
+### Fixed
+
+- (GH-1894) Fix base image for cgo-mingw-w64-x64
+- (GH-1895) Fix constraints for stable cgo-mingw-w64-x64
+
 ## [v0.22.2] - 2025-01-17
 
 ### Changed
@@ -3197,7 +3227,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.2...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.3...HEAD
+[v0.22.3]: https://github.com/atc0005/go-ci/releases/tag/v0.22.3
 [v0.22.2]: https://github.com/atc0005/go-ci/releases/tag/v0.22.2
 [v0.22.1]: https://github.com/atc0005/go-ci/releases/tag/v0.22.1
 [v0.22.0]: https://github.com/atc0005/go-ci/releases/tag/v0.22.0
