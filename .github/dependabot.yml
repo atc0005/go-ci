@@ -88,10 +88,10 @@ updates:
       - dependency-name: "amd64/golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.23"
+          - ">= 1.24"
 
           # Less than oldstable series
-          - "< 1.22"
+          - "< 1.23"
     assignees:
       - "atc0005"
     labels:
@@ -117,10 +117,10 @@ updates:
       - dependency-name: "amd64/golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.23"
+          - ">= 1.24"
 
           # Less than oldstable series
-          - "< 1.22"
+          - "< 1.23"
     assignees:
       - "atc0005"
     labels:
@@ -152,10 +152,10 @@ updates:
       - dependency-name: "amd64/golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.23"
+          - ">= 1.24"
 
           # Less than oldstable series
-          - "< 1.22"
+          - "< 1.23"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/alpine-x86"
@@ -178,10 +178,10 @@ updates:
       - dependency-name: "i386/golang"
         versions:
           # Greater than or equal to stable container image series
-          - ">= 1.23"
+          - ">= 1.24"
 
           # Less than oldstable series
-          - "< 1.22"
+          - "< 1.23"
 
   - package-ecosystem: docker
     directory: "/stable/combined"
@@ -203,8 +203,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.24"
-          - "< 1.23"
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x64"
@@ -226,8 +226,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.24"
-          - "< 1.23"
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x86"
@@ -249,8 +249,8 @@ updates:
     ignore:
       - dependency-name: "i386/golang"
         versions:
-          - ">= 1.24"
-          - "< 1.23"
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/unstable/build/alpine-x64"
@@ -308,8 +308,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.23"
-          - "< 1.22"
+          - ">= 1.24"
+          - "< 1.23"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/cgo-mingw-w64-x86"
@@ -331,8 +331,8 @@ updates:
     ignore:
       - dependency-name: "i386/golang"
         versions:
-          - ">= 1.23"
-          - "< 1.22"
+          - ">= 1.24"
+          - "< 1.23"
 
   - package-ecosystem: docker
     directory: "/stable/build/cgo-mingw-w64-x64"
@@ -354,8 +354,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.24"
-          - "< 1.23"
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/stable/build/cgo-mingw-w64-x86"
@@ -377,8 +377,8 @@ updates:
     ignore:
       - dependency-name: "i386/golang"
         versions:
-          - ">= 1.24"
-          - "< 1.23"
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/unstable/build/cgo-mingw-w64-x64"
@@ -436,31 +436,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.24"
-          - "< 1.23"
-
-  - package-ecosystem: docker
-    directory: "/mirror/1.22"
-    open-pull-requests-limit: 10
-    target-branch: "master"
-    schedule:
-      interval: "daily"
-      time: "02:00"
-      timezone: "America/Chicago"
-    assignees:
-      - "atc0005"
-    labels:
-      - "dependencies"
-      - "CI"
-    allow:
-      - dependency-type: "all"
-    commit-message:
-      prefix: "Mirror Build Image"
-    ignore:
-      - dependency-name: "amd64/golang"
-        versions:
-          - ">= 1.23"
-          - "< 1.22"
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/mirror/1.23"
@@ -484,6 +461,29 @@ updates:
         versions:
           - ">= 1.24"
           - "< 1.23"
+
+  - package-ecosystem: docker
+    directory: "/mirror/1.24"
+    open-pull-requests-limit: 10
+    target-branch: "master"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+      timezone: "America/Chicago"
+    assignees:
+      - "atc0005"
+    labels:
+      - "dependencies"
+      - "CI"
+    allow:
+      - dependency-type: "all"
+    commit-message:
+      prefix: "Mirror Build Image"
+    ignore:
+      - dependency-name: "amd64/golang"
+        versions:
+          - ">= 1.25"
+          - "< 1.24"
 
   - package-ecosystem: docker
     directory: "/unstable/build/release"
