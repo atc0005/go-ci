@@ -2,7 +2,6 @@ module github.com/atc0005/go-ci/tools
 
 // Use the current oldstable Go version
 go 1.22.1
-toolchain go1.23.6
 
 require (
 	// govulncheck - provided as an optional testing utility
@@ -11,7 +10,7 @@ require (
 	github.com/bitfield/gotestdox v0.2.2
 
 	// golangci-lint - intended as a primary linter
-	github.com/golangci/golangci-lint v1.64.5
+	github.com/golangci/golangci-lint v1.63.4
 
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.2.3
@@ -25,7 +24,7 @@ require (
 	golang.org/x/vuln v1.1.4
 
 	// staticcheck - intended as a primary linter
-	honnef.co/go/tools v0.6.0
+	honnef.co/go/tools v0.5.1
 
 )
 
@@ -66,9 +65,9 @@ require (
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jessevdk/go-flags v1.5.0 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
-	github.com/ldez/grignotin v0.9.0 // indirect
+	github.com/ldez/grignotin v0.7.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
-	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
@@ -85,9 +84,9 @@ require (
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/skeema/knownhosts v1.3.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
-	github.com/spf13/afero v1.12.0 // indirect
+	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.7.0 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.19.0 // indirect
 	github.com/stretchr/objx v0.5.2 // indirect
 	github.com/stretchr/testify v1.10.0 // indirect
