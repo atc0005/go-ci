@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.22.5] - 2025-03-03
+
+### Changed
+
+- (GH-1946) Update golangci-lint to v1.64.6
+- (GH-1947) Update goreleaser/nfpm to v2.41.3
+
+### Fixed
+
+- (GH-1945) Replace `exportloopref` linter with `copyloopvar`
+
 ## [v0.22.4] - 2025-02-27
 
 ### Changed
@@ -3261,7 +3272,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.5...HEAD
+[v0.22.5]: https://github.com/atc0005/go-ci/releases/tag/v0.22.5
 [v0.22.4]: https://github.com/atc0005/go-ci/releases/tag/v0.22.4
 [v0.22.3]: https://github.com/atc0005/go-ci/releases/tag/v0.22.3
 [v0.22.2]: https://github.com/atc0005/go-ci/releases/tag/v0.22.2
