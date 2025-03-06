@@ -23,7 +23,7 @@ require (
 	golang.org/x/vuln v1.1.4
 
 	// staticcheck - intended as a primary linter
-	honnef.co/go/tools v0.6.0
+	honnef.co/go/tools v0.6.1
 )
 
 require (
