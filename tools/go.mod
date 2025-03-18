@@ -2,6 +2,7 @@ module github.com/atc0005/go-ci/tools
 
 // Use the current oldstable Go version
 go 1.23.0
+
 require (
 	// govulncheck - provided as an optional testing utility
 	// https://pkg.go.dev/github.com/bitfield/gotestdox?tab=versions
@@ -9,7 +10,7 @@ require (
 	github.com/bitfield/gotestdox v0.2.2
 
 	// golangci-lint - intended as a primary linter
-	github.com/golangci/golangci-lint v1.64.6
+	github.com/golangci/golangci-lint v1.64.8
 
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.2.3
