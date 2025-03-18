@@ -1,7 +1,7 @@
 module github.com/atc0005/go-ci/tools
 
 // Use the current oldstable Go version
-go 1.23
+go 1.23.0
 require (
 	// govulncheck - provided as an optional testing utility
 	// https://pkg.go.dev/github.com/bitfield/gotestdox?tab=versions
