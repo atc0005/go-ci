@@ -26,6 +26,12 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.22.8] - 2025-03-31
+
+### Changed
+
+- (GH-1983) Update goreleaser/nfpm to v2.42.0
+
 ## [v0.22.7] - 2025-03-18
 
 ### Changed
@@ -3305,7 +3311,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.7...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.8...HEAD
+[v0.22.8]: https://github.com/atc0005/go-ci/releases/tag/v0.22.8
 [v0.22.7]: https://github.com/atc0005/go-ci/releases/tag/v0.22.7
 [v0.22.6]: https://github.com/atc0005/go-ci/releases/tag/v0.22.6
 [v0.22.5]: https://github.com/atc0005/go-ci/releases/tag/v0.22.5
