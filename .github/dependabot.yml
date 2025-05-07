@@ -54,6 +54,7 @@ updates:
     commit-message:
       # Prefix all commit messages
       prefix: "Go Dependency"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -72,6 +73,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "CI Dependency"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/release"
@@ -101,6 +103,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Release Build Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/oldstable/combined"
@@ -130,6 +133,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Matrix Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/alpine-x64"
@@ -148,6 +152,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -174,6 +179,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "i386/golang"
         versions:
@@ -200,6 +206,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Matrix Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -223,6 +230,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -246,6 +254,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "i386/golang"
         versions:
@@ -269,6 +278,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/unstable/build/alpine-x86"
@@ -287,6 +297,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/oldstable/build/cgo-mingw-w64-x64"
@@ -305,6 +316,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -328,6 +340,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "i386/golang"
         versions:
@@ -351,6 +364,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -374,6 +388,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "i386/golang"
         versions:
@@ -397,6 +412,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/unstable/build/cgo-mingw-w64-x86"
@@ -415,6 +431,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "General Build Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/stable/build/release"
@@ -433,6 +450,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Release Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -456,6 +474,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Mirror Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -479,6 +498,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Mirror Build Image"
+    rebase-strategy: "disabled"
     ignore:
       - dependency-name: "amd64/golang"
         versions:
@@ -502,6 +522,7 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Release Build Image"
+    rebase-strategy: "disabled"
 
   - package-ecosystem: docker
     directory: "/unstable/combined"
@@ -520,3 +541,4 @@ updates:
       - dependency-type: "all"
     commit-message:
       prefix: "Matrix Image"
+    rebase-strategy: "disabled"
