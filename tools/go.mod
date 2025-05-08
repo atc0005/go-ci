@@ -15,7 +15,7 @@ require (
 	github.com/golangci/golangci-lint v1.64.8
 
 	// tomll - provided as an optional linter
-	github.com/pelletier/go-toml/v2 v2.2.3
+	github.com/pelletier/go-toml/v2 v2.2.4
 
 	// deadcode - provided as an optional linter
 	// https://pkg.go.dev/golang.org/x/tools/cmd/deadcode?tab=versions
