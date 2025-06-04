@@ -1,4 +1,4 @@
-# Copyright 2020 Adam Chalkley
+# Copyright 2025 Adam Chalkley
 #
 # https://github.com/atc0005/go-ci
 #
@@ -12,78 +12,55 @@
 # container image variants.
 ###############################################################################
 
-issues:
-  # equivalent CLI flag: --exclude-use-default
-  #
-  # see:
-  #   atc0005/todo#22
-  #   atc0005/todo#29
-  #   golangci-lint/golangci-lint#1249
-  #   golangci-lint/golangci-lint#413
-  exclude-use-default: false
-
-# run:
-# Define the Go version limit.
-# Mainly related to generics support in go1.18.
-# Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.18
-# https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
-# go: "1.19"
-
-# Reminder: Sort this after every change
+version: "2"
 linters:
   enable:
-    # https://github.com/atc0005/go-ci/issues/1024
-    # - depguard
+    - copyloopvar
     - dogsled
     - dupl
     - err113
-    - errcheck
-    - copyloopvar
     - gochecknoglobals
     - gocognit
     - goconst
     - gocritic
     - gocyclo
-    - gofmt
-    - goimports
     - gosec
-    - govet
     - misspell
     - nilnil
     - prealloc
     - predeclared
     - revive
     - staticcheck
-    - stylecheck
     - unconvert
-
-#
-# Disable govet:fieldalignment, re-enable deprecated maligned linter until the
-# Go team offers more control over the types of checks provided by the
-# fieldalignment linter or golangci-lint does so.
-#
-# See https://github.com/atc0005/go-ci/issues/302 for more information.
-#
-# disable:
-#   - maligned
-
-linters-settings:
-  gocognit:
-    # minimal code complexity to report, 30 by default (but we recommend 10-20)
-    min-complexity: 10
-
-  gocyclo:
-    # minimal code complexity to report, 30 by default (but we recommend 10-20)
-    min-complexity: 15
-
-  govet:
-    enable-all: true
-    disable:
-      #
-      # Disable fieldalignment settings until the Go team offers more control over
-      # the types of checks provided by the fieldalignment linter or golangci-lint
-      # does so.
-      #
-      # See https://github.com/atc0005/go-ci/issues/302 for more information.
-      #
-      - fieldalignment
+  settings:
+    gocognit:
+      min-complexity: 10
+    gocyclo:
+      min-complexity: 15
+    govet:
+      disable:
+        #
+        # Disable fieldalignment settings until the Go team offers more control over
+        # the types of checks provided by the fieldalignment linter or golangci-lint
+        # does so.
+        #
+        # See https://github.com/atc0005/go-ci/issues/302 for more information.
+        #
+        - fieldalignment
+      enable-all: true
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

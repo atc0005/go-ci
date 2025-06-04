@@ -12,7 +12,7 @@ package tools
 import (
 	_ "github.com/bitfield/gotestdox/cmd/gotestdox"
 	_ "github.com/choffmeister/git-describe-semver"
-	_ "github.com/golangci/golangci-lint/pkg/config"
+	_ "github.com/golangci/golangci-lint/v2/pkg/config"
 	_ "github.com/goreleaser/nfpm/v2"
 	_ "github.com/pelletier/go-toml/v2"
 	_ "github.com/tc-hib/go-winres"
