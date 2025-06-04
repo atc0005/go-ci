@@ -26,6 +26,17 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.0] - 2025-06-04
+
+### Changed
+
+- (GH-2039) Update golangci-lint from v1.64.8 to v2.1.6
+- (GH-2041) Update goreleaser/nfpm to v2.42.1
+
+### Fixed
+
+- (GH-2040) Update pinned xz-utils version for build images
+
 ## [v0.22.10] - 2025-05-08
 
 ### Changed
@@ -3368,7 +3379,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.22.10...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.0...HEAD
+[v0.23.0]: https://github.com/atc0005/go-ci/releases/tag/v0.23.0
 [v0.22.10]: https://github.com/atc0005/go-ci/releases/tag/v0.22.10
 [v0.22.9]: https://github.com/atc0005/go-ci/releases/tag/v0.22.9
 [v0.22.8]: https://github.com/atc0005/go-ci/releases/tag/v0.22.8
