@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.2] - 2025-06-27
+
+- (GH-2073) Update goreleaser/nfpm to v2.43.0
+- (GH-2075) Update unstable build images to Go 1.25rc1
+
+### Changed
+
 ## [v0.23.1] - 2025-06-06
 
 ### Changed
@@ -3409,7 +3416,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.1...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.2...HEAD
+[v0.23.2]: https://github.com/atc0005/go-ci/releases/tag/v0.23.2
 [v0.23.1]: https://github.com/atc0005/go-ci/releases/tag/v0.23.1
 [v0.23.0]: https://github.com/atc0005/go-ci/releases/tag/v0.23.0
 [v0.22.10]: https://github.com/atc0005/go-ci/releases/tag/v0.22.10
