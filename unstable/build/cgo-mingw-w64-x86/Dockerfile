@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/r/i386/golang
 
-FROM i386/golang:1.25rc2-bullseye
+FROM i386/golang:1.25rc3-bullseye
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
