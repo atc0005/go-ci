@@ -24,7 +24,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with full history
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # Needed in order to retrieve tags for use with semver calculations
           fetch-depth: 0
@@ -88,7 +88,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: Check out code with default settings
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -149,7 +149,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: Check out code with default settings
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -210,7 +210,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: Check out code with default settings
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -271,7 +271,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: Check out code with default settings
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -337,7 +337,7 @@ jobs:
           echo "Commit SHA: ${{ github.sha }}"
 
       - name: Check out code with default settings
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
