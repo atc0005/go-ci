@@ -26,6 +26,29 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.5] - 2025-08-22
+
+### Changed
+
+- (GH-2151) Add Go 1.25 mirror img, fix STABLE/OLDSTABLE tags
+- (GH-2147) General Build Image: Bump amd64/golang from 1.23.12-alpine3.22 to 1.24.6-alpine3.22 in /oldstable/build/alpine-x64
+- (GH-2145) General Build Image: Bump amd64/golang from 1.23.12-bullseye to 1.24.6-bullseye in /oldstable/build/cgo-mingw-w64-x64
+- (GH-2143) General Build Image: Bump amd64/golang from 1.24.6-alpine3.22 to 1.25.0-alpine3.22 in /stable/build/alpine-x64
+- (GH-2135) General Build Image: Bump amd64/golang from 1.25rc3-alpine3.22 to 1.25-alpine3.22 in /unstable/build/alpine-x64
+- (GH-2141) General Build Image: Bump i386/golang from 1.23.12-alpine3.22 to 1.24.6-alpine3.22 in /oldstable/build/alpine-x86
+- (GH-2146) General Build Image: Bump i386/golang from 1.23.12-bullseye to 1.24.6-bullseye in /oldstable/build/cgo-mingw-w64-x86
+- (GH-2150) General Build Image: Bump i386/golang from 1.24.6-alpine3.22 to 1.25.0-alpine3.22 in /stable/build/alpine-x86
+- (GH-2137) General Build Image: Bump i386/golang from 1.25rc3-alpine3.22 to 1.25-alpine3.22 in /unstable/build/alpine-x86
+- (GH-2149) Matrix Image: Bump amd64/golang from 1.23.12-bookworm to 1.24.6-bookworm in /oldstable/combined
+- (GH-2142) Matrix Image: Bump amd64/golang from 1.24.6-bookworm to 1.25.0-bookworm in /stable/combined
+- (GH-2134) Matrix Image: Bump amd64/golang from 1.24.6-bookworm to 1.25.0-bookworm in /unstable/combined
+- (GH-2144) Release Build Image: Bump amd64/golang from 1.23.12-bookworm to 1.24.6-bookworm in /oldstable/build/release
+- (GH-2148) Release Build Image: Bump amd64/golang from 1.24.6-bookworm to 1.25.0-bookworm in /stable/build/release
+- (GH-2136) Release Build Image: Bump amd64/golang from 1.25rc3-bookworm to 1.25-bookworm in /unstable/build/release
+- (GH-2140) Update Dependabot monitoring for Go 1.25 release
+- (GH-2139) Update Go 1.25 image refs to fixed 1.25.0 release
+- (GH-2138) Update golangci-lint to v2.4.0
+
 ## [v0.23.4] - 2025-08-08
 
 ### Changed
@@ -3473,7 +3496,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.4...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.5...HEAD
+[v0.23.5]: https://github.com/atc0005/go-ci/releases/tag/v0.23.5
 [v0.23.4]: https://github.com/atc0005/go-ci/releases/tag/v0.23.4
 [v0.23.3]: https://github.com/atc0005/go-ci/releases/tag/v0.23.3
 [v0.23.2]: https://github.com/atc0005/go-ci/releases/tag/v0.23.2
