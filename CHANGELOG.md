@@ -26,6 +26,34 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.6] - 2025-10-08
+
+### Changed
+
+- (GH-2161) General Build Image: Bump amd64/golang from 1.24.6-alpine3.22 to 1.24.7-alpine3.22 in /oldstable/build/alpine-x64
+- (GH-2165) General Build Image: Bump amd64/golang from 1.25.0-alpine3.22 to 1.25.1-alpine3.22 in /stable/build/alpine-x64
+- (GH-2162) General Build Image: Bump amd64/golang from 1.25.0-alpine3.22 to 1.25.1-alpine3.22 in /unstable/build/alpine-x64
+- (GH-2166) General Build Image: Bump i386/golang from 1.24.6-alpine3.22 to 1.24.7-alpine3.22 in /oldstable/build/alpine-x86
+- (GH-2158) General Build Image: Bump i386/golang from 1.25.0-alpine3.22 to 1.25.1-alpine3.22 in /stable/build/alpine-x86
+- (GH-2167) General Build Image: Bump i386/golang from 1.25.0-alpine3.22 to 1.25.1-alpine3.22 in /unstable/build/alpine-x86
+- (GH-2163) Matrix Image: Bump amd64/golang from 1.24.6-bookworm to 1.24.7-bookworm in /oldstable/combined
+- (GH-2155) Matrix Image: Bump amd64/golang from 1.25.0-bookworm to 1.25.1-bookworm in /stable/combined
+- (GH-2160) Matrix Image: Bump amd64/golang from 1.25.0-bookworm to 1.25.1-bookworm in /unstable/combined
+- (GH-2168) Mirror Build Image: Bump amd64/golang from 1.24.6-bookworm to 1.24.7-bookworm in /mirror/1.24
+- (GH-2164) Mirror Build Image: Bump amd64/golang from 1.25.0-bookworm to 1.25.1-bookworm in /mirror/1.25
+- (GH-2157) Release Build Image: Bump amd64/golang from 1.24.6-bookworm to 1.24.7-bookworm in /oldstable/build/release
+- (GH-2159) Release Build Image: Bump amd64/golang from 1.25.0-bookworm to 1.25.1-bookworm in /stable/build/release
+- (GH-2156) Release Build Image: Bump amd64/golang from 1.25.0-bookworm to 1.25.1-bookworm in /unstable/build/release
+- (GH-2192) Update cgo-mingw build images to Sept 2025 versions
+- (GH-2173) Update golang.org/x/tools/cmd/deadcode to v0.37.0
+- (GH-2175) Update goreleaser/nfpm to v2.43.3
+- (GH-2193) README: note that oldstable is limited to v2.43.1
+- (GH-2174) Update golangci-lint to v2.5.0
+
+### Fixed
+
+- (GH-2191) Replace Debian `bullseye` with `bookworm`
+
 ## [v0.23.5] - 2025-08-22
 
 ### Changed
@@ -3496,7 +3524,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.5...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.6...HEAD
+[v0.23.6]: https://github.com/atc0005/go-ci/releases/tag/v0.23.6
 [v0.23.5]: https://github.com/atc0005/go-ci/releases/tag/v0.23.5
 [v0.23.4]: https://github.com/atc0005/go-ci/releases/tag/v0.23.4
 [v0.23.3]: https://github.com/atc0005/go-ci/releases/tag/v0.23.3
