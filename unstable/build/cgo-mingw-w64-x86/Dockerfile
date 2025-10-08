@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/r/i386/golang
 
-FROM i386/golang:1.25rc3-bullseye
+FROM i386/golang:1.25rc3-bookworm
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -27,16 +27,16 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
-ENV APT_BSDMAINUTILS_VERSION="12.1.7+nmu3"
-ENV APT_TREE_VERSION="1.8.0-1"
-ENV APT_GCC_MULTILIB_VERSION="4:10.2.1-1"
-ENV APT_GCC_MINGW_W64_VERSION="10.2.1-6+24.2"
-ENV XZ_UTILS_VERSION="5.2.5-2.1~deb11u1"
+ENV APT_BSDMAINUTILS_VERSION="12.1.8"
+ENV APT_TREE_VERSION="2.1.0-1"
+ENV APT_GCC_MULTILIB_VERSION="4:12.2.0-3"
+ENV APT_GCC_MINGW_W64_VERSION="12.2.0-14+25.2"
+ENV XZ_UTILS_VERSION="5.4.1-1"
 
 # https://docs.fyne.io/started/
-ENV APT_GCC_VERSION="4:10.2.1-1"
-ENV APT_LIBGL1_MESA_DEV_VERSION="20.3.5-1"
-ENV APT_XORG_DEV_VERSION="1:7.7+22"
+ENV APT_GCC_VERSION="4:12.2.0-3"
+ENV APT_LIBGL1_MESA_DEV_VERSION="22.3.6-1+deb12u1"
+ENV APT_XORG_DEV_VERSION="1:7.7+23"
 
 # https://github.com/tc-hib/go-winres/releases
 ENV GO_WINRES_VERSION="v0.3.3"
