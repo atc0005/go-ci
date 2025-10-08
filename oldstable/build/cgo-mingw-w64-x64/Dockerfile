@@ -42,7 +42,10 @@ ENV APT_XORG_DEV_VERSION="1:7.7+23"
 ENV GO_WINRES_VERSION="v0.3.3"
 
 # https://github.com/goreleaser/nfpm/releases
-ENV NFPM_VERSION="v2.43.3"
+#
+# Workaround: Pin to latest nfpm version that builds with current "oldstable"
+# Go release (1.24 series).
+ENV NFPM_VERSION="v2.43.1"
 
 # https://github.com/choffmeister/git-describe-semver/releases
 ENV GIT_DESCRIBE_SEMVER_VERSION="v0.4.0"
