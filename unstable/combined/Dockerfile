@@ -75,6 +75,7 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version
 
+
 FROM amd64/golang:1.25.1-bookworm AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package

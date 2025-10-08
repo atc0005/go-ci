@@ -85,11 +85,11 @@ Unless indicated otherwise, the following linting tools are included in the
 The following build tools are included in all `*-build*` images *except* for
 the `*-mirror-*` images:
 
-| Build tool                                                                                | Version                                     |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------- |
-| [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres)                                 | `v0.3.3`                                    |
-| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.43.3` (`v2.43.1` in `oldstable` images) |
-| [`choffmeister/git-describe-semver`](https://github.com/choffmeister/git-describe-semver) | `v0.4.0`                                    |
+| Build tool                                                                                | Version   |
+| ----------------------------------------------------------------------------------------- | --------- |
+| [`tc-hib/go-winres`](https://github.com/tc-hib/go-winres)                                 | `v0.3.3`  |
+| [`goreleaser/nfpm`](https://github.com/goreleaser/nfpm)                                   | `v2.43.3` |
+| [`choffmeister/git-describe-semver`](https://github.com/choffmeister/git-describe-semver) | `v0.4.0`  |
 
 ## Testing tools included
 
