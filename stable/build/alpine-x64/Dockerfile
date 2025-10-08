@@ -52,7 +52,7 @@ ENV APK_XZ_VERSION="5.8.1-r0"
 ENV GO_WINRES_VERSION="v0.3.3"
 
 # https://github.com/goreleaser/nfpm/releases
-ENV NFPM_VERSION="v2.43.0"
+ENV NFPM_VERSION="v2.43.3"
 
 # https://github.com/choffmeister/git-describe-semver/releases
 ENV GIT_DESCRIBE_SEMVER_VERSION="v0.4.0"
