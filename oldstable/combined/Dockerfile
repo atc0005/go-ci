@@ -7,7 +7,12 @@
 
 # https://hub.docker.com/_/golang
 
-FROM amd64/golang:1.24.7-bookworm as builder
+# Unlike the build-specific images (e.g., those which include nfpm), this
+# image does not use the very latest upstream Go version (e.g., Go 1.25 when
+# Go 1.24 is the "oldstable" series). This is because we build these tools
+# using the same version of Go that will be used to lint and build Go
+# applications which rely on this image.
+FROM amd64/golang:1.24.7-bookworm AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -55,7 +60,8 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
     && sh install.sh -b "$(go env GOPATH)/bin" ${GOLANGCI_LINT_VERSION} \
     && golangci-lint --version
 
-FROM amd64/golang:1.24.7-bookworm as final
+
+FROM amd64/golang:1.24.7-bookworm AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"

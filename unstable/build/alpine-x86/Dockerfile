@@ -7,7 +7,37 @@
 
 # https://hub.docker.com/_/golang
 
-FROM i386/golang:1.25.1-alpine3.22
+FROM i386/golang:1.25.1-alpine3.22 AS builder
+
+# Explicitly disable automatic fetching of Go toolchains newer than the
+# version explicitly provided by this container image.
+#
+# https://github.com/atc0005/go-ci/issues/1188
+ENV GOTOOLCHAIN="local"
+
+# https://github.com/tc-hib/go-winres/releases
+ENV GO_WINRES_VERSION="v0.3.3"
+
+# https://github.com/goreleaser/nfpm/releases
+ENV NFPM_VERSION="v2.43.3"
+
+# https://github.com/choffmeister/git-describe-semver/releases
+ENV GIT_DESCRIBE_SEMVER_VERSION="v0.4.0"
+
+RUN echo "Installing go-winres@${GO_WINRES_VERSION}" \
+    && go install github.com/tc-hib/go-winres@${GO_WINRES_VERSION} \
+    && go version -m $(which go-winres) | awk '$1 == "mod" { print $3 }'
+
+RUN echo "Installing nfpm@${NFPM_VERSION}" \
+    && go install github.com/goreleaser/nfpm/v2/cmd/nfpm@${NFPM_VERSION} \
+    && nfpm --version
+
+RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
+    && go install github.com/choffmeister/git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION} \
+    && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }'
+
+
+FROM i386/golang:1.25.1-alpine3.22 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -88,14 +118,8 @@ RUN apk add --no-cache \
     # intended to help quickly determine whether a binary is statically or
     # dynamically linked
     file="${APK_FILE_VERSION}" \
-    xz="${APK_XZ_VERSION}" \
-    \
-    && echo "Installing go-winres@${GO_WINRES_VERSION}" \
-    && go install github.com/tc-hib/go-winres@${GO_WINRES_VERSION} \
-    && go version -m $(which go-winres) | awk '$1 == "mod" { print $3 }' \
-    && echo "Installing nfpm@${NFPM_VERSION}" \
-    && go install github.com/goreleaser/nfpm/v2/cmd/nfpm@${NFPM_VERSION} \
-    && nfpm --version \
-    && go install github.com/choffmeister/git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION} \
-    && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }' \
-    && go clean -cache -modcache
+    xz="${APK_XZ_VERSION}"
+
+COPY --from=builder /go/bin/go-winres /usr/bin/go-winres
+COPY --from=builder /go/bin/nfpm /usr/bin/nfpm
+COPY --from=builder /go/bin/git-describe-semver /usr/bin/git-describe-semver
