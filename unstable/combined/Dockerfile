@@ -29,7 +29,7 @@ ENV GOTOOLCHAIN="local"
 # all available Go versions are stable versions (e.g., no alpha, beta or rc
 # versions).
 #
-ENV GOLANGCI_LINT_VERSION="v2.5.0"
+ENV GOLANGCI_LINT_VERSION="v2.6.0"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
@@ -110,7 +110,7 @@ ENV GOTOOLCHAIN="local"
 # all available Go versions are stable versions (e.g., no alpha, beta or rc
 # versions).
 #
-ENV GOLANGCI_LINT_VERSION="v2.5.0"
+ENV GOLANGCI_LINT_VERSION="v2.6.0"
 
 # A current master branch build is used for pre-release Go versions, otherwise
 # the latest upstream build of the tool is installed in this image.
