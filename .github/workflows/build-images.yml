@@ -35,7 +35,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with full history
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # Needed in order to retrieve tags for use with semver calculations
           fetch-depth: 0
@@ -193,7 +193,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -230,7 +230,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -267,7 +267,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # Needed in order to retrieve tags for use with semver calculations
           fetch-depth: 0
@@ -307,7 +307,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -344,7 +344,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -381,7 +381,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -418,7 +418,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -455,7 +455,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -492,7 +492,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -529,7 +529,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -566,7 +566,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -603,7 +603,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -640,7 +640,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -677,7 +677,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -714,7 +714,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
@@ -751,7 +751,7 @@ jobs:
         run: docker --version
 
       - name: Clone repo with default settings
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Mark the current working directory as a safe directory in git to
       # resolve "dubious ownership" complaints.
