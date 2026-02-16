@@ -1,7 +1,7 @@
 module github.com/atc0005/go-ci/tools
 
 // Use the current oldstable Go version
-go 1.25
+go 1.25.0
 
 require (
 	// govulncheck - provided as an optional testing utility
@@ -24,7 +24,7 @@ require (
 	golang.org/x/vuln v1.1.4
 
 	// staticcheck - intended as a primary linter
-	honnef.co/go/tools v0.6.1
+	honnef.co/go/tools v0.7.0
 )
 
 require (
