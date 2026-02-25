@@ -72,13 +72,13 @@ others.
 Unless indicated otherwise, the following linting tools are included in the
 `go-ci-stable`, `go-ci-oldstable` and `go-ci-unstable` images:
 
-| Linter                                                                | Version               |
-| --------------------------------------------------------------------- | --------------------- |
-| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2025.1.1` (`v0.6.1`) |
-| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v2.10.1`             |
-| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.4`              |
-| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.41.0`             |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.4`              |
+| Linter                                                                | Version             |
+| --------------------------------------------------------------------- | ------------------- |
+| [`staticcheck`](https://github.com/dominikh/go-tools)                 | `2026.1` (`v0.7.0`) |
+| [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v2.10.1`           |
+| [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.1.4`            |
+| [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.41.0`           |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.2.4`            |
 
 ## Build tools included
 
