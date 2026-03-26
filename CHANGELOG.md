@@ -26,6 +26,13 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.17] - 2026-03-26
+
+### Changed
+
+- (GH-2415) Update golangci-lint to v2.11.4
+- (GH-2416) Update pelletier/go-toml to v2.3.0
+
 ## [v0.23.16] - 2026-03-19
 
 ### Changed
@@ -3750,7 +3757,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.16...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.17...HEAD
+[v0.23.17]: https://github.com/atc0005/go-ci/releases/tag/v0.23.17
 [v0.23.16]: https://github.com/atc0005/go-ci/releases/tag/v0.23.16
 [v0.23.15]: https://github.com/atc0005/go-ci/releases/tag/v0.23.15
 [v0.23.14]: https://github.com/atc0005/go-ci/releases/tag/v0.23.14
