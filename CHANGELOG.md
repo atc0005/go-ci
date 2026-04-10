@@ -55,6 +55,7 @@ The following types of changes will be recorded in this file:
 ### Fixed
 
 - (GH-2442) Updated pinned musl-dev version for Alpine images
+- (GH-2448) Updated pinned musl-dev version for Alpine images
 
 ## [v0.23.17] - 2026-03-26
 
