@@ -26,6 +26,20 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.19] - 2026-05-04
+
+### Changed
+
+- (GH-2464) Update golang.org/x/vuln to v1.3.0
+- (GH-2461) Update golangci-lint to v2.12.1
+- (GH-2459) Update goreleaser/nfpm to v2.46.3
+- (GH-2462) Update pelletier/go-toml to v2.3.1
+
+### Fixed
+
+- (GH-2463) Fix golangci-lint install URL
+- (GH-2460) Update pinned xz version for Alpine images
+
 ## [v0.23.18] - 2026-04-10
 
 ### Changed
@@ -3788,7 +3802,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.18...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.19...HEAD
+[v0.23.19]: https://github.com/atc0005/go-ci/releases/tag/v0.23.19
 [v0.23.18]: https://github.com/atc0005/go-ci/releases/tag/v0.23.18
 [v0.23.17]: https://github.com/atc0005/go-ci/releases/tag/v0.23.17
 [v0.23.16]: https://github.com/atc0005/go-ci/releases/tag/v0.23.16
