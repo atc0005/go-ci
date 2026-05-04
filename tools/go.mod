@@ -10,7 +10,7 @@ require (
 	github.com/bitfield/gotestdox v0.2.2
 
 	// golangci-lint - intended as a primary linter
-	github.com/golangci/golangci-lint/v2 v2.11.4
+	github.com/golangci/golangci-lint/v2 v2.12.1
 
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.3.0
@@ -38,7 +38,7 @@ require (
 	github.com/AlekSi/pointer v1.2.0 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
-	github.com/Masterminds/semver/v3 v3.4.0 // indirect
+	github.com/Masterminds/semver/v3 v3.5.0 // indirect
 	github.com/Masterminds/sprig/v3 v3.3.0 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/ProtonMail/go-crypto v1.4.1 // indirect
@@ -58,7 +58,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/goreleaser/chglog v0.7.4 // indirect
 	github.com/goreleaser/fileglob v1.4.0 // indirect
-	github.com/hashicorp/go-version v1.8.0 // indirect
+	github.com/hashicorp/go-version v1.9.0 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jessevdk/go-flags v1.5.0 // indirect
