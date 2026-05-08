@@ -5,7 +5,7 @@
 # Licensed under the MIT License. See LICENSE file in the project root for
 # full license information.
 
-# https://hub.docker.com/_/golang
+# https://hub.docker.com/r/i386/golang
 
 # Use latest stable version to compile build tools as static binaries for
 # inclusion in "final" image stage for use with oldstable build environment.

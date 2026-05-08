@@ -5,7 +5,7 @@
 # Licensed under the MIT License. See LICENSE file in the project root for
 # full license information.
 
-# https://hub.docker.com/_/golang
+# https://hub.docker.com/r/i386/golang
 
 FROM i386/golang:1.26.2-alpine3.22 AS builder
 
