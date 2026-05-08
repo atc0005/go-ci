@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/r/i386/golang
 
-FROM i386/golang:1.26.2-bookworm AS builder
+FROM i386/golang:1.26.2-bookworm@sha256:cb50635846e2971de5cfcb20fe322a343009880df96aa59452b059b530a446be AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -37,7 +37,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
     && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }'
 
 
-FROM i386/golang:1.26.2-bookworm AS final
+FROM i386/golang:1.26.2-bookworm@sha256:cb50635846e2971de5cfcb20fe322a343009880df96aa59452b059b530a446be AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
