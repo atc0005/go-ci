@@ -12,7 +12,7 @@
 # Go 1.24 is the "oldstable" series). This is because we build these tools
 # using the same version of Go that will be used to lint and build Go
 # applications which rely on this image.
-FROM amd64/golang:1.25.10-bookworm@sha256:b86505afc4060d982f738d55fe2ff076550312aa6130ed770efa25f80ec7a6cf AS builder
+FROM amd64/golang:1.25.10-bookworm@sha256:c9ea8892ba896144d7bd5999c8b4a1d3d174a86e48a6ff4ae95d2d89d709ef97 AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -61,7 +61,7 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
     && golangci-lint --version
 
 
-FROM amd64/golang:1.25.10-bookworm@sha256:b86505afc4060d982f738d55fe2ff076550312aa6130ed770efa25f80ec7a6cf AS final
+FROM amd64/golang:1.25.10-bookworm@sha256:c9ea8892ba896144d7bd5999c8b4a1d3d174a86e48a6ff4ae95d2d89d709ef97 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
