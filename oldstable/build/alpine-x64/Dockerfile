@@ -18,7 +18,7 @@
 # being supported by the Go project as the "oldstable" series. If we didn't
 # use this approach, then nfpm v2.43.1 would need to be the pinned version for
 # the duration of the "oldstable" Go series providing Go 1.24.
-FROM amd64/golang:alpine3.22@sha256:d0e2e4f642920f7350b588bb5dd499dcff991f19c90c997f5119ca91ce9d8d3b AS builder
+FROM amd64/golang:alpine3.22@sha256:19d1696b750f1d42f0e86fc598b9710143e8314c574038326dc46fa9b166940d AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -48,7 +48,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
     && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }'
 
 
-FROM amd64/golang:1.25.10-alpine3.22@sha256:be148168384d3f023aaea0048fd886b2cce7a99b39e8cc9fbe1f7b387b39dcba AS final
+FROM amd64/golang:1.25.11-alpine3.22@sha256:fba8ff6240b0a3fac05e41c09bbca16212e7e8cca01c5c888e1246a9b5b88680 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
