@@ -7,7 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
-FROM amd64/golang:1.25.10-bookworm@sha256:b86505afc4060d982f738d55fe2ff076550312aa6130ed770efa25f80ec7a6cf
+FROM amd64/golang:1.25.11-bookworm@sha256:9d9d423d824d68cb7168d841d2b4603f7676b414d5de8f64ce939c52f55e31cb
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
