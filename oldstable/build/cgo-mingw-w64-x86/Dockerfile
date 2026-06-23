@@ -18,7 +18,7 @@
 # being supported by the Go project as the "oldstable" series. If we didn't
 # use this approach, then nfpm v2.43.1 would need to be the pinned version for
 # the duration of the "oldstable" Go series providing Go 1.24.
-FROM i386/golang:bookworm@sha256:36de283e3bfcd43c7076359e6e1208ceeeed2f99efdb36644aca1999cb973269 AS builder
+FROM i386/golang:bookworm@sha256:4339f4aaf4d4cba041c90bad89180ff1edb7ac7a21a5359096196f9e82ef2f23 AS builder
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -71,7 +71,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
     && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }'
 
 
-FROM i386/golang:1.25.11-bookworm@sha256:6f72acf0f351ea0aec23c804922ba58bb8eb3cb52dc9d5dc7bf62935d59e43fb AS final
+FROM i386/golang:1.25.11-bookworm@sha256:aab8277623368f2d9cd9b95ef72d088b6fae41c39227ffe868de584fd7ef8bbd AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
