@@ -13,7 +13,7 @@ require (
 	github.com/golangci/golangci-lint/v2 v2.12.2
 
 	// tomll - provided as an optional linter
-	github.com/pelletier/go-toml/v2 v2.3.1
+	github.com/pelletier/go-toml/v2 v2.4.2
 
 	// deadcode - provided as an optional linter
 	// https://pkg.go.dev/golang.org/x/tools/cmd/deadcode?tab=versions
