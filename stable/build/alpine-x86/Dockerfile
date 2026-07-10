@@ -7,6 +7,7 @@
 
 # https://hub.docker.com/r/i386/golang
 
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM i386/golang:1.26.4-alpine3.22@sha256:a9dfc12b2619d411501ab7abcbd88a27f386c2300ba33e5224e8c0c43e2cf2be AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
@@ -37,6 +38,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
     && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }'
 
 
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM i386/golang:1.26.4-alpine3.22@sha256:a9dfc12b2619d411501ab7abcbd88a27f386c2300ba33e5224e8c0c43e2cf2be AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
