@@ -8,7 +8,7 @@
 # https://hub.docker.com/_/golang
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM amd64/golang:1.26.4-alpine3.22@sha256:19d1696b750f1d42f0e86fc598b9710143e8314c574038326dc46fa9b166940d AS builder
+FROM amd64/golang:1.26.4-alpine3.24@sha256:0648ddfa35769070197ba1cdf22a16dc452caf9315e66b91791308a543baf229 AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -39,7 +39,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
 
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM amd64/golang:1.26.4-alpine3.22@sha256:19d1696b750f1d42f0e86fc598b9710143e8314c574038326dc46fa9b166940d AS final
+FROM amd64/golang:1.26.4-alpine3.24@sha256:0648ddfa35769070197ba1cdf22a16dc452caf9315e66b91791308a543baf229 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
@@ -64,20 +64,21 @@ ENV GOTOOLCHAIN="local"
 # For updating the versions below:
 #
 # podman container run --platform linux/amd64 --rm -it golang:1.24.4-alpine3.22
-# apk add --no-cache make bash util-linux git gcc musl-dev mingw-w64-gcc nano file xz
+# apk update
+# apk info make bash util-linux git gcc musl-dev mingw-w64-gcc nano file xz | grep description | awk '{print $1}'
 ################################################################################################
 
 # NOTE: This version is often different than the base `gcc` package.
-ENV APK_GCC_MINGW64_VERSION="14.2.0-r1"
+ENV APK_GCC_MINGW64_VERSION="15.2.0-r0"
 
-ENV APK_BASH_VERSION="5.2.37-r0"
-ENV APK_GCC_VERSION="14.2.0-r6"
-ENV APK_GIT_VERSION="2.49.1-r0"
-ENV APK_MAKE_VERSION="4.4.1-r3"
-ENV APK_UTIL_LINUX_VERSION="2.41-r9"
-ENV APK_FILE_VERSION="5.46-r2"
-ENV APK_NANO_VERSION="8.4-r0"
-ENV APK_MUSL_DEV_VERSION="1.2.5-r12"
+ENV APK_BASH_VERSION="5.3.9-r1"
+ENV APK_GCC_VERSION="15.2.0-r5"
+ENV APK_GIT_VERSION="2.54.0-r0"
+ENV APK_MAKE_VERSION="4.4.1-r4"
+ENV APK_UTIL_LINUX_VERSION="2.42.1-r0"
+ENV APK_FILE_VERSION="5.47-r2"
+ENV APK_NANO_VERSION="9.1-r0"
+ENV APK_MUSL_DEV_VERSION="1.2.6-r2"
 ENV APK_XZ_VERSION="5.8.3-r0"
 
 # https://github.com/tc-hib/go-winres/releases
