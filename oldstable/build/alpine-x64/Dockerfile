@@ -18,6 +18,8 @@
 # being supported by the Go project as the "oldstable" series. If we didn't
 # use this approach, then nfpm v2.43.1 would need to be the pinned version for
 # the duration of the "oldstable" Go series providing Go 1.24.
+#
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM amd64/golang:alpine3.22@sha256:19d1696b750f1d42f0e86fc598b9710143e8314c574038326dc46fa9b166940d AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
@@ -48,6 +50,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
     && go version -m $(which git-describe-semver) | awk '$1 == "mod" { print $3 }'
 
 
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM amd64/golang:1.25.11-alpine3.22@sha256:fba8ff6240b0a3fac05e41c09bbca16212e7e8cca01c5c888e1246a9b5b88680 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package

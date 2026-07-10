@@ -12,6 +12,8 @@
 # Go 1.24 is the "oldstable" series). This is because we build these tools
 # using the same version of Go that will be used to lint and build Go
 # applications which rely on this image.
+#
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM amd64/golang:1.25.12-bookworm@sha256:8be7b9844d346fc95fdf92f6dcfb00ad8fabd95104552e2f0ea3eb69ed5d32c9 AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
@@ -61,6 +63,7 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
     && golangci-lint --version
 
 
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM amd64/golang:1.25.12-bookworm@sha256:8be7b9844d346fc95fdf92f6dcfb00ad8fabd95104552e2f0ea3eb69ed5d32c9 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package

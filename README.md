@@ -432,3 +432,37 @@ each release of this project.
   - <https://hub.docker.com/r/golangci/golangci-lint>
   - <https://hub.docker.com/_/golang>
   - <https://www.debian.org/releases/>
+
+<!--
+
+Reminder regarding image pinning digest values:
+To pin a container version securely in a Dockerfile, you must use its Content
+Digest (the registry-verified SHA256 hash). Do not mistake this for the "Image
+ID," which is generated locally and will not work for multi-architecture
+remote builds.
+
+Check without downloading:
+  docker buildx imagetools inspect ubuntu:22.04
+
+Check already downloaded image:
+  docker inspect --format='{{index .RepoDigests 0}}' ubuntu:22.04
+
+Check locally generated image:
+  docker inspect --format='{{index .RepoDigests 0}}' myrepo/myimage:1.0.0
+
+DOCKER HUB DIGESTS
+
+When using Docker Hub, use the 'manifest digest' value for a given tag, not
+the 'index digest' from the Docker Hub page.
+
+Example URL:
+https://hub.docker.com/layers/i386/golang/1.26-alpine3.24/
+
+The "MANIFEST DIGEST" value shown is:
+sha256:f33ee4cd42bb16e731cb7e8a1fba2b4ec562ed61ed30834580e4ac24be8ed3cf
+
+This would be the FROM line to use in the Dockerfile:
+
+FROM i386/golang:1.26.4-alpine3.24@sha256:f33ee4cd42bb16e731cb7e8a1fba2b4ec562ed61ed30834580e4ac24be8ed3cf AS builder
+
+-->

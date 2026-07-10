@@ -7,6 +7,7 @@
 
 # https://hub.docker.com/_/golang
 
+# REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
 FROM amd64/golang:1.25.12-bookworm@sha256:8be7b9844d346fc95fdf92f6dcfb00ad8fabd95104552e2f0ea3eb69ed5d32c9
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
