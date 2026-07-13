@@ -103,32 +103,12 @@ ENV DEADCODE_VERSION="v0.45.0"
 ENV GOVULNCHECK_VERSION="v1.3.0"
 ENV TOMLL_VERSION="v2.3.1"
 ENV GOTESTDOX_VERSION="v0.2.2"
+
+# TIP: Use tools/ubuntu-images.sh to refresh base image ENV version values.
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
 ENV APT_FILE_VERSION="1:5.44-3"
 
-###################################################################################################################################
-# TIP: Useful commands for refreshing pinned dependencies:
-#
-# podman container run \
-#     --platform linux/amd64 \
-#     --rm \
-#     -it \
-#     amd64/golang:DISTRO@sha256:HASH
-#
-# apt-get update && apt-get install -y --no-install-recommends \
-#     bsdmainutils \
-#     tree \
-#     gcc-multilib \
-#     gcc-mingw-w64 \
-#     xz-utils \
-#     gcc \
-#     libgl1-mesa-dev \
-#     xorg-dev
-#
-# dpkg -l | grep -E '^ii  (bsdmainutils|tree|gcc-multilib|gcc-mingw-w64|xz-utils|gcc|libgl1-mesa-dev|xorg-dev)(\:amd64)?\s+'
-#
-###################################################################################################################################
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

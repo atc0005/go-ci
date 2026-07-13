@@ -62,6 +62,7 @@ LABEL org.opencontainers.image.authors="Adam Chalkley (github.com/atc0005)"
 # https://github.com/atc0005/go-ci/issues/1188
 ENV GOTOOLCHAIN="local"
 
+# TIP: Use tools/ubuntu-images.sh to refresh ENV version values.
 ENV APT_BSDMAINUTILS_VERSION="12.1.8"
 ENV APT_TREE_VERSION="2.1.0-1"
 ENV XZ_UTILS_VERSION="5.4.1-1+deb12u1"
@@ -74,29 +75,6 @@ ENV NFPM_VERSION="v2.46.3"
 
 # https://github.com/choffmeister/git-describe-semver/releases
 ENV GIT_DESCRIBE_SEMVER_VERSION="v0.4.0"
-
-###################################################################################################################################
-# TIP: Useful commands for refreshing pinned dependencies:
-#
-# podman container run \
-#     --platform linux/amd64 \
-#     --rm \
-#     -it \
-#     amd64/golang:DISTRO@sha256:HASH
-#
-# apt-get update && apt-get install -y --no-install-recommends \
-#     bsdmainutils \
-#     tree \
-#     gcc-multilib \
-#     gcc-mingw-w64 \
-#     xz-utils \
-#     gcc \
-#     libgl1-mesa-dev \
-#     xorg-dev
-#
-# dpkg -l | grep -E '^ii  (bsdmainutils|tree|gcc-multilib|gcc-mingw-w64|xz-utils|gcc|libgl1-mesa-dev|xorg-dev)(\:amd64)?\s+'
-#
-###################################################################################################################################
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
