@@ -78,7 +78,7 @@ Unless indicated otherwise, the following linting tools are included in the
 | [`golangci-lint`](https://github.com/golangci/golangci-lint)          | `v2.12.2`           |
 | [`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) | `v1.3.0`            |
 | [`deadcode`](https://pkg.go.dev/golang.org/x/tools/cmd/deadcode)      | `v0.45.0`           |
-| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.3.1`            |
+| [`pelletier/go-toml`](https://github.com/pelletier/go-toml)           | `v2.4.3`            |
 
 ## Build tools included
 
