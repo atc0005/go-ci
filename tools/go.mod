@@ -7,7 +7,7 @@ require (
 	// govulncheck - provided as an optional testing utility
 	// https://pkg.go.dev/github.com/bitfield/gotestdox?tab=versions
 	// https://github.com/bitfield/gotestdox
-	github.com/bitfield/gotestdox v0.2.2
+	github.com/bitfield/gotestdox v0.2.3
 
 	// golangci-lint - intended as a primary linter
 	github.com/golangci/golangci-lint/v2 v2.12.2
