@@ -63,7 +63,7 @@ ENV GOTOOLCHAIN="local"
 # Tip: Use tools/alpine-images.sh to refresh ENV version values.
 #################################################################
 
-# NOTE: This version is often different than the base `gcc` package.
+# NOTE: This version is often different than the base 'gcc' package.
 ENV APK_GCC_MINGW64_VERSION="15.2.0-r0"
 
 ENV APK_BASH_VERSION="5.3.9-r1"
@@ -72,7 +72,7 @@ ENV APK_GCC_VERSION="15.2.0-r5"
 ENV APK_GIT_VERSION="2.54.0-r0"
 ENV APK_MAKE_VERSION="4.4.1-r4"
 ENV APK_MUSL_DEV_VERSION="1.2.6-r2"
-ENV APK_NANO_VERSION="9.1-r0"
+ENV APK_NANO_VERSION="9.2-r0"
 ENV APK_UTIL_LINUX_VERSION="2.42.1-r0"
 ENV APK_XZ_VERSION="5.8.3-r0"
 
