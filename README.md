@@ -98,7 +98,7 @@ The following testing tools are included in the `go-ci-stable`,
 
 | Testing tool                                                  | Version  |
 | ------------------------------------------------------------- | -------- |
-| [`bitfield/gotestdox`](https://github.com/bitfield/gotestdox) | `v0.2.2` |
+| [`bitfield/gotestdox`](https://github.com/bitfield/gotestdox) | `v0.2.3` |
 
 ## Images
 
