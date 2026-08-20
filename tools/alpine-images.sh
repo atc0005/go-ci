@@ -5,10 +5,18 @@
 #     -v $PWD/tools:/tools \
 #     --rm \
 #     -it \
-#     CONTAINER_IMAGE_PLACEHOLDER sh /tools/alpine-images.sh
-
+#     X64_CONTAINER_IMAGE_PLACEHOLDER sh /tools/alpine-images.sh
+#
 # EXAMPLE: amd64/golang:alpine3.24@sha256:e4423369553a6e8cf5b8764192ef1f743d85fc7559c9f6f26fcd6c744228fadc
 
+# podman container run \
+#     --platform linux/386 \
+#     -v $PWD/tools:/tools \
+#     --rm \
+#     -it \
+#     X86_CONTAINER_IMAGE_PLACEHOLDER sh /tools/alpine-images.sh
+#
+# EXAMPLE: i386/golang:alpine3.24@sha256:6c16e3a3a4dd734bceb8c490da83e4479e596911e3c1a946fd0be20b2e0bfa03
 
 # -------------------------------------------------------------------------
 # apk update
@@ -38,7 +46,7 @@ APK_XZ_VERSION=$(apk info xz | grep description | awk '{print $1}' | grep -Po '(
 
 cat << EOF
 # NOTE: This version is often different than the base 'gcc' package.
-ENV APK_GCC_MINGW64_VERSION="${APK_GCC_MINGW64_VERSION}")
+ENV APK_GCC_MINGW64_VERSION="${APK_GCC_MINGW64_VERSION}"
 
 ENV APK_BASH_VERSION="${APK_BASH_VERSION}"
 ENV APK_FILE_VERSION="${APK_FILE_VERSION}"
