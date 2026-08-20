@@ -8,7 +8,7 @@
 # https://hub.docker.com/_/golang
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM amd64/golang:1.25.12-bookworm@sha256:8be7b9844d346fc95fdf92f6dcfb00ad8fabd95104552e2f0ea3eb69ed5d32c9
+FROM amd64/golang:1.25.13-bookworm@sha256:63abe4a55582f469dd53ff4c01c1f3d7993550ceb633dd0cd50533d32811a6d4
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
