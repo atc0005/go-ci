@@ -51,7 +51,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
 
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM i386/golang:1.25.14-alpine3.24@sha256:20ccb17fc754e845ed73d5c8a1814335b16854b2ff8f2b4e33e322b44b7de951 AS final
+FROM i386/golang:1.26.8-alpine3.24@sha256:b6e7ca0904d446af55917414dac1bf24945b164ca56c2ef261d2dfb7e84e664c AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
