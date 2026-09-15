@@ -26,6 +26,30 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.24] - 2026-09-15
+
+### Changed
+
+- (GH-2651) General Build Image: Bump amd64/golang from 1.25.13-alpine3.24 to 1.25.14-alpine3.24 in /oldstable/build/alpine-x64
+- (GH-2660) General Build Image: Bump amd64/golang from 1.25.13-bookworm to 1.25.14-bookworm in /oldstable/build/cgo-mingw-w64-x64
+- (GH-2667) General Build Image: Bump amd64/golang from 1.26.6-alpine3.24 to 1.26.8-alpine3.24 in /stable/build/alpine-x64
+- (GH-2674) General Build Image: Bump amd64/golang from 1.26.6-bookworm to 1.26.8-bookworm in /stable/build/cgo-mingw-w64-x64
+- (GH-2653) General Build Image: Bump i386/golang from 1.25.13-alpine3.24 to 1.25.14-alpine3.24 in /oldstable/build/alpine-x86
+- (GH-2657) General Build Image: Bump i386/golang from 1.25.13-bookworm to 1.25.14-bookworm in /oldstable/build/cgo-mingw-w64-x86
+- (GH-2666) General Build Image: Bump i386/golang from 1.26.6-alpine3.24 to 1.26.8-alpine3.24 in /stable/build/alpine-x86
+- (GH-2677) General Build Image: Bump i386/golang from 1.26.6-bookworm to 1.26.8-bookworm in /stable/build/cgo-mingw-w64-x86
+- (GH-2648) Matrix Image: Bump amd64/golang from 1.25.13-bookworm to 1.25.14-bookworm in /oldstable/combined
+- (GH-2668) Matrix Image: Bump amd64/golang from 1.26.6-bookworm to 1.26.8-bookworm in /stable/combined
+- (GH-2662) Mirror Build Image: Bump amd64/golang from 1.25.13-bookworm to 1.25.14-bookworm in /mirror/1.25
+- (GH-2678) Mirror Build Image: Bump amd64/golang from 1.26.6-bookworm to 1.26.8-bookworm in /mirror/1.26
+- (GH-2652) Release Build Image: Bump amd64/golang from 1.25.13-bookworm to 1.25.14-bookworm in /oldstable/build/release
+- (GH-2669) Release Build Image: Bump amd64/golang from 1.26.6-bookworm to 1.26.8-bookworm in /stable/build/release
+- (GH-2682) Update unstable images from Go 1.26.6 to 1.26.8
+
+### Fixed
+
+- (GH-2681) Update Alpine base image deps
+
 ## [v0.23.23] - 2026-08-20
 
 ### Changed
@@ -3927,7 +3951,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.23...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.24...HEAD
+[v0.23.24]: https://github.com/atc0005/go-ci/releases/tag/v0.23.24
 [v0.23.23]: https://github.com/atc0005/go-ci/releases/tag/v0.23.23
 [v0.23.22]: https://github.com/atc0005/go-ci/releases/tag/v0.23.22
 [v0.23.21]: https://github.com/atc0005/go-ci/releases/tag/v0.23.21
