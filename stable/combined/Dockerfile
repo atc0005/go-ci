@@ -8,7 +8,7 @@
 # https://hub.docker.com/_/golang
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM amd64/golang:1.26.9-bookworm@sha256:b8b4bb80ee1d038e34dc148b77d59322f3da7b0fa69c18de5185063645b1f9b1 AS builder
+FROM amd64/golang:1.26.10-bookworm@sha256:c7913095deb14a022b4966b3a5778629b4e027d6354673932d9f09040dce4145 AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -69,7 +69,7 @@ RUN echo "Installing golangci-lint@${GOLANGCI_LINT_VERSION}" \
 
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM amd64/golang:1.26.9-bookworm@sha256:b8b4bb80ee1d038e34dc148b77d59322f3da7b0fa69c18de5185063645b1f9b1 AS final
+FROM amd64/golang:1.26.10-bookworm@sha256:c7913095deb14a022b4966b3a5778629b4e027d6354673932d9f09040dce4145 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
