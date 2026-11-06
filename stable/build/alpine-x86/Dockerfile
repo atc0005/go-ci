@@ -8,7 +8,7 @@
 # https://hub.docker.com/r/i386/golang
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM i386/golang:1.26.10-alpine3.24@sha256:c60cc09887396fd1132879b24f20f4444670362860df8b02e96b2b07f1e7d9d6 AS builder
+FROM i386/golang:1.26.10-alpine3.24@sha256:660807031d3fdbe89226cfeeefff686e757b3af1e280125a9a99b6801c702881 AS builder
 
 # Explicitly disable automatic fetching of Go toolchains newer than the
 # version explicitly provided by this container image.
@@ -39,7 +39,7 @@ RUN echo "Installing git-describe-semver@${GIT_DESCRIBE_SEMVER_VERSION}" \
 
 
 # REMINDER: Use the 'manifest digest' not the 'index digest' from the Docker Hub page.
-FROM i386/golang:1.26.10-alpine3.24@sha256:c60cc09887396fd1132879b24f20f4444670362860df8b02e96b2b07f1e7d9d6 AS final
+FROM i386/golang:1.26.10-alpine3.24@sha256:660807031d3fdbe89226cfeeefff686e757b3af1e280125a9a99b6801c702881 AS final
 
 # https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package
 LABEL org.opencontainers.image.source="https://github.com/atc0005/go-ci"
