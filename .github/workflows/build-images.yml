@@ -22,7 +22,7 @@ on:
 jobs:
   git_describe_semver:
     name: Generate semantic release version using git-describe-semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 5
     # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
@@ -184,7 +184,7 @@ jobs:
   build_stable_image_using_makefile:
     name: Build stable image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -221,7 +221,7 @@ jobs:
   build_oldstable_alpine_x64_image_using_makefile:
     name: Build oldstable Alpine x64 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -258,7 +258,7 @@ jobs:
   build_oldstable_alpine_x86_image_using_makefile:
     name: Build oldstable Alpine x86 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -298,7 +298,7 @@ jobs:
   build_stable_alpine_x64_image_using_makefile:
     name: Build stable Alpine x64 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -335,7 +335,7 @@ jobs:
   build_stable_alpine_x86_image_using_makefile:
     name: Build stable Alpine x86 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -372,7 +372,7 @@ jobs:
   build_unstable_alpine_x64_image_using_makefile:
     name: Build unstable Alpine x64 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -409,7 +409,7 @@ jobs:
   build_unstable_alpine_x86_image_using_makefile:
     name: Build unstable Alpine x86 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -446,7 +446,7 @@ jobs:
   build_oldstable_cgo-mingw-w64_x64_image_using_makefile:
     name: Build oldstable cgo-mingw-w64 x64 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -483,7 +483,7 @@ jobs:
   build_oldstable_cgo-mingw-w64_x86_image_using_makefile:
     name: Build oldstable cgo-mingw-w64 x86 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -520,7 +520,7 @@ jobs:
   build_stable_cgo-mingw-w64_x64_image_using_makefile:
     name: Build stable cgo-mingw-w64 x64 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -557,7 +557,7 @@ jobs:
   build_stable_cgo-mingw-w64_x86_image_using_makefile:
     name: Build stable cgo-mingw-w64 x86 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -594,7 +594,7 @@ jobs:
   build_unstable_cgo-mingw-w64_x64_image_using_makefile:
     name: Build unstable cgo-mingw-w64 x64 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -631,7 +631,7 @@ jobs:
   build_unstable_cgo-mingw-w64_x86_image_using_makefile:
     name: Build unstable cgo-mingw-w64 x86 image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -668,7 +668,7 @@ jobs:
   build_stable_mirror_images_using_makefile:
     name: Build stable mirror images using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -705,7 +705,7 @@ jobs:
   build_oldstable_image_using_makefile:
     name: Build oldstable image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
@@ -742,7 +742,7 @@ jobs:
   build_unstable_image_using_makefile:
     name: Build unstable image using Makefile
     needs: git_describe_semver
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Default: 360 minutes
     timeout-minutes: 10
 
