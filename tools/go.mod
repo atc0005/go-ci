@@ -1,19 +1,22 @@
 module github.com/atc0005/go-ci/tools
 
 // Use the current oldstable Go version
-go 1.26.4
+go 1.27.4
 
 require (
 	// govulncheck - provided as an optional testing utility
 	// https://pkg.go.dev/github.com/bitfield/gotestdox?tab=versions
 	// https://github.com/bitfield/gotestdox
 	github.com/bitfield/gotestdox v0.2.3
+	github.com/choffmeister/git-describe-semver v0.4.0
 
 	// golangci-lint - intended as a primary linter
 	github.com/golangci/golangci-lint/v2 v2.15.0
+	github.com/goreleaser/nfpm/v2 v2.49.0
 
 	// tomll - provided as an optional linter
 	github.com/pelletier/go-toml/v2 v2.4.3
+	github.com/tc-hib/go-winres v0.3.3
 
 	// deadcode - provided as an optional linter
 	// https://pkg.go.dev/golang.org/x/tools/cmd/deadcode?tab=versions
@@ -25,12 +28,6 @@ require (
 
 	// staticcheck - intended as a primary linter
 	honnef.co/go/tools v0.8.2
-)
-
-require (
-	github.com/choffmeister/git-describe-semver v0.4.0
-	github.com/goreleaser/nfpm/v2 v2.48.0
-	github.com/tc-hib/go-winres v0.3.3
 )
 
 require (
@@ -90,7 +87,7 @@ require (
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	gitlab.com/digitalxero/go-conventional-commit v1.0.7 // indirect
-	go.yaml.in/yaml/v3 v3.0.5 // indirect
+	go.yaml.in/yaml/v3 v3.0.6 // indirect
 	golang.org/x/crypto v0.58.0 // indirect
 	golang.org/x/image v0.38.0 // indirect
 	golang.org/x/mod v0.42.0 // indirect
