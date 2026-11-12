@@ -225,8 +225,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.27"
-          - "< 1.26"
+          - ">= 1.28"
+          - "< 1.27"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x64"
@@ -251,8 +251,8 @@ updates:
     ignore:
       - dependency-name: "amd64/golang"
         versions:
-          - ">= 1.27"
-          - "< 1.26"
+          - ">= 1.28"
+          - "< 1.27"
 
   - package-ecosystem: docker
     directory: "/stable/build/alpine-x86"
@@ -277,8 +277,8 @@ updates:
     ignore:
       - dependency-name: "i386/golang"
         versions:
-          - ">= 1.27"
-          - "< 1.26"
+          - ">= 1.28"
+          - "< 1.27"
 
   - package-ecosystem: docker
     directory: "/unstable/build/alpine-x64"
