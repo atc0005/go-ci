@@ -26,6 +26,41 @@ The following types of changes will be recorded in this file:
 
 - placeholder
 
+## [v0.23.29] - 2026-11-12
+
+### Changed
+
+- (GH-2812) General Build Image: Bump amd64/golang from 1.26.10-alpine3.24 to 1.26.11-alpine3.24 in /oldstable/build/alpine-x64
+- (GH-2804) General Build Image: Bump amd64/golang from 1.26.10-alpine3.24 to 1.26.11-alpine3.24 in /stable/build/alpine-x64
+- (GH-2815) General Build Image: Bump amd64/golang from 1.26.10-bookworm to 1.26.11-bookworm in /oldstable/build/cgo-mingw-w64-x64
+- (GH-2831) General Build Image: Bump amd64/golang from 1.26.11-alpine3.24 to 1.27.4-alpine3.24 in /stable/build/alpine-x64
+- (GH-2813) General Build Image: Bump amd64/golang from 1.27.3-alpine3.24 to 1.27.4-alpine3.24 in /unstable/build/alpine-x64
+- (GH-2819) General Build Image: Bump amd64/golang from 1.27.3-bookworm to 1.27.4-bookworm in /stable/build/cgo-mingw-w64-x64
+- (GH-2816) General Build Image: Bump amd64/golang from 1.27.3-bookworm to 1.27.4-bookworm in /unstable/build/cgo-mingw-w64-x64
+- (GH-2811) General Build Image: Bump i386/golang from 1.26.10-alpine3.24 to 1.26.11-alpine3.24 in /oldstable/build/alpine-x86
+- (GH-2803) General Build Image: Bump i386/golang from 1.26.10-alpine3.24 to 1.26.11-alpine3.24 in /stable/build/alpine-x86
+- (GH-2817) General Build Image: Bump i386/golang from 1.26.10-bookworm to 1.26.11-bookworm in /oldstable/build/cgo-mingw-w64-x86
+- (GH-2830) General Build Image: Bump i386/golang from 1.26.11-alpine3.24 to 1.27.4-alpine3.24 in /stable/build/alpine-x86
+- (GH-2814) General Build Image: Bump i386/golang from 1.27.3-alpine3.24 to 1.27.4-alpine3.24 in /unstable/build/alpine-x86
+- (GH-2818) General Build Image: Bump i386/golang from 1.27.3-bookworm to 1.27.4-bookworm in /stable/build/cgo-mingw-w64-x86
+- (GH-2820) General Build Image: Bump i386/golang from 1.27.3-bookworm to 1.27.4-bookworm in /unstable/build/cgo-mingw-w64-x86
+- (GH-2810) Matrix Image: Bump amd64/golang from 1.26.10-bookworm to 1.26.11-bookworm in /oldstable/combined
+- (GH-2805) Matrix Image: Bump amd64/golang from 1.26.10-bookworm to 1.26.11-bookworm in /stable/combined
+- (GH-2829) Matrix Image: Bump amd64/golang from 1.26.11-bookworm to 1.27.4-bookworm in /stable/combined
+- (GH-2807) Matrix Image: Bump amd64/golang from 1.27.3-bookworm to 1.27.4-bookworm in /unstable/combined
+- (GH-2821) Mirror Build Image: Bump amd64/golang from 1.26.10-bookworm to 1.26.11-bookworm in /mirror/1.26
+- (GH-2822) Mirror Build Image: Bump amd64/golang from 1.27.3-bookworm to 1.27.4-bookworm in /mirror/1.27
+- (GH-2809) Release Build Image: Bump amd64/golang from 1.26.10-bookworm to 1.26.11-bookworm in /oldstable/build/release
+- (GH-2806) Release Build Image: Bump amd64/golang from 1.27.3-bookworm to 1.27.4-bookworm in /stable/build/release
+- (GH-2808) Release Build Image: Bump amd64/golang from 1.27.3-bookworm to 1.27.4-bookworm in /unstable/build/release
+- (GH-2827) Update goreleaser/nfpm to v2.49.0
+
+### Fixed
+
+- (GH-2828) Fix Dependabot monitoring for Go 1.27 release
+- (GH-2825) Switch container image build runner: Ubuntu 24.04
+- (GH-2823) Update Alpine base image deps
+
 ## [v0.23.28] - 2026-10-24
 
 ### Changed
@@ -4041,7 +4076,8 @@ waiting on a new upstream release.
       tools that we include in our container images
   - Dockerfile base images
 
-[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.28...HEAD
+[Unreleased]: https://github.com/atc0005/go-ci/compare/v0.23.29...HEAD
+[v0.23.29]: https://github.com/atc0005/go-ci/releases/tag/v0.23.29
 [v0.23.28]: https://github.com/atc0005/go-ci/releases/tag/v0.23.28
 [v0.23.27]: https://github.com/atc0005/go-ci/releases/tag/v0.23.27
 [v0.23.26]: https://github.com/atc0005/go-ci/releases/tag/v0.23.26
